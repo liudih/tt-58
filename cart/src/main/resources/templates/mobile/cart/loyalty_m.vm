@@ -1,0 +1,33 @@
+<div class="coupon">
+	<input type="hidden" id="loyaltyCurrency" value="$!currencyBo.getSymbolCode()" />
+    <div class="coupon_c w">
+        <h3 class="m">Coupon &amp;  Points</h3>
+        <div class="coupon_info m" id="promoContent">
+            <input type="text" id="checkout_promo_input" placeholder="Promo Code"  class="coupon_text"/>
+		    <input onclick="applyPromo();" id="checkout_promo_apply" class="coupon_but" type="button" value="#springMessage("checkout_step2.Apply")"/>
+		    <input onclick="undoPrefer()" id="checkout_promo_cancel" class="coupon_but cancel" type="button" value="Cancel" style="display:none;"/>
+        </div>
+        <div class="coupon_info m" id="couponContent" style="display:none;">
+            <span class="drop_down">
+                <input type="text" id="couponText" placeholder="Enter a coupon code" value="" class="coupon_text coupon_off">
+                <i class="icon_down"></i>
+            </span>
+            <input onclick="applyCoupon()" id="checkout_coupon_apply" class="coupon_but" type="button" value="#springMessage("checkout_step2.Apply")"/>
+	    	<input onclick="undoPrefer()" id="checkout_coupon_canel" class="coupon_but cancel" type="button" class="cancel" value="Cancel" style="display:none;"/>
+            <div class="coupons hide_b">
+                <div class="coupons_c">
+                    <ul class="m" id="couponLiShow">
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="coupon_info m" id="pointContent" style="display:none;">
+        	<input id="checkout_point_input" class="coupon_text" type="number" placeholder="Enter TOMTOP points" />
+            <input onclick="applyPoint();" id="checkout_point_apply" type="button" value="#springMessage("checkout_step2.Apply")" class="coupon_but">
+			<input onclick="undoPoint();" id="checkout_point_cancel" type="button" class="coupon_but cancel" value="Cancel" style="display:none;"/>
+            <p class="points">  
+            Available points <span id="cart_usablepoint">0</span></p>
+        </div>
+    </div>
+</div>

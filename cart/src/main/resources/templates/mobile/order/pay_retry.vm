@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>Pay Order - ${host-name}</title>
+    <link rel="icon" href="$ico" type="image/x-icon" />
+    <link href="${cdn-url}css/payment_method.css?v=$!{version}" type="text/css" rel="stylesheet" />
+    <script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+    <script src="${cdn-url}js/headfoot.js?v=$!{version}"></script>
+    <script src="${cdn-url}js/payment.js?v=$!{version}"></script>
+</head>
+<body>
+
+#parse("/mobile/base/header.vm")
+<div id="main">
+	<input type="hidden" id="cpaymentidHide"  value="$!order.cpaymentid" />
+    <div class="orderno">
+        <p>Order No: $!order.getCordernumber()</p>
+        <p class="total">Total: $!symbol  $!order.getFgrandtotalStr()</p>
+    </div>
+    
+    <form action="/checkout/mobileRetry/do" method="post" id="payment_form">
+	<input type="hidden" id="orderNum" name="orderNum" value="${order.cordernumber}" />
+	<input type="hidden" id="paymentId" name="paymentId" value="$!order.cpaymentid" />
+    <div class="payment">
+        <div class="payment_c w">
+            <div class="m">
+                <h3>#springMessage("payment.methods")</h3>
+                <ul>
+					#if($methods)
+						#foreach( $m in $methods)
+						   #if($m == "paypal")
+								<li class="paypal">
+									<dl class="select">
+										<dt class="clearfix" payment="paypal">
+										<span class="payment_img fl">
+											<img src="/mobile/icon/paypal_150x70.jpg">
+										</span>
+										<span class="chooseOneBox fr lineBlock">
+											<label>
+												<div class="radio lineBlock radioChecked"><i class="icon_check"></i></div>
+											</label>
+										</span>
+										</dt>
+										<dd>
+											<img src="/mobile/icon/paypal_640x70.jpg" />
+											<p class="p">Paypal, The safer, easier way to pay.
+												If you have Paypal account, you can pay your order by your Paypal account.
+												If you don't have a Paypal account. You can also pay via Paypal with your credit card or
+												bank debit card.</p>
+										</dd>
+									</dl>
+								</li>
+							#elseif($m == "credit")
+								<li class="visa">
+									<dl>
+										<dt class="clearfix"  payment="oceanpayment_credit">
+										<span class="payment_img fl">
+											<img src="/mobile/icon/visa_150x70.jpg">
+										</span>
+										<span class="chooseOneBox fr lineBlock">
+											<label>
+												<div class="radio lineBlock"><i class="icon_check"></i></div>
+											</label>
+										</span>
+										</dt>
+										<dd>
+											<img src="/mobile/icon/visa_640x70.jpg" />
+											<p class="p">
+												<b>#springMessage("billing.address"):</b><br />
+												<!-- <input type="hidden" name="billAddressId" value="$!billAddress.getIid()"> -->
+												<input type="hidden" id="shipaddressid" name="shipaddressid" value="">
+												<input type="checkbox" checked="true" name="billAddrIsShipAddrCredit" class="billing" value="true" />My billing address is the same as my shipping address<br />
+												<em>
+												#springMessage("make.billing.address.matches")
+												&amp; #springMessage("address.credit.card")</em>
+											</p>
+											<!--地址-->
+			                                <div class="address_info clearfix">
+			                                    <div class="address_info_c fl" name="addressDiv">
+			                                        <sapn class="user_name">$!order.cfirstname $!order.clastname</sapn>
+			                                        <span>$!order.cstreetaddress $!order.ccity $!order.cprovince $!order.ccountry $!order.cpostalcode</span>
+			                                        <span>Phone: $!order.ctelephone</span>
+			                                    </div>
+			                                    <div class="more_address_but fr">
+			                                        <i class="icon_adressbook"></i>
+			                                    </div>
+			                                    <div class="more_address hide_b">
+			                                        <input type="hidden" name="chooseBillAddrIdCredit" />
+			                                        <ul class="p" name="billAddrUl">
+			                                        </ul>
+			                                        <i class="icon_cross close_more_address"></i>
+			                                    </div>
+			                                </div>
+			                                <!--地址 end-->
+			                                <div class="visa_address m clearfix">
+			                                    <button  class="address_but fl" type="button" ><i class="icon_plus"></i>Add a Billing address</button>
+			                                </div>
+										</dd>
+									</dl>
+								</li>
+							#elseif($m == "jbc")
+								<li class="oceanpayment_jcb">
+								    <dl class="needBill">
+								        <dt class="clearfix"  payment="oceanpayment_jcb">
+								            <span class="payment_img fl">
+								                <img src="/mobile/icon/jcb_150x70.jpg">
+								            </span>
+								            <span class="chooseOneBox fr lineBlock">
+								                <label>
+								                    <div class="radio lineBlock"><i class="icon_check"></i></div>
+								                </label>
+								            </span>
+								        </dt>
+								        <dd>
+								            <img src="/mobile/icon/jcb_450x60.jpg" />
+								            <p class="p">
+								                <b>#springMessage("billing.address"):</b><br />
+								                <input type="checkbox" checked="true" name="billAddrIsShipAddrJcb" class="billing" value="true" />My billing address is the same as my shipping address<br />
+								                <em>
+												#springMessage("make.billing.address.matches")
+												&amp; #springMessage("address.credit.card")</em>
+								            </p>
+								            <!--地址-->
+			                                <div class="address_info clearfix">
+			                                    <div class="address_info_c fl" name="addressDiv">
+			                                        <sapn class="user_name">$!order.cfirstname $!order.clastname</sapn>
+			                                        <span>$!order.cstreetaddress $!order.ccity $!order.cprovince $!order.ccountry $!order.cpostalcode</span>
+			                                        <span>Phone: $!order.ctelephone</span>
+			                                    </div>
+			                                    <div class="more_address_but fr">
+			                                        <i class="icon_adressbook"></i>
+			                                    </div>
+			                                    <div class="more_address hide_b">
+			                                        <input type="hidden" name="chooseBillAddrIdJcb" />
+			                                        <ul class="p" name="billAddrUl">
+			                                        </ul>
+			                                        <i class="icon_cross close_more_address"></i>
+			                                    </div>
+			                                </div>
+			                                <!--地址 end-->
+			                                <div class="visa_address m clearfix">
+			                                    <button  class="address_but fl" type="button" ><i class="icon_plus"></i>Add a Billing address</button>
+			                                </div>
+								        </dd>
+								    </dl>
+								</li>
+							#elseif($m == "qiwi")
+								<li class="qiwi">
+									<dl>
+										<dt class="clearfix"   payment="oceanpayment_qiwi">
+										<span class="payment_img fl">
+											<img src="/mobile/icon/qiwi_150x70.jpg">
+										</span>
+										<span class="chooseOneBox fr lineBlock">
+											<label>
+												<div class="radio lineBlock"><i class="icon_check"></i></div>
+											</label>
+										</span>
+										</dt>
+										<dd>
+											<img src="/mobile/icon/qiwi_640x70.jpg" />
+											<p class="p">
+												Пожалуйста, введите Ваш QIWI аккаунт! Номер телефона обязательно нужно указать для оплаты.
+											</p>
+											<p class="p"><b>Номер телефона:</b></p>
+											<div class="chose_state">
+													<span class="cur">
+														<i class="state_icon"></i>
+														<b class="">+7</b>
+													</span>
+												<input type="type" value="" class="phone" name="qiwiAccount">
+	            							    <input value="+7" name="qiwiCountry" id="qiwiCountry" type="hidden">
+												<div class="state">
+													<ul>
+														<li>
+															<a href="javascript:;">
+																<i class="place_01"></i>
+																<em>Россия</em>
+																<b>+7</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_02"></i>
+																<em>Казахстан</em>
+																<b class="i-country-code fn-right">+77</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_03"></i>
+																<em>Украина</em>
+																<b class="">+380</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_04"></i>
+																<em>Грузия</em>
+																<b class="">+995</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_05"></i>
+																<em>Панама</em>
+																<b class="">+507</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_06"></i>
+																<em>Великобритания</em>
+																<b class="">+44</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_07"></i>
+																<em>Таджикистан</em>
+																<b class="">+992</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_08"></i>
+																<em>Литва</em>
+																<b class="">+370</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_09"></i>
+																Израиль</em>
+																<b class="">+972</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_10"></i>
+																<em>Кыргызстан</em>
+																<b class="">+996</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_11"></i>
+																<em>Турция</em>
+																<b class="">+90</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_12"></i>
+																<em>Вьетнам</em>
+																<b class="">+84</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class=""></i>
+																<em>Азербайджан</em>
+																<b class="">+994</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_13"></i>
+																<em>Армения</em>
+																<b class="">+374</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_14"></i>
+																<em>Латвия</em>
+																<b class="">+371</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_15"></i>
+																<em>Индия</em>
+																<b class="">+91</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_16"></i>
+																<em>Таиланд</em>
+																<b class="">+66</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_17"></i>
+																<em>Молдавия</em>
+																<b class="">+373</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_18"></i>
+																<em>Эстония</em>
+																<b class="">+372</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_19"></i>
+																<em>Япония</em>
+																<b class="">+81</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_20"></i>
+																<em>Узбекистан</em>
+																<b class="">+998</b>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:;">
+																<i class="place_21"></i>
+																<em>Южная Корея</em>
+																<b class="">+82</b>
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<p class="p">
+												Внимание: ваша личная информация находится в безопасности.<br/>
+												TOMTOP не хранит какую-либо информацию о вашей учетной записи.
+											</p>
+										</dd>
+									</dl>
+								</li>
+							#elseif($m == "webmoney")
+								<li class="oceanpayment_webmoney">
+							    <dl>
+							        <dt class="clearfix"  payment="oceanpayment_webmoney">
+							        <span class="payment_img fl">
+							            <img src="/mobile/icon/webmoney_150x70.jpg">
+							        </span>
+							        <span class="chooseOneBox fr lineBlock">
+							            <label>
+							                <div class="radio lineBlock"><i class="icon_check"></i></div>
+							            </label>
+							        </span>
+							        </dt>
+							    </dl>
+								</li>
+							#elseif($m == "yandex")
+								<li class="yandex">
+									<dl>
+										<dt class="clearfix" payment="oceanpayment_yandex">
+										<span class="payment_img fl">
+											<img src="/mobile/icon/yandex_150x70.jpg">
+										</span>
+										<span class="chooseOneBox fr lineBlock">
+											<label>
+												<div class="radio lineBlock"><i class="icon_check"></i></div>
+											</label>
+										</span>
+										</dt>
+										<dd>
+											<p class="p"><br />
+												<b>Заплатить Яндекс.Деньгами</b>
+											</p>
+											<img src="/mobile/icon/yandex_640x70.jpg" />
+										</dd>
+									</dl>
+								</li>
+							#elseif($m == "boleto")
+								<li class="boleto">
+									<dl>
+										<dt class="clearfix"  payment="oceanpayment_boleto">
+										<span class="payment_img fl">
+											<img src="/mobile/icon/boleto_150x70.jpg">
+										</span>
+										<span class="chooseOneBox fr lineBlock">
+											<label>
+												<div class="radio lineBlock"><i class="icon_check"></i></div>
+											</label>
+										</span>
+										</dt>
+										<dd>
+											<img src="/mobile/icon/boleto_640x70.jpg" />
+											<p class="p">
+								                <label>Type</label>
+								                <select name="pay_typeCode">
+								                    <option value="boleto" selected="selected">Boleto</option>
+													<option value="_tef">Transferências Bancária</option>
+								                </select>
+								                <input type="hidden" name="userName" value="$!current_email">
+												<input type="hidden" name="userEmail" value="$!current_email">
+								            </p>
+										</dd>
+									</dl>
+								</li>
+							#end
+						#end
+					#else
+							<li class="paypal">
+								<dl class="select">
+									<dt class="clearfix"  payment="paypal">
+									<span class="payment_img fl">
+										<img src="/mobile/icon/paypal_150x70.jpg">
+									</span>
+									<span class="chooseOneBox fr lineBlock">
+										<label>
+											<div class="radio lineBlock radioChecked"><i class="icon_check"></i></div>
+										</label>
+									</span>
+									</dt>
+									<dd>
+										<img src="/mobile/icon/paypal_640x70.jpg" />
+										<p class="p">Paypal, The safer, easier way to pay.
+											If you have Paypal account, you can pay your order by your Paypal account.
+											If you don't have a Paypal account. You can also pay via Paypal with your credit card or
+											bank debit card.</p>
+									</dd>
+								</dl>
+							</li>
+
+							<li class="visa">
+								<dl>
+									<dt class="clearfix"  payment="oceanpayment_credit">
+									<span class="payment_img fl">
+										<img src="/mobile/icon/visa_150x70.jpg">
+									</span>
+									<span class="chooseOneBox fr lineBlock">
+										<label>
+											<div class="radio lineBlock"><i class="icon_check"></i></div>
+										</label>
+									</span>
+									</dt>
+									<dd>
+										<img src="/mobile/icon/visa_640x70.jpg" />
+										<p class="p">
+											<b>#springMessage("billing.address"):</b><br />
+											<!-- <input type="hidden" name="billAddressId" value="$!billAddress.getIid()"> -->
+											<input type="hidden" id="shipaddressid" name="shipaddressid" value="">
+											<input type="checkbox" checked="true" name="billAddrIsShipAddrCredit" class="billing" value="true" />My billing address is the same as my shipping address<br />
+											<em>
+											#springMessage("make.billing.address.matches")
+											&amp; #springMessage("address.credit.card")</em>
+										</p>
+										<!--地址-->
+		                                <div class="address_info clearfix">
+		                                    <div class="address_info_c fl" name="addressDiv">
+		                                        <sapn class="user_name">$!order.cfirstname $!order.clastname</sapn>
+		                                        <span>$!order.cstreetaddress $!order.ccity $!order.cprovince $!order.ccountry $!order.cpostalcode</span>
+		                                        <span>Phone: $!order.ctelephone</span>
+		                                    </div>
+		                                    <div class="more_address_but fr">
+		                                        <i class="icon_adressbook"></i>
+		                                    </div>
+		                                    <div class="more_address hide_b">
+		                                        <input type="hidden" name="chooseBillAddrIdCredit" />
+		                                        <ul class="p" name="billAddrUl">
+		                                        </ul>
+		                                        <i class="icon_cross close_more_address"></i>
+		                                    </div>
+		                                </div>
+		                                <!--地址 end-->
+		                                <div class="visa_address m clearfix">
+		                                    <button  class="address_but fl" type="button" ><i class="icon_plus"></i>Add a Billing address</button>
+		                                </div>
+									</dd>
+								</dl>
+							</li>
+							
+							<li class="oceanpayment_jcb">
+							    <dl class="needBill">
+							        <dt class="clearfix"  payment="oceanpayment_jcb">
+							            <span class="payment_img fl">
+							                <img src="/mobile/icon/jcb_150x70.jpg">
+							            </span>
+							            <span class="chooseOneBox fr lineBlock">
+							                <label>
+							                    <div class="radio lineBlock"><i class="icon_check"></i></div>
+							                </label>
+							            </span>
+							        </dt>
+							        <dd>
+							            <img src="/mobile/icon/jcb_450x60.jpg" />
+							            <p class="p">
+							                <b>#springMessage("billing.address"):</b><br />
+							                <input type="checkbox" checked="true" name="billAddrIsShipAddrJcb" class="billing" value="true" />My billing address is the same as my shipping address<br />
+							                <em>
+											#springMessage("make.billing.address.matches")
+											&amp; #springMessage("address.credit.card")</em>
+							            </p>
+							            <!--地址-->
+		                                <div class="address_info clearfix">
+		                                    <div class="address_info_c fl" name="addressDiv">
+		                                        <sapn class="user_name">$!order.cfirstname $!order.clastname</sapn>
+		                                        <span>$!order.cstreetaddress $!order.ccity $!order.cprovince $!order.ccountry $!order.cpostalcode</span>
+		                                        <span>Phone: $!order.ctelephone</span>
+		                                    </div>
+		                                    <div class="more_address_but fr">
+		                                        <i class="icon_adressbook"></i>
+		                                    </div>
+		                                    <div class="more_address hide_b">
+		                                        <input type="hidden" name="chooseBillAddrIdJcb" />
+		                                        <ul class="p" name="billAddrUl">
+		                                        </ul>
+		                                        <i class="icon_cross close_more_address"></i>
+		                                    </div>
+		                                </div>
+		                                <!--地址 end-->
+		                                <div class="visa_address m clearfix">
+		                                    <button  class="address_but fl" type="button" ><i class="icon_plus"></i>Add a Billing address</button>
+		                                </div>
+							        </dd>
+							    </dl>
+							</li>
+		
+							<li class="qiwi">
+								<dl>
+									<dt class="clearfix"  payment="oceanpayment_qiwi">
+									<span class="payment_img fl">
+										<img src="/mobile/icon/qiwi_150x70.jpg">
+									</span>
+									<span class="chooseOneBox fr lineBlock">
+										<label>
+											<div class="radio lineBlock"><i class="icon_check"></i></div>
+										</label>
+									</span>
+									</dt>
+									<dd>
+										<img src="/mobile/icon/qiwi_640x70.jpg" />
+										<p class="p">
+											Пожалуйста, введите Ваш QIWI аккаунт! Номер телефона обязательно нужно указать для оплаты.
+										</p>
+										<p class="p"><b>Номер телефона:</b></p>
+										<div class="chose_state">
+												<span class="cur">
+													<i class="state_icon"></i>
+													<b class="">+7</b>
+												</span>
+											<input type="type" value="" class="phone" name="qiwiAccount">
+	            							<input value="+7" name="qiwiCountry" id="qiwiCountry" type="hidden">
+											<div class="state">
+												<ul>
+													<li>
+														<a href="javascript:;">
+															<i class="place_01"></i>
+															<em>Россия</em>
+															<b>+7</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_02"></i>
+															<em>Казахстан</em>
+															<b class="i-country-code fn-right">+77</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_03"></i>
+															<em>Украина</em>
+															<b class="">+380</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_04"></i>
+															<em>Грузия</em>
+															<b class="">+995</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_05"></i>
+															<em>Панама</em>
+															<b class="">+507</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_06"></i>
+															<em>Великобритания</em>
+															<b class="">+44</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_07"></i>
+															<em>Таджикистан</em>
+															<b class="">+992</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_08"></i>
+															<em>Литва</em>
+															<b class="">+370</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_09"></i>
+															Израиль</em>
+															<b class="">+972</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_10"></i>
+															<em>Кыргызстан</em>
+															<b class="">+996</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_11"></i>
+															<em>Турция</em>
+															<b class="">+90</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_12"></i>
+															<em>Вьетнам</em>
+															<b class="">+84</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class=""></i>
+															<em>Азербайджан</em>
+															<b class="">+994</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_13"></i>
+															<em>Армения</em>
+															<b class="">+374</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_14"></i>
+															<em>Латвия</em>
+															<b class="">+371</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_15"></i>
+															<em>Индия</em>
+															<b class="">+91</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_16"></i>
+															<em>Таиланд</em>
+															<b class="">+66</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_17"></i>
+															<em>Молдавия</em>
+															<b class="">+373</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_18"></i>
+															<em>Эстония</em>
+															<b class="">+372</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_19"></i>
+															<em>Япония</em>
+															<b class="">+81</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_20"></i>
+															<em>Узбекистан</em>
+															<b class="">+998</b>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="place_21"></i>
+															<em>Южная Корея</em>
+															<b class="">+82</b>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<p class="p">
+											Внимание: ваша личная информация находится в безопасности.<br/>
+											TOMTOP не хранит какую-либо информацию о вашей учетной записи.
+										</p>
+									</dd>
+								</dl>
+							</li>
+							
+							<li class="oceanpayment_webmoney">
+							    <dl>
+							        <dt class="clearfix"  payment="oceanpayment_webmoney">
+							        <span class="payment_img fl">
+							            <img src="/mobile/icon/webmoney_150x70.jpg">
+							        </span>
+							        <span class="chooseOneBox fr lineBlock">
+							            <label>
+							                <div class="radio lineBlock"><i class="icon_check"></i></div>
+							            </label>
+							        </span>
+							        </dt>
+							    </dl>
+							</li>
+		
+							<li class="yandex">
+								<dl>
+									<dt class="clearfix"  payment="oceanpayment_yandex">
+									<span class="payment_img fl">
+										<img src="/mobile/icon/yandex_150x70.jpg">
+									</span>
+									<span class="chooseOneBox fr lineBlock">
+										<label>
+											<div class="radio lineBlock"><i class="icon_check"></i></div>
+										</label>
+									</span>
+									</dt>
+									<dd>
+										<p class="p"><br />
+											<b>Заплатить Яндекс.Деньгами</b>
+										</p>
+										<img src="/mobile/icon/yandex_640x70.jpg" />
+									</dd>
+								</dl>
+							</li>
+					
+							<li class="boleto">
+								<dl>
+									<dt class="clearfix"  payment="oceanpayment_boleto">
+									<span class="payment_img fl">
+										<img src="/mobile/icon/boleto_150x70.jpg">
+									</span>
+									<span class="chooseOneBox fr lineBlock">
+										<label>
+											<div class="radio lineBlock"><i class="icon_check"></i></div>
+										</label>
+									</span>
+									</dt>
+									<dd>
+										<img src="/mobile/icon/boleto_640x70.jpg" />
+										<p class="p">
+							                <label>Type</label>
+							                <select name="pay_typeCode">
+							                    <option value="boleto" selected="selected">Boleto</option>
+												<option value="_tef">Transferências Bancária</option>
+							                </select>
+							                <input type="hidden" name="userName" value="$!current_email">
+											<input type="hidden" name="userEmail" value="$!current_email">
+							            </p>
+									</dd>
+								</dl>
+							</li>
+					#end
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="paynow">
+        <a href="javascript:;" class="m">
+            <input type="button" value="Pay Now" class="paynow_but" tag="submit_button">
+        </a>
+    </div>
+    </form>
+    
+   	<!-- 新增账单地址 -->
+    <form action="/member/addAddress" method="post" id="addBillAddressForm">
+    <input type="hidden" name="iaddressid" value="2" />
+    <div class="addre hide_b">
+        <div class="addre_c m">
+            <ul>
+                <li class="clearfix">
+                    <div class="fl">
+                        <div class="input">
+                            <input type="text" name="cfirstname" placeholder="First Name">
+                            <i class="icon_cross"></i>
+                        </div>
+                        <p></p>
+                    </div>
+                    <div class="fr">
+                        <div class="input">
+                            <input type="text" name="clastname" placeholder="Last Name">
+                            <i class="icon_cross"></i>
+                        </div>
+                        <p></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="input">
+                        <input type="text" name="icountryText" placeholder="Country" class="country" readonly="readonly">
+                        <input type="text" hidden="hidden" id="icountry" name="icountry" >
+                        <i class="icon_down"></i>
+                        <div class="country_c">
+                            <ul>
+                            	#if($countries)
+                                #foreach($c in $countries)
+                                <li value="$c.iid">$c.cname</li>
+                                #end
+                                #end
+                            </ul>
+                        </div>
+                    </div>
+                    <p></p>
+                </li>
+                <li>
+                    <div class="input">
+                        <input type="text" name="cstreetaddress" placeholder="Street Address">
+                        <i class="icon_cross"></i>
+                    </div>
+                    <p></p>
+                </li>
+                <li>
+                    <div class="input">
+                        <input type="text" name="cprovince" placeholder="State / Province / Region">
+                        <i class="icon_cross"></i>
+                    </div>
+                    <p></p>
+                </li>
+                <li class="clearfix">
+                    <div class="fl">
+                        <div class="input">
+                            <input type="text" name="ccity" placeholder="City">
+                            <i class="icon_cross"></i>
+                        </div>
+                        <p></p>
+                    </div>
+                    <div class="fr">
+                        <div class="input">
+                            <input type="text" name="cpostalcode" placeholder="Zip / Postal Code">
+                            <i class="icon_cross"></i>
+                        </div>
+                        <p></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="input">
+                        <input type="text" name="ctelephone" placeholder="Phone Number">
+                        <i class="icon_cross"></i>
+                    </div>
+                    <p></p>
+                </li>
+                <li class="clearfix">
+                    <div class="fl">
+                        <div class="input">
+                            <input type="button" value="Cancel" class="cancel_but">
+                        </div>
+                    </div>
+                    <div class="fr">
+                        <div class="input">
+                            <input type="submit" value="Save" class="save_but">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+	</form>
+</div>
+
+
+#parse("/mobile/base/footer.vm")
+
+<script src="${cdn-url}js/jquery.validate.min.js?v=$!{version}" type="text/javascript"></script>
+<script src="${cdn-url}js/jquery.metadata.js?v=$!{version}" type="text/javascript" ></script>
+<script src="${cdn-url}js/order/payRetry.js?v=$!{version}" type="text/javascript" ></script>
+
+</body>
+</html>

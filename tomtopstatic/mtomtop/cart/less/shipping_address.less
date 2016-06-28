@@ -1,0 +1,109 @@
+@import "../../less/public.less";        //--------------------初始化
+@import "../../less/config.less";        //--------------------风格色以及公共样式
+@import "../../less/head.less";          //--------------------头部
+@import "../../less/foot.less";          //--------------------页脚
+@import "schedule_m.less";               //------------------进度条
+@import "payment_method_m.less";         //------------------支付方式
+@import "../../less/addre_m.less";       //------------------添加地址
+@import "cart.less";
+
+
+body{background:@colorf5;}
+.schedule{padding:@15px 0 @45px 0; background:@colorff;}
+
+.address{margin-top:@10px; background:@colorff;
+  .address_c{padding:@20px 0 @10px 0;}
+  h3{font-size:@16px; margin-bottom:@15px; font-weight:bold;}
+  .address_but{width:100%; height:@45px; margin-top:@10px; font-size:@16px; font-weight:bold; color:@color99; text-align:left; border-radius:@4px; background:@colorff;
+    .icon_plus{font-size:@18px; margin-right:@10px; font-weight:bold;}
+  }
+  .addressform{width:100%; background:@colorff;}
+}
+.method{margin-top:@10px; background:@colorff;
+  .method_c{padding:@20px 0;}
+  h3{font-size:@16px; font-weight:bold;}
+  ul{margin-top:@15px;}
+  li{padding:@10px 0; font-size:0; border-bottom:1px solid @colorcc;
+    .method_info{width:80%; vertical-align:middle; display:inline-block;
+      h4{font-size:@14px; font-weight:bold; color:@color66;}
+      p{margin-top:@5px; color:@color99;
+        span{width:60%; font-size:@12px; display:inline-block;}
+        em{width:40%; font-size:@12px; color:@color66; display:inline-block;}
+      }
+    }
+    .chooseOneBox{width:20%; margin-right:0; text-align:right; vertical-align:middle; display:inline-block;
+      .radio{margin-right:0;}
+      .radioChecked{border-color:@colorA2; background:@colorA2;}
+      .forbidChoice{
+        background:@colorcc;border-color:@colorcc;
+        i{display:none}
+      }
+      .forbidCancel{
+        background:@colorcc;border-color:@colorcc;
+        i{display:block}
+      }
+    }
+  }
+  .choose{
+    .method_info{
+      h4{color:@colorA2;}
+      p{color:@colorA2;
+        em{color:@colorA2;}
+      }
+    }
+  }
+  .method_explain{margin-top:@20px; color:@color99; font-size:0;
+    i{font-size:@24px; vertical-align:middle; display:inline-block;}
+    p{width:90%; padding-left:@10px; font-size:@12px; vertical-align:middle; display:inline-block;}
+  }
+}
+
+.coupons{width:100%; padding:@10px 0; background:@colorff;
+  li{padding:@10px 0;}
+  .content{width:85%; border:1px solid @colorcc; display:inline-table; vertical-align:middle;
+    span{height:@75px; display:table-cell; vertical-align:middle;}
+    .off{width:30%; padding-left:@10px; font-size:@24px; font-weight:bold; text-align:center; color:@colorA1;}
+    .adorn{width:10%; background:url("../icon/curveBorder.gif") center top repeat-y;}
+    .order{width:60%;
+      p{font-size:@16px; padding-right:@10px; font-weight:bold; color:@color66;}
+      em{font-size:@12px; color:@color99;}
+    }
+  }
+  .chooseOneBox{width:15%; margin-right:0; text-align:right; vertical-align:middle;
+    .radio{margin-right:0;}
+    .radioChecked{border-color:@colorA1; background:@colorA1;}
+  }
+}
+
+.icon_edite{display:inline-block;width:@24px;height:@24px;background:url(../icon/edite_icon.png) no-repeat;background-size:100%;}
+
+//============地址
+.address_info{
+  .address_info_c{width:80%;
+    span{font-size:@12px; margin-top:@5px; color:@color66; display:block;}
+    .user_name{font-size:@14px; font-weight:bold;}
+  }
+  .more_address_but{width:15%; margin-top:@20px; text-align:right;
+    i{font-size:@24px; color:@color99; display:inline-block;}
+  }
+}
+//============更多地址
+.more_address{width:100%; padding:@20px 0; background:@colorff;
+  li{width:100%; margin-top:0; padding:@10px 0; border-bottom:1px solid @colorcc;
+    .address_info_c{width:75%; margin-top:0; vertical-align:middle; display: inline-block;
+      span{display:block; color:@color66;}
+    }
+  }
+  .chooseOneBox{margin-right:0; vertical-align:middle; display: inline-block;}
+  .close_more_address{width:@30px; height:@30px; position:absolute; right:@15px; top:@15px; font-size:@18px; color:@colorff; text-align:center; line-height:@32px; display:block; border-radius:50%; cursor:pointer; background:@colordd;}
+}
+.coupon_info input[type=number] {
+  width: 70%;
+  height: 4.17rem;
+  padding: 0 .83rem;
+  font-size: 1.33rem;
+  color: #666;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  border-radius: .33rem;
+}

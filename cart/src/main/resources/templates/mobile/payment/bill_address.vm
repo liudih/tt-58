@@ -1,0 +1,28 @@
+<!--地址-->
+<div class="address_info clearfix">
+    <div class="address_info_c fl bill_address_info" #if (!$defaultShipAddress) style="display:none" #end>
+        <span class="user_name">
+            <label name="cfirstname">$!defaultShipAddress.cfirstname</label>
+            <label name="clastname">$!defaultShipAddress.clastname</label>
+         </span>
+        <span>
+            <label name="address1">$!defaultShipAddress.cstreetaddress</label>,
+            <label name="ccity">$!defaultShipAddress.ccity</label>,
+            <label name="cprovince">$!defaultShipAddress.cprovince</label>,
+			<label name="countryName">$!defaultShipAddress.countryFullName</label>
+			(<label name="cpostalcode">$!defaultShipAddress.cpostalcode</label>)</span>
+        <span><label name="ctelephone">$!defaultShipAddress.ctelephone</label></span>
+    </div>
+    <div class="more_address_but fr more_bill_address">
+    	<i class="icon_adressbook"></i>
+    </div>
+    <div class="more_address hide_b">
+        <ul class="p bill_address_ul">
+        </ul>
+        <i class="icon_cross close_more_address"></i>
+    </div>
+</div>
+<!--地址 end-->
+<div class="visa_address m clearfix">
+    <button type="button" class="bill_address_but address_but fl" ><i class="icon_plus"></i>Add a Billing address</button>
+</div>

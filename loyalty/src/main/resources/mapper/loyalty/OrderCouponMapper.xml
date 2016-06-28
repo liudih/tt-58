@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.loyalty.mappers.loyalty.OrderCouponMapper">
+
+	<insert id="insertOrderCoupon" parameterType="com.tomtop.loyalty.models.OrderCoupon"
+		useGeneratedKeys="true" keyProperty="iid">
+		insert into t_cart_coupon
+		(
+			ccode,
+			istatus,
+			cemail,
+			cordernumber,
+			iorderid
+			
+		)
+		values
+		(
+			#{ccode,jdbcType=VARCHAR},
+			#{istatus,jdbcType=INTEGER},
+			#{cemail,jdbcType=VARCHAR},
+			#{orderNumber,jdbcType=VARCHAR},
+			#{orderId,jdbcType=INTEGER}
+		)
+	</insert>
+	
+</mapper>

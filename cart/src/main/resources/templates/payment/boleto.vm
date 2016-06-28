@@ -1,0 +1,21 @@
+<li name="Boleto" >
+<input type="radio" name="paymentId" value="oceanpayment_boleto" style="display:none;">
+<div class="method_con_boleto" >
+<input type="hidden" name="userName" value="$!current_email">
+<input type="hidden" name="userEmail" value="$!current_email">
+    <div class="boleto_img"></div>
+    <div class="boleto_con">
+    <input typpe="text" name="pay_typeCode" style="display:none;" value="boleto">
+        Type<div class="boleto_input">
+                <h5>
+                <i tag="v" style="font-style: normal;">Boleto</i>
+                <span></span>
+                </h5>
+                <ul>
+                    <li v="boleto">Boleto</li>
+                    <li v="_tef">Transferências Bancária</li>
+                </ul>
+        </div>
+    </div>
+</div>
+</li>

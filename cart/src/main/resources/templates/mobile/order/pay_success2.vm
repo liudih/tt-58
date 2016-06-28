@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>Success  - ${host-name}</title>
+    <meta http-equiv="Pragma" content="no-cache"/>
+	<meta http-equiv="Cache-Control" content="no-cache"/>
+	<meta http-equiv="Expires" content="0"/>
+    <link rel="icon" href="$ico" type="image/x-icon" />
+    <link href="${cdn-url}css/payment_status.css?v=$!{version}" type="text/css" rel="stylesheet" />
+    
+    <script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+    <script src="${cdn-url}js/headfoot.js?v=$!{version}"></script>
+    <script src="${cdn-url}js/cart.js?v=$!{version}"></script>
+    <script src="${cdn-url}js/cart_product_list.js?v=$!{version}"></script>
+    
+</head>
+<body>
+
+
+#set($title = "Success")
+#parse("/mobile/base/header.vm")
+
+
+<div id="main">
+    <div class="succeed">
+        <div class="succeed_c">
+            <div class="m clearfix">
+                <div class="smiling">
+                    <img src="/mobile/icon/smiling_face_118x118.png">
+                </div>
+                <div class="thank">
+                    <p>Thank you for shopping with us, Your order has been placed!</p>
+                    <p class="order_no">Order No: $ordernumber</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vieworder">
+        <a href="http://m.${host-name}.com/index.php?r=myorder/detail&orderNumber=$ordernumber" class="m">
+            <input type="button" value="View Order" class="vieworder_but">
+        </a>
+    </div>
+
+    <div class="explain">
+        <div class="explain_c">
+            <div class="m">
+            	<h3>#springMessage("ordercompleted.whatisnext")</h3>
+	            <p>#springMessage("ordercompleted.whatisnext.1")</p>
+	            <p>#springMessage("ordercompleted.whatisnext.2")</p>
+	            <p>#springMessage("ordercompleted.whatisnext.3")</p>
+	            <p><b>#springMessage("ordercompleted.whatisnext.note")</b>#springMessage("ordercompleted.whatisnext.note.1")</p>
+	            <p>#springMessage("ordercompleted.whatisnext.4")</p>
+	            <p>#springMessage("ordercompleted.whatisnext.5")</p>
+	            
+            </div>
+        </div>
+    </div>
+    #parse("/mobile/base/product_list.vm")
+</div>
+
+#parse("/base/track_success_data.vm")
+#parse("/mobile/base/footer.vm")
+<script src="${cdn-url}js/jquery.json.min.js?v=$!{version}" ></script>
+<script src="${cdn-url}js/product_attr.js?v=$!{version}"></script>
+</body>
+</html>

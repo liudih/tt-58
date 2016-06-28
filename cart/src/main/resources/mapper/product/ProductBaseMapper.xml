@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.mappers.product.ProductBaseMapper">
+	<resultMap id="BaseResultMap" type="com.tomtop.dto.product.ProductBase">
+		<id column="iid" property="iid" jdbcType="INTEGER" />
+		<result column="clistingid" property="clistingid" jdbcType="VARCHAR" />
+		<result column="iwebsiteid" property="iwebsiteid" jdbcType="INTEGER" />
+		<result column="csku" property="csku" jdbcType="VARCHAR" />
+		<result column="istatus" property="istatus" jdbcType="INTEGER" />
+		<result column="dnewformdate" property="dnewformdate" jdbcType="TIMESTAMP" />
+		<result column="dnewtodate" property="dnewtodate" jdbcType="TIMESTAMP" />
+		<result column="bspecial" property="bspecial" jdbcType="BIT" />
+		<result column="cvideoaddress" property="cvideoaddress"
+			jdbcType="VARCHAR" />
+		<result column="iqty" property="iqty" jdbcType="INTEGER" />
+		<result column="fprice" property="fprice" jdbcType="DOUBLE" />
+		<result column="fcostprice" property="fcostprice" jdbcType="DOUBLE" />
+		<result column="ffreight" property="ffreight" jdbcType="DOUBLE" />
+		<result column="fweight" property="fweight" jdbcType="DOUBLE" />
+		<result column="bmultiattribute" property="bmultiattribute"
+			jdbcType="BIT" />
+		<result column="cparentsku" property="cparentsku" jdbcType="VARCHAR" />
+		<result column="bvisible" property="bvisible" jdbcType="BIT" />
+		<result column="bpulish" property="bpulish" jdbcType="BIT" />
+		<result column="ccreateuser" property="ccreateuser" jdbcType="VARCHAR" />
+		<result column="dcreatedate" property="dcreatedate" jdbcType="TIMESTAMP" />
+		<result column="bmain" property="bmain" jdbcType="BIT" />
+		<result column="bactivity" property="bactivity" jdbcType="BIT" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		iid, clistingid, iwebsiteid, csku, istatus, dnewformdate,
+		dnewtodate, bspecial, cvideoaddress,
+		iqty, fprice, fcostprice, fweight,
+		bmultiattribute, cparentsku,ffreight,
+		bvisible, bpulish, ccreateuser,
+		dcreatedate,bmain,bactivity
+	</sql>
+	<insert id="insert" parameterType="com.tomtop.dto.product.ProductBase">
+		insert into t_product_base
+		(clistingid, iwebsiteid,
+		csku, istatus, dnewformdate,
+		dnewtodate,
+		bspecial, cvideoaddress,
+		iqty, fprice, fcostprice, fweight,
+		bmultiattribute, cparentsku,
+		bvisible,
+		bpulish, ccreateuser,
+		dcreatedate,ffreight,bmain,bactivity
+		)
+		values
+		(#{clistingid,jdbcType=VARCHAR}, #{iwebsiteid,jdbcType=INTEGER},
+		#{csku,jdbcType=VARCHAR}, #{istatus,jdbcType=INTEGER},
+		#{dnewformdate,jdbcType=TIMESTAMP},
+		#{dnewtodate,jdbcType=TIMESTAMP},
+		#{bspecial,jdbcType=BIT}, #{cvideoaddress,jdbcType=VARCHAR},
+		#{iqty,jdbcType=INTEGER}, #{fprice,jdbcType=DOUBLE},
+		#{fcostprice,jdbcType=DOUBLE}, #{fweight,jdbcType=DOUBLE},
+		#{bmultiattribute,jdbcType=BIT}, #{cparentsku,jdbcType=VARCHAR},
+		#{bvisible,jdbcType=BIT},
+		#{bpulish,jdbcType=BIT},
+		#{ccreateuser,jdbcType=VARCHAR},
+		#{dcreatedate,jdbcType=TIMESTAMP},#{ffreight,jdbcType=DOUBLE},
+		#{bmain,jdbcType=BIT},#{bactivity,jdbcType=BIT}
+		)
+	</insert>
+	<update id="updateByListingIdSelective" parameterType="com.tomtop.dto.product.ProductBase">
+		update t_product_base
+		<set>
+			<if test="iwebsiteid != null">
+				iwebsiteid = #{iwebsiteid,jdbcType=INTEGER},
+			</if>
+			<if test="csku != null">
+				csku = #{csku,jdbcType=VARCHAR},
+			</if>
+			<if test="istatus != null">
+				istatus = #{istatus,jdbcType=INTEGER},
+			</if>
+			<if test="dnewformdate != null">
+				dnewformdate = #{dnewformdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="dnewtodate != null">
+				dnewtodate = #{dnewtodate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="bspecial != null">
+				bspecial = #{bspecial,jdbcType=BIT},
+			</if>
+			<if test="cvideoaddress != null">
+				cvideoaddress = #{cvideoaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="iqty != null">
+				iqty = #{iqty,jdbcType=INTEGER},
+			</if>
+			<if test="fprice != null">
+				fprice = #{fprice,jdbcType=DOUBLE},
+			</if>
+			<if test="fcostprice != null">
+				fcostprice = #{fcostprice,jdbcType=DOUBLE},
+			</if>
+			<if test="fweight != null">
+				fweight = #{fweight,jdbcType=DOUBLE},
+			</if>
+			<if test="bmultiattribute != null">
+				bmultiattribute = #{bmultiattribute,jdbcType=BIT},
+			</if>
+			<if test="cparentsku != null">
+				cparentsku = #{cparentsku,jdbcType=VARCHAR},
+			</if>
+			<if test="bvisible != null">
+				bvisible = #{bvisible,jdbcType=BIT},
+			</if>
+			<if test="bpulish != null">
+				bpulish = #{bpulish,jdbcType=BIT},
+			</if>
+			<if test="ccreateuser != null">
+				ccreateuser = #{ccreateuser,jdbcType=VARCHAR},
+			</if>
+			<if test="dcreatedate != null">
+				dcreatedate = #{dcreatedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="ffreight != null">
+				ffreight = #{ffreight,jdbcType=DOUBLE},
+			</if>
+			<if test="bmain != null">
+				bmain=#{bmain,jdbcType=BIT},
+			</if>
+			<if test="bactivity != null">
+				#{bactivity,jdbcType=BIT},
+			</if>
+		</set>
+		where clistingid = #{clistingid,jdbcType=VARCHAR}
+	</update>
+
+	
+	<select id="getProductForListingIdsAndStorageIds"   resultType="com.tomtop.valueobjects.product.ProductLite">
+		SELECT
+			 t1.fprice			 price  ,
+			 t1.clistingid 		 listingId ,
+			 t2.fweight 		 weight,
+			 t7.csku 			 sku,
+			 t1.istatus			 istatus,
+			 t2.fcostprice		 originalPrice,
+			 t5.curl 			 url,
+			 t6.cimageurl		 imageUrl,
+			 t7.ctitle			 title,
+			 t3.denddate		 endDate,
+			 t3.fsaleprice
+		FROM
+			t_product_storage_map t1
+		LEFT JOIN t_product_base t2 ON t1.clistingid = t2.clistingid
+		LEFT JOIN t_product_saleprice t3 ON t3.clistingid = t1.clistingid
+<!-- 		<if test="istorageId != 100000"> -->
+			AND t1.istorageid = t3.istorageid
+<!-- 		</if> -->
+			AND now() >=t3.dbegindate  
+			AND t3.denddate >= now()
+		LEFT JOIN t_product_url t5 ON t1.clistingid = t5.clistingid
+			AND t5.ilanguageid = #{2}
+		LEFT JOIN t_product_image t6 ON t1.clistingid = t6.clistingid
+			AND t6.bbaseimage = TRUE
+		LEFT JOIN t_product_translate t7 ON t1.clistingid = t7.clistingid
+			AND t7.ilanguageid =#{2}
+		WHERE
+			t1.clistingid IN 
+			<foreach item="item" index="index" collection="list" open="(" separator="," close=")">#{item}</foreach>
+			<if test="istorageId != 100000">
+				AND t1.istorageid =#{istorageId} 
+			</if>
+		AND t2.iwebsiteid = #{1}
+		GROUP BY 
+		t1.fprice ,
+		t1.clistingid ,
+		t2.fweight ,
+		t7.csku ,
+		t1.istatus ,
+		t2.fcostprice ,
+		t5.curl ,
+		t6.cimageurl ,
+		t7.ctitle ,
+		t3.denddate ,
+		t3.fsaleprice
+	
+	</select>
+
+	<select id="getProductByListingIDs" resultType="com.tomtop.valueobjects.product.ProductLite">
+		SELECT p.clistingid listingId,p.fweight weight,max(case when translate.ctitle is null
+		then translate_de.ctitle else translate.ctitle end) title,
+		p.fprice
+		originalPrice,p.fprice salePrice,max(i.cimageurl) imageUrl, min(u.curl) url, p.csku sku, p.istatus 
+		FROM t_product_base p
+		INNER JOIN (select
+		curl,clistingid from t_product_url where  (ilanguageid = #{2} or ilanguageid=1) and clistingid in
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">#{item}</foreach>
+		union all select curl,clistingid from t_product_intercept_url where (ilanguageid = #{2} or ilanguageid=1) and
+		clistingid in
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">#{item}</foreach>
+		) u on u.clistingid = p.clistingid
+		LEFT JOIN t_product_image i on
+		i.clistingid = p.clistingid AND
+		i.bbaseimage= true
+		left join
+		t_product_translate translate on
+		p.clistingid=translate.clistingid and
+		translate.ilanguageid = #{2}
+		left join t_product_translate translate_de
+		on
+		p.clistingid=translate_de.clistingid and translate_de.ilanguageid=1
+		WHERE p.clistingid IN
+		<foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">#{item}</foreach>
+		AND p.iwebsiteid = #{1}
+		group by p.clistingid , p.fprice , p.csku, p.fweight, p.istatus;
+	</select>
+
+	<select id="getWeightByListingIDs" resultType="com.tomtop.valueobjects.product.Weight">
+			SELECT clistingid listingId, fweight weight
+			FROM t_product_base WHERE
+			clistingid IN
+			<foreach item="item" index="index" collection="list" open="("
+				separator="," close=")">'${item}'</foreach>
+	</select>
+	
+	<select id="queryPrice" resultType="com.tomtop.valueobjects.product.price.PriceNew">
+		SELECT
+			base.clistingid listingId,
+			base.fcostprice costPrice,
+			(
+				CASE
+				WHEN (
+					smap.fprice IS NULL
+					OR smap.fprice = 0
+				) THEN
+					base.fprice
+				ELSE
+					smap.fprice
+				END
+			) price,
+			sale.fsaleprice salePrice,
+			sale.dbegindate salePriceBegin,
+			sale.denddate salePriceEnd
+		FROM
+			t_product_base base
+		LEFT JOIN t_product_storage_map smap ON base.clistingid = smap.clistingid
+			AND smap.istorageid = #{storageId}
+		LEFT JOIN t_product_saleprice sale ON base.clistingid = sale.clistingid
+			AND sale.istorageid = #{storageId}
+			AND (now() BETWEEN sale.dbegindate AND sale.denddate)
+		WHERE
+			base.clistingid IN 
+			<foreach item="item" index="index" collection="listingList" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+	</select>
+	
+</mapper>

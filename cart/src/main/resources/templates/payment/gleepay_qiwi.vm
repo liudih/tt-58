@@ -1,0 +1,21 @@
+<li name="QIWI Кошелек" >
+<input type="radio" name="paymentId" value="gleepay_qiwi" style="display:none;">
+<div class="method_con_qiwi" >
+    <h5>Оплатить с QIWI: <span></span></h5>
+    <p>Пожалуйста, введите Ваш QIWI аккаунт! Номер телефона обязательно нужно указать для оплаты.</p>
+    <div class="con_qiwi_account">
+        Номер телефона:
+        <div class="method_qiwi_account">
+        <input value="7" name="qiwiCountry" type="hidden">
+            <span class="span_qiwi_account"><i class="qiwi_flag qiwi_flag_els"></i></span>
+            <div class="qiwi_account_input">
+                <strong>+7</strong>
+                <input name="qiwiAccount" type="text"/>
+            </div>
+        </div>
+    </div>
+    <p>Внимание: ваша личная информация находится в безопасности.</br>RCMOMENT не хранит какую-либо информацию о вашей учетной записи.</p>
+</div>
+</li>
+
+

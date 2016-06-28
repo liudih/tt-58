@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>Success - ${host-name} </title>
+    <link href="${cdn-url}css/shipping_address.css?v=$!{version}" type="text/css" rel="stylesheet">
+    <link href="${cdn-url}css/cart.css?v=$!{version}" type="text/css" rel="stylesheet" />
+    <script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+    <script src="${cdn-url}js/headfoot.js?v=$!{version}"></script>
+    <script src="${cdn-url}js/cart.js?v=$!{version}"></script>
+    <script src="${cdn-url}js/shipping_adderss.js?v=$!{version}"></script>
+    
+</head>
+<body>
+#set($step = 1)
+#parse("/mobile/base/header.vm")
+
+<hr>
+	
+<div style="height: 300px;padding-top: 100px">
+	#if(!$form)
+		<p>Can't found account with this payment method!</p>
+	#else
+		<p style="width:100%; margin:auto;text-align:center;">
+			<i>#springMessage("redirecting")</i>
+		</p>
+		<p><img src="/images/payment_wait.gif" style="width:100%;"></p>
+		<form action="${actionUrl}" method="post">
+			#foreach($key in $form.keySet())
+			    <input type="hidden" name="${key}" value="$form.get($key)" />
+			#end
+		</form>
+	#end
+</div>
+
+<script type="text/javascript">
+$(function(){
+	$('form').submit();
+});
+</script>
+</body>
+</html>

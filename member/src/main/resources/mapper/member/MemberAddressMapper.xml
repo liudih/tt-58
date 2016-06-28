@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.member.mappers.user.MemberAddressMapper">
+<resultMap id="BaseResultMap" type="com.tomtop.member.models.other.MemberAddress">
+		<id column="iid" property="iid" jdbcType="INTEGER" />
+		<result column="cmemberemail" property="cmemberemail" jdbcType="VARCHAR" />
+		<result column="iaddressid" property="iaddressid" jdbcType="INTEGER" />
+		<result column="bdefault" property="bdefault" jdbcType="BIT" />
+		<result column="cfirstname" property="cfirstname" jdbcType="VARCHAR" />
+		<result column="cmiddlename" property="cmiddlename" jdbcType="VARCHAR" />
+		<result column="clastname" property="clastname" jdbcType="VARCHAR" />
+		<result column="ccompany" property="ccompany" jdbcType="VARCHAR" />
+		<result column="cstreetaddress" property="cstreetaddress"
+			jdbcType="VARCHAR" />
+		<result column="ccity" property="ccity" jdbcType="VARCHAR" />
+		<result column="icountry" property="icountry" jdbcType="INTEGER" />
+		<result column="cprovince" property="cprovince" jdbcType="VARCHAR" />
+		<result column="cpostalcode" property="cpostalcode" jdbcType="VARCHAR" />
+		<result column="ctelephone" property="ctelephone" jdbcType="VARCHAR" />
+		<result column="cfax" property="cfax" jdbcType="VARCHAR" />
+		<result column="cvatnumber" property="cvatnumber" jdbcType="VARCHAR" />
+		<result column="ishipAddressId" property="ishipAddressId" jdbcType="INTEGER" />
+	</resultMap>
+	<delete  id="deleteByIds" parameterType="java.util.List">
+		delete from t_member_address where iwebsiteid = 10 and iid in
+		<foreach collection="list" index="index" item="item" open="("
+			separator="," close=")">
+			#{item.iid}
+		</foreach>
+	</delete >
+	<insert id="insert" parameterType="com.tomtop.member.models.filter.AddressFilter">
+		insert into t_member_address
+		(cmemberemail, iaddressid,
+		bdefault, cfirstname, cmiddlename,
+		clastname, ccompany, cstreetaddress,
+		ccity, icountry, cprovince,
+		cpostalcode, ctelephone, cfax,
+		cvatnumber,ishipAddressId,iwebsiteid)
+		values
+		(#{cmemberemail,jdbcType=VARCHAR},
+		#{iaddressid,jdbcType=INTEGER},
+		#{bdefault,jdbcType=BIT},
+		#{cfirstname,jdbcType=VARCHAR}, #{cmiddlename,jdbcType=VARCHAR},
+		#{clastname,jdbcType=VARCHAR}, #{ccompany,jdbcType=VARCHAR},
+		#{cstreetaddress,jdbcType=VARCHAR},
+		#{ccity,jdbcType=VARCHAR},
+		#{icountry,jdbcType=INTEGER}, #{cprovince,jdbcType=VARCHAR},
+		#{cpostalcode,jdbcType=VARCHAR}, #{ctelephone,jdbcType=VARCHAR},
+		#{cfax,jdbcType=VARCHAR},
+		#{cvatnumber,jdbcType=VARCHAR},
+		#{ishipAddressId,jdbcType=INTEGER},
+		#{client,jdbcType=INTEGER})
+	</insert>
+	<update id="update" parameterType="com.tomtop.member.models.filter.AddressFilter">
+		update t_member_address
+		<set>
+			<if test="cmemberemail != null and cmemberemail !=''">
+				cmemberemail = #{cmemberemail,jdbcType=VARCHAR},
+			</if>
+			<if test="iaddressid != null">
+				iaddressid = #{iaddressid,jdbcType=INTEGER},
+			</if>
+			<if test="bdefault != null">
+				bdefault = #{bdefault,jdbcType=BIT},
+			</if>
+			<if test="cfirstname != null and cfirstname !=''">
+				cfirstname = #{cfirstname,jdbcType=VARCHAR},
+			</if>
+			<if test="cmiddlename != null and cmiddlename !=''">
+				cmiddlename = #{cmiddlename,jdbcType=VARCHAR},
+			</if>
+			<if test="clastname != null and clastname !=''">
+				clastname = #{clastname,jdbcType=VARCHAR},
+			</if>
+			<if test="ccompany != null and ccompany !=''">
+				ccompany = #{ccompany,jdbcType=VARCHAR},
+			</if>
+			<if test="cstreetaddress != null and cstreetaddress !=''">
+				cstreetaddress = #{cstreetaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="ccity != null and ccity !=''">
+				ccity = #{ccity,jdbcType=VARCHAR},
+			</if>
+			<if test="icountry != null">
+				icountry = #{icountry,jdbcType=INTEGER},
+			</if>
+			<if test="cprovince != null and cprovince !=''">
+				cprovince = #{cprovince,jdbcType=VARCHAR},
+			</if>
+			<if test="cpostalcode != null and cpostalcode !=''">
+				cpostalcode = #{cpostalcode,jdbcType=VARCHAR},
+			</if>
+			<if test="ctelephone != null and ctelephone !=''">
+				ctelephone = #{ctelephone,jdbcType=VARCHAR},
+			</if>
+			<if test="cfax != null and cfax !=''">
+				cfax = #{cfax,jdbcType=VARCHAR},
+			</if>
+			<if test="cvatnumber != null and cvatnumber!=''">
+				cvatnumber = #{cvatnumber,jdbcType=VARCHAR},
+			</if>
+			<if test="ishipAddressId != null">
+				ishipAddressId = #{ishipAddressId,jdbcType=INTEGER},
+			</if>
+			dupdatedate = now()
+		</set>
+		where iid = #{iid,jdbcType=INTEGER}
+	</update>
+	
+	<update id="setDefaultAddress" parameterType="map">
+		update t_member_address
+		<set>
+			bdefault=true,dupdatedate=now()
+		</set>
+		where iid = #{id,jdbcType=INTEGER}
+	</update>
+	
+	<update id="setNotDefaultBilladdress" parameterType="map">
+		update t_member_address
+		<set>
+			bdefault = false 
+		</set>
+		where iwebsiteid = #{website} and iid != #{id} and cmemberemail = #{email} and iaddressid = 2
+	</update>
+	
+	<update id="clearAllDefaultShipAddress" parameterType="map">
+		update t_member_address
+		<set>
+			bdefault = false 
+		</set>
+		<where>  
+        	iwebsiteid = #{website} and cmemberemail = #{email} and iaddressid = 1
+        	<if test="id != null">  
+          	 and iid != #{id}  
+        	</if>  
+    	</where>  
+	</update>
+	
+	<update id="clearAllDefaultBillAddress" parameterType="map">
+		update t_member_address
+		<set>
+			bdefault = false 
+		</set>
+		<where>  
+        	iwebsiteid = #{website} and cmemberemail = #{email} and iaddressid = 2
+        	<if test="id != null">  
+          	 and iid != #{id}  
+        	</if>  
+    	</where>  
+	</update>
+	
+</mapper>

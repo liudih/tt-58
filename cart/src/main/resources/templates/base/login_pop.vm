@@ -1,0 +1,87 @@
+
+<div class="cartLogin" style="display:none;">
+		<!--pop-->
+		<div class="blockPopup_box noPhoto">
+			<div class="postPhotos_popBox">
+				
+				<div class="customer_popClose"></div>
+				<ul class="ControlNa">
+					<li class="controAc">#springMessage("sign.in")</li>
+					<li>#springMessage("register")</li>
+					<div class="clear"></div>
+				</ul>
+				<div class="signIn Control block">
+					<form style="margin:0px;" class="form-signin" role="form" id="loginForm" >
+					<ul>
+						<li>
+							<em class="loginEmail"></em>
+							<input name="email" class="errorInp" type="text" placeholder="#springMessage("enter.your.email.address")" />
+							<!-- <label class="edit_error">An account already exists for this email address.</label> -->
+						</li>
+						<li>
+							<em class="loginLock"></em>
+							<input name="password" class="errorInp" type="password" placeholder="#springMessage("enter.your.password")" />
+							<!-- <p class="edit_error"><em></em><i></i>An account already exists for this email address.</p> -->
+						</li>
+					</ul>
+					<p class="red" id="returnwrong" style="display:none;">The email address or password you entered is incorrect.</p>
+					<div class="singInBotone">
+						<input class="log_sinIn" type="submit" value="#springMessage("login")">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<!-- <a href="">#springMessage("forgot.your.password")</a> -->
+					</div>
+					</form>
+					<div class="singInBottwo">
+						<!-- <input class="log_Face" type="button" value="#springMessage("facebook")" /><br>
+						<input class="log_Paypal" type="button" value="#springMessage("log.in.with.paypal")" /><br>
+						<input class="log_google" type="button" value="Log in with Google" /> -->
+					</div>
+				</div>
+				
+				<div class="register Control">
+					<form id="regForm" >
+					<ul>
+						<li>
+							<em class="loginEmail"></em>
+							<input type="text" name="email" placeholder="#springMessage("enter.your.email.address")">
+							<span class="rightUse" style="display:none;"></span>
+						</li>
+						<li>
+							<em class="loginLock"></em>
+							<input name="passwd" id="regpassword" type="password" placeholder="#springMessage("enter.your.password")"/>
+							<span class="rightUse" style="display:none;"></span>
+						</li>
+						<li>
+							<em class="loginLock"></em>
+							<input name="confirm_password" type="password" placeholder="#springMessage("confirm.your.password")" />
+						</li>
+					</ul>
+					<p>#springMessage("your.shipping.destination")</p>
+					
+					
+	  				#parse("/base/select_country.vm")
+	  				
+					<div class="clear"></div>
+					<label class="iAgreErr">
+						<input name="agree" type="checkbox" />
+						#springMessage("i.agree.to.the.tomtop")
+						<span class="blue">#springMessage("terms.and.conditions")</span>
+						<!-- <label class="edit_error">Please make sure</label> -->
+					</label>
+					<label>
+						<input type="checkbox" name="signupNewsletter" />
+						#springMessage("yes.sign.up.our.newsletter.get.a.50.coupon.in.your.first.email")
+					</label>
+					<div class="creatInp">  
+						<hr>
+						<input type="submit" value="#springMessage("create.my.account")" />
+					</div>
+					</form>
+				</div>
+				
+			</div>
+			<div class="blockPopup_black"></div>
+		</div>
+		<!--pop-->
+</div>
+
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.base.product.mappers.ProductAttributeMapper">
+
+	<select id="getAttributeAttributeDto" resultType="com.tomtop.base.models.dto.AttributeDto">
+	   select DISTINCT vn.cvaluename valueName,kn.ckeyname keyName from t_product_entity_map em
+		LEFT JOIN t_attribute_key_name kn on em.ikey=kn.ikeyid 
+		LEFT JOIN t_attribute_value_name vn on em.ivalue=vn.ivalueid 
+		where kn.ckeyname!='' and vn.cvaluename!='' 
+		and kn.ilanguageid=#{lang}  and vn.ilanguageid=#{lang} and em.bshow=true
+		ORDER BY kn.ckeyname;
+	 </select>
+
+</mapper>

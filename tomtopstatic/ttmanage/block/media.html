@@ -1,0 +1,775 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>metroNic后台操作说明</title>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css">
+<link type="text/css" rel="stylesheet" href="../assets/global/css/components.min.css" />
+<link rel="stylesheet" href="http://v2.bootcss.com/assets/css/docs.css">
+<link type="text/css" rel="stylesheet" href="../css/index.css" />
+
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
+</head>
+<body data-target=".bs-docs-sidebar" data-spy="scroll">
+<script src="top.js" type="text/javascript"></script>
+<div class="container">
+	<div class="row">
+		<div class="span3 bs-docs-sidebar">
+	       <ul class="nav nav-list bs-docs-sidenav affix">
+	          <li><a href="#Media"><i class="icon-chevron-right"> </i> 媒体排版</a></li>
+	          <li><a href="#Modals"><i class="icon-chevron-right"> </i> 流体排版</a></li>
+	          <li><a href="#timeline"><i class="icon-chevron-right"> </i> 时间线</a></li>
+	          <li><a href="#imgcrop"><i class="icon-chevron-right"> </i> 图片裁切</a></li>
+	          <li><a href="#editer"><i class="icon-chevron-right"> </i> 编辑框</a></li>
+		      <li><a href="#Panels"><i class="icon-chevron-right"> </i> 背景状态</a></li>
+		      <li><a href="#Thumbnails"><i class="icon-chevron-right"> </i>缩略图</a></li>
+		      <li><a href="#scroll"><i class="icon-chevron-right"> </i>自定义拉条</a></li>
+	       </ul>
+	    </div>
+		<div class="span9">
+			<section id="Media">
+				<h2>Media Objects</h2>
+				代码说明：最外层的media-list只是去掉了ul的默认padding值 可以去掉<br>
+				代码结构：最外层容器media，分左右，左边图片pull-left右边文字media-body，可以依次循环下去
+<pre>
+<xmp> <ul class="media-list">
+    <li class="media">
+        <a href="javascript:;" class="pull-left"><img src="img.jpg"> </a>
+        <div class="media-body">
+            <h4 class="media-heading">TITLE</h4>
+            someTxt...
+            <div class="media">
+                <a href="javascript:;" class="pull-left"><img src="img.jpg"> </a>
+                <div class="media-body">
+                    <h4 class="media-heading">TITLE</h4> 
+                    someTxt...
+                    <div class="media">
+                        <a href="javascript:;" class="pull-left">
+                            <img alt="64x64" src="img.jpt"> </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">TITLE</h4> 
+                        	someTxt...
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="media">
+                <a href="javascript:;" class="pull-left">
+                    <img src="img.jpg"> </a>
+                <div class="media-body">
+                    <h4 class="media-heading">TITLE</h4>
+                    someTxt...
+                    </div>
+            </div>
+        </div>
+    </li>
+    <li class="media">
+        <a href="javascript:;" class="pull-right">
+            <img src="img.jpg"> </a>
+        <div class="media-body">
+            <h4 class="media-heading">TITLE</h4>
+        	someTxt...
+        </div>
+    </li>
+</ul>
+</xmp></pre>
+				例：
+				<ul class="media-list">
+                    <li class="media">
+                        <a href="javascript:;" class="pull-left">
+                            <img alt="64x64" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIi8+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" class="media-object" data-src="../assets/global/plugins/holder.js/64x64" style="width: 64px; height: 64px;"> </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Media heading</h4>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                            <!-- Nested media object -->
+                            <div class="media">
+                                <a href="javascript:;" class="pull-left">
+                                    <img alt="64x64" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIi8+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" class="media-object" data-src="../assets/global/plugins/holder.js/64x64" style="width: 64px; height: 64px;"> </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Nested media heading</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                                    <!-- Nested media object -->
+                                    <div class="media">
+                                        <a href="javascript:;" class="pull-left">
+                                            <img alt="64x64" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIi8+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" class="media-object" data-src="../assets/global/plugins/holder.js/64x64" style="width: 64px; height: 64px;"> </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">Nested media heading</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra
+                                            turpis. </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Nested media object -->
+                            <div class="media">
+                                <a href="javascript:;" class="pull-left">
+                                    <img alt="64x64" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIi8+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" class="media-object" data-src="../assets/global/plugins/holder.js/64x64" style="width: 64px; height: 64px;"> </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Nested media heading</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                                    </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <a href="javascript:;" class="pull-right">
+                            <img alt="64x64" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIi8+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" class="media-object" data-src="../assets/global/plugins/holder.js/64x64" style="width: 64px; height: 64px;"> </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Media heading</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. </div>
+                    </li>
+                </ul>
+			</section>
+			
+			<section id="Modals">
+				<h2>Extended Modals Example</h2>
+				代码说明：使用这个排版 外层必须有tiles；默认一个效果tile；需要两格的高度加double-down；需要两格的宽度加double；外边框包裹效果加selected；
+<pre>
+<xmp>  <div class="tiles">
+    <div class="tile double-down bg-blue-hoki">
+        <div class="tile-body">
+            <i class="fa fa-bell-o"></i>
+        </div>
+        <div class="tile-object">
+            <div class="name"> Notifications </div>
+            <div class="number"> 6 </div>
+        </div>
+    </div>
+    <div class="tile bg-red-sunglo">
+        <div class="tile-body">
+            <i class="fa fa-calendar"></i>
+        </div>
+        <div class="tile-object">
+            <div class="name"> Meetings </div>
+            <div class="number"> 12 </div>
+        </div>
+    </div>
+ </div>
+</xmp></pre>
+				<div class="tiles">
+                    <div class="tile double-down bg-blue-hoki">
+                        <div class="tile-body">
+                            <i class="fa fa-bell-o"></i>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name"> Notifications </div>
+                            <div class="number"> 6 </div>
+                        </div>
+                    </div>
+                    <div class="tile bg-red-sunglo">
+                        <div class="tile-body">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name"> Meetings </div>
+                            <div class="number"> 12 </div>
+                        </div>
+                    </div>
+                    <div class="tile bg-green">
+                        <div class="tile-body">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name"> Reports </div>
+                            <div class="number"> </div>
+                        </div>
+                    </div>
+                    <div class="tile double selected bg-green-turquoise">
+                        <div class="corner"> </div>
+                        <div class="check"> </div>
+                        <div class="tile-body">
+                            <h4>support@metronic.com</h4>
+                            <p> Re: Metronic v1.2 - Project Update! </p>
+                            <p> 24 March 2013 12.30PM confirmed for the project plan update meeting... </p>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div class="number"> 14 </div>
+                        </div>
+                    </div>
+                    <div class="tile selected bg-yellow-saffron">
+                        <div class="corner"> </div>
+                        <div class="tile-body">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name"> Members </div>
+                            <div class="number"> 452 </div>
+                        </div>
+                    </div>
+                    <div class="tile double bg-blue-madison">
+                        <div class="tile-body">
+                            <img alt="" src="../assets/pages/media/profile/photo1.jpg">
+                            <h4>Announcements</h4>
+                            <p> Easily style icon color, size, shadow, and anything that's possible with CSS. </p>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name"> Bob Nilson </div>
+                            <div class="number"> 24 Jan 2013 </div>
+                        </div>
+                    </div>
+                    <div class="tile bg-purple-studio">
+                        <div class="tile-body">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name"> Orders </div>
+                            <div class="number"> 121 </div>
+                        </div>
+                    </div>
+                    <div class="tile image selected">
+                        <div class="tile-body">
+                            <img alt="" src="../assets/pages/media/gallery/image2.jpg"> </div>
+                        <div class="tile-object">
+                            <div class="name"> Media </div>
+                        </div>
+                    </div>
+                    <div class="tile bg-green-meadow">
+                        <div class="tile-body">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name"> Feedback </div>
+                            <div class="number"> 12 </div>
+                        </div>
+                    </div>
+                    <div class="tile double bg-grey-cascade">
+                        <div class="tile-body">
+                            <img class="pull-right" alt="" src="../assets/pages/media/profile/photo2.jpg">
+                            <h3>@lisa_wong</h3>
+                            <p> I really love this theme. I look forward to check the next release! </p>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name">
+                                <i class="fa fa-twitter"></i>
+                            </div>
+                            <div class="number"> 10:45PM, 23 Jan </div>
+                        </div>
+                    </div>
+                    <div class="tile bg-red-intense">
+                        <div class="tile-body">
+                            <i class="fa fa-coffee"></i>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name"> Meetups </div>
+                            <div class="number"> 12 Jan </div>
+                        </div>
+                    </div>
+                    <div class="tile bg-blue-steel">
+                        <div class="tile-body">
+                            <i class="fa fa-briefcase"></i>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name"> Documents </div>
+                            <div class="number"> 124 </div>
+                        </div>
+                    </div>
+                    <div class="tile image double selected">
+                        <div class="tile-body">
+                            <img alt="" src="../assets/pages/media/gallery/image4.jpg"> </div>
+                        <div class="tile-object">
+                            <div class="name"> Gallery </div>
+                            <div class="number"> 124 </div>
+                        </div>
+                    </div>
+                </div>
+			</section>
+			
+			<section id="timeline">
+				<h2>时间线</h2>
+				代码说明：<br>
+				1，正文里面插入图片，段落需要用块级元素包含，然后给图片加class左右浮动(pull-left/pull-right)<br>
+				2，timeline-body-img规定了图片的宽高为100px
+<pre>
+<xmp><div class="portlet-body">
+    <div class="timeline">
+        <!-- 循环这里 -->
+        <div class="timeline-item">
+            <div class="timeline-badge">
+                <img src="assets/pages/media/users/avatar80_1.jpg" class="timeline-badge-userpic"> </div>
+            <div class="timeline-body">
+                <div class="timeline-body-arrow"> </div>
+                <div class="timeline-body-content">
+                    <span class="font-grey-cascade">someTxt...</span>
+                </div>
+            </div>
+        </div>
+        <!-- 循环结束 -->
+    </div>
+</div>
+</xmp></pre>
+				<div class="portlet light portlet-fit bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-microphone font-green"></i>
+                            <span class="caption-subject bold font-green uppercase"> Timeline 1</span>
+                            <span class="caption-helper">default option...</span>
+                        </div>
+                        <div class="actions">
+                            <div data-toggle="buttons" class="btn-group btn-group-devided">
+                                <label class="btn red btn-outline btn-circle btn-sm active">
+                                    <input type="radio" id="option1" class="toggle" name="options">Settings</label>
+                                <label class="btn  red btn-outline btn-circle btn-sm">
+                                    <input type="radio" id="option2" class="toggle" name="options">Tools</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="timeline">
+                            <!-- TIMELINE ITEM -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <img src="../assets/pages/media/users/avatar80_1.jpg" class="timeline-badge-userpic"> </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow"> </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <a class="timeline-body-title font-blue-madison" href="javascript:;">Andres Iniesta</a>
+                                            <span class="timeline-body-time font-grey-cascade">Replied at 7:45 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions">
+                                            <div class="btn-group">
+                                                <button data-close-others="true" data-hover="dropdown" data-toggle="dropdown" type="button" class="btn btn-circle green btn-sm dropdown-toggle"> Actions
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                                <ul role="menu" class="dropdown-menu pull-right">
+                                                    <li>
+                                                        <a href="javascript:;">Action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">Another action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">Something else here </a>
+                                                    </li>
+                                                    <li class="divider"> </li>
+                                                    <li>
+                                                        <a href="javascript:;">Separated link </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <span class="font-grey-cascade"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                                            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM -->
+                            <!-- TIMELINE ITEM -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <img src="../assets/pages/media/users/avatar80_2.jpg" class="timeline-badge-userpic"> </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow"> </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <a class="timeline-body-title font-blue-madison" href="javascript:;">Vanessa Bond</a>
+                                            <span class="timeline-body-time font-grey-cascade">Posted new post at 5:10 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions"> </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <span class="font-grey-cascade">
+                                            <p>
+                                                <img alt="" src="../assets/pages/media/blog/4.jpg" class="timeline-body-img pull-right"> Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard
+                                                greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi. coriander bitterleaf epazote radicchio shallot winter purslane collard. </p>
+                                            <p>
+                                            Coriander bitterleaf epazote radicchio shallot winter purslane collard. Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander
+                                                bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi. </p>
+                                            <p>
+                                                <img alt="" src="../assets/pages/media/blog/6.jpg" class="timeline-body-img pull-left"> Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard
+                                                greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi radicchio shallot winter purslane collard greens spring onion squash lentil. </p>
+                                            <p> Coriander bitterleaf epazote radicchio shallot winter purslane collard. Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander
+                                                bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi. </p>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM -->
+                            <!-- TIMELINE ITEM WITH GOOGLE MAP -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <img src="../assets/pages/media/users/avatar80_3.jpg" class="timeline-badge-userpic"> </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow"> </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <a class="timeline-body-title font-blue-madison" href="javascript:;">Carles Puyol</a>
+                                            <span class="timeline-body-time font-grey-cascade">Added office location at 2:50 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions">
+                                            <div class="btn-group">
+                                                <button data-close-others="true" data-hover="dropdown" data-toggle="dropdown" type="button" class="btn btn-circle btn-default btn-sm dropdown-toggle"> Actions
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                                <ul role="menu" class="dropdown-menu pull-right">
+                                                    <li>
+                                                        <a href="javascript:;">Action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">Another action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">Something else here </a>
+                                                    </li>
+                                                    <li class="divider"> </li>
+                                                    <li>
+                                                        <a href="javascript:;">Separated link </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <div class="gmaps" id="gmap_polygons"> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM WITH GOOGLE MAP -->
+                            <!-- TIMELINE ITEM -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <div class="timeline-icon">
+                                        <i class="icon-user-following font-green-haze"></i>
+                                    </div>
+                                </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow"> </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <span class="timeline-body-alerttitle font-red-intense">You have new follower</span>
+                                            <span class="timeline-body-time font-grey-cascade">at 11:00 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions">
+                                            <div class="btn-group">
+                                                <button data-close-others="true" data-hover="dropdown" data-toggle="dropdown" type="button" class="btn btn-circle green btn-outline
+
+                   btn-sm dropdown-toggle"> Actions
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                                <ul role="menu" class="dropdown-menu pull-right">
+                                                    <li>
+                                                        <a href="javascript:;">Action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">Another action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">Something else here </a>
+                                                    </li>
+                                                    <li class="divider"> </li>
+                                                    <li>
+                                                        <a href="javascript:;">Separated link </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <span class="font-grey-cascade"> You have new follower
+                                            <a href="javascript:;">Ivan Rakitic</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM -->
+                            <!-- TIMELINE ITEM -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <img src="../assets/pages/media/users/avatar80_1.jpg" class="timeline-badge-userpic"> </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow"> </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <a class="timeline-body-title font-blue-madison" href="javascript:;">Andres Iniesta</a>
+                                            <span class="timeline-body-time font-grey-cascade">Replied at 7:45 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions"> </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <span class="font-grey-cascade"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                                            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM -->
+                            <!-- TIMELINE ITEM -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <img src="../assets/pages/media/users/avatar80_2.jpg" class="timeline-badge-userpic img-circle"> </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow"> </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <a class="timeline-body-title font-blue-madison" href="javascript:;">Vanessa Bond</a>
+                                            <span class="timeline-body-time font-grey-cascade">Posted new post at 5:10 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions"> </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <span class="font-grey-cascade">
+                                            <p>
+                                                <img alt="" src="../assets/pages/media/blog/4.jpg" class="timeline-body-img pull-right"> Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard
+                                                greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi. coriander bitterleaf epazote radicchio shallot winter purslane collard. </p>
+                                            <p>
+                                            Coriander bitterleaf epazote radicchio shallot winter purslane collard. Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander
+                                                bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi. </p>
+                                            <p>
+                                                <img alt="" src="../assets/pages/media/blog/6.jpg" class="timeline-body-img pull-left"> Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard
+                                                greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi radicchio shallot winter purslane collard greens spring onion squash lentil. </p>
+                                            <p> Coriander bitterleaf epazote radicchio shallot winter purslane collard. Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander
+                                                bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi. </p>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM -->
+                            <!-- TIMELINE ITEM -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <div class="timeline-icon">
+                                        <i class="icon-docs font-red-intense"></i>
+                                    </div>
+                                </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow"> </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <span class="timeline-body-alerttitle font-green-haze">Server Report</span>
+                                            <span class="timeline-body-time font-grey-cascade">Yesterday at 11:00 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions">
+                                            <div class="btn-group dropup">
+                                                <button data-close-others="true" data-hover="dropdown" data-toggle="dropdown" type="button" class="btn btn-circle red btn-sm dropdown-toggle"> Actions
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                                <ul role="menu" class="dropdown-menu pull-right">
+                                                    <li>
+                                                        <a href="javascript:;">Action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">Another action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">Something else here </a>
+                                                    </li>
+                                                    <li class="divider"> </li>
+                                                    <li>
+                                                        <a href="javascript:;">Separated link </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <span class="font-grey-cascade"> Lorem ipsum dolore sit amet
+                                            <a href="javascript:;">Ispect</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM -->
+                        </div>
+                    </div>
+                </div>
+			</section>
+		
+        <link href="../assets/global/plugins/jcrop/css/jquery.Jcrop.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/pages/css/image-crop.min.css" rel="stylesheet" type="text/css" />
+        <script src="../assets/global/plugins/jcrop/js/jquery.Jcrop.min.js" type="text/javascript"></script>
+        <script src="../assets/pages/scripts/form-image-crop.min.js" type="text/javascript"></script>
+        
+			<section id="imgcrop">
+				<h2>图片裁切</h2>
+				加载的东西太多，后台基本上用不到；
+				<div class="row">
+                    <div class="col-md-6 responsive-1024">
+                        <img src="../assets/global/plugins/jcrop/demos/demo_files/image3.jpg" id="demo3" alt="Jcrop Example" /> </div>
+                    <div class="col-md-6 responsive-1024">
+                        <div id="preview-pane">
+                            <div class="preview-container">
+                                <img src="../assets/global/plugins/jcrop/demos/demo_files/image3.jpg" class="jcrop-preview" alt="Preview" /> </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane">
+                    <div class="row">
+                        <div class="col-md-6 responsive-1024">
+                            <img src="../assets/global/plugins/jcrop/demos/demo_files/image4.jpg" id="demo6" alt="Jcrop Example" /> 
+                        </div>
+                    </div>
+                </div>
+			</section>
+    
+       
+        	<script src="../assets/global/plugins/ckeditor/ckeditor.js" type="text/javascript"></script>
+			<section id="editer">
+			<h2>编辑框</h2>
+<pre>
+<xmp>  <script src="../assets/global/plugins/ckeditor/ckeditor.js" type="text/javascript"></script>
+  <textarea class="ckeditor form-control" name="editor1" rows="6"></textarea>
+</xmp></pre>
+                    <textarea class="ckeditor form-control" name="editor1" rows="6"></textarea>
+			</section>
+			
+				<section id="Panels">
+					<h2>Contextual Panels</h2>
+					代码说明：状态由panel-warning(default/primary/success/info/warning/danger)控制
+	<pre>
+	<xmp>  <div class="panel panel-warning">
+	      <div class="panel-heading">
+	          <h3 class="panel-title">Warning Panel</h3>
+	      </div>
+	      <div class="panel-body"> Panel content </div>
+	  </div>
+	</xmp></pre>
+					<div class="panel panel-warning">
+	                    <div class="panel-heading">
+	                        <h3 class="panel-title">Warning Panel</h3>
+	                    </div>
+	                    <div class="panel-body"> Panel content </div>
+	                </div>
+				</section>
+				<section id="Thumbnails">
+					<h2>Thumbnails</h2>
+					代码说明：这里有用到板式12等份排列
+					1，容器row分为12等份；
+					2，col-md-3站其中十二等分的三份；
+	<pre>
+	<xmp>  <div class="row">
+		<div class="col-md-3">
+		    <a class="thumbnail" href="javascript:;"><img src="img/img.jpg"> </a>
+		</div>
+	  </div>
+	</xmp></pre>
+					<div class="row">
+	                    <div class="col-md-3">
+	                        <a class="thumbnail" href="javascript:;">
+	                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NyIgaGVpZ2h0PSIxODAiPjxyZWN0IHdpZHRoPSI5NyIgaGVpZ2h0PSIxODAiIGZpbGw9IiNlZWUiLz48dGV4dCB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI0OC41IiB5PSI5MCIgc3R5bGU9ImZpbGw6I2FhYTtmb250LXdlaWdodDpib2xkO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtZmFtaWx5OkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjk3eDE4MDwvdGV4dD48L3N2Zz4=" data-src="../assets/global/plugins/holder.js/100%x180"> </a>
+	                    </div>
+	                    <div class="col-md-3">
+	                        <a class="thumbnail" href="javascript:;">
+	                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NyIgaGVpZ2h0PSIxODAiPjxyZWN0IHdpZHRoPSI5NyIgaGVpZ2h0PSIxODAiIGZpbGw9IiNlZWUiLz48dGV4dCB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI0OC41IiB5PSI5MCIgc3R5bGU9ImZpbGw6I2FhYTtmb250LXdlaWdodDpib2xkO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtZmFtaWx5OkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjk3eDE4MDwvdGV4dD48L3N2Zz4=" data-src="../assets/global/plugins/holder.js/100%x180"> </a>
+	                    </div>
+	                    <div class="col-md-3">
+	                        <a class="thumbnail" href="javascript:;">
+	                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NyIgaGVpZ2h0PSIxODAiPjxyZWN0IHdpZHRoPSI5NyIgaGVpZ2h0PSIxODAiIGZpbGw9IiNlZWUiLz48dGV4dCB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI0OC41IiB5PSI5MCIgc3R5bGU9ImZpbGw6I2FhYTtmb250LXdlaWdodDpib2xkO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtZmFtaWx5OkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjk3eDE4MDwvdGV4dD48L3N2Zz4=" data-src="../assets/global/plugins/holder.js/100%x180"> </a>
+	                    </div>
+	                    <div class="col-md-3">
+	                        <a class="thumbnail" href="javascript:;">
+	                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NyIgaGVpZ2h0PSIxODAiPjxyZWN0IHdpZHRoPSI5NyIgaGVpZ2h0PSIxODAiIGZpbGw9IiNlZWUiLz48dGV4dCB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI0OC41IiB5PSI5MCIgc3R5bGU9ImZpbGw6I2FhYTtmb250LXdlaWdodDpib2xkO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtZmFtaWx5OkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjk3eDE4MDwvdGV4dD48L3N2Zz4=" data-src="../assets/global/plugins/holder.js/100%x180"> </a>
+	                    </div>
+	                </div>
+	                                                       应用：
+	                <div class="row">
+	                    <div class="col-md-4">
+	                        <div class="thumbnail">
+	                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMTEiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjExIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjEwNS41IiB5PSIxMDAiIHN0eWxlPSJmaWxsOiNhYWE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LXNpemU6MTNweDtmb250LWZhbWlseTpBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZjtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4yMTF4MjAwPC90ZXh0Pjwvc3ZnPg==" data-src="../assets/global/plugins/holder.js/100%x200">
+	                            <div class="caption">
+	                                <h3>Thumbnail label</h3>
+	                                <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
+	                                <p>
+	                                    <a class="btn blue" href="javascript:;"> Button </a>
+	                                    <a class="btn default" href="javascript:;"> Button </a>
+	                                </p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-md-4">
+	                        <div class="thumbnail">
+	                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMzQiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjM0IiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjExNyIgeT0iMTAwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjE1cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MjM0eDIwMDwvdGV4dD48L3N2Zz4=" data-src="../assets/global/plugins/holder.js/100%x200">
+	                            <div class="caption">
+	                                <h3>Thumbnail label</h3>
+	                                <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
+	                                <p>
+	                                    <a class="btn red" href="javascript:;"> Button </a>
+	                                    <a class="btn default" href="javascript:;"> Button </a>
+	                                </p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-md-4">
+	                        <div class="thumbnail">
+	                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMzQiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjM0IiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjExNyIgeT0iMTAwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjE1cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MjM0eDIwMDwvdGV4dD48L3N2Zz4=" data-src="../assets/global/plugins/holder.js/100%x200">
+	                            <div class="caption">
+	                                <h3>Thumbnail label</h3>
+	                                <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
+	                                <p>
+	                                    <a class="btn red" href="javascript:;"> Button </a>
+	                                    <a class="btn default" href="javascript:;"> Button </a>
+	                                </p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+				</section>
+				<section id="scroll">
+					<h2>自定义拉条</h2>
+					代码说明：data-always-visible="1"控制拉条鼠标经过后是否隐藏；没有则隐藏；<br>
+					data-handle-color="blue"控制拉条颜色<br>
+					data-rail-color控制拉条背景颜色
+<pre>
+<xmp>  <script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+
+  <div class="portlet-body">
+    <div class="scroller" style="height:200px" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">someTxt...</div>
+  </div>
+</xmp></pre>
+			        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+			        <script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+					<div class="col-md-6">
+	                    <div class="portlet box blue-hoki">
+	                        <div class="portlet-title">
+	                            <div class="caption">
+	                                <i class="fa fa-gift"></i>Portlet1 </div>
+	                            <div class="actions">
+	                                <a href="javascript:;" class="btn btn-default btn-sm">
+	                                    <i class="fa fa-pencil"></i> Edit </a>
+	                                <a href="javascript:;" class="btn btn-default btn-sm">
+	                                    <i class="fa fa-plus"></i> Add </a>
+	                            </div>
+	                        </div>
+	                        <div class="portlet-body">
+	                            <div class="scroller" style="height:200px" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+	                                <strong>Scroll is hidden</strong>
+	                                <br/> Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
+	                                eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit
+	                                amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. consectetur purus sit amet fermentum. Duis mollis,
+	                                est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. </div>
+	                        </div>
+	                    </div>
+                    </div>
+                    <div class="col-md-6">
+	                    <div class="portlet box red">
+	                        <div class="portlet-title">
+	                            <div class="caption">
+	                                <i class="fa fa-gift"></i>Portlet2 </div>
+	                            <div class="tools">
+	                                <a href="javascript:;" class="collapse"> </a>
+	                                <a href="" class="fullscreen"> </a>
+	                                <a href="#portlet-config" data-toggle="modal" class="config"> </a>
+	                            </div>
+	                            <div class="actions">
+	                                <a href="javascript:;" class="btn btn-default btn-sm">
+	                                    <i class="fa fa-pencil"></i> Edit </a>
+	                            </div>
+	                        </div>
+	                        <div class="portlet-body">
+	                            <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible="1" data-rail-color="blue" data-handle-color="blue">
+	                                <strong>Scroll is always visible</strong>
+	                                <br/> Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
+	                                eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit
+	                                amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. </div>
+	                        </div>
+	                    </div>
+	                </div>
+				</section>
+		</div>
+	</div>
+</div>
+</body>
+</html>

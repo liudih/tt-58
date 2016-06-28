@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.member.mappers.user.ForgetPasswdBaseMapper">
+	<resultMap id="BaseResultMap" type="com.tomtop.member.models.dto.ForgetPasswdBase">
+		<result column="cid" property="cid" jdbcType="VARCHAR" />
+		<result column="iwebsiteid" property="iwebsiteid" jdbcType="INTEGER" />
+		<result column="cmemberemail" property="cmemberemail" jdbcType="VARCHAR" />
+		<result column="dcreatedate" property="dcreatedate" jdbcType="TIMESTAMP" />
+		<result column="buse" property="buse" jdbcType="BOOLEAN" />
+		<result column="crandomcode" property="crandomcode" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		cid, iwebsiteid,cmemberemail, dcreatedate, buse,crandomcode
+	</sql>
+	<select id="selectByCid" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from t_forget_passwd_base
+		where cid = #{cid,jdbcType=VARCHAR}
+	</select>
+	
+	<update id="update"  parameterType="com.tomtop.member.models.dto.ForgetPasswdBase">
+		update t_forget_passwd_base
+		set 
+			<if test="buse != null">buse=#{buse}</if> 
+		where
+			<trim prefixOverrides="and">
+				<if test="cid != null">and cid = #{cid}</if>
+				<if test="cmemberemail != null">and cmemberemail = #{cmemberemail}</if>
+				<if test="iwebsiteid != null">and iwebsiteid = #{iwebsiteid}</if>
+				<if test="dcreatedate != null"> and to_char(dcreatedate,'yyyymmdd')=to_char(CURRENT_DATE,'yyyymmdd')</if>
+			</trim>
+	</update>
+</mapper>

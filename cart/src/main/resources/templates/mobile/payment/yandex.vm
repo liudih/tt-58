@@ -1,0 +1,20 @@
+<li class="oceanpayment_yandex">
+    <dl>
+        <dt class="clearfix">
+        <span class="payment_img fl">
+            <img src="/mobile/icon/yandex_150x70.jpg">
+        </span>
+        <span class="chooseOneBox fr lineBlock">
+            <label>
+                <div class="radio lineBlock"><i class="icon_check"></i></div>
+            </label>
+        </span>
+        </dt>
+        <dd>
+            <p class="p"><br />
+                <b>Заплатить Яндекс.Деньгами</b>
+            </p>
+            <img src="/mobile/icon/yandex_640x70.jpg" />
+        </dd>
+    </dl>
+</li>

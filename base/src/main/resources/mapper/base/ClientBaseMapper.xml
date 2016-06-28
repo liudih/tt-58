@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.base.mappers.ClientBaseMapper">
+	<resultMap id="BaseResultMap" type="com.tomtop.base.models.dto.ClientBase">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="platform" property="platform" jdbcType="VARCHAR" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="site_id" property="siteId" jdbcType="INTEGER" />
+		<result column="is_deleted" property="isDeleted" jdbcType="INTEGER" />
+		<result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+		<result column="created_on" property="createdOn" jdbcType="TIMESTAMP" />
+		<result column="last_updated_by" property="lastUpdatedBy" jdbcType="VARCHAR" />
+		<result column="last_updated_on" property="lastUpdatedOn" jdbcType="TIMESTAMP" />
+		<result column="is_enabled" property="isEnabled" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id, name, platform, remark, site_id, 
+		is_deleted,created_by,created_on,
+		last_updated_by,last_updated_on, is_enabled
+	</sql>
+	
+	<select id="getAllClientBase" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" /> 
+		 from base_client 
+		 where is_enabled=1 and is_deleted=0
+	</select>
+		
+	<sql id="Base_Where_Clause">
+		<where>
+			<trim prefixOverrides="and">
+				<if test="id != null"> and id = #{id}</if>
+				<if test="name != null">and name = #{name}</if>
+				<if test="platform != null">and platform = #{platform}</if>
+				<if test="siteId != null">and site_id = #{siteId}</if>
+				<if test="isDeleted != null">and is_deleted = #{isDeleted}</if>
+				<if test="createdOn != null">and created_on = #{createdOn}</if>
+				<if test="lastUpdatedOn != null">and last_updated_on = #{lastUpdatedOn}</if>
+				<if test="isEnabled != null">and is_enabled = #{isEnabled}</if>
+			</trim>
+		</where>
+	</sql>	
+	
+	<select id="getClientBase" resultMap="BaseResultMap"
+			parameterType="com.tomtop.base.models.dto.ClientBase">
+		select 
+		<include refid="Base_Column_List" /> 
+		from base_client
+		<include refid="Base_Where_Clause" /> 
+	</select>
+	
+</mapper>

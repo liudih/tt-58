@@ -1,0 +1,93 @@
+﻿@import "public.less";   //--------------------初始化
+@import "config.less";   //--------------------风格色以及公共样式
+@import "head.less";     //--------------------头部
+@import "foot.less";     //--------------------页脚
+@import "../css/swiper.min.css";     //--------------------轮播
+@import "chunk_product.less";   //--------------------产品列表
+@import "login_m.less";        //--------------------弹层登入
+
+/*轮播banner图片调整*/
+.swiper-slide{
+  img{width:100%}
+}
+//--------------------分类导航--------------------//
+.nav{
+  .nav_content{height:@80px; position:relative; border-top:1px solid @colorcc; border-bottom:2px solid @colorcc; overflow:scroll;}
+  ul{height:100%; position:absolute;}
+  li{width:@120px; float:left; height:100%; font-size:0; letter-spacing:-3px; border-left:1px solid @colorcc; text-align:center;
+    a{width:@118px; color:@color66; text-align:center; line-height:0; letter-spacing:0; vertical-align:middle; display:inline-block;
+      &:hover{color:@color66;}
+    }
+    &:first-child{border:none;}
+    i{width:@20px; height:@20px; margin-top:@5px; font-size:24px; line-height:@22px; display:inline-block;}
+    em{height:@30px; margin-top:@5px; font-size:@12px; line-height:@14px; padding:0 @5px; display:inline-block;}
+  }
+}
+//--------------------天天特价--------------------//
+.dailydeals{margin-top:@20px;
+  .dailydeals_content{border-bottom:1px solid @colorcc;}
+  .left{width:50%; float:left; border-right:1px solid @colorcc;}
+  .right{width:50%; float:left;
+    .product_box{
+      .product{margin-top:@20px;}
+    }
+  }
+  .product_box_left{width:50%; float:left;}
+  .product_box_right{width:50%; float:left;}
+  .product_box{width:100%; position:relative; float:left; border-top:1px solid @colorcc;
+    h2{height:@30px; padding:0 @5px; position:absolute; left:@15px; top:-@15px; font-size:@14px; font-weight:bold; line-height:@30px; display:inline-block; background:@colorff;}
+    .more{height:@30px; padding:0 @5px; position:absolute; right:@15px; top:-@15px; font-size:@12px; line-height:@30px; display:inline-block; background:@colorff;}
+    .expires{height:@30px; margin:@10px 0 0 @15px; padding-left:@5px; color:@color66; line-height:@30px;
+      span{margin-left:@5px; color:@colorA1;}
+    }
+    .product{margin:0 @5px;}
+    .product_img{position:relative; text-align:center;
+      .off{width:@50px; height:@50px; padding:@8px @24px 0 0; position:absolute; right:5%; top:5%; font-size:@18px; font-weight:bold; color:@colorff; text-align:right; background:url("../icon/off_100x100.png") no-repeat; background-size:100% 100%;}
+    }
+    .product_title{height:@32px; margin:@10px @10px 0 @10px; font-size:@12px; line-height:@16px; overflow:hidden;
+      a{color:@color66;}
+    }
+    .product_price{height:@40px; margin:@5px @10px @10px @10px;
+      .original_price{height:@20px; color:@color66; line-height:@20px; text-decoration:line-through;}
+      .current_price{height:@20px; font-size:@16px; font-weight:bold; color:@colorA1; line-height:@20px;}
+      .orders{height:@20px; color:@color66; line-height:@20px;
+        em{margin-right:@5px;}
+      }
+    }
+  }
+}
+
+
+.swiper-container-horizontal .swiper-pagination-progress{bottom:0 !important;}
+//--------------------中间广告banner--------------------//
+.bannerad{margin-top:@20px; text-align:center;}
+//--------------------自适应--------------------//
+@media(max-width:320px)
+{
+  .dailydeals{margin-top:@20px;
+    .left{width:100%;}
+    .right{width:100%;}
+  }
+}
+@media(min-width:321px) and (max-width:639px)
+{
+  .dailydeals{margin-top:@20px;
+    .left{width:100%;}
+    .right{width:100%;}
+  }
+}
+@media(min-width:640px) and (max-width:764px)
+{
+
+}
+@media(min-width:765px) and (max-width:1023px)
+{
+
+}
+@media(min-width:1024px) and (max-width:1200px)
+{
+
+}
+@media(min-width:1200px){
+
+}

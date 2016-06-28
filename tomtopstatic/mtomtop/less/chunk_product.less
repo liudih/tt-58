@@ -1,0 +1,141 @@
+//--------------------区块产品--------------------//
+.chunk_product{
+  .chunk_content{overflow:hidden; padding-bottom:1px;}
+  h2{height:@40px; padding:0 @6px; font-size:@16px; font-weight:bold; line-height:@40px; border-bottom:1px solid @colorcc;
+    a{font-size:@12px; font-weight:initial;}
+  }
+  .product_content{margin-right:-1px; font-size:0;}
+  .product_box{width:50%;padding-top:@10px;border-right:1px solid @colorcc; border-bottom:1px solid @colorcc; display:inline-block;vertical-align:bottom;
+    .product{margin:0 @5px;}
+    .product_img{position:relative;text-align:center; min-height:@150px; font-size:0; line-height:0;
+      img{width:100%;height:auto;}
+      .icon_load{position:absolute; left:50%; top:50%; margin-top:-@15px; margin-left:-@15px; font-size:@24px;}
+      a{width:100%;display:block;height:100%; /*background: url(../icon/loading.gif) no-repeat center center; */position:absolute;top:0;left:0;text-align: center;overflow: hidden;
+      img{vertical-align:middle;display: inline-block;max-width:100%;width:auto}
+      &:before{display:inline-block;width:0;height:100%;vertical-align:middle;content:''}
+      }
+      .off{width:@50px; height:@50px; padding:@15px @23px 0 0; position:absolute; right:2%; top:2%; font-size:@20px; font-weight:bold; color:@colorff; text-align:right; background:url("../icon/off_100x100.png") no-repeat; background-size:100% 100%;}
+    }
+    .product_title{height:@16px; margin:@10px @5px 0 @5px; font-size:@12px; line-height:@16px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;
+      a{color:@color66;}
+    }
+    .product_price{height:@40px; margin:@5px @5px @5px @5px;overflow: hidden;
+      .original_price{height:@20px; color:@color66; line-height:@20px; font-size:@12px; text-decoration:line-through;}
+      .current_price{height:@20px; font-size:@18px; font-weight:bold; color:@colorA1; line-height:@20px;}
+    }
+    .product_review{height:@30px; margin:-@10px 0 0 @3px; font-size:0; line-height:@30px;
+      a{height:@20px; font-size:@12px; color:@color66; line-height:@20px; vertical-align:middle; display:inline-block;}
+      .review_bg{height:@18px; position:relative; vertical-align:middle; display:inline-block;}
+      i{width:@16px; height:@16px; font-size:@16px; color:@colorcc; text-align:center; line-height:@18px; float:left;}
+      .review{width:50%; height:100%; position:absolute; left:0; top:0; display:block; overflow:hidden;
+        .reviews{width:500px; position:absolute; left:0; top:0; background:rgbd(0,0,0,0.5)}
+        i{color:@colorA1;}
+      }
+      .review_nub{font-size:@14px; margin-left:@5px; font-weight:bold; color:@colorcc; vertical-align:middle; display:inline-block;}
+    }
+    .warehouse{margin-left:@5px; margin-top:@5px; font-size:0; line-height:0; margin-bottom:@10px;
+      i{width:@30px; margin-right:@4px; padding:@1px; border:1px solid @colorcc; border-radius:@2px; vertical-align:middle; display:inline-block; cursor:pointer;
+        &:nth-child(4),&:nth-child(5),&:nth-child(6),&:nth-child(7),&:nth-child(8){display:none;}
+        img{display:block;}
+      }
+      em{font-size:@24px; margin-top:-@12px; vertical-align:middle; display:inline-block;}
+      .select{border-color:@colorA2;}
+    }
+    .warehouse_more{width:100%; padding:@15px 0; font-size:0; background:@colorff;
+      h3{font-size:@14px; margin-bottom:@15px;}
+      i{width:@75px; margin:@10px @10px 0 0; padding:@4px; line-height:0; border:1px solid @colorcc; border-radius:@2px; vertical-align:middle; display:inline-block; cursor:pointer;}
+      em{font-size:@12px;display:block;}
+      .select{border-color:@colorA2;}
+    }
+    .product_other{height:@36px; padding:0 @10px 0 @8px; font-size:0; line-height:@36px; border-top:1px solid @colorcc; background:@colorf5;
+      a{color:@color66;
+        &:hover{
+          color:@color66;
+        }
+      }
+      i{width:@26px; height:@36px; margin-left:-@2px; font-size:@16px; text-align:center; line-height:@36px; vertical-align:middle; display:inline-block;}
+      .icon_wishlists{color:#fb4949;}
+      em{height:@36px; font-size:@12px; line-height:@36px; vertical-align:middle; display:inline-block;}
+    }
+  }
+}
+.product_attr{width:100%; padding-top:@6px;background:@colorff;
+  .product{margin:0; padding-bottom:@15px; border-bottom:1px solid @colorcc;
+    .product_image{width:30%; max-width:@200px; padding:@5px; position:relative; border:1px solid @colorcc;
+      .off{width:@30px; height:@30px; padding:@2px @14px 0 0; position:absolute; right:5%; top:5%; font-size:@12px; font-weight:bold; color:@colorff; text-align:right; background:url("../icon/off_100x100.png") no-repeat; background-size:100% 100%;}
+    }
+    .product_titles{width:60%; height:@16px; padding:0 @15px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;
+      a{font-size:@12px; color:@color66; line-height:@16px;
+        &:hover{color:@color66;}
+      }
+    }
+    .product_price{width:60%; margin:@10px 0 0 @15px;}
+    .expires{width:60%; height:@30px; margin-left:@15px; color:@color66; line-height:@30px;
+      span{margin-left:@5px; color:@colorA1;}
+    }
+  }
+  .attr{font-size:0; padding-bottom:@10px; border-bottom:1px solid @colorcc;
+    dt{height:@40px; font-size:@16px; font-weight:bold; color:@color66; line-height:@40px;}
+    //dd{border-top:1px dotted @colordc;}
+    .attr_name{width:15%; max-width:@200px; height:@40px; font-size:@12px; font-weight:bold; color:@color66; text-align:right; line-height:@40px; vertical-align:middle; display:inline-block;}
+    .attr_val{width:85%; padding-left:@15px; vertical-align:middle; display:inline-block;
+      i{min-width:@40px; height:@40px; margin:@10px @10px @10px 0; padding:0 @10px; font-size:@12px; color:@color66; text-align:center; line-height:@40px; border:1px solid @colorcc; vertical-align:middle; display:inline-block; border-radius:@4px; cursor:pointer;}
+      .color{padding:@2px;}
+      img{width:auto; height:100%;}
+    }
+  }
+  .qty{padding:@15px 0; font-size:0;
+    em{width:15%; max-width:@200px; height:@40px; font-size:@14px; font-weight:bold; color:@color66; line-height:@40px; display:inline-block;text-align:right;vertical-align:middle}
+    span{margin-left:@15px; display:inline-block;vertical-align:middle}
+    i{width:@40px; height:@40px; font-size:@16px; font-weight:bold; color:@color66; text-align:center; line-height:@42px; vertical-align:middle; border:1px solid @colorcc; display:inline-block; cursor:pointer;}
+    .qty_cut{border-right:none;  border-top-left-radius:@4px; border-bottom-left-radius:@4px;}
+    .qty_add{color:@colorff; border:none;  border-top-right-radius:@4px; border-bottom-right-radius:@4px; background:@colorA2;}
+    input{width:@80px; height:@40px; font-size:@12px; text-align:center; line-height:@40px; border:1px solid @colorcc; border-right:none; vertical-align:middle; display:inline-block;}
+  }
+  .continue{width:100%; height:@45px; margin-bottom:@15px; font-size:@14px; font-weight:bold; color:@colorff; border-radius:@4px; background:@colorA2;}
+  .stockout{background:#ddd;}
+  .close_attr{width:@30px; height:@30px; position:absolute; right:@15px; top:@15px; font-size:@18px; color:@colorff; text-align:center; line-height:@32px; display:block; border-radius:50%; cursor:pointer; background:@colordd;}
+}
+//--------------------弹层登入--------------------//
+.popup_login{width:100%; background:@colorff;
+  h3{margin-top:@20px; font-size:@18px; color:@color66; text-align:center;}
+  .other_login{
+    a{text-decoration:underline;}
+  }
+  .close_login{width:@30px; height:@30px; position:absolute; right:@15px; top:@15px; font-size:@18px; color:@colorff; text-align:center; line-height:@32px; display:block; border-radius:50%; cursor:pointer; background:@colordd;}
+}
+//--------------------自适应--------------------//
+@media(max-width:320px)
+{
+  .chunk_product{
+    .product_box{width:100%;}
+  }
+}
+@media(min-width:321px) and (max-width:640px)
+{
+
+}
+@media(min-width:641px) and (max-width:764px)
+{
+  .chunk_product{
+    .product_box{width:33.33%;}
+  }
+}
+@media(min-width:765px) and (max-width:1023px)
+{
+  .chunk_product{
+    .product_box{width:33.33%;}
+  }
+}
+@media(min-width:1024px) and (max-width:1200px)
+{
+  .chunk_product{
+    .product_box{width:25%;}
+  }
+}
+@media(min-width:1200px)
+{
+  .chunk_product{
+    .product_box{width:20%;}
+  }
+}

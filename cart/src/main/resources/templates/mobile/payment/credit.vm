@@ -1,0 +1,23 @@
+<li class="oceanpayment_credit">
+    <dl class="needBill">
+        <dt class="clearfix">
+            <span class="payment_img fl">
+                <img src="/mobile/icon/visa_150x70.jpg">
+            </span>
+            <span class="chooseOneBox fr lineBlock">
+                <label>
+                    <div class="radio lineBlock"><i class="icon_check"></i></div>
+                </label>
+            </span>
+        </dt>
+        <dd>
+            <img src="/mobile/icon/visa_640x70.jpg" />
+            <p class="p">
+                <b>#springMessage("billing.address"):</b><br />
+                <input type="checkbox" checked="true" class="billing" />#springMessage("payment.credit_1")<br />
+                <em>#springMessage("payment.credit_2")</em>
+            </p>
+            #parse("/mobile/payment/bill_address.vm")
+        </dd>
+    </dl>
+</li>

@@ -1,0 +1,21 @@
+<ul class="price m">
+    <li class="clearfix">
+        <span class="fl">#springMessage("order.subtotal"):</span><span class="fr">$!currencyBo.symbolCode <em id="subtotal">$!order.fordersubtotalStr</em></span>
+    </li>
+    <li class="clearfix">
+        <span class="fl">#springMessage("shipping.cost"):</span><span class="fr">$!currencyBo.symbolCode <em id="shipCost">0.00</em></span>
+    </li>
+    <li class="clearfix">
+        <span class="fl">#springMessage("checkout_step2.Discount"):</span><span class="fr">$!currencyBo.symbolCode <em id="discount_total">$!order.getFextraStr()</em></span>
+    </li>
+    <li class="combined clearfix">
+        <span class="fl">#springMessage("grand.total"):</span><span class="fr">$!currencyBo.symbolCode <em id="grandTotal">$!order.fgrandtotalStr</em></span>
+    </li>
+    <li class="message clearfix">
+        <input type="checkbox" class="message_select" />#springMessage("leave.a.message")
+        <div class="message_text">
+            <textarea name="leaveMessage" id="leaveMessage"></textarea>
+            <p>*#springMessage("write.anything.like.require.more.placed.order.such.shipping.order.related.requirements")</p>
+        </div>
+    </li>
+</ul>

@@ -1,0 +1,47 @@
+@import "public.less";   //--------------------初始化
+@import "config.less";   //--------------------风格色以及公共样式
+@import "head.less";     //--------------------头部
+@import "foot.less";     //--------------------页脚
+@import "chunk_product.less";   //--------------------产品列表
+@import "login_m.less";        //--------------------弹层登入
+
+.nav_tow{
+  .nav_tow_content{height:@44px; position:relative; border-bottom:1px solid @colorcc; overflow:hidden;}
+  ul{position:absolute; left:0; top:0;}
+  li{height:@44px; float:left;border-bottom:3px solid #fff;
+    a{padding:0 @20px; color:@color33; line-height:@44px;height:100%; display: inline-block}
+  }
+  li.cur{border-color:@colorA2;
+    a{color:@colorA2}
+  }
+
+}
+.screen{border-bottom:1px solid @colorcc;
+  .screen_content{}
+  .icon_down,.icon_filter{width:@20px; height:@20px; font-size:@12px; text-align:center; line-height:@22px; vertical-align:middle; display:inline-block;}
+  .icon_filter{line-height:@18px;}
+  .sort_by,.filter{height:@40px; padding:0 @15px; font-size:@14px; color:@colorA2; line-height:@40px; cursor:pointer; background:@colorff;
+    .sort_by_content{width:80%; padding:0 @15px; left:0; background:@colorff;
+      li{
+        .fr{display:none;}
+      }
+      .select a{color:@colorA2;
+        .fr{display:block;}
+      }
+    }
+    .filter_content{width:80%; right:0; color:@color66; background:@colorff;
+      ul{margin:0 @15px;}
+      li{height:@50px; line-height:@50px;border-bottom:1px solid @colorcc;
+        .fr{margin-right:@15px;}
+      }
+      em{margin:0 @15px; font-size:@12px; color:@color66;}
+      .filter_txt{width:@50px; height:@40px; padding:0 @5px; text-align:center; line-height:@40px; vertical-align:middle; border:1px solid @colorcc;}
+      .shoulder{width:@15px; height:@2px; margin:0 @5px; vertical-align:middle; display:inline-block; background:@colorcc;}
+      .reset_apply{margin:@15px;
+        input{width:40%; height:@40px; font-size:@14px; color:@color66; border-radius:@4px; background:none;}
+        .reset{border:1px solid @colorcc;}
+        .apply{color:@colorff; background:@colorA2;}
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+#*追踪代码*#
+
+#if($order)
+<input id="orderprice" type="hidden" value="$!order.getFgrandtotal()" />
+#end
+
+#if($orderDetails)
+	#foreach($od in $orderDetails)
+		<div class="order_detail_cls">
+		<input type="hidden" class="dtitle" value="$!od.getCtitle()" />
+		<input type="hidden" class="dsku" value="$!od.getCsku()" />
+		<input type="hidden" class="dprice" value="$!od.getFprice()" />
+		<input type="hidden" class="dqty" value="$!od.getIqty()" />
+		<input type="hidden" class="dtotalprice" value="$!od.getFtotalprices()" /> 
+		<input type="hidden" class="dlistingid" value="$!od.getClistingid()" />
+		</div>
+	#end
+#end
+
+#if($discounts)
+	#foreach($dt in $discounts)
+		<div class="discounts_cls">
+		<input type="hidden" class="dt_type" value="$!dt.getType()" />
+		<input type="hidden" class="dt_code" value="$!dt.getCode()" />
+		<input type="hidden" class="dt_price" value="$!dt.getDiscount()" />
+		</div>
+	#end
+#end
+
+<script type="text/javascript">
+var details = [];
+$(".order_detail_cls").each(function(i,e){
+	var tnode = $(e);
+	var dtitle = tnode.find(".dtitle:eq(0)").val();
+	var dsku = tnode.find(".dsku:eq(0)").val();
+	var dqty = tnode.find(".dqty:eq(0)").val();
+	var dprice = tnode.find(".dprice:eq(0)").val();
+	var dtotalprice = tnode.find(".dtotalprice:eq(0)").val();
+	
+	details.push({
+		"ctitle": dtitle,
+		"csku": dsku,
+		"iqty": dqty,
+		"fprice": parseFloat(dprice).toFixed(2),
+		"ftotalprices": parseFloat(dtotalprice).toFixed(2)
+		});
+});
+
+var order = {
+		"ccurrency":"USD",
+		"cordernumber":"$!order.getCordernumber()",
+		"corigin":"$!order.getCorigin()",
+		"fgrandtotal":parseFloat("$!order.getFgrandtotal()").toFixed(2),
+		"fshippingprice":parseFloat("$!order.getFshippingprice()").toFixed(2),
+		"cpaymentid": "$!order.getCpaymentid()",
+		"fordersubtotal": parseFloat("$!order.getFordersubtotal()").toFixed(2),
+		"fextra": parseFloat("$!order.getFextra()").toFixed(2),
+		"ccountry":"$!order.getCcountry()",
+		"ccountrysn":"$!order.getCcountrysn()",
+		"cprovince":"$!order.getCprovince()",
+		"cemail":"$!order.getCemail()"
+	};
+	
+var loyalty = [];
+$(".discounts_cls").each(function(i,e){
+	var tnode = $(e);
+	var ttype = tnode.find(".dt_type:eq(0)").val();
+	var tcode = tnode.find(".dt_code:eq(0)").val();
+	var tprice = tnode.find(".dt_price:eq(0)").val();
+	loyalty.push({
+		"type": ttype,
+		"code": tcode,
+		"price": parseFloat(Math.abs(tprice)).toFixed(2)
+	});
+});
+</script>

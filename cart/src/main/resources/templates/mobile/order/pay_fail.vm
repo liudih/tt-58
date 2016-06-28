@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>Payment failure  - ${host-name}</title>
+    <meta http-equiv="Pragma" content="no-cache"/>
+	<meta http-equiv="Cache-Control" content="no-cache"/>
+	<meta http-equiv="Expires" content="0"/>
+    <link rel="icon" href="$ico" type="image/x-icon" />
+    <link href="${cdn-url}css/payment_status.css?v=$!{version}" type="text/css" rel="stylesheet" />
+    
+    <script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+    <script src="${cdn-url}js/headfoot.js?v=$!{version}"></script>
+    <script src="${cdn-url}js/cart.js?v=$!{version}"></script>
+</head>
+<body>
+
+#set($title = "Error")
+#parse("/mobile/base/header.vm")
+
+<div id="main">
+    <div class="succeed">
+        <div class="succeed_c">
+            <div class="m clearfix">
+                <div class="smiling">
+                    <img src="/mobile/icon/defeated_118x118.png">
+                </div>
+                <div class="thank">
+                    <p>We're sorry. An error occurred and we're on the case.</p>
+                    
+                    <p class="order_no">#springMessage("fail.detail"): Error<br />
+                    #if($!error.errorCode)
+			        	#springMessage("fail.code"): ${error.errorCode}<br />
+			        #end
+                    #springMessage("fail.message"): ${error.error}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vieworder">
+    	#if($returnWhere && $returnWhere=="no-ec")
+      		<a href="/checkout/for-member-step2?storageid=$!storageid" class="m"><input type="button" value="#springMessage("try_again")" class="tryagain_but" /></a>
+      	#else
+      		#if($returnWhere && $returnWhere=="cart")
+      			<a href="/" class="m"><input type="button" value="#springMessage("try_again")" class="tryagain_but" /></a>
+      		#else
+      			<a href="/" class="m"><input type="button" value="#springMessage("try_again")" class="tryagain_but" /></a>
+      		#end
+      	#end
+    </div>
+
+    <div class="explain">
+        <div class="explain_c">
+            <div class="m">
+                <p>If the problem persists, please don't hesitate to contact us at</p>
+                <p><a href="mailto:service@tomtop.com">service@tomtop.com</a></p>
+                <p>Many thanks and sorry again for the inconvenience!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+#parse("/mobile/base/footer.vm")
+</body>
+</html>

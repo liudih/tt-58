@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+<title>My Order - ${host-name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="$ico" type="image/x-icon" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="${cdn-url}css/newshopping.css?v=$!{version}" />
+<script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+<script src="${cdn-url}js/jquery.json.min.js?v=$!{version}"></script>
+<script src="${cdn-url}js/public.js?v=$!{version}"></script>
+<script src="${cdn-url}js/index.js?v=$!{version}"></script>
+<script src="${cdn-url}js/newshopping.js?v=$!{version}"></script>
+</head>
+<body>
+#set($step = 3)
+#parse("/order/header.vm")
+		
+<!--头部结.p束-->
+
+<div class="newshopping_box">
+    <div class="newshopping_box_left">
+<!--新购物车流程内容-->
+        <div class="newshopping_address">
+            <h2>#springMessage("order.confirm.view.shippingAddress")</h2>
+            <ul id="ship_address_ul" class="ns_address_list" name="shipping">
+                <li class="sel default" id="defaultAddress" >
+                <input name="countryCode" type="hidden" value="$!address.getCountryCode()" />
+                <span name="countryCode" style="display:none;">$!address.getCountryCode()</span>
+                <span name="iid" style="display:none;">$!address.getIid()</span>
+                    <h5>
+	                    <span name="cfirstname">$!address.getCfirstname()</span>&nbsp;
+	                    <span name="clastname">$!address.getClastname()</span>
+                     </h5>
+                    <p>
+	                    <span name="address1">$!address.getCstreetaddress()</span>
+                    </p>
+                    <p>
+	                    <span name="ccity">$!address.getCcity()</span>
+	                    <span name="cprovince">$!address.getCprovince()</span>
+	                    <span name="cpostalcode">$!address.getCpostalcode()</span>  
+                    </p>
+                    <p><span name="countryName">$!shipToCountry</span></p>
+                    <p><span name="ctelephone">$!address.getCtelephone()</span></p>
+                    
+                     
+                   <div class="address_default_edit">
+                     	<a onclick="shipAddressEdit(this)" name="shipAddressEdit" id="shipAddressEdit" class="a_edit" style="display:inline-block;">#springMessage("checkout_step2.edit")</a>
+                     </div>
+                </li>
+                
+                #if($isLogin){
+                <li id="ship_to_new_address" class="add_item">
+                    <div>
+                        <p><span></span></p>
+                        <p>#springMessage("checkout_step2.shipto")</p>
+                    </div>
+
+                </li>
+                #end
+                
+            </ul>
+        </div>
+        <div id="shipMethod" class="newshopping_address orderD_con">
+	       	<h2>Shipping Method</h2>
+	       	<table cellpadding="0" class="method_table">
+                <thead>
+                <tr><td width="27%">Options</td>
+                    <td width="25%">Estimated Shipping Time</td>
+					<td width="20%">Tracking Number</td>
+                    <td width="28%">Shipping Cost</td>
+                </tr></thead>
+                <tbody id="shipping_method">
+                
+                </tbody>
+
+            </table>
+			<div class="delivery_time">
+                <i></i>
+                <p>What's the Total Delivery Time? (Please use this formula to determine when your order will arrive)<br />
+                    <b>Total Delivery Time = Processing Time + Packaging Time + Shipping Time</b>
+                </p>
+            </div>
+	       </div>
+        #parse("/order/order_product_list.vm")
+        
+        <div class="newshopping_message">
+            <p>#springMessage("checkout_step2.leaveMessage")</p>
+            <textarea id="leaveMessage" placeholder="#springMessage("checkout_step2.writeAnything")"></textarea>
+        </div>
+    </div>
+    
+    <!-- 价格显示页面 -->
+    <div class="newshopping_box_right">
+        <dl>
+        	<input type="hidden" id="currencycode" value="$!currencyBo.getCode()" />
+        	<input type="hidden" id="symbolCode" value="$!currencyBo.getSymbolCode()" />
+            <dt>#springMessage("order.confirm.view.summary")</dt>
+            <dd>#springMessage("order.confirm.view.subtotal"):<span id="subtotal" data="$order.getFordersubtotal()">$!order.getFordersubtotalStr()</span> <span> $!currencyBo.getSymbolCode() &nbsp;</span></dd>
+            <dd>#springMessage("order.confirm.view.shippingCost"):<span id="shipCost">0.00</span><span> $!currencyBo.getSymbolCode() &nbsp;</span></dd>
+            <dd>#springMessage("checkout_step2.Discount"):<span> $!currencyBo.getSymbolCode() <span id="discount_total">$!order.getFextra()</span></span></dd>
+            <dd>#springMessage("total")<span class="total"><span> $!currencyBo.getSymbolCode() &nbsp;</span>
+            <span id="grandTotal" total="$!order.getFordersubtotal()">$!order.getFgrandtotal()</span></span></dd>
+        </dl>
+        
+        <!-- <div class="have_code">
+            <p>#springMessage("order.confirm.view.promo")?</p>
+            <div class="have_code_input"><input type="text"/><input type="submit" value="#springMessage("checkout_step2.Apply")"/></div>
+        </div> -->
+        
+        <div class="nw_place_box"><input id="placeYourOrder" type="button" value="#springMessage("place.your.order")" class="nw_btn_place"/></div>
+        <div class="nw_guaranteed">
+           	<p>#springMessage("safe_tip_1") ${host-name}.com #springMessage("safe_tip_2")</p> 
+            <p>
+            <a href="javascript:vrsn_splash()" tabindex="-1">
+	       		<img  border="true" src="/nortonseal/nortonseal3.gif" oncontextmenu="return false;" alt="#springMessage("checkout_step2.verify")">
+	       	</a>
+        </div>
+    </div>
+</div>
+
+<!--地址弹出层-->
+<form id="addShipAddressForm" action="" method="post">
+<div class="blockPopup_box" id="pop_address" style="display: none;">
+    <div class="newshopping_address_pop">
+        <h2>#springMessage("checkout_step.title")</h2>
+        #parse("/order/ship_address_form.vm")
+        <div class="newshopping_address_submit">
+           <!-- <a href="/base/cms/detail/59" target="_blank">#springMessage("checkout_step.Policy")</a> -->
+            <div class="address_submit">
+            	<input type="hidden" id="isBill" value="0" />
+               <input id="cancel_btn" type="button" value="#springMessage("checkout_step2.Cancel")" class="cancel"/>
+               <input id="ok_btn" type="button" value="#springMessage("checkout_step.save") >>" class="save"/>
+            </div>
+        </div>
+    </div>
+    <div class="blockPopup_black"></div>
+</div>
+</form>
+
+<form id="confirmOrderForm" action="/paypal/ec-do" method="post" >
+<input name="token" type="hidden" value="$!token"/>
+<input name="PayerID" type="hidden" value="$!PayerID"/>
+<input id="orderNum" name="orderNum" type="hidden" value="$!order.getCordernumber()"/>
+<input name="cfirstname" type="hidden"/>
+<input name="clastname" type="hidden"/>
+<input name="address1" type="hidden"/>
+<input name="address2" type="hidden"/>
+<input name="ccity" type="hidden"/>
+<input name="cprovince" type="hidden"/>
+<input name="cpostalcode" type="hidden"/>
+<input name="ctelephone" type="hidden"/>
+<input type="hidden" name="shipMethodCode" id="shipMethodCode" value="" />
+<input name="leaveMessage" type="hidden" value="" />
+<input type="hidden" name="countryName" value="" />
+<input type="hidden" name="countrysn" value="$!shipToCountryCode" id="shipToCountryCode" />
+<input name="countryCode" type="hidden" value="$!shipToCountryCode"/>
+
+</form>
+
+<div id="ns_loading_box" class="ns_loading_box" style="display: none;">
+    <div class="ns_loading">
+        <p><img src="/images/newshopping_loading.gif" alt=""/></p>
+        <p>Loading...</p>
+    </div>
+    <div class="blockPopup_black"></div>
+</div>
+
+
+#parse("/order/footer.vm")
+#parse("/base/checkout_trackjs.vm")
+<script src="${cdn-url}js/jquery.country.js?v=$!{version}"></script>
+<script src="${cdn-url}js/newsAddhopping.js?v=$!{version}"></script>
+<script src="${cdn-url}js/country/country_rel.js?v=$!{version}"></script>
+<script src="${cdn-url}js/nortonseal.js?v=$!{version}"></script>
+<script src="${cdn-url}js/new_confirm_order.js?v=$!{version}"></script>
+
+</body>
+</html>

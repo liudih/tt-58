@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.base.mappers.CurrencyBaseMapper">
+	<resultMap id="BaseResultMap" type="com.tomtop.base.models.dto.CurrencyBase">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="code" property="code" jdbcType="VARCHAR" />
+		<result column="symbol_positions" property="symbolPositions" jdbcType="INTEGER" />
+		<result column="symbol_code" property="symbolCode" jdbcType="VARCHAR" />
+		<result column="current_rate" property="currentRate" jdbcType="DECIMAL" />
+		<result column="new_rate" property="newRate" jdbcType="DECIMAL" />
+		<result column="decimal_places" property="decimalPlaces" jdbcType="INTEGER" />
+		<result column="synchro_date" property="synchroDate" jdbcType="TIMESTAMP" />
+		<result column="sort" property="sort" jdbcType="INTEGER" />
+		<result column="is_deleted" property="isDeleted" jdbcType="INTEGER" />
+		<result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+		<result column="created_on" property="createdOn" jdbcType="TIMESTAMP" />
+		<result column="last_updated_by" property="lastUpdatedBy" jdbcType="VARCHAR" />
+		<result column="last_updated_on" property="lastUpdatedOn" jdbcType="TIMESTAMP" />
+		<result column="is_enabled" property="isEnabled" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id, name, code, symbol_positions, symbol_code, 
+		current_rate,new_rate,decimal_places,synchro_date,sort,
+		is_deleted,created_by,created_on,
+		last_updated_by,last_updated_on, is_enabled
+	</sql>
+	
+	<select id="getAllCurrencyBase" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" /> 
+		 from base_currency 
+		 where is_enabled=1 and is_deleted=0
+		 order by sort
+	</select>
+		
+	<sql id="Base_Where_Clause">
+		<where>
+			<trim prefixOverrides="and">
+				<if test="id != null"> and id = #{id}</if>
+				<if test="name != null">and name = #{name}</if>
+				<if test="code != null">and code = #{code}</if>
+				<if test="symbolPositions != null">and symbol_positions = #{symbolPositions}</if>
+				<if test="symbolCode != null">and symbol_code = #{symbolCode}</if>
+				<if test="sort != null">and sort = #{sort}</if>
+				<if test="isDeleted != null">and is_deleted = #{isDeleted}</if>
+				<if test="createdOn != null">and created_on = #{createdOn}</if>
+				<if test="lastUpdatedOn != null">and last_updated_on = #{lastUpdatedOn}</if>
+				<if test="isEnabled != null">and is_enabled = #{isEnabled}</if>
+			</trim>
+		</where>
+	</sql>	
+	
+	<select id="getCurrencyBase" resultMap="BaseResultMap"
+			parameterType="com.tomtop.base.models.dto.CurrencyBase">
+		select 
+		<include refid="Base_Column_List" /> 
+		from base_currency
+		<include refid="Base_Where_Clause" /> 
+		order by sort
+	</select>
+	
+	<select id="getCurrencyBaseByCode" resultMap="BaseResultMap"
+			parameterType="com.tomtop.base.models.dto.CurrencyBase">
+		select 
+		<include refid="Base_Column_List" /> 
+		from base_currency
+		where code = #{0}
+		order by sort
+	</select>
+	
+</mapper>

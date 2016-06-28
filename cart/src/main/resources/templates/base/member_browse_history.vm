@@ -1,0 +1,49 @@
+<div class="might_like">
+   <h3>#springMessage("might_like")</h3>
+	<div class="browse_box boxFramework">
+	<div class="xxkDiv autoH history_publice" style="height:267px;" >
+
+	<div class="xxkBOX accH_box history" id="accH_box1"  style="height:267px;">
+	  	<a class="browseLeft_click" href="javascript:;" value="0"></a>
+	  	<a class="browseRight_click" href="javascript:;" index="0" total_page="0" max_page="@maxPage" next_page_ajax_url="@nextPageAjaxUrl" per_page="@perPage"></a>
+	    <ul class="accMovebox">
+	    	#foreach($p in $plist)
+	  		<li class="accMovePic">
+			<!-- <span class="discount">
+				100%
+			</span> -->
+		   	<a class="publiceImg" href="" >
+				<img src="http://img.tomtop-cdn.com/$p.getImageUrl()" style="height:186px;width:186px;" />
+		    </a>
+		    <p class="publicTitle b2" >
+		    <a title="getTitle" href="getTitle">
+		    	$p.getTitle()
+		    </a></p>
+		    <!-- <p class="ns_zhe">
+		    	<span class="originalPrice"><span class="currency">usd</span> 100</span>
+	        </p> -->
+		    <p class="publicPrice">
+				<span class="presentPrice">$currencyBo.getSymbolCode() $p.getNowprice()</span>
+		    </p>
+			<div class="might_like_btn"></div>
+			</li>
+			#end
+	  		<div class="clear"></div>
+	  	</ul>
+	</div>
+	#if($plist && $plist.size() > 0)
+  	<script>
+  		$(function(){
+ 			try{myMove("accH_box1","accMovebox","accMovePic");}catch(e){};
+			$(".retroclockbox_xs").each(function(i,e){
+ 				timedownFun(this.id, true,"xs",true);
+  			});
+  		});
+  	</script>
+  	#else
+  	<style>.might_like{display:none;}</style>
+  	#end
+  	
+	</div>
+	</div>
+</div>

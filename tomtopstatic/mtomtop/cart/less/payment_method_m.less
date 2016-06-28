@@ -1,0 +1,68 @@
+//支付方式
+.payment{margin-top:@10px; padding-bottom:@10px; background:@colorff;
+  h3{padding:@20px 0; font-size:@16px; font-weight:bold; color:@color33;}
+  li{
+    img{width:auto; max-width:100%;}
+    dl{margin-top:-1px; border:1px solid @colorcc;}
+    dt{height:@70px; line-height:@70px;
+      .payment_img{width:@130px;
+        img{vertical-align:middle; display:inline-block;}
+      }
+      .chooseOneBox{
+        .radio{margin-right:0; vertical-align:middle; display:inline-block;}
+        .radioChecked{background:@colorA2;border-color:@colorA2;}
+      }
+    }
+    dd{font-size:@12px; color:@color66; border-top:1px solid @colorcc; display:none;
+      p{margin-bottom:@10px;
+        em{color:@color99;}
+        select{width:@100px; height:@30px; border:1px solid @colorcc;}
+      }
+      .visa_address{display:none;
+        .address_but{width:80%; height:@40px; font-size:@16px; font-weight:bold; color:@color99; text-align:left; border-radius:@4px; background:@colorff;
+          .icon_plus{font-size:@18px; margin-right:@10px; font-weight:bold;}
+        }
+      }
+      .address_info{padding:0 @15px;}
+      .more_address_but{display:none;}
+    }
+    .select{position:relative; border-color:@colorA1;
+      dd{display:block;}
+    }
+  }
+  .visa dd{padding-bottom:@15px;}
+}
+.chose_state{position:relative; font-size:0;
+  i{width:26px; height:16px; vertical-align:middle; display:inline-block; background-image:url("../icon/state.png"); background-repeat:no-repeat; background-size:auto;}
+  b{margin-left:@10px; font-size:@14px; vertical-align:middle; display:inline-block;}
+  em{font-size:@12px; margin-left:@10px; vertical-align:middle; display:inline-block;}
+  .cur{width:@100px; height:@30px; padding:0 @5px; line-height:@30px; border:1px solid @colorcc; vertical-align:middle; display:inline-block;}
+  .phone{width:@150px; height:@30px; padding:0 @5px; line-height:@30px; border:1px solid @colorcc; border-left:none; vertical-align:middle; display:inline-block;}
+  .state{width:@200px; height:@90px; position:absolute; left:0; top:@30px; padding:0 @5px; border:1px solid @colorcc; border-top:none; display:none; overflow-y:auto; background:@colorff;
+    li{height:@30px; line-height:@30px;}
+  }
+  .place_01{.place(0;0);}
+  .place_02{.place(0;-16px);}
+  .place_03{.place(0;-32px);}
+  .place_04{.place(0;-48px);}
+  .place_05{.place(0;-64px);}
+  .place_06{.place(0;-80px);}
+  .place_07{.place(0;-96px);}
+  .place_08{.place(0;-112px);}
+  .place_09{.place(0;-128px);}
+  .place_10{.place(0;-144px);}
+  .place_11{.place(0;-160px);}
+  .place_12{.place(0;-176px);}
+  .place_13{.place(0;-192px);}
+  .place_14{.place(0;-208px);}
+  .place_15{.place(0;-224px);}
+  .place_16{.place(0;-240px);}
+  .place_17{.place(0;-256px);}
+  .place_18{.place(0;-272px);}
+  .place_19{.place(0;-288px);}
+  .place_20{.place(0;-304px);}
+  .place_21{.place(0;-320px);}
+  .place(@x:0; @y:0px){
+    background-position:@x @y;
+  }
+}

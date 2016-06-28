@@ -1,0 +1,40 @@
+<div class="shoppingCart_top" style="width: 1200px; margin: 0 auto 20px" id="top_s">
+    <div class="topNavigation_logo lineBlock">
+        <div class="topNav_logoT"><a href="$mainurl"><img src="${cdn-url}images/logo.png"></a></div>
+    </div>
+    <ul class="shop_process">
+    	#if($step == 1)
+   			<li class="current_state"><span>1</span>#springMessage("newshopping.banner.1")</li>
+	        <!--当到第二步的页面时，第二个li标签添加多个样式名为“current_state1”-->
+	        <li class="nocurrent_state"><span>2</span>#springMessage("newshopping.banner.2")</li>
+	        <li class="normal_state"><span>3</span>#springMessage("newshopping.banner.3")</li>
+   		#elseif($step == 2)
+  			<li class="current_state"><span>1</span>#springMessage("newshopping.banner.1")</li>
+	        <!--当到第二步的页面时，第二个li标签添加多个样式名为“current_state1”-->
+	        <li class="nocurrent_state current_state1"><span>2</span>#springMessage("newshopping.banner.2")</li>
+	        <li class="normal_state"><span>3</span>#springMessage("newshopping.banner.3")</li>
+   		#else
+  			<li class="current_state"><span>1</span>#springMessage("newshopping.banner.1")</li>
+	        <!--当到第二步的页面时，第二个li标签添加多个样式名为“current_state1”-->
+	        <li class="current_state current_state1"><span>2</span>#springMessage("newshopping.banner.2")</li>
+	        <li class="normal_state"><span>3</span>#springMessage("newshopping.banner.3")</li>
+   		#end
+    </ul>
+</div>
+
+<div class="nav_ljh">
+   <div class="nav_ljhFix">
+      <div id="top"><a href="#top_s"></a></div>
+      <div class="livechat_ljh">
+		#if(${host-name} == "chicuu")
+			<a href="javascript:;" onClick="window.open('http://www16.53kf.com/webCompany.php?style=1&arg=10132799','LiveChat','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=750,height=470,left=80,top=40');"></a>
+		#elseif(${host-name}=="rcmoment")
+			<a href="javascript:;" onClick="window.open('http://www16.53kf.com/webCompany.php?style=1&arg=10136017','LiveChat','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=750,height=470,left=80,top=40');"></a>
+		#else
+			<a href="javascript:;" onClick="window.open('http://www16.53kf.com/webCompany.php?style=1&arg=10045862','LiveChat','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=750,height=470,left=80,top=40');"></a>
+		#end
+        <div class="livechat01">#springMessage("checkout_step2.liveChat")</div>
+        <div class="livechat02"></div>
+      </div>
+  </div>
+</div>

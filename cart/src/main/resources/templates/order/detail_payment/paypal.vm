@@ -1,0 +1,12 @@
+<img src="/images/payment_PayPal.jpg">
+<p>
+	If you have Paypal account, you can pay your order by your Paypal account.
+	<br>
+	If you don't have a Paypal account. You can also pay via Paypal with your credit card or bank debit card.
+	<br>
+	Payment can be submitted in any currency.
+	<br>
+</p>
+<a class="spayOuts" href="javascript:;" tag="submit_button" >
+	<img src="/images/paypalButton.png">
+</a>

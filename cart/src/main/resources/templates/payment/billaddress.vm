@@ -1,0 +1,25 @@
+#if($billAddress)
+    <li iid="$!billAddress.getIid()" class="sel" default=true isship="$!billAddress.getIaddressid()" >
+        <span name="iid" style="display:none;">$!billAddress.getIid()</span>
+            <h5>
+             <span name="cfirstname">$!billAddress.getCfirstname()</span>
+             <span name="clastname">$!billAddress.getClastname()</span>
+             </h5>
+            <p>
+             <span name="address1">$!billAddress.getCstreetaddress()</span>
+            </p>
+            <p>
+             <span name="ccity">$!billAddress.getCcity()</span>
+             <span name="cprovince">$!billAddress.getCprovince()</span>
+             <span name="cpostalcode">$!billAddress.getCpostalcode()</span>  
+            </p>
+            <p><span name="countryName">$!billAddress.getCountryFullName()</span></p>
+            <p><span name="ctelephone">$!billAddress.getCtelephone()</span></p>
+           <div class="address_default_edit" >
+            	<a onclick="shipAddressEdit(this)" name="shipAddressEdit" class="a_edit" style="display:inline-block;">Edit</a>
+            	#if($billAddress.getBdefault()==false)
+            	<a class="a_address_default" onclick="addressDefault(this)" >Default</a>
+            	#end
+           </div>
+  </li>
+  #end

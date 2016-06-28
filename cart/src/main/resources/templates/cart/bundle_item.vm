@@ -1,0 +1,66 @@
+		<dd>
+        	<input type="hidden" class="clistingid" value="$item.getClistingid()" />
+	        <a href="$mainurl/#if($item.getCurl())$item.getCurl()#end.html" >
+	        	<img src="$imgUrlPrefix/$item.getCimageurl()" title="$item.getCtitle()" alt="#if($item.getCtitle())$item.getCtitle()#end"/>
+			</a>
+	        <div class="wares_item_box">
+	            <h5><a href="$mainurl/#if($item.getCurl())$item.getCurl()#end.html" >
+	            #if($item.getCtitle())$item.getCtitle()#end</a></h5>
+	            <p> <span>SKU:<i>#if($item.getSku())$item.getSku()#end</i></span> 
+					<!-- getAttributeMap -->
+					#if($item.getAttributeMap())
+						#foreach($j in $item.getAttributeMap().keySet())
+						<span>
+						#if($j && $j.length()>0)$j.substring(0,1).toUpperCase()$j.substring(1)#end
+						: <i class="bold">$item.getAttributeMap().get($j)</i>
+						</span>
+						#end
+					#end
+				</p>
+	            <div class="a_operation">
+	            	#if(!$islate)
+			            <a href="javascript:void(0);" onclick="addLaterCart(this)">#springMessage("save_later")</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+			            <a href="javascript:void(0);" class="btn_remove" >
+							<span onclick="popDel(this)">#springMessage("cart.remove")</span>
+							<div class="point windows_main toggleDel" style="display: none;">
+		                        <h3 class="point_title">Popover</h3>
+		                        <p class="point_info">Remove from your cart?</p>
+		                        <div class="point_but">
+		                            <button onclick="hideDel(this)" class="point_cancel others_close animate">Cancel</button>
+		                            <button onclick="delitem(this)" class="point_ok others_close animate">OK</button>
+		                        </div>
+		                        <i class="point_arrows"></i>
+		                        <span class="windows_close point_code" onclick="hideDel(this)"></span>
+		                    </div>
+						</a>
+		            #else
+		            	<a href="javascript:void(0);" onclick="moveToCart(this)">#springMessage("move_cart")</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+			            <a href="javascript:void(0);" onclick="addcollect('@kk.getClistingid()','add')" >#springMessage("add_wishlist")</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+			            <a href="javascript:void(0);" class="btn_remove" >
+			            	<span onclick="popDel(this)">#springMessage("cart.remove")</span>
+							<div class="point windows_main toggleDel" style="display: none;">
+		                        <h3 class="point_title">Popover</h3>
+		                        <p class="point_info">Remove from your cart?</p>
+		                        <div class="point_but">
+		                            <button onclick="hideDel(this)" class="point_cancel others_close animate">Cancel</button>
+		                            <button onclick="delLateritem(this)" class="point_ok others_close animate">OK</button>
+		                        </div>
+		                        <i class="point_arrows"></i>
+		                        <span class="windows_close point_code" onclick="hideDel(this)"></span>
+		                    </div>
+			            </a>
+		            #end
+	            </div>
+	        </div>
+	        <div class="wares_price_box">
+	        	#if(!$islate)
+	        		
+					#if($item.getPrice())
+						#if($item.getPrice().getDiscount())
+							<p class="wares_price_through">$!currencyBo.getSymbolCode() $item.getPrice().getUnitBasePriceStr()</p>
+						#end
+						<p>$!currencyBo.getSymbolCode() $item.getPrice().getUnitPriceStr()</p>
+					#end
+				#end
+	        </div>
+    	</dd>

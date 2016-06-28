@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.mapper.shipping.ShippingTemplateMapper">
+	<select id="getTemplateConfigInfo" resultType="com.tomtop.entry.po.ShippingTemplate">
+		SELECT  m.id,
+				m.shipping_type_id shippingTypeId,
+				m.shipping_template_id shippingTemplateId,
+				m.warehouse_id warehouse,
+				m.country,
+				m.country_add_type countrySwitch,
+				m.filter_id filterId,
+				m.priority_shipping_code priorityShippingCode,
+				m.is_freeshipping whetherFreeshipping,
+				m.is_especial whetherSpecial,
+				m.start_amount startAmount,
+				m.start_weight startWeight,
+				m.amount_limit amountLimit,
+				m.weight_limit weightLimit,
+				m.is_calculate_weight isCalculateWeight,
+				m.extra_charge extraCharge
+				from
+				shipping_template_config m
+				where m.is_deleted=0
+				and m.is_enabled=1
+				and m.warehouse_id=#{storageId}
+				and m.shipping_template_id =#{templateId}
+	</select>
+	
+	<!-- <select id="getTemplateConfigInfo" resultType="com.tomtop.entry.po.ShippingTemplate">
+		SELECT  m.id,
+				m.shipping_type_id shippingTypeId,
+				m.shipping_template_id templateId,
+				m.warehouse_id warehouse,
+				m.country,
+				m.filter_id filterId,
+				m.priority_shipping_code priorityShippingCode,
+				m.is_freeshipping whetherFreeshipping,
+				m.is_especial whetherSpecial,
+				m.amount_limit amountLimit,
+				m.weight_limit weightLimit,
+				m.extra_charge extraCharge
+				from sku_map_shippingtemplate t INNER JOIN
+				shipping_template_config m
+				on t.template_id=m.shipping_template_id
+				where t.status='1'
+				and m.is_deleted=0
+				and m.is_enabled=1
+				and t.template_id=#{templateId}
+				<if test="price != null and price >0 ">
+					and #{price} BETWEEN m.amount_limit_start and m.amount_limit_end
+			    </if>
+			    <if test="weight != null and weight >0 ">
+					and #{weight} BETWEEN m.weight_limit_start and m.weight_limit_end
+			    </if>
+			    CASE WHEN country_add_type =='0' THEN and m.country like '%||#{country}||%'
+			    
+			    WHEN salary =='1'  THEN and m.country not like '%||#{country}||%'
+			    
+				ELSE NULL END
+			    <if test="countryType== 0">
+					and m.country like '%||#{country}||%'
+			    </if>
+			    <if test="countryType== 1">
+					and m.country not like '%||#{country}||%'
+			    </if>
+			    <if test="weight != null and weight >0 ">
+					and #{weight} BETWEEN m.weight_limit_start and m.weight_limit_end
+			    </if>
+	</select> -->
+	
+</mapper>

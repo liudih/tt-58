@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.loyalty.mappers.loyalty.PromoCodeMapper">
+
+	<resultMap type="com.tomtop.loyalty.models.PromoCode" id="baseRM">
+		<id column="iid" property="id" jdbcType="INTEGER" />
+		<result column="iwebsiteid" property="websiteId" jdbcType="INTEGER" />
+		<result column="imemberid" property="memberId" jdbcType="INTEGER" />
+		<result column="ccode" property="code" jdbcType="VARCHAR" />
+		<result column="icodeid" property="codeId" jdbcType="INTEGER" />
+		<result column="ccode" property="code" jdbcType="VARCHAR" />
+		<result column="fparvalue" property="parValue" jdbcType="FLOAT" />
+		<result column="ccurrency" property="currency" jdbcType="VARCHAR" />
+		<result column="cremark" property="remark" jdbcType="VARCHAR" />
+		<result column="dcreatedate" property="createDate" jdbcType="TIMESTAMP" />
+		<result column="denddate" property="endDate" jdbcType="TIMESTAMP" />
+		<result column="istatus" property="status" jdbcType="INTEGER" />
+		<result column="iruleid" property="ruleId" jdbcType="INTEGER" />
+		<result column="rulename" property="ruleName" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<sql id="baseColumn">
+		a.iwebsiteid,a.imemberid,a.ccode,a.fparvalue,a.ccurrency,a.cremark,a.dcreatedate,a.denddate,a.istatus,a.iruleid
+	</sql>
+
+	<select id="getPromoCodeByCondition" resultMap="baseRM" parameterType="map">
+		select a.iid,c.cname as rulename,
+		<include refid="baseColumn"></include>
+		from t_coupon_base a
+		left join t_coupon_rule c
+		on a.iruleid=c.iid
+		where a.iwebsiteid= ${website}
+		<if test="ruleId != null and ruleId != '' ">
+			and  a.iruleid = ${ruleId}
+		</if>
+		<if test="code != null and code != '' ">
+			and a.ccode=#{code}
+		</if>
+		<if test="startDate != null and startDate != '' ">
+			and a.dcreatedate >= '${startDate} 00:00'
+		</if>
+		<if test="endDate != null and endDate != '' ">
+			and a.dcreatedate &lt;= '${endDate} 23:59'
+		</if>
+		limit 1
+		
+	</select>
+		
+</mapper>

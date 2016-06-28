@@ -1,0 +1,17 @@
+ 	<hr>
+	
+	<div class="container payFWait" style="height: 300px;padding-top: 100px">
+		#if(!$form)
+			<p>Can't found account with this payment method!</p>
+		#else
+			<p class="loading" style="width:500px; margin:auto;text-align:center;">
+				<i>#springMessage("redirecting")</i>
+				<img src="/images/payment_wait.gif">
+			</p>
+			<form action="${actionUrl}" method="post">
+				#foreach($key in $form.keySet())
+				    <input type="hidden" name="${key}" value="$form.get($key)" />
+				#end
+			</form>
+		#end
+	</div>

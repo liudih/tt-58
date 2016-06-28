@@ -1,0 +1,281 @@
+label.error {
+  color: red;
+  margin-top: 5px;
+}
+button {
+  border-radius: inherit !important;
+}
+.checkboxes {
+  cursor: pointer;
+}
+.chex_box {
+  padding-top: 25px;
+  border-top: 1px solid #dedede;
+}
+.tx_l {
+  text-align: left !important;
+}
+.table_tx_c th {
+  text-align: center !important;
+}
+.w_200 {
+  width: 200px;
+}
+@media (max-width: 450px) {
+  .w_200 {
+    width: 100%;
+  }
+}
+.juese_title {
+  text-align: right;
+  vertical-align: middle !important;
+}
+.juese_title label {
+  font-weight: bold;
+}
+.table_juese td {
+  padding: 8px !important;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.page-header .navbar .navbar-nav > li > a,
+.breadcrumbs h1,
+.page-sidebar .nav-collapse h3,
+.page-header .navbar .navbar-nav .dropdown-menu > li > a {
+  font-family: "Microsoft YaHei" !important;
+}
+.page-header .navbar .navbar-nav > li > a > i {
+  position: relative;
+  top: 0;
+  right: 0;
+}
+.breadcrumbs {
+  margin-bottom: 18px;
+}
+.page-header .navbar .navbar-nav > li > a {
+  background-color: #485d71;
+  color: #ccc;
+}
+@media (min-width: 992px) {
+  .page-header .navbar-collapse .navbar-nav .more-dropdown-sub > a {
+    padding: 10px 30px!important;
+    position: relative;
+    background: inherit;
+  }
+}
+@media (min-width: 992px) {
+  .page-header .navbar-collapse .navbar-nav .more-dropdown-sub > a:after {
+    top: 11px;
+  }
+}
+.page-header .navbar-collapse .navbar-nav .more-dropdown > a:after {
+  top: 14px;
+}
+@media (min-width: 992px) {
+  .page-content {
+    margin-top: -4px;
+    padding-top: 43px;
+  }
+  .page-header .navbar-fixed-top {
+    padding: 0px 25px;
+  }
+  .page-header .navbar-collapse {
+    margin-top: 40px;
+  }
+  .page-header .topbar-actions {
+    top: 0;
+  }
+}
+.tt_img {
+  max-height: 50px;
+}
+.tabl_min_200 {
+  min-width: 200px;
+  word-break: break-all;
+}
+.page-header .navbar .navbar-nav > li > a {
+  padding: 12px 34px;
+  font-size: 16px;
+}
+.navbar-nav > li > a {
+  line-height: normal;
+}
+.breadcrumbs .breadcrumb > li {
+  font-size: 12px;
+}
+.breadcrumbs .breadcrumb li.active {
+  color: #008CB3;
+}
+.breadcrumbs .breadcrumb > li > a {
+  color: #999;
+}
+.breadcrumbs .breadcrumb > li + li:before {
+  top: 0px;
+  color: #dfe4e6;
+  font-size: 14px;
+  content: "\f105";
+  position: relative;
+  padding: 0 5px 0 5px;
+  font-family: "FontAwesome";
+}
+.portlet > .portlet-title > .caption {
+  font-size: 16px;
+}
+.portlet.light {
+  padding: 12px 15px 15px;
+}
+.portlet.light > .portlet-title > .actions {
+  padding: 0px 0 10px;
+}
+.portlet.light > .portlet-title {
+  padding: 0;
+  min-height: 45px;
+}
+.table thead tr th,
+.table td,
+.table th {
+  font-size: 12px;
+}
+.btn_edit {
+  font-size: 20px;
+  color: #32c5d2;
+  position: relative;
+  top: 3px;
+  cursor: pointer;
+}
+.btn_sha {
+  font-size: 20px;
+  color: #D91E18;
+  position: relative;
+  cursor: pointer;
+  top: 1px;
+  margin-left: 10px;
+}
+.portlet.light.bordered > .portlet-title {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.portlet.light > .portlet-title > .actions {
+  padding: 0;
+}
+.portlet.light .portlet-body {
+  padding: 0;
+}
+.table-scrollable {
+  margin: 0 0 10px!important;
+}
+.portlet {
+  margin-bottom: 15px;
+}
+.breadcrumbs {
+  margin-bottom: 5px;
+}
+.pagination {
+  margin: 0;
+}
+.show_input {
+  height: 27px !important;
+  line-height: 27px !important;
+  padding: 0 10px;
+}
+.table-toolbar {
+  margin-bottom: 10px;
+}
+.tt_website_box .dropdown-menu-v2 {
+  min-width: 350px;
+  padding: 15px;
+}
+.tt_website h6 {
+  color: #009dc7;
+  font-size: 12px;
+  clear: both;
+  margin: 5px 0;
+  font-weight: bold;
+}
+.tt_website > ul {
+  list-style: none;
+  padding: 0;
+}
+.tt_website > ul li {
+  min-width: 160px;
+  float: left;
+  padding: 2px 0;
+}
+.tt_website > ul a {
+  display: block;
+  color: #606e7a;
+  text-underline: none !important;
+  font-size: 12px;
+}
+.tt_website > ul a:hover {
+  color: #009dc7;
+  text-underline: none !important;
+}
+.web_current {
+  margin: 15px 6px 0px 0px;
+}
+.web_current span {
+  color: #999;
+}
+#currentSite {
+  color: #009dc7;
+}
+.cms_con {
+  border-top: 1px solid #ddd;
+  height: 50px;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+.cms_con button {
+  float: right;
+  margin-top: -10px;
+}
+.cms_con span {
+  margin: 0 15px;
+}
+.ztree .level2 span.button.add {
+  display: none;
+}
+/*品牌管理样式*/
+.brand_intro{width:400px;max-height:50px;position:relative;overflow:hidden;}
+tbody > tr:nth-of-type(2n+1) .brand_intro span{background:#fbfcfd;}
+.brand_intro span{position:absolute;right:0;bottom:0px;display:block;width:40px;background:#fff}
+tr:hover .brand_intro span{background:#eef1f5}
+.brand_intro p{padding:0;margin:0}
+tbody > tr:nth-of-type(2n+1):hover .brand_intro span{background:#eef1f5}
+.all_info{position:absolute;left:0;top:0;width:400px;max-height:400px;padding:10px;background:#fff;border:1px solid #ddd;box-shadow:5px 5px rgba(102,102,102,.1);z-index: 100}
+#brand_row .col-md-12{position:static !important}
+.all_info:before{position:absolute;top:30px;left:-17px;right:auto;border-right: 8px solid #e0e0e0;border-bottom:8px solid transparent;border-left:8px solid transparent;border-top:8px solid transparent;content:' ';}
+.all_info:after{
+    position:absolute;
+    top:29px;
+    left:-17px;
+    right: auto;
+    display: inline-block!important;
+    border-right: 9px solid #fff;
+    border-bottom: 9px solid transparent;
+    border-left: 9px solid transparent;
+    border-top: 9px solid transparent;
+    content: '';
+  }
+.all_info div{max-height:400px;overflow:auto}
+@media(min-width:1000px){
+   #brand_intro .modal-dialog,
+   #brand_sort .modal-dialog{width:900px !important}
+}
+#brand_name .col-md-8{position:relative;}
+#brand_name .dropdown-menu{width:90%;margin-left:15px;margin-right:15px;top:24px;max-height:400px;overflow: auto;}
+#brand_sort .modal-body,
+#brand_intro .modal-body{overflow:auto;}
+#brand_sort .table-checkable tr>td:first-child{max-width:none}
+.portlet.light.bordered .dropdown-menu{width:78px;min-width:78px}
+.move_bottom_btn{position:relative;}
+.move_bottom_btn .fa-arrow-down:after{content:'';width:12px;height:3px;background:#fff;position:absolute;left:50%;bottom:5px;margin-left:-6px;border-radius:3px}
+.move_top_btn{position:relative;}
+.move_top_btn .fa-arrow-up:after{content:'';width:12px;height:3px;background:#fff;position:absolute;left:50%;top:5px;margin-left:-6px;border-radius:3px}

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.base.mappers.EventServicesMapper">
+	<resultMap id="BaseResultMap" type="com.tomtop.base.models.dto.EventServicesDto">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="code" property="code" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
+		<result column="param_remark" property="paramRemark" jdbcType="VARCHAR" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="field1" property="field1" jdbcType="VARCHAR" />
+		<result column="field2" property="field2" jdbcType="VARCHAR" />
+		<result column="field3" property="field3" jdbcType="VARCHAR" />
+		<result column="field4" property="field4" jdbcType="VARCHAR" />
+		<result column="field5" property="field5" jdbcType="VARCHAR" />
+		<result column="is_enabled" property="isEnabled" jdbcType="INTEGER" />
+		<result column="is_deleted" property="isDeleted" jdbcType="INTEGER" />
+		<result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+		<result column="created_on" property="createdOn" jdbcType="TIMESTAMP" />
+		<result column="last_updated_by" property="lastUpdatedBy" jdbcType="VARCHAR" />
+		<result column="last_updated_on" property="lastUpdatedOn" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id, code, name, type, param_remark, remark,
+		field1,field2,field3,field4,field5,
+		is_enabled,is_deleted,created_by,created_on,
+		last_updated_by,last_updated_on
+	</sql>
+		
+	<sql id="Base_Where_Clause">
+		<where>
+			<trim prefixOverrides="and">
+				<if test="id != null"> and id = #{id}</if>
+				<if test="name != null">and name = #{name}</if>
+				<if test="code != null">and code = #{code}</if>
+				<if test="type != null">and type = #{type}</if>
+				<if test="isDeleted != null">and is_deleted = #{isDeleted}</if>
+				<if test="isEnabled != null">and is_enabled = #{isEnabled}</if>
+			</trim>
+		</where>
+	</sql>	
+	
+	<select id="getEventServicesDto" resultMap="BaseResultMap"
+			parameterType="com.tomtop.base.models.dto.EventServicesDto">
+		select 
+		<include refid="Base_Column_List" /> 
+		from event_services
+		<include refid="Base_Where_Clause" /> 
+		order by id;
+	</select>
+	
+		<insert id="insertEventServicesDto" parameterType="com.tomtop.base.models.dto.EventServicesDto" >
+	    insert into event_services
+	    <trim prefix="(" suffix=")" suffixOverrides="," >
+	      <if test="code != null" >code,</if>
+	      <if test="name != null" >name,</if>
+	      <if test="type != null" >type,</if>
+	      <if test="paramRemark != null" >param_remark,</if>
+	      <if test="remark != null" >remark,</if>
+	      <if test="field1 != null" >field1,</if>
+	      <if test="field2 != null" >field2,</if>
+	      <if test="field3 != null" >field3,</if>
+	      <if test="field4 != null" >field4,</if>
+	      <if test="field5 != null" >field5,</if>
+	      <if test="createdBy != null" >created_by,</if>
+	      <if test="createdOn != null" >created_on,</if>
+	      <if test="lastUpdatedBy != null" >last_updated_by,</if>
+	      <if test="lastUpdatedOn != null" >last_updated_on,</if>
+	    </trim>
+	    <trim prefix="values (" suffix=")" suffixOverrides="," >
+	      <if test="code != null" >#{code,jdbcType=VARCHAR},</if>
+	      <if test="name != null" >#{name,jdbcType=VARCHAR},</if>
+	      <if test="type != null" >#{type,jdbcType=VARCHAR},</if>
+	      <if test="paramRemark != null" >#{paramRemark,jdbcType=VARCHAR},</if>
+	      <if test="remark != null" >#{remark,jdbcType=VARCHAR},</if>
+	      <if test="field1 != null" >#{field1,jdbcType=VARCHAR},</if>
+	      <if test="field2 != null" >#{field2,jdbcType=VARCHAR},</if>
+	      <if test="field3 != null" >#{field3,jdbcType=VARCHAR},</if>
+	      <if test="field4 != null" >#{field4,jdbcType=VARCHAR},</if>
+	      <if test="field5 != null" >#{field5,jdbcType=VARCHAR},</if>
+	      <if test="createdBy != null" >#{createdBy,jdbcType=VARCHAR},</if>
+	      <if test="createdOn != null" >#{createdOn,jdbcType=TIMESTAMP},</if>
+	      <if test="lastUpdatedBy != null" >#{lastUpdatedBy,jdbcType=VARCHAR},</if>
+	      <if test="lastUpdatedOn != null" >#{lastUpdatedOn,jdbcType=TIMESTAMP},</if>
+	    </trim>
+  </insert>
+	
+</mapper>

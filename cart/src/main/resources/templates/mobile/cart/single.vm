@@ -1,0 +1,52 @@
+<dd class="p clearfix itemline">
+	<input type="hidden" class="clistingid" value="$kk.getClistingid()" autocomplete="off" />
+	<input type="hidden" class="storageid" value="$kk.getStorageID()" autocomplete="off" />
+	<input type="hidden" class="iqty" value="$kk.getIqty()" autocomplete="off" />
+    <!-- <div class="checkbox_wrap fr">
+        <label>
+            <input type="checkbox">
+            <div class="checkbox chooseClick checkboxed"><i class="icon_check"></i></div>
+        </label>
+    </div> -->
+    <div class="product_image fl">
+        <a href="$mainurl/#if($kk.getCurl())$kk.getCurl()#end.html" >
+			<img src="$imgUrlPrefix/$kk.getCimageurl()" title="$kk.getCtitle()" alt="$kk.getCtitle()"/>
+		</a>
+		#if($kk.getPrice() && $kk.getPrice().isDiscounted())
+			<div class="off">$kk.getPrice().getDiscountStr()</div>
+		#end
+    </div>
+    <div class="product_info">
+        <h3><a href="$mainurl/#if($kk.getCurl())$kk.getCurl()#end.html" >$!kk.getCtitle()</a></h3>
+        <div class="product_price">
+        	#if($kk.getPrice())
+			<input type="hidden" class="theprice" value="$kk.getPrice().getPrice()" />
+            <span class="current_price">$currencyBo.getSymbolCode()<em>$kk.getPrice().getUnitPriceStr()</em></span>
+            #if($kk.getPrice().isDiscounted())
+            	<span class="original_price">$currencyBo.getSymbolCode()<em>$kk.getPrice().getUnitBasePriceStr()</em></span>
+            #end
+            #end
+        </div>
+        <div class="attr">
+            <span>SKU:$!kk.getSku()</span>
+            #if($kk.getAttributeMap())
+				#foreach($j in $kk.getAttributeMap().keySet())
+				<span>
+				#*首字母大写*#
+				#if($j && $j.length()>0)$j.substring(0,1).toUpperCase()$j.substring(1)#end
+				: $kk.getAttributeMap().get($j)
+				</span>
+				#end
+			#end
+        </div>
+    </div>
+    <div class="qty">
+        <i class="icon_minus qty_cut" onclick="updateItem('sub',this)"></i>
+        <input type="text" value="$kk.getIqty()" autocomplete="off" class="qty_txt input_num" />
+        <i class="icon_plus qty_add" onclick="updateItem('add',this)"></i>
+    <span class="fr collectcon">
+        <i class="icon_wishlist"  onclick="addcollect('$kk.getClistingid()',this)"></i>
+        <i class="icon_delete2" onclick="popDel('$k', '$kk.getClistingid()')" ></i>
+    </span>
+    </div>
+</dd>

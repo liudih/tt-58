@@ -1,0 +1,20 @@
+
+<input type="hidden" name="userName" value="$!current_email">
+<input type="hidden" name="userEmail" value="$!current_email">
+<li>
+	<p>
+		<img src="/images/PayPal08_1.jpg">
+	</p>
+</li>
+<li>
+	<ul class="boleto_ul">
+		<li>
+			<div class="lineBlock">Type</div> <select class="lineBlock"
+			name="pay_typeCode">
+				<option value="boleto">Boleto</option>
+				<option value="_tef">Transferências Bancária</option>
+		</select>
+		</li>
+	</ul>
+</li>
+<input class="spayOut" type="button" value="Continue" tag="submit_button">

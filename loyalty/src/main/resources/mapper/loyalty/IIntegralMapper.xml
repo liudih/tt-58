@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.loyalty.mappers.loyalty.IIntegralMapper" >
+  <resultMap id="base_result_map" type="com.tomtop.loyalty.models.IntegralModel" >
+    <id column="iid" property="id" jdbcType="INTEGER" />
+    <result column="iwebsiteid" property="webSiteId" jdbcType="INTEGER" />
+    <result column="cemail" property="email" jdbcType="VARCHAR" />
+    <result column="cdotype" property="dotype" jdbcType="VARCHAR" />
+    <result column="dcreatedate" property="createDate" jdbcType="DATE" />
+    <result column="cremark" property="remark" jdbcType="VARCHAR" />
+    <result column="istatus" property="status" jdbcType="INTEGER" />
+    <result column="csource" property="source" jdbcType="VARCHAR" />
+    <result column="iintegral" property="integralNum" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="base_column_list" >
+	iid, iwebsiteid, cemail, cdotype, dcreatedate,cremark,istatus, csource,iintegral 
+  </sql>
+	
+  <select id="searchByUser" resultMap="base_result_map">
+	  <if test="obj.email !=null">
+	  	select 
+	  	<include refid="base_column_list"/>
+	  	from t_member_integral_history
+	  	where 1=1 
+	  	and iwebsiteid = #{obj.webSiteId,jdbcType=INTEGER} 
+	  	and cemail = #{obj.email,jdbcType=VARCHAR} 
+	  	and istatus = #{obj.status,jdbcType=INTEGER} 
+	  	
+	  	<if test="obj.dotype != null">
+	  		and cdotype = #{obj.dotype,jdbcType=VARCHAR} 
+	  	</if>
+	  	order by dcreatedate desc limit   #{end,jdbcType=INTEGER}  offset #{begin,jdbcType=INTEGER}
+	  </if>  	
+  </select>
+  
+  <select id="searchTotalByUser" resultType="java.lang.Integer" >
+  	 <if test="obj.email !=null">
+	  	select  count(1)
+	  	from t_member_integral_history
+	  	where 1=1 
+	  	and iwebsiteid = #{obj.webSiteId,jdbcType=INTEGER} 
+	  	and cemail = #{obj.email,jdbcType=VARCHAR} 
+	  	and istatus = #{obj.status,jdbcType=INTEGER} 
+	  	
+	  	<if test="obj.dotype != null">
+	  		and cdotype = #{obj.dotype,jdbcType=VARCHAR} 
+	  	</if>
+	  
+	  </if>  	
+  </select>
+  
+  
+  <select id="searchUserIntegralNumByUser" resultType="java.lang.Integer" >
+	  select sum (iintegral) from t_member_integral_history where 1=1 and cemail = #{0,jdbcType=VARCHAR} and iwebsiteid=#{1,jdbcType=INTEGER} and istatus = 1
+  </select>
+  
+    <insert id="save" parameterType="com.tomtop.loyalty.models.IntegralModel"  useGeneratedKeys="true" keyProperty="iid" >
+		insert into t_member_integral_history
+		(iwebsiteid, cemail, cdotype, dcreatedate,cremark,istatus, csource,iintegral)
+		values
+		(#{webSiteId,jdbcType=INTEGER},
+		 #{email,jdbcType=VARCHAR},
+		#{dotype,jdbcType=VARCHAR},
+		#{createDate,jdbcType=TIMESTAMP},
+		#{remark,jdbcType=VARCHAR}, 
+		#{status,jdbcType=INTEGER}, 
+		#{source,jdbcType=VARCHAR},
+		#{integralNum,jdbcType=INTEGER})
+	</insert>
+  
+  
+</mapper>

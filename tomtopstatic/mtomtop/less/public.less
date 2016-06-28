@@ -1,0 +1,70 @@
+@charset "utf-8";
+/*----------初始化----------*/
+*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+html,body{-webkit-text-size-adjust:none;text-size-adjust:none;}
+body{background:#fff;text-transform:capitalize}
+html,body,input,textarea,select,button{font-size:12px;font-family:Arial, Helvetica, sans-serif;color:#333;outline:none;padding:0;border:none;}
+body{line-height:1.5rem; font-size:1rem;}
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,form,dl,dt,dd,li{margin:0;-webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+ul,ol,li{padding:0;list-style-type:none;}
+a,img{border:0;}
+table{border-collapse:collapse;border-spacing:0;}
+textarea{overflow:auto;vertical-align:top;resize:none;}
+a{color:#333;text-decoration:none;outline:none;blr:~"expression(this.onFocus=this.blur())"; tap-highlight-color: rgba(0,0,0,0);  focus-ring-color:rgba(0, 0, 0, 0); -webkit-tap-highlight-color:rgba(0,0,0,0);  -webkit-focus-ring-color:rgba(0, 0, 0, 0);  -moz-tap-highlight-color:rgba(0,0,0,0);  -moz-focus-ring-color:rgba(0, 0, 0, 0);  }
+a:hover{text-decoration:none;color:blue;border:none;}
+img{display:inline-block;}
+input[type=button]{-webkit-appearance:none;outline:none;border:none;cursor:pointer;}
+i,em{font-style:normal;}
+
+/*----------罗小雷----------*/
+.fl{float:left;}
+.fr{float:right;}
+.txtLength{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.lineBlock{display:inline-block;zoom:1;*display:inline;font-size:12px;letter-spacing:normal;word-spacing:normal;vertical-align:top;}
+.lbBox{font-size:0;*word-spacing:-1px;}
+.lbUl{font-size:0;*word-spacing:-1px;}
+.lbUl li{display:inline-block;zoom:1;*display:inline;font-size:12px;letter-spacing:normal;word-spacing:normal;vertical-align:top;}
+.clearfix{clear:both;zoom:1;}
+.clearfix:after{clear:both;display:block;height:0;font-size:0;content:".";visibility:hidden;}
+/*----------李建辉----------*/
+.clear{clear:both;}
+//.clearfix{clear:both;zoom:1;}
+//.clearfix:after{clear:both;display:block;height:0;font-size:0;content:".";visibility:hidden;}//用于清除浮动父级
+.valign{width:0;height:100%;font-size:0;vertical-align:middle;display:inline-block;}//用于垂直对齐同级
+.valign_b:before,.valign_a{width:0;height:100%;font-size:0;vertical-align:middle;content:'';display:inline-block;}//用于垂直对齐父级
+.animate{transition:0.5s;-moz-transition:0.5s;-o-transition:0.5s;-ms-transition:0.5s;-webkit-transition:0.5s;}//用于动画
+#dialogs{width:100%;height:150%;position:fixed;left:0;top:0;font-size:0; display:none;z-index:1000;}//用于弹窗
+#dialogs:before{width:100%; height:100%; position:absolute; left:0; top:0; content:''; opacity:0.8; filter:~"alpha(opacity:80)"; background:#000;}//用于弹窗黑底
+#dialogs_content{width:100%; height:100%; position:absolute; left:0; top:0; text-align:center;}//用于弹窗主体
+.dialogs_main{position:relative;display:none;background:#fff;}//用于弹窗内容
+.scale_0{transform:scale(0);-moz-transform:scale(0);-ms-transform:scale(0);-o-transform:scale(0);-webkit-transform:scale(0); display:block!important;}//缩小0%
+.scale_1{transform:scale(1);-moz-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);-webkit-transform:scale(1);}//放大100%
+.rotate_45{transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg); -o-transform:rotate(45deg); -webkit-transform:rotate(45deg);}
+.rotate_90{transform:rotate(90deg); -moz-transform:rotate(90deg); -ms-transform:rotate(90deg); -o-transform:rotate(90deg); -webkit-transform:rotate(90deg);}
+.rotate_180{transform:rotate(-180deg); -moz-transform:rotate(-180deg); -ms-transform:rotate(-180deg); -o-transform:rotate(-180deg); -webkit-transform:rotate(-180deg);}
+.rotate_270{transform:rotate(-90deg); -moz-transform:rotate(-90deg); -ms-transform:rotate(-90deg); -o-transform:rotate(-90deg); -webkit-transform:rotate(-90deg);}
+.rotate_315{transform:rotate(-45deg); -moz-transform:rotate(-45deg); -ms-transform:rotate(-45deg); -webkit-transform:rotate(-45deg);}
+.close{width:30px; height:30px;position:relative;font-size:0;display:block;cursor:pointer;background:#000;
+  &:before,&:after{width:80%; height:2px; position:absolute; left:50%; top:50%; margin-top:-1px; margin-left:-40%; content:''; display:inline-block; background:#fff;}
+  &:before{.rotate_45}
+  &:after{.rotate_315}
+}//关闭
+.show_hide{width:30px;height:30px;position:relative;font-size:0;line-height:40px;display:block;cursor:pointer;background:#000;
+  &:before,&:after{width:80%;height:2px;position:absolute;left:50%;top:50%;margin-top:-1px;margin-left:-40%;content:'';display:inline-block;background:#fff;}
+  &:after{.rotate_90}
+}
+.show:after{display:none;}//显示/隐藏
+.arrow{width:20px; height:20px; position:relative; border-radius:50%; display:inline-block; background:#000;
+  &:before,&:after{width:40%; height:2px; position:absolute; left:32%; content:''; display:block; background:#fff;}
+  &:before{top:34%; transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg); -webkit-transform:rotate(45deg);}
+  &:after{bottom:34%; transform:rotate(-45deg); -moz-transform:rotate(-45deg); -ms-transform:rotate(-45deg); -webkit-transform:rotate(-45deg);}
+} //箭头
+.elips{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.loading_button{width:100%;padding:@20px 0;text-align:center;font-size:@14px;color:@color33;
+  img{width:auto !important;display:inline-block;}
+}
+
+

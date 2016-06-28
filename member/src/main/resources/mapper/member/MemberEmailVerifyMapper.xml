@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.member.mappers.user.MemberEmailVerifyMapper" >
+  <resultMap id="BaseResultMap" type="com.tomtop.member.models.dto.MemberEmailVerify" >
+    <id column="iid" property="iid" jdbcType="INTEGER" />
+    <result column="cemail" property="cemail" jdbcType="VARCHAR" />
+    <result column="bisending" property="bisending" jdbcType="BOOLEAN" />
+    <result column="cmark" property="cmark" jdbcType="VARCHAR" />
+    <result column="cactivationcode" property="cactivationcode" jdbcType="VARCHAR" />
+    <result column="idaynumber" property="idaynumber" jdbcType="INTEGER" />
+    <result column="dvaliddate" property="dvaliddate" jdbcType="TIMESTAMP" />
+    <result column="dsenddate" property="dsenddate" jdbcType="TIMESTAMP" />
+    <result column="dcreatedate" property="dcreatedate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    iid, cemail, bisending,cactivationcode,cmark,idaynumber, 
+    idaynumber,dvaliddate,dsenddate, dcreatedate
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List"  />
+    from t_member_email_verify
+    where iid = #{iid,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_member_email_verify
+    where iid = #{iid,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.tomtop.member.models.dto.MemberEmailVerify" >
+    insert into t_member_email_verify (
+   		 cemail,cmark, bisending,cactivationcode,idaynumber,dvaliddate,dsenddate,dcreatedate)
+    values (
+        #{cemail,jdbcType=VARCHAR},  
+	    #{cmark,jdbcType=VARCHAR},
+	    #{bisending,jdbcType=BOOLEAN}, 
+	    #{cactivationcode,jdbcType=VARCHAR},
+	    #{idaynumber,jdbcType=INTEGER}, 
+	    #{dvaliddate,jdbcType=TIMESTAMP}, 
+	    #{dsenddate,jdbcType=TIMESTAMP},
+	    now()
+     )
+  </insert>
+  
+</mapper>

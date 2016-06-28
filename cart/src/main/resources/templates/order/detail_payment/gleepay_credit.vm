@@ -1,0 +1,44 @@
+<span class="payFors">#springMessage("pay.for")</span>
+<img src="${cdn-url}images/vscj.gif">
+<p class="bil_adds">
+	<span>#springMessage("billing.address"):</span>
+</p>
+<p class="gray_g">
+	#springMessage("make.billing.address.matches")
+	&amp; #springMessage("address.credit.card")<br> 
+	#springMessage("please.note.shipping.address.must.country.billing.address")
+</p>
+#if($billAddress)
+	<input type="hidden" name="billAddressId" value="$!billAddress.getIid()">
+	<ul class="Credit_LI">
+		<li class="Credit_after">#springMessage("consignee.name"):</li>
+		<li>
+			$!billAddress.getCfirstname()  &nbsp&nbsp 
+			$!billAddress.getClastname()
+		</li>
+		<li class="Credit_after">#springMessage("address"):</li>
+		<li>
+			$!billAddress.getCstreetaddress() 				  		&nbsp 
+			$!billAddress.getCcity() 									&nbsp 
+			$!billAddress.getCprovince() 								&nbsp
+			
+		</li>
+			
+		</li>
+		<li class="Credit_after">#springMessage("state.province.region"):</li>
+		<li>$!billAddress.getCprovince()</li>
+		<li class="Credit_after">#springMessage("city")</li>
+		<li>$!billAddress.getCcity() </li>
+		<li class="Credit_after">#springMessage("zip.postal.code"):</li>
+		<li>$!billAddress.getCpostalcode() </li>
+		<li class="Credit_after">#springMessage("phone.number")</li>
+		<li>$!billAddress.getCtelephone()</li>
+	</ul>
+#end
+<p>
+	<b>#springMessage("unotice"):</b> 
+	#springMessage("accept.the.credit.card.with.visa.mastercard")
+</p>
+#if($billAddress)
+<input class="spayOut" type="button" value="Continue" tag="submit_button">
+#end

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<meta http-equiv="Cache-Control" content="no-cache"/>
+	<meta http-equiv="Expires" content="0"/>
+	<title>Fail - ${host-name}</title>
+	<meta name="description" content="" />
+	<link rel="icon" href="$ico" type="image/x-icon" />
+	<meta name="keywords" content="" />
+	<link rel="stylesheet" type="text/css" href="${cdn-url}css/newshopping.css?v=$!{version}" />
+	<link rel="stylesheet" type="text/css" href="${cdn-url}css/shopping_cg_sb.css?v=$!{version}" />
+
+	<script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+	<script src="${cdn-url}js/public.js?v=$!{version}"></script>
+	<script src="${cdn-url}js/main.js?v=$!{version}"></script>
+	</head>
+	<body>
+		<div class="container " id="top_s">
+			<div class="shoppingCart_top" >
+				<div class="topNavigation_logo navigationCart_logo lineBlock">
+		    		<div class="topNav_logoT"><a href="$mainurl"><img src="${cdn-url}images/Tomtop_logo0603_01.png"></a></div>
+			    </div>
+			</div>
+			
+			
+			<div class="newshopping_success newshopping_nosuccess">
+			    <span class="icon_cry"></span>
+			    <div class="newshopping_success_con">
+			        <h3>#springMessage("fail_tip")</h3>
+			        <div class="nosuccess_con">
+			            <p><strong>#springMessage("fail.detail"):</strong></p>
+			            #if($!errorCode)
+				        	<p>#springMessage("fail.code"): ${errorCode}</p>
+				        #end
+			            <p>#springMessage("fail.message"): ${errorMsg}</p>
+			        </div>
+			        <div>
+			        	#if($returnWhere && $returnWhere=="no-ec")
+			        		<a href="/checkout/for-member-step1?storageid=$!storageid" class="a_try_again">#springMessage("try_again")</a>
+			        	#else
+			        		#if($returnWhere && $returnWhere=="cart")
+			        			<a href="/" class="a_try_again">#springMessage("try_again")</a>
+			        		#else
+			        			<a href="/" class="a_try_again">#springMessage("try_again")</a>
+			        		#end
+			        	#end
+			        </div>
+			        <div class="nosuccess_con">
+			            <p>#springMessage("nosuccess.1")</p>
+			          #if(${host-name} == "chicuu")
+			            <p style="font-size:14px;">1.<a href="http://www16.53kf.com/webCompany.php?style=1&arg=10132799"  target="_blank" rel="nofollow">#springMessage("nosuccess.2")</a></p>
+			           	<p style="font-size:14px;">
+			           		2. <a href="#">#springMessage("nosuccess.3"):service@chicuu.com</a>
+			           	</p>
+			           #elseif(${host-name}=="tomtop")
+			           	<p style="font-size:14px;">1.<a href="http://www10.53kf.com/webCompany.php?arg=10045862&style=1"  target="_blank" rel="nofollow">#springMessage("nosuccess.2")</a></p>
+			           	<p style="font-size:14px;">
+			           		2. <a href="#">#springMessage("nosuccess.3"):support@tomtop.com</a>
+			           	</p>
+						#elseif(${host-name}=="rcmoment")
+			           	<p style="font-size:14px;">1.<a href="http://tb.53kf.com/webCompany.php?arg=10136017&style=1"  target="_blank" rel="nofollow">#springMessage("nosuccess.2")</a></p>
+			           	<p style="font-size:14px;">
+			           		2. <a href="#">#springMessage("nosuccess.3"):service@rcmoment.com</a>
+			           	</p>
+			           #end	
+			           </p>
+			            <p>#springMessage("nosuccess.4")</p>
+			        </div>
+			    </div>
+			</div>
+		</div>
+		
+		#parse("/order/footer.vm")
+		<script src="${cdn-url}js/nortonseal.js?v=$!{version}"></script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	
+	<changeSet id="t_product_storage_label-create-20160322" author="renyy">
+		<createTable tableName="t_product_storage_label" remarks="仓库标签表">
+			<column name="iid" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="iwebsiteid" type="INTEGER" remarks="站点编号"></column>
+			<column name="ctype" type="VARCHAR(32)" remarks="标签名称"></column>
+			<column name="clistingid" type="VARCHAR(64)" remarks="别名"></column>
+			<column name="ccreateuser" type="VARCHAR(32)" remarks="创建人"></column>
+			<column name="dcreatedate" type="DATETIME" defaultValue="now()" remarks="创建时间" />
+			<column name="istorageid" type="INTEGER" remarks="仓库id"></column>
+		</createTable>
+	</changeSet>
+	
+</databaseChangeLog>

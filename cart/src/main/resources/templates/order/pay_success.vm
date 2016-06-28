@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<meta http-equiv="Cache-Control" content="no-cache"/>
+	<meta http-equiv="Expires" content="0"/>
+	<title>Fail - TOMTOP</title>
+	<meta name="description" content="">
+	<link rel="icon" href="" type="image/x-icon">
+	<meta name="keywords" content="">
+	<link rel="stylesheet" type="text/css" href="${cdn-url}css/newshopping.css?v=$!{version}" />
+	<link rel="stylesheet" type="text/css" href="${cdn-url}css/shopping_cg_sb.css?v=$!{version}" />
+
+	<script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+	<script src="${cdn-url}js/public.js?v=$!{version}"></script>
+	<script src="${cdn-url}js/main.js?v=$!{version}"></script>
+	</head>
+	<body>
+		<div class="container " id="top_s">
+			<div class="shoppingCart_top" >
+				<div class="topNavigation_logo navigationCart_logo lineBlock">
+		    		<div class="topNav_logoT"><a href="$mainurl"><img src="${cdn-url}images/logo.png"></a></div>
+			    </div>
+			</div>
+			
+			<div class="payFSuc">
+				<div class="payF_SucC">
+			        <em><img src="/images/smil.png"></em>
+			        <b>Thank you for shopping with us online, you order has been placed.</b>
+			        <p class="TheNext">What's the Next?</p>
+			        <ul class="listNumber">
+			            <li>It's being processed and you will receive a confirmation email with all order details.</li>
+			            <li>We'll spare no effort to assure you receive the order ASAP.</li>
+			            <li>You will receive a shipping confirmation email including the track number of your package once it's been shipped.<br>
+			            Please Note: the track number only for order shipped via a traceable shipping method and it usually takes about 24-48 hours to update your track info.
+			            </li>
+			            <li>If you have any question, please feel free to 
+			            <a class="underline" href="javascript:void(0)">Contact Us.</a></li>
+			        </ul>
+			        <a class="orderCheckout lineBlock" href="/">Continue Shopping</a>
+			        #if($isLogin){
+			        <p class="lineBlock">Or <a class="orange" href="">View Your Order Details</a></p>
+			    	#end
+			    </div>
+			</div>
+		</div>
+		
+		#parse("/order/footer.vm")
+<script src="${cdn-url}js/nortonseal.js?v=$!{version}"></script>
+	</body>
+</html>

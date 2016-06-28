@@ -1,0 +1,45 @@
+<div class="product_x">
+<dl class="product_x_c w">
+    <dt class="p">
+        #springMessage("product.list")
+    </dt>
+	#foreach($kk in $cartItemlist)
+    <dd class="p clearfix nobor">
+    	<input type="hidden" class="clistingid" value="$!kk.getClistingid()" autocomplete="off" />
+		<input type="hidden" class="storageid" value="$!kk.getStorageID()" autocomplete="off" />
+		<input type="hidden" class="iqty input_num" value="$!kk.getIqty()" autocomplete="off" />
+		<input type="hidden" class="theprice" value="$!kk.getPrice().getPrice()" />
+        <div class="product_image fl">
+            <a href="$mainurl/#if($kk.curl)$!kk.curl#end.html">
+                <img src="$imgUrlPrefix/$!kk.cimageurl" title="$!kk.ctitle" onerror="this.src='/mobile/img/no_img.jpg'"/>
+            </a>
+            #if($kk.getPrice().isDiscounted())
+            	<div class="off">$!kk.price.getDiscountStr()</div>
+            #end
+        </div>
+        <div class="product_info">
+            <h3>$!kk.ctitle</h3>
+            <div class="product_price">
+                <span class="current_price">$!currencyBo.symbolCode <em>$!kk.price.unitPriceStr</em></span>
+                #if($!kk.price.unitPriceStr != $!kk.price.unitBasePriceStr)
+					<span class="original_price">$!currencyBo.symbolCode <em>$!kk.price.unitBasePriceStr</em></span>
+				#end
+			</div>
+            <div class="attr">
+                <span>#springMessage("sku")$!kk.sku</span>
+                #if($kk.getAttributeMap())
+					#foreach($j in $kk.getAttributeMap().keySet())
+					<span>
+					#*首字母大写*#
+					#if($j && $j.length()>0)$j.substring(0,1).toUpperCase()$j.substring(1)#end
+					: $!kk.getAttributeMap().get($j)
+					</span>
+					#end
+				#end
+            </div>
+        </div>
+        <div class="qty_nub">#springMessage("qualitys"):$!kk.iqty</div>
+    </dd>
+	#end
+</dl>
+</div>

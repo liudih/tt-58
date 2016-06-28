@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>payment_method</title>
+    <link href="css/payment_method.css" type="text/css" rel="stylesheet" />
+    <script src="../js/jquery-2.1.4.js"></script>
+    <script src="../js/headfoot.js"></script>
+    <script src="js/payment.js"></script>
+</head>
+<body>
+<!--head-->
+<div class="header">
+    <div id="indextop" class="head width">
+        <div class="main clearfix">
+            <div class="main_content margin">
+                <div class="fl">
+                    <i class="icon_left" id="previous_page"></i>
+                </div>
+                <a href="index.html" class="logo">Payment Method</a>
+                <div class="fr">
+                    <i class="icon_search skip_search"></i>
+                    <i class="icon_cart">
+                        <i class="quantity">35</i>
+                    </i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="search" class="animate search_hide">
+        <div class="header">
+            <div class="head width">
+                <div class="main clearfix">
+                    <div class="main_content margin">
+                        <div class="fl">
+                            <i class="icon_left" id="quit_search"></i>
+                        </div>
+                        <a href="javascript:;" class="logo"><img src="icon/tomtop_logo_400x100.png" /></a>
+                        <div class="fr">
+                            <i class="icon_search"></i>
+                            <i class="icon_cart">
+                                <i class="quantity">35</i>
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--search-->
+        <div class="search">
+            <div class="search_content width">
+                <div class="seeks">
+                    <div class="seeks_content margin">
+                        <input type="text" placeholder="Search" class="seek" />
+                        <i class="icon_cross clear_seek"></i>
+                    </div>
+                </div>
+                <div class="scope">
+                    <div class="scope_content margin">
+                        <dl>
+                            <dt>Hot Searches</dt>
+                            <dd><i>1</i>buy scarves</dd>
+                            <dd><i>2</i>buy scarves</dd>
+                            <dd><i>3</i>buy scarves</dd>
+                            <dd><i>4</i>buy scarves</dd>
+                            <dd><i>5</i>buy scarves</dd>
+                            <dd><i>6</i>buy scarves</dd>
+                            <dd><i>7</i>buy scarves</dd>
+                            <dd><i>8</i>buy scarves</dd>
+                            <dd><i>9</i>buy scarves</dd>
+                            <dd><i>10</i>buy scarves</dd>
+                            <dd><i>11</i>buy scarves</dd>
+                            <dd><i>12</i>buy scarves</dd>
+                            <dd><i>13</i>buy scarves</dd>
+                            <dd><i>14</i>buy scarves</dd>
+                            <dd><i>15</i>buy scarves</dd>
+                            <dd><i>16</i>buy scarves</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="main">
+    <div class="orderno">
+        <p>Order No: CN-060369479115-030906</p>
+        <p class="total">Total: US$256.00</p>
+    </div>
+    <div class="payment">
+        <div class="payment_c w">
+            <div class="m">
+                <h3>Payment method</h3>
+                <ul>
+                    <li class="paypal">
+                        <dl class="select">
+                            <dt class="clearfix">
+                            <span class="payment_img fl">
+                                <img src="icon/paypal_150x70.jpg">
+                            </span>
+                            <span class="chooseOneBox fr lineBlock">
+                                <label>
+                                    <input type="radio" name="sex" value="Females">
+                                    <div class="radio lineBlock radioChecked"><i class="icon_check"></i></div>
+                                </label>
+                            </span>
+                            </dt>
+                            <dd>
+                                <img src="icon/paypal_640x70.jpg" />
+                                <p class="p">Paypal, The safer, easier way to pay.
+                                    If you have Paypal account, you can pay your order by your Paypal account.
+                                    If you don't have a Paypal account. You can also pay via Paypal with your credit card or
+                                    bank debit card.</p>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="visa">
+                        <dl>
+                            <dt class="clearfix">
+                                <span class="payment_img fl">
+                                    <img src="icon/visa_150x70.jpg">
+                                </span>
+                                <span class="chooseOneBox fr lineBlock">
+                                    <label>
+                                        <input type="radio" name="sex" value="Females">
+                                        <div class="radio lineBlock"><i class="icon_check"></i></div>
+                                    </label>
+                                </span>
+                            </dt>
+                            <dd>
+                                <img src="icon/visa_640x70.jpg" />
+                                <p class="p">
+                                    <b>Billing Address:</b><br />
+                                    <input type="checkbox" checked="true" class="billing" />My billing address is the same as my shipping address<br />
+                                    <em>Make sure that the billing address you enter below matches the name & address on your credit card.</em>
+                                </p>
+                                <!--地址-->
+                                <div class="address_info clearfix">
+                                    <div class="address_info_c fl">
+                                        <sapn class="user_name">Wang ning</sapn>
+                                        <span>857 Spruce str , Trenton, New Jersey, United states (1233456)</span>
+                                        <span>Phone: 12345678912</span>
+                                    </div>
+                                    <div class="more_address_but fr">
+                                        <i class="icon_adressbook"></i>
+                                    </div>
+                                    <div class="more_address hide_b">
+                                        <ul class="p">
+                                            <li class="clearfix">
+                                                <div class="chooseOneBox lineBlock">
+                                                    <label>
+                                                        <input type="radio" name="sex" value="Females">
+                                                        <div class="radio lineBlock radioChecked"><i class="icon_check"></i></div>
+                                                    </label>
+                                                </div>
+                                                <div class="address_info_c">
+                                                    <span class="user_name">Wang ning</span>
+                                                    <span>857 Spruce str , Trenton, New Jersey, United states (1233456)</span>
+                                                    <span>Phone: 12345678912</span>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <div class="chooseOneBox lineBlock">
+                                                    <label>
+                                                        <input type="radio" name="sex" value="Females">
+                                                        <div class="radio lineBlock "><i class="icon_check"></i></div>
+                                                    </label>
+                                                </div>
+                                                <div class="address_info_c">
+                                                    <span class="user_name">Wang ning1</span>
+                                                    <span>857 Spruce str , Trenton, New Jersey, United states (1233456)</span>
+                                                    <span>Phone: 12345678912</span>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <div class="chooseOneBox lineBlock">
+                                                    <label>
+                                                        <input type="radio" name="sex" value="Females">
+                                                        <div class="radio lineBlock "><i class="icon_check"></i></div>
+                                                    </label>
+                                                </div>
+                                                <div class="address_info_c">
+                                                    <span class="user_name">Wang ning2</span>
+                                                    <span>857 Spruce str , Trenton, New Jersey, United states (1233456)</span>
+                                                    <span>Phone: 12345678912</span>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <div class="chooseOneBox lineBlock">
+                                                    <label>
+                                                        <input type="radio" name="sex" value="Females">
+                                                        <div class="radio lineBlock "><i class="icon_check"></i></div>
+                                                    </label>
+                                                </div>
+                                                <div class="address_info_c">
+                                                    <span class="user_name">Wang ning3</span>
+                                                    <span>857 Spruce str , Trenton, New Jersey, United states (1233456)</span>
+                                                    <span>Phone: 12345678912</span>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <div class="chooseOneBox lineBlock">
+                                                    <label>
+                                                        <input type="radio" name="sex" value="Females">
+                                                        <div class="radio lineBlock "><i class="icon_check"></i></div>
+                                                    </label>
+                                                </div>
+                                                <div class="address_info_c">
+                                                    <span class="user_name">Wang ning4</span>
+                                                    <span>857 Spruce str , Trenton, New Jersey, United states (1233456)</span>
+                                                    <span>Phone: 12345678912</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <i class="icon_cross close_more_address"></i>
+                                    </div>
+                                </div>
+                                <!--地址 end-->
+                                <div class="visa_address m clearfix">
+                                    <button  class="address_but fl"><i class="icon_plus"></i>Add a Billing address</button>
+                                </div>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="qiwi">
+                        <dl>
+                            <dt class="clearfix">
+                            <span class="payment_img fl">
+                                <img src="icon/qiwi_150x70.jpg">
+                            </span>
+                            <span class="chooseOneBox fr lineBlock">
+                                <label>
+                                    <input type="radio" name="sex" value="Females">
+                                    <div class="radio lineBlock"><i class="icon_check"></i></div>
+                                </label>
+                            </span>
+                            </dt>
+                            <dd>
+                                <img src="icon/qiwi_640x70.jpg" />
+                                <p class="p">
+                                    Пожалуйста, введите Ваш QIWI аккаунт! Номер телефона обязательно нужно указать для оплаты.
+                                </p>
+                                <p class="p"><b>Номер телефона:</b></p>
+                                <div class="chose_state">
+                                        <span class="cur">
+                                            <i class="state_icon"></i>
+                                            <b class="">+7</b>
+                                        </span>
+                                    <input type="type" value="186" class="phone">
+                                    <div class="state">
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_01"></i>
+                                                    <em>Россия</em>
+                                                    <b>+7</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_02"></i>
+                                                    <em>Казахстан</em>
+                                                    <b class="i-country-code fn-right">+77</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_03"></i>
+                                                    <em>Украина</em>
+                                                    <b class="">+380</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_04"></i>
+                                                    <em>Грузия</em>
+                                                    <b class="">+995</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_05"></i>
+                                                    <em>Панама</em>
+                                                    <b class="">+507</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_06"></i>
+                                                    <em>Великобритания</em>
+                                                    <b class="">+44</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_07"></i>
+                                                    <em>Таджикистан</em>
+                                                    <b class="">+992</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_08"></i>
+                                                    <em>Литва</em>
+                                                    <b class="">+370</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_09"></i>
+                                                    Израиль</em>
+                                                    <b class="">+972</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_10"></i>
+                                                    <em>Кыргызстан</em>
+                                                    <b class="">+996</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_11"></i>
+                                                    <em>Турция</em>
+                                                    <b class="">+90</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_12"></i>
+                                                    <em>Вьетнам</em>
+                                                    <b class="">+84</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class=""></i>
+                                                    <em>Азербайджан</em>
+                                                    <b class="">+994</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_13"></i>
+                                                    <em>Армения</em>
+                                                    <b class="">+374</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_14"></i>
+                                                    <em>Латвия</em>
+                                                    <b class="">+371</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_15"></i>
+                                                    <em>Индия</em>
+                                                    <b class="">+91</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_16"></i>
+                                                    <em>Таиланд</em>
+                                                    <b class="">+66</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_17"></i>
+                                                    <em>Молдавия</em>
+                                                    <b class="">+373</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_18"></i>
+                                                    <em>Эстония</em>
+                                                    <b class="">+372</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_19"></i>
+                                                    <em>Япония</em>
+                                                    <b class="">+81</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_20"></i>
+                                                    <em>Узбекистан</em>
+                                                    <b class="">+998</b>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="place_21"></i>
+                                                    <em>Южная Корея</em>
+                                                    <b class="">+82</b>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <p class="p">
+                                    Внимание: ваша личная информация находится в безопасности.<br/>
+                                    TOMTOP не хранит какую-либо информацию о вашей учетной записи.
+                                </p>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="yandex">
+                        <dl>
+                            <dt class="clearfix">
+                            <span class="payment_img fl">
+                                <img src="icon/yandex_150x70.jpg">
+                            </span>
+                            <span class="chooseOneBox fr lineBlock">
+                                <label>
+                                    <input type="radio" name="sex" value="Females">
+                                    <div class="radio lineBlock"><i class="icon_check"></i></div>
+                                </label>
+                            </span>
+                            </dt>
+                            <dd>
+                                <p class="p"><br />
+                                    <b>Заплатить Яндекс.Деньгами</b>
+                                </p>
+                                <img src="icon/yandex_640x70.jpg" />
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="boleto">
+                        <dl>
+                            <dt class="clearfix">
+                            <span class="payment_img fl">
+                                <img src="icon/boleto_150x70.jpg">
+                            </span>
+                            <span class="chooseOneBox fr lineBlock">
+                                <label>
+                                    <input type="radio" name="sex" value="Females">
+                                    <div class="radio lineBlock"><i class="icon_check"></i></div>
+                                </label>
+                            </span>
+                            </dt>
+                            <dd>
+                                <img src="icon/boleto_640x70.jpg" />
+                                <p class="p">
+                                    <label>Type</label>
+                                    <select>
+                                        <option selected="selected">A</option>
+                                        <option>B</option>
+                                    </select>
+                                </p>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="paynow">
+        <a href="javascript:;" class="m">
+            <input type="button" value="Pay Now" class="paynow_but">
+        </a>
+    </div>
+    <div class="addre hide_b">
+        <div class="addre_c m">
+            <ul>
+                <li class="clearfix">
+                    <div class="fl">
+                        <div class="input error">
+                            <input type="text" placeholder="First Name">
+                            <i class="icon_cross"></i>
+                        </div>
+                        <p>你输入的信息有误……</p>
+                    </div>
+                    <div class="fr">
+                        <div class="input">
+                            <input type="text" placeholder="Last Name">
+                            <i class="icon_cross"></i>
+                        </div>
+                        <p>你输入的信息有误……</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="input">
+                        <input type="text" placeholder="Country" class="country">
+                        <i class="icon_down"></i>
+                        <div class="country_c">
+                            <ul>
+                                <li>mexico</li>
+                                <li>China</li>
+                                <li>United States</li>
+                                <li>Congo</li>
+                                <li>MICRONESIA</li>
+                                <li>Andorra</li>
+                                <li>United Arab Emirates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="input error">
+                        <input type="text" placeholder="nickname">
+                        <i class="icon_cross"></i>
+                    </div>
+                    <p>你输入的信息有误……</p>
+                </li>
+                <li>
+                    <div class="input">
+                        <input type="text" placeholder="State / Province / Region">
+                        <i class="icon_cross"></i>
+                    </div>
+                    <p>你输入的信息有误……</p>
+                </li>
+                <li class="clearfix">
+                    <div class="fl">
+                        <div class="input">
+                            <input type="text" placeholder="City">
+                            <i class="icon_cross"></i>
+                        </div>
+                        <p>你输入的信息有误……</p>
+                    </div>
+                    <div class="fr">
+                        <div class="input">
+                            <input type="text" placeholder="Zip / Postal Code">
+                            <i class="icon_cross"></i>
+                        </div>
+                        <p>你输入的信息有误……</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="input">
+                        <input type="text" placeholder="Phone Number">
+                        <i class="icon_cross"></i>
+                    </div>
+                    <p>你输入的信息有误……</p>
+                </li>
+                <li class="clearfix">
+                    <div class="fl">
+                        <div class="input">
+                            <input type="button" value="Cancel" class="cancel_but">
+                        </div>
+                    </div>
+                    <div class="fr">
+                        <div class="input">
+                            <input type="button" value="Save" class="save_but">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<!--foot-->
+<div class="footer">
+    <div class="foot width">
+        <div class="content">
+            <ul class="strip">
+                <li>
+                    <a href="javascript:;">
+                        <em>Shop Cart</em> <span class="fr"><i class="icon_right"></i></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <em>My Order</em> <span class="fr"><i class="icon_right"></i></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <em>My Favorites</em> <span class="fr"><i class="icon_right"></i></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <em>Order Tracking</em> <span class="fr"><i class="icon_right"></i></span>
+                    </a>
+                </li>
+                <li class="currency">
+                    <a href="javascript:;">
+                        <em>USD</em> <span class="fr"><i class="icon_down"></i></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--==============语言和货币==============-->
+        <!--<div class="langcurren">-->
+        <!--<ul class="strip clearfix">-->
+        <!--<li class="language fl">-->
+        <!--<a href="javascript:;">-->
+        <!--<em>English</em><span class="fr"><i class="icon_down"></i></span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li class="currency fr">-->
+        <!--<a href="javascript:;">-->
+        <!--<em>USD</em><span class="fr"><i class="icon_down"></i></span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--==============语言和货币==============-->
+        <div class="currency_box hide_b">
+            <div class="currency_content">
+                <h3>Current Currency: USD</h3>
+                <ul class="clearfix">
+                    <li><a href="javascript:;" class="current"><em>US$</em><em>USD</em></a></li>
+                    <li><a href="javascript:;"><em>US$</em><em>USD</em></a></li>
+                    <li><a href="javascript:;"><em>US$</em><em>USD</em></a></li>
+                    <li><a href="javascript:;"><em>US$</em><em>USD</em></a></li>
+                    <li><a href="javascript:;"><em>US$</em><em>USD</em></a></li>
+                    <li><a href="javascript:;"><em>US$</em><em>USD</em></a></li>
+                    <li><a href="javascript:;"><em>US$</em><em>USD</em></a></li>
+                    <li><a href="javascript:;"><em>US$</em><em>USD</em></a></li>
+                </ul>
+                <i class="icon_cross close_currency"></i>
+            </div>
+        </div>
+        <div class="signin">
+            Already a Customer?<a href="javascript:;">Sign In</a>
+        </div>
+        <div class="info">
+            <a href="javascript:;">Site Map</a>
+            <a href="javascript:;">Return Policy</a>
+            <a href="javascript:;">Terms of Use</a>
+            <a href="javascript:;">About US</a>
+        </div>
+        <div class="copyright">
+            © 2004 - 2016 TOMTOP com. All rights reserved
+        </div>
+    </div>
+    <div id="nav_top">
+        <i class="icon_arr_top"></i>
+    </div>
+    <div id="dialogs"><!--用于所有弹窗的黑底--></div>
+    <div class="toast animate"></div>
+</div>
+</body>
+</html>

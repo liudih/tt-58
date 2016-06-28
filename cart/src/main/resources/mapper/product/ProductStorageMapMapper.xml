@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.mappers.product.ProductStorageMapMapper" >
+  <resultMap id="BaseResultMap" type="com.tomtop.dto.product.ProductStorageMap" >
+    <id column="iid" property="iid" jdbcType="INTEGER" />
+    <result column="clistingid" property="clistingid" jdbcType="VARCHAR" />
+    <result column="csku" property="csku" jdbcType="VARCHAR" />
+    <result column="istorageid" property="istorageid" jdbcType="INTEGER" />
+    <result column="ccreateuser" property="ccreateuser" jdbcType="VARCHAR" />
+    <result column="dcreatedate" property="dcreatedate" jdbcType="TIMESTAMP" />
+    <result column="bavailable" property="bavailable" jdbcType="BIT" />
+    <result column="ilogisticstemplateid" property="ilogisticstemplateid" jdbcType="INTEGER" />
+    <result column="istatus" property="istatus" jdbcType="INTEGER" />
+    <result column="iqty" property="iqty" jdbcType="INTEGER" />
+    <result column="fprice" property="fprice" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    iid, clistingid, csku, istorageid, ccreateuser, dcreatedate, bavailable, ilogisticstemplateid, 
+    istatus, iqty, fprice
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_product_storage_map
+    where iid = #{iid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_product_storage_map
+    where iid = #{iid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tomtop.dto.product.ProductStorageMap" >
+    insert into t_product_storage_map (iid, clistingid, csku, 
+      istorageid, ccreateuser, dcreatedate, 
+      bavailable, ilogisticstemplateid, istatus, 
+      iqty, fprice)
+    values (#{iid,jdbcType=INTEGER}, #{clistingid,jdbcType=VARCHAR}, #{csku,jdbcType=VARCHAR}, 
+      #{istorageid,jdbcType=INTEGER}, #{ccreateuser,jdbcType=VARCHAR}, #{dcreatedate,jdbcType=TIMESTAMP}, 
+      #{bavailable,jdbcType=BIT}, #{ilogisticstemplateid,jdbcType=INTEGER}, #{istatus,jdbcType=INTEGER}, 
+      #{iqty,jdbcType=INTEGER}, #{fprice,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tomtop.dto.product.ProductStorageMap" >
+    insert into t_product_storage_map
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="iid != null" >
+        iid,
+      </if>
+      <if test="clistingid != null" >
+        clistingid,
+      </if>
+      <if test="csku != null" >
+        csku,
+      </if>
+      <if test="istorageid != null" >
+        istorageid,
+      </if>
+      <if test="ccreateuser != null" >
+        ccreateuser,
+      </if>
+      <if test="dcreatedate != null" >
+        dcreatedate,
+      </if>
+      <if test="bavailable != null" >
+        bavailable,
+      </if>
+      <if test="ilogisticstemplateid != null" >
+        ilogisticstemplateid,
+      </if>
+      <if test="istatus != null" >
+        istatus,
+      </if>
+      <if test="iqty != null" >
+        iqty,
+      </if>
+      <if test="fprice != null" >
+        fprice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="iid != null" >
+        #{iid,jdbcType=INTEGER},
+      </if>
+      <if test="clistingid != null" >
+        #{clistingid,jdbcType=VARCHAR},
+      </if>
+      <if test="csku != null" >
+        #{csku,jdbcType=VARCHAR},
+      </if>
+      <if test="istorageid != null" >
+        #{istorageid,jdbcType=INTEGER},
+      </if>
+      <if test="ccreateuser != null" >
+        #{ccreateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="dcreatedate != null" >
+        #{dcreatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bavailable != null" >
+        #{bavailable,jdbcType=BIT},
+      </if>
+      <if test="ilogisticstemplateid != null" >
+        #{ilogisticstemplateid,jdbcType=INTEGER},
+      </if>
+      <if test="istatus != null" >
+        #{istatus,jdbcType=INTEGER},
+      </if>
+      <if test="iqty != null" >
+        #{iqty,jdbcType=INTEGER},
+      </if>
+      <if test="fprice != null" >
+        #{fprice,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tomtop.dto.product.ProductStorageMap" >
+    update t_product_storage_map
+    <set >
+      <if test="clistingid != null" >
+        clistingid = #{clistingid,jdbcType=VARCHAR},
+      </if>
+      <if test="csku != null" >
+        csku = #{csku,jdbcType=VARCHAR},
+      </if>
+      <if test="istorageid != null" >
+        istorageid = #{istorageid,jdbcType=INTEGER},
+      </if>
+      <if test="ccreateuser != null" >
+        ccreateuser = #{ccreateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="dcreatedate != null" >
+        dcreatedate = #{dcreatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bavailable != null" >
+        bavailable = #{bavailable,jdbcType=BIT},
+      </if>
+      <if test="ilogisticstemplateid != null" >
+        ilogisticstemplateid = #{ilogisticstemplateid,jdbcType=INTEGER},
+      </if>
+      <if test="istatus != null" >
+        istatus = #{istatus,jdbcType=INTEGER},
+      </if>
+      <if test="iqty != null" >
+        iqty = #{iqty,jdbcType=INTEGER},
+      </if>
+      <if test="fprice != null" >
+        fprice = #{fprice,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where iid = #{iid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tomtop.dto.product.ProductStorageMap" >
+    update t_product_storage_map
+    set clistingid = #{clistingid,jdbcType=VARCHAR},
+      csku = #{csku,jdbcType=VARCHAR},
+      istorageid = #{istorageid,jdbcType=INTEGER},
+      ccreateuser = #{ccreateuser,jdbcType=VARCHAR},
+      dcreatedate = #{dcreatedate,jdbcType=TIMESTAMP},
+      bavailable = #{bavailable,jdbcType=BIT},
+      ilogisticstemplateid = #{ilogisticstemplateid,jdbcType=INTEGER},
+      istatus = #{istatus,jdbcType=INTEGER},
+      iqty = #{iqty,jdbcType=INTEGER},
+      fprice = #{fprice,jdbcType=DOUBLE}
+    where iid = #{iid,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getProductStorageMaps" resultMap="BaseResultMap">
+	select <include refid="Base_Column_List" /> from t_product_storage_map where istorageid=#{sid} 
+	<if test="listingids!=null and listingids.size>0">
+		and clistingid in 
+  		<foreach item='item' index='index' collection='listingids' open='(' separator=',' close=')'>#{item}</foreach>
+  	</if>
+  </select>
+</mapper>

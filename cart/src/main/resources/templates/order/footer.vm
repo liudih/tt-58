@@ -1,0 +1,74 @@
+<!--购物车底部-->
+<div class="shopping_bottom">
+    <div>
+        <a class="icon_paypal"></a>
+        <a class="icon_visa"></a>
+        <a class="icon_qiwi"></a>
+        <a class="icon_ehb"></a>
+        <a class="icon_boleto"></a>
+        <a class="icon_norton" href="javascript:vrsn_splash()"></a>
+        <a class="icon_money"></a>
+		<a class="icon_china"></a>
+        <a class="icon_ems"></a>
+        <a class="icon_dhl"></a>
+        <a class="icon_ups"></a>
+    </div>
+    <p>Copyright © 2016 $host-name Inc. All Rights Reserved. </p>
+</div>
+#parse("/base/trackjs.vm")
+
+<script src="${cdn-url}js/nortonseal.js?v=18"></script>
+<!--购物车保存访问记录-->
+<script type="text/javascript">
+	$(function(){
+		var aid = getUrlParam("aid") || getCookie("AID");
+		if(aid){
+			visitWeb(aid);
+		}
+	})
+	
+	function getCookie(b){var a=document.cookie.match(new RegExp("(^| )"+b+"=([^;]*)(;|$)"));if(a!=null){return unescape(a[2])}else{return null}}
+
+	//获取url中的参数
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+	
+	var websiteMap = {10:"chicuu.com", 1:"tomtop.com", 13:"rcmoment.com"};
+	function visitWeb(aid){
+ 		var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='+Math.random();  
+	    $.getJSON(url, function(data){
+	        var website = 10;
+	        var uip = data.Ip;
+	        var path = window.location.pathname+window.location.search;
+	        var source = window.location.host;
+	        // website
+	        $.each(websiteMap,function(key, value){
+	        	if(source.indexOf(value)!=-1){
+	        		website = key;
+	        	}
+	        });
+	        
+	        $.ajax({
+			    type: "GET",
+			    url: "http://base.api.tomtop.com/base/visitLog/v1/add/jsonp?aid="+aid+"&website="+website+"&uip="+uip+"&path="+path+"&source="+source+"&callback=?&_="+Math.random(),
+			    contentType: 'application/json',
+			    dataType:'jsonp',
+				 success: function (json) {
+// 					 alert(json);
+				 }
+			 });
+	    });
+		
+	}
+</script>
+
+#*
+#if("chicuu" == ${host-name})
+<script type="text/javascript">
+!function(){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src="//configch2.veinteractive.com/tags/F3BCCBF0/2D00/40E4/AA2C/53067A244D65/tag.js?v=18";var b=document.getElementsByTagName("head")[0];if(b)b.appendChild(a,b);else{var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}}();
+</script>
+#end
+*#

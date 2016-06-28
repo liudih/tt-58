@@ -1,0 +1,21 @@
+
+
+<div class="select_country">
+#if($country)
+	<h3 class="flag_$country.getCshortname()">
+		<em></em><span>$country.getCname()</span><em class="ship_xSJ"></em>
+		<input id="current_country" type="hidden" class="required:true" name="country" value="$country.getCshortname()" countryName="$country.getCname()"/>
+	</h3>
+#end
+	<div class="country_all">
+		<div class="search_country">
+			<input type="text" name="country_filter" />
+		</div>
+		<div class="country_list">
+			<ul>
+			</ul>
+		</div>
+	</div>
+</div>
+
+

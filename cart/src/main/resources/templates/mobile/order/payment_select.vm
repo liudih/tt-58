@@ -1,0 +1,22 @@
+<div class="payment">
+    <div class="payment_c w">
+        <div class="m">
+            <h3>#springMessage("payment.methods")</h3>
+            <ul>
+            #if($methods)
+            	#foreach( $m in $methods)
+            		#parse("/mobile/payment/${m}.vm")
+				#end
+			#else
+				#parse("/mobile/payment/paypal.vm")
+				#parse("/mobile/payment/credit.vm")
+				#parse("/mobile/payment/jbc.vm")
+				#parse("/mobile/payment/qiwi.vm")
+				#parse("/mobile/payment/webmoney.vm")
+				#parse("/mobile/payment/yandex.vm")
+				#parse("/mobile/payment/boleto.vm")
+			#end
+            </ul>
+        </div>
+    </div>
+</div>

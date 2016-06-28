@@ -1,0 +1,87 @@
+
+<dd class="productNode itemline">
+	<input type="hidden" class="clistingid" id="clistingid" value="$kk.getClistingid()" autocomplete="off" />
+	<input type="hidden" class="storageid"  name="$kk.getStorageName()" value="$kk.getStorageID()" autocomplete="off" />
+	<input type="hidden" class="iqty" value="$kk.getIqty()" autocomplete="off" />
+	<a href="$mainurl/#if($kk.getCurl())$kk.getCurl()#end.html" >
+		<img src="$imgUrlPrefix/$kk.getCimageurl()" title="$kk.getCtitle()" alt="$kk.getCtitle()"/>
+	</a>
+	<div class="wares_item_box">
+		<h5><a href="$mainurl/#if($kk.getCurl())$kk.getCurl()#end.html" >$!kk.getCtitle()</a></h5>
+		<p> <span>SKU:<i class="csku">$!kk.getSku()</i></span> 
+		
+			#if($kk.getAttributeMap())
+				#foreach($j in $kk.getAttributeMap().keySet())
+				<span>
+				#*首字母大写*#
+				#if($j && $j.length()>0)$j.substring(0,1).toUpperCase()$j.substring(1)#end
+				: $kk.getAttributeMap().get($j)
+				</span>
+				#end
+			#end
+		</p>
+		
+		<div class="a_operation">
+			#if(!$islate)
+				<a href="javascript:void(0);" onclick="addLaterCart(this)">#springMessage("save_later")</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+				<a href="javascript:void(0);" class="btn_remove" >
+					<span onclick="popDel(this)">#springMessage("cart.remove")</span>
+					<div class="point windows_main toggleDel" style="display: none;">
+                        <h3 class="point_title">Popover</h3>
+                        <p class="point_info">Remove from your cart?</p>
+                        <div class="point_but">
+                            <button onclick="hideDel(this)" class="point_cancel others_close animate">Cancel</button>
+                            <button onclick="delitem(this)" class="point_ok others_close animate">OK</button>
+                        </div>
+                        <i class="point_arrows"></i>
+                        <span class="windows_close point_code" onclick="hideDel(this)"></span>
+                    </div>
+				</a>
+			#else
+				<a href="javascript:void(0);" onclick="moveToCart(this)">#springMessage("move_cart")</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+	            <a href="javascript:void(0);" onclick="addcollect('$kk.getClistingid()','add')" >#springMessage("add_wishlist")</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+	            <a href="javascript:void(0);" class="btn_remove" >
+	            	<span onclick="popDel(this)">#springMessage("cart.remove")</span>
+					<div class="point windows_main toggleDel" style="display: none;">
+                        <h3 class="point_title">Popover</h3>
+                        <p class="point_info">Remove from your cart?</p>
+                        <div class="point_but">
+                            <button onclick="hideDel(this)" class="point_cancel others_close animate">Cancel</button>
+                            <button onclick="delLateritem(this)" class="point_ok others_close animate">OK</button>
+                        </div>
+                        <i class="point_arrows"></i>
+                        <span class="windows_close point_code" onclick="hideDel(this)"></span>
+                    </div>
+	            </a>
+			#end
+		</div>
+	</div>
+	#if(!$islate)
+	<div class="wares_price_box">
+		#if($kk.getPrice())
+			#if($kk.getPrice().getDiscount())
+			<p class="wares_price_through">$!currencyBo.getSymbolCode() $kk.getPrice().getUnitBasePriceStr()</p>
+			#end
+		<!-- <p class="wares_price_through">$!currencyBo.getSymbolCode() 123</p> -->
+		<p>$!currencyBo.getSymbolCode() $kk.getPrice().getUnitPriceStr()</p>
+		#end
+		
+	</div>
+	<div class="wares_qty_box">
+		<span class="wares_qty_minus" onclick="updateItem('sub',this)"></span>
+		<span class="wares_qty_num"><input type="text" class="input_num" value="$kk.getIqty()" autocomplete="off"/></span>
+		<span class="wares_qty_add" onclick="updateItem('add',this)"></span>
+	</div>
+	#end
+	<div class="wares_total_box">
+		#if($kk.getPrice())
+			<input type="hidden" class="theprice" value="$kk.getPrice().getPrice()" />
+			<p>$!currencyBo.getSymbolCode() <span class="showTotal" >$kk.getPrice().getPriceStr()</span></p> 
+			#if($kk.getPrice().getDiscount())
+				<div>#springMessage("you_save")<br />
+				$!currencyBo.getSymbolCode() <span class="showDiscountTotal">$kk.getPrice().preferAmount($kk.getIqty())</span>
+				(<span class="showdiscount">$kk.getPrice().getDiscountStr()</span>%)</div>
+			#end
+		#end
+	</div>
+</dd>

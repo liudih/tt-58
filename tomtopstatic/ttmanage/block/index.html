@@ -1,0 +1,1025 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>metroNic后台操作说明</title>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css">
+<link type="text/css" rel="stylesheet" href="../assets/global/css/components.min.css" />
+<link rel="stylesheet" href="http://v2.bootcss.com/assets/css/docs.css">
+<link type="text/css" rel="stylesheet" href="../jstree/dist/themes/default/style.min.css" />
+<link type="text/css" rel="stylesheet" href="../css/plugins.min.css" />
+<link type="text/css" rel="stylesheet" href="../css/font-awesome.min.css" />
+<link type="text/css" rel="stylesheet" href="../css/index.css" />
+
+<!--默认form样式属性-->
+<link href="../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/jstree/dist/jstree.min.js"></script>
+<script src="../assets/global/scripts/app.min.js"></script>
+<script src="../assets/pages/scripts/ui-tree.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/uniform/jquery.uniform.min.js"></script>
+<script src="../js/bootstrap-confirmation.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+
+        
+</head>
+<body data-target=".bs-docs-sidebar" data-spy="scroll">
+<!-- <div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar collapsed" type="button">
+	            <span class="icon-bar"> </span>
+	            <span class="icon-bar"> </span>
+	            <span class="icon-bar"> </span>
+	        </button>
+	        <a href="./index.html" class="brand">VIPSPARK</a>
+	        <div class="nav-collapse collapse">
+				<ul class="nav">
+					<li class="active"><a href="javascript:;">基本元素</a></li>
+					<li class=""><a href="javascript:;">样式说明</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div> -->
+<script src="top.js" type="text/javascript"></script>
+
+<div class="container">
+	<div class="row">
+		<div class="span3 bs-docs-sidebar">
+	        <ul class="nav nav-list bs-docs-sidenav affix">
+		          <li><a href="#color"><i class="icon-chevron-right"> </i> 颜色</a></li>
+		          <li><a href="#font"><i class="icon-chevron-right"> </i> 文字排版</a></li>
+		          <li><a href="#Labels"><i class="icon-chevron-right"> </i> 标签</a></li>
+		          <li><a href="#Pagination"><i class="icon-chevron-right"> </i> 分页</a></li>
+		          <li><a href="#Tooltips"><i class="icon-chevron-right"> </i> 弹框</a></li>
+		          <li><a href="#button"><i class="icon-chevron-right"> </i> 按钮</a></li>
+		          <li><a href="#input"><i class="icon-chevron-right"> </i> input</a></li>
+		          <li><a href="#navs"><i class="icon-chevron-right"> </i> 导航</a></li>
+	          	  <li><a href="#table"><i class="icon-chevron-right"> </i>table</a></li>
+	        </ul>
+	      </div>
+		<div class="span9">
+			<section>
+			<h2>说明</h2>
+				说明：
+				assets/global/plugins/jquery.min.js<br>
+				assets/global/plugins/bootstrap/js/bootstrap.min.js<br>
+				assets/global/scripts/app.min.js为整站js；<br>
+				assets/global/plugins/bootstrap/css/bootstrap.min.css<br>
+				assets/global/css/components.min.css为整站css<br>
+				这里分列和boot有点不同；这里用的是col-md-6分六份；而boot用的是span6分六份；
+			</section>
+			<section id="color">
+			<h2>颜色</h2>
+			代码说明：这里定义了字体颜色(font-blue)/背景颜色(bg-blue)/border颜色(border-blue)<br><br>
+			主要的颜色介绍:
+			<ul class="ulLine">
+				<li> white </li>
+				<li class="font-default bg-blue"> default </li>
+				<li class="font-dark"> dark </li>
+				<li class="font-blue"> blue </li>
+				<li class="font-green"> green </li>
+				<li class="font-grey bg-blue"> grey </li>
+				<li class="font-red"> red </li>
+				<li class="font-yellow"> yellow </li>
+				<li class="font-purple"> purple </li>
+			</ul>
+			辅助蓝色介绍:
+			<ul class="ulLine">
+				<li class="font-blue-madison">  blue-madison  </li>
+				<li class="font-blue-chambray"> blue-chambray  </li>
+				<li class="font-blue-ebonyclay"> blue-ebonyclay  </li>
+				<li class="font-blue-hoki"> blue-hoki </li>
+				<li class="font-blue-steel"> blue-steel </li>
+				<li class="font-blue-soft"> blue-soft </li>
+				<li class="font-blue-dark"> blue-dark </li>
+				<li class="font-blue-sharp"> blue-sharp </li>
+			</ul>
+			辅助绿色介绍:
+			<ul class="ulLine">
+				<li class="font-green-meadow"> green-meadow </li>
+				<li class="font-green-seagreen"> green-seagreen </li>
+				<li class="font-green-turquoise"> green-turquoise </li>
+				<li class="font-green-haze"> green-haze </li>
+				<li class="font-green-jungle"> green-jungle </li>
+				<li class="font-green-soft"> green-soft </li>
+				<li class="font-green-dark"> green-dark </li>
+				<li class="font-green-sharp"> green-sharp </li>
+			</ul>
+			辅助灰色介绍:
+			<ul class="ulLine">
+				<li class="font-grey-steel bg-blue"> grey-steel </li>
+				<li class="font-grey-cararra bg-blue"> grey-cararra </li>
+				<li class="font-grey-gallery"> grey-gallery </li>
+				<li class="font-grey-cascade"> grey-cascade </li>
+				<li class="font-grey-silver"> grey-silver </li>
+				<li class="font-grey-salsa"> grey-salsa </li>
+				<li class="font-grey-salt"> grey-salt </li>
+				<li class="font-grey-mint"> grey-mint </li>
+			</ul>
+			辅助红色介绍:
+			<ul class="ulLine">
+				<li class="font-red-pink"> red-pink </li>
+				<li class="font-red-sunglo"> red-sunglo </li>
+				<li class="font-red-intense"> red-intense </li>
+				<li class="font-red-thunderbird"> red-thunderbird </li>
+				<li class="font-red-flamingo"> red-flamingo </li>
+				<li class="font-red-soft"> red-soft </li>
+				<li class="font-red-haze"> red-haze </li>
+				<li class="font-red-mint"> red-mint </li>
+			</ul>
+			辅助黄色介绍:
+			<ul class="ulLine">
+				<li class="font-yellow-gold"> yellow-gold </li>
+				<li class="font-yellow-casablanca"> yellow-casablanca </li>
+				<li class="font-yellow-crusta"> yellow-crusta </li>
+				<li class="font-yellow-lemon"> yellow-lemon </li>
+				<li class="font-yellow-saffron"> yellow-saffron </li>
+				<li class="font-yellow-soft"> yellow-soft </li>
+				<li class="font-yellow-haze"> yellow-haze </li>
+				<li class="font-yellow-mint"> yellow-mint </li>
+			</ul>
+			辅助紫色介绍:
+			<ul class="ulLine">
+				<li class="font-purple-plum"> purple-plum </li>
+				<li class="font-purple-medium"> purple-medium </li>
+				<li class="font-purple-studio"> purple-studio </li>
+				<li class="font-purple-wisteria"> purple-wisteria </li>
+				<li class="font-purple-seance"> purple-seance </li>
+				<li class="font-purple-intense"> purple-intense </li>
+				<li class="font-purple-sharp"> purple-sharp </li>
+				<li class="font-purple-soft"> purple-soft </li>
+			</ul>
+<pre>
+	.bg-blue, .bg-hover-blue:hover {background: #3598dc}
+	.font-blue {color: #3598dc !important}
+	.bg-font-blue {color: #FFF !important}
+	.border-blue {border-color: #3598dc !important}
+	.border-top-blue {border-top-color: #3598dc !important}
+	.border-bottom-blue {border-bottom-color: #3598dc !important}
+	.border-left-blue {border-left-color: #3598dc !important}
+	.border-right-blue {border-right-color: #3598dc !important}
+</pre>
+			</section>
+			<section id="font">
+				<div class="row">
+					<h2>字体</h2>
+					<p>1，h1-h6字体大小示例<br>
+						2，右边点击伸缩框，portlet box为必要属性，red控制颜色<br>
+						3，文字排列text-left/center/right
+					</p>
+<pre>
+<xmp>  <div class="portlet box red">
+    <div class="portlet-title">
+        <div class="caption">标题</div>
+        <div class="tools">
+            <a class="collapse" href="javascript:;" data-original-title="" title=""> </a>
+        </div>
+    </div>
+    <div class="portlet-body">
+       主体信息...
+    </div>
+</div>
+</xmp></pre>
+					<div class="col-md-6">
+                        <h3>Headings</h3>
+                        <h1>h1. Heading 1</h1>
+                        <h2>h2. Heading 2</h2>
+                        <h3>h3. Heading 3</h3>
+                        <h4>h4. Heading 4</h4>
+                        <h5>h5. Heading 5</h5>
+                        <h6>h6. Heading 6</h6>
+			             <div class="portlet box blue">
+		                    <div class="portlet-title">
+		                        <div class="caption">
+		                            Inline List </div>
+		                        <div class="tools">
+		                            <a class="collapse" href="javascript:;" data-original-title="" title=""> </a>
+		                        </div>
+		                    </div>
+		                    <div class="portlet-body">
+		                        <ul class="list-inline">
+		                            <li> 1. Lorem </li>
+		                            <li> 2. Phasellus </li>
+		                            <li> 3. Nulla </li>
+		                        </ul>
+		                    </div>
+		                </div>
+                    </div>
+                    <div class="col-md-6">
+						<div class="portlet box red">
+		                    <div class="portlet-title">
+		                        <div class="caption">
+		                            Address</div>
+		                        <div class="tools">
+		                            <a class="collapse" href="javascript:;" data-original-title="" title=""> </a>
+		                        </div>
+		                    </div>
+		                    <div class="portlet-body">
+	                                <address>
+	                                    <strong>Loop, Inc.</strong>
+	                                    <br> 795 Park Ave, Suite 120
+	                                    <br> San Francisco, CA 94107
+	                                    <br>
+	                                    <abbr title="Phone">P:</abbr> (234) 145-1810 </address>
+	                                <address>
+	                                    <strong>Full Name</strong>
+	                                    <br>
+	                                    <a href="mailto:#"> first.last@email.com </a>
+	                                </address>
+		                    </div>
+		                </div>
+		             <div class="portlet box yellow">
+	                    <div class="portlet-title">
+	                        <div class="caption">
+	                            	文字排列</div>
+	                        <div class="tools">
+	                            <a class="collapse" href="javascript:;" data-original-title="" title=""> </a>
+	                        </div>
+	                    </div>
+	                    <div class="portlet-body">
+                            <p class="text-left"> 文字居左 </p>
+                            <p class="text-center"> 文字居中 </p>
+                            <p class="text-right"> 文字居右 </p>
+	                    </div>
+	                </div>
+                </div>
+			</section>
+			<section id="Labels">
+				<h2>标签</h2>
+				代码说明：这里的标签使用label标记然后根据相应的取类名label-default<br><br>
+				<table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th> Class </th>
+                            <th> Labels </th>
+                            <th> Badges </th>
+                            <th> Roundless Badges </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> Default </td>
+                            <td>
+                                <span class="label label-default"> Default </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-default"> 5 </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-default badge-roundless"> 3 </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Primary </td>
+                            <td>
+                                <span class="label label-primary"> Primary </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-primary"> 4 </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-primary badge-roundless"> Hot </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Info </td>
+                            <td>
+                                <span class="label label-info"> Info </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-info"> 6 </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-info badge-roundless"> New </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Success </td>
+                            <td>
+                                <span class="label label-success"> Success </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-success"> 1 </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-success badge-roundless"> 2 </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Danger </td>
+                            <td>
+                                <span class="label label-danger"> Danger </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-danger"> 3 </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-danger badge-roundless"> 5 </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Warning </td>
+                            <td>
+                                <span class="label label-warning"> Warning </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-warning"> 12 </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-warning badge-roundless"> 3 </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+<pre><xmp>  <span class="label label-default"> Default </span>
+  <span class="badge badge-default"> 5 </span>
+  <span class="badge badge-default badge-roundless"> 3 </span>
+</xmp></pre>
+				
+				例：背景属性使用list-group-item-success（success/info/warning/danger）
+				<ul class="list-group">
+                    <li class="list-group-item"> Default 
+                    	<span class="badge badge-danger"> new </span>
+                    </li>
+                    <li class="list-group-item list-group-item-success"> Success </li>
+                    <li class="list-group-item list-group-item-info"> Info
+                        <span class="badge badge-warning"> 3 </span>
+                    </li>
+                    <li class="list-group-item list-group-item-warning"> Warning
+                        <span class="badge badge-default"> 3 </span>
+                    </li>
+                    <li class="list-group-item list-group-item-danger"> Danger </li>
+                </ul>
+			</section>
+			<section id="Pagination">
+				<h2>分页</h2>
+				代码说明：用法和bootstrap相同 大小命名有一点不同pagination-lg/pagination-sm
+				<ul class="pagination pagination-lg">
+                    <li class="disabled">
+                        <a href="javascript:;"> « </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> 1 </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> 2 </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> 3 </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> 4 </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> 5 </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> 6 </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> » </a>
+                    </li>
+                </ul>
+<pre>
+<xmp>  <ul class="pagination pagination-lg">
+    <li class="disabled"><a href="javascript:;"> « </a></li>
+    <li><a href="javascript:;"> 1 </a></li>
+    <li><a href="javascript:;"> 2 </a></li>
+    <li><a href="javascript:;"> 3 </a></li>
+    <li><a href="javascript:;"> » </a></li>
+  </ul>
+</xmp></pre>
+			</section>
+
+			<section id="Tooltips">
+				<h2>弹框</h2>
+				<p>代码说明：这里需要加载app.min.js去初始化js；<br>
+					这里不一定用button，即使是纯文本，有相应的属性也是可以的,像第一个Top<br>
+					1.data-original-title为弹出框显示内容；<br>
+					2.data-placement控制方向；<br>
+					3.data-container貌似没什么用；<br>
+					4.class属性对于js来说可有可无；
+				</p>
+<pre>
+<xmp><button data-original-title="Tooltip in top" data-placement="top" data-container="body" class="btn btn-default tooltips">Top</button>
+<button data-original-title="Popover in top" data-content="Popover body goes here! Popover body goes here!" data-placement="top" data-trigger="hover" data-container="body" class="btn btn-default popovers">Top</button>
+</xmp></pre>
+                    <span data-original-title="Tooltip in top" data-placement="top" data-container="body" class="tooltips">Top</span>
+                    <button data-original-title="Tooltip in left" data-placement="left" data-container="body" class="btn btn-default tooltips">Left</button>
+                    <button data-original-title="Tooltip in right" data-placement="right" data-container="body" class="btn btn-default tooltips">Right</button>
+                    <button data-original-title="Tooltip in bottom" data-placement="bottom" data-container="body" class="btn btn-default tooltips">Bottom</button>
+                    <div data-original-title="Tooltip goes here" data-container="body" class="inline-block tooltips">
+                        <button class="btn btn-default disabled" type="button">Disabled1</button>
+                    </div>
+                    <br><br>
+                    Popovers<br>
+                    <button data-original-title="Popover in top" data-content="Popover body goes here! Popover body goes here!" data-placement="top" data-trigger="hover" data-container="body" class="btn btn-default popovers">Top</button>
+                    <button data-original-title="Popover in left" data-content="Popover body goes here! Popover body goes here!" data-placement="left" data-trigger="hover" onclick=" " data-container="body" class="btn btn-default popovers">Left</button>
+                    <button data-original-title="Popover in right" data-content="Popover body goes here! Popover body goes here!" data-placement="right" data-trigger="hover" data-container="body" class="btn btn-default popovers">Right</button>
+                    <button data-original-title="Popover in bottom" data-content="Popover body goes here! Popover body goes here!" data-placement="bottom" data-trigger="hover" data-container="body" class="btn btn-default popovers">Bottom</button>
+                    <div data-original-title="Popover in bottom" data-content="Popover body goes here! Popover body goes here!" data-placement="bottom" data-trigger="hover" data-container="body" class="inline-block popovers">
+                        <button class="btn btn-default disabled" type="button">Disabled</button>
+                    </div>
+                    <br><br>
+                    <p>这里需要加载../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js<br>
+                    	1，data-placement控制方向<br>
+                    	2，data-toggle触发<br>
+                    	3，class为uppercase控制全大写<br>
+                    	4，data-original-title控制title，默认值为Are you sure?
+                    </p>
+<pre>
+<xmp>  <button data-placement="left" data-toggle="confirmation" class="btn btn-outline green-sharp  uppercase" data-original-title="" title="">Confirmation on left</button>
+</xmp></pre>
+                    <button data-placement="left" data-toggle="confirmation" class="btn btn-outline green-sharp  uppercase" data-original-title="title" title="">Confirmation on left</button>
+                    <button data-placement="top" data-toggle="confirmation" class="btn red-mint  btn-circle" data-original-title="" title="">Confirmation on top</button>
+			</section>
+			<section id="button">
+				<h2>按钮</h2>
+				代码说明：使用相同格式就好了；
+<pre>
+<xmp>  <ul class="pager">
+    <li class="previous">
+        <a href="javascript:;"> ← Older </a>
+    </li>
+    <li class="next">
+        <a href="javascript:;"> Newer → </a>
+    </li>
+  </ul>
+</xmp></pre>
+				<p>例:</p>
+				<ul class="pager">
+                    <li class="previous">
+                        <a href="javascript:;"> ← Older </a>
+                    </li>
+                    <li class="next">
+                        <a href="javascript:;"> Newer → </a>
+                    </li>
+                </ul>
+						<p>排成一排无间隙加一层btn-group</p>
+						<div class="btn-group">
+		                    <button class="btn btn-default" type="button">1</button>
+		                    <button class="btn btn-default" type="button">2</button>
+		                    <button class="btn btn-default" type="button">3</button>
+		                    <button class="btn btn-default" type="button">4</button>
+		                </div><br><br>
+						<p>
+							下拉弹框<br>
+							1，dropdown-toggle和data-toggle="dropdown"为button上的必要属性；<br>
+							2，dropdown-menu为隐藏属性<br>
+							3，弹出多选，点击是不想隐藏，需加hold-on-click；<br>
+							4，如果向上弹框，在按钮父级加dropup属性；<br>
+							5，鼠标经过显示需要assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js
+						</p>
+<pre>
+<xmp>  <div class="btn-group dropup">
+    <button type="button" class="btn green">Dropup</button>
+    <button type="button" class="btn green dropdown-toggle" data-toggle="dropdown">
+    	<i class="fa fa-angle-up"></i>
+    </button>
+    <div class="dropdown-menu hold-on-click dropdown-checkboxes">
+        <label><input type="checkbox">Option 1</label>
+        <label><input type="checkbox" checked>Option 2</label>
+        <label><input type="checkbox">Option 3</label>
+        <label><input type="checkbox" checked>Option 4</label>
+        <label><input type="checkbox">Option 5</label>
+    </div>
+  </div>
+</xmp></pre>
+		                <div class="btn-group">
+		                    <button class="btn btn-default" type="button">Dropdown</button>
+		                    <button data-close-others="true" data-delay="1000" data-hover="dropdown" data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button" aria-expanded="false">
+		                        <i class="fa fa-angle-down"></i>
+		                    </button>
+		                    <ul role="menu" class="dropdown-menu">
+		                        <li>
+		                            <a href="javascript:;"> Action </a>
+		                        </li>
+		                        <li>
+		                            <a href="javascript:;"> Another action </a>
+		                        </li>
+		                        <li>
+		                            <a href="javascript:;"> Something else here </a>
+		                        </li>
+		                        <li class="divider"> </li>
+		                        <li>
+		                            <a href="javascript:;"> Separated link </a>
+		                        </li>
+		                    </ul>
+		                </div>
+		                  <div class="btn-group dropup">
+			                    <button type="button" class="btn green">Dropup</button>
+			                    <button type="button" class="btn green dropdown-toggle" data-toggle="dropdown">
+			                        <i class="fa fa-angle-up"></i>
+			                    </button>
+			                    <div class="dropdown-menu hold-on-click dropdown-checkboxes">
+			                        <label>
+			                            <input type="checkbox">Option 1</label>
+			                        <label>
+			                            <input type="checkbox" checked>Option 2</label>
+			                        <label>
+			                            <input type="checkbox">Option 3</label>
+			                        <label>
+			                            <input type="checkbox" checked>Option 4</label>
+			                        <label>
+			                            <input type="checkbox">Option 5</label>
+			                    </div>
+			              </div>
+			              <br><br>
+				<p>
+					基本按钮<br>
+					1，btn为必要属性；<br>
+					2，a属性和button属性都可以用；<br>
+					3，线框属性加btn-outline；<br>
+					4，链接属性加btn-link；<br>
+					5，块级属性加btn-block；<br>
+					6，按钮大小btn-lg（btn-sm/btn-xs）；
+				</p>
+<pre>
+<xmp><button class="btn blue btn-lg" type="button">Large button</button>
+</xmp></pre>
+				<button class="btn default btn-lg" type="button">Large button</button>
+				<a class="btn red" href="javascript:;">Default button</a>
+				<a class="btn blue btn-sm btn-outline" href="javascript:;">Small button</a>
+				<button class="btn green btn-xs btn-outline" type="button">Extra small button</button>
+				<button class="btn btn-link" type="button">Link</button><br><br>
+				<input type="submit" value="Submit" class="btn blue btn-block"><br>
+			</section>
+			
+			<section id="input">
+				<h2>input</h2>
+				代码说明：form上的form-horizontal是让左侧文字居右显示；这里提供了has-warning；has-error；has-success
+<pre>
+<xmp>  <form class="form-horizontal">
+	<div class="has-warning">
+		<label class="control-label col-md-3">Name<span class="required"> * </span></label>
+		<div class="col-md-9">
+	        <input type="text" class="form-control">
+	        <span class="help-block">警告.</span>
+	    </div>
+	</div>
+  </form>
+</xmp></pre>
+				<form class="form-horizontal">
+					<div class="has-warning">
+						<label class="control-label col-md-3">Name<span class="required"> * </span></label>
+						<div class="col-md-9">
+		                    <input type="text" class="form-control">
+		                    <span class="help-block">警告.</span>
+	                    </div>
+	                </div>
+					<div class="has-error">
+						<label class="control-label col-md-3">Name<span class="required"> * </span></label>
+						<div class="col-md-9">
+	                    <input type="text" class="form-control">
+		                    <span class="help-block">错误.</span>
+	                    </div>
+	                </div>
+					<div class="has-success">
+						<label class="control-label col-md-3">Name<span class="required"> * </span></label>
+						<div class="col-md-9">
+	                    	<input type="text" class="form-control">
+		                    <span class="help-block">成功.</span>
+	                    </div>
+	                </div>
+                </form>
+			</section>
+			
+			<section id="navs">
+				<h2>导航</h2>
+				代码说明：这里提供了线框（nav-tabs），下划线（父级tabbable-line），背景块（nav-pills），左导航（ tabs-left），右导航（tabs-right）<br>
+				1，href与id对应；<br>
+				2，data-toggle="tab"为必要属性；
+<pre>
+<xmp>  <div class="父级">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#tab_2_1"> Home </a></li>
+        <li class=""><a data-toggle="tab" href="#tab_2_2"> Profile </a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="tab_2_1" class="tab-pane fade active in"> someTxt1... </div>
+        <div id="tab_2_2" class="tab-pane fade"> someTxt2... </div>
+    </div>
+  </div>
+</xmp></pre>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="portlet-title tabbable-line">
+							<ul class="nav nav-tabs">
+	                            <li class="active">
+	                                <a data-toggle="tab" href="#portlet_tab2_3"> Tab 3 </a>
+	                            </li>
+	                            <li>
+	                                <a data-toggle="tab" href="#portlet_tab2_2"> Tab 2 </a>
+	                            </li>
+	                            <li>
+	                                <a data-toggle="tab" href="#portlet_tab2_1"> Tab 1 </a>
+	                            </li>
+	                        </ul>
+                        </div>
+                        <br>
+						<div>
+							<ul class="nav nav-tabs">
+	                            <li class="active"><a data-toggle="tab" href="#tab_1_11"> Home </a></li>
+	                            <li><a data-toggle="tab" href="#tab_1_21"> Profile </a></li>
+	                        </ul>
+                        	<div class="tab-content">
+	                            <div id="tab_1_11" class="tab-pane fade active in">
+	                                <p> someTxt1...</p>
+	                            </div>
+	                            <div id="tab_1_21" class="tab-pane fade">
+	                                <p>  someTxt2...</p>
+	                            </div>
+	                        </div>
+                        </div>
+                        <br>
+						<div class="">
+							<ul class="nav nav-tabs">
+	                            <li class="active"><a data-toggle="tab" href="#tab_1_1" aria-expanded="false"> Home </a></li>
+	                            <li class=""><a data-toggle="tab" href="#tab_1_2" aria-expanded="true"> Profile </a></li>
+	                            <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="javascript:;" aria-expanded="false"> Dropdown</a>
+	                                <ul role="menu" class="dropdown-menu">
+	                                    <li><a data-toggle="tab" tabindex="-1" href="#tab_1_3" aria-expanded="false"> Option 1 </a></li>
+	                                    <li class=""><a data-toggle="tab" tabindex="-1" href="#tab_1_4" aria-expanded="false"> Option 2 </a></li>
+	                                    <li><a data-toggle="tab" tabindex="-1" href="#tab_1_3" aria-expanded="false"> Option 3 </a>
+	                                    </li>
+	                                    <li><a data-toggle="tab" tabindex="-1" href="#tab_1_4" aria-expanded="false"> Option 4 </a></li>
+	                                </ul>
+	                            </li>
+	                        </ul>
+	                        <div class="tab-content">
+	                            <div id="tab_1_1" class="tab-pane fade active in">
+	                                <p> someTxt1...</p>
+	                            </div>
+	                            <div id="tab_1_2" class="tab-pane fade">
+	                                <p>  someTxt2...</p>
+	                            </div>
+	                            <div id="tab_1_3" class="tab-pane fade">
+	                                <p>  someTxt3...</p>
+	                            </div>
+	                            <div id="tab_1_4" class="tab-pane fade">
+	                                <p>  someTxt4...</p>
+	                            </div>
+	                        </div>
+                        </div>
+                        <br>
+                        <div class="tabbable tabbable-tabdrop">
+                            <ul class="nav nav-pills">
+                            	<li class="dropdown pull-right tabdrop">
+                            		<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            			下拉菜单
+                            			<b class="caret"></b></a>
+                                	<ul class="dropdown-menu">
+                                    	<li>
+                                            <a data-toggle="tab" href="#tab15">Section 5</a>
+                                        </li><li>
+                                            <a data-toggle="tab" href="#tab16">Section 6</a>
+                                        </li><li>
+                                            <a data-toggle="tab" href="#tab17">Section 7</a>
+                                        </li><li>
+                                            <a data-toggle="tab" href="#tab18">Section 8</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="active">
+                                    <a data-toggle="tab" href="#tab11" aria-expanded="true">Section 1</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#tab12" aria-expanded="false">Section 2</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#tab13" aria-expanded="false">Section 3</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="tab11" class="tab-pane active">
+                                    <p> I'm in Section 1. </p>
+                                </div>
+                                <div id="tab12" class="tab-pane">
+                                    <p> Howdy, I'm in Section 2. </p>
+                                </div>
+                                <div id="tab13" class="tab-pane">
+                                    <p> Howdy, I'm in Section 3. </p>
+                                </div>
+                                <div id="tab15" class="tab-pane">
+                                    <p> Howdy, I'm in Section 5. </p>
+                                </div>
+                                <div id="tab16" class="tab-pane">
+                                    <p> Howdy, I'm in Section 6. </p>
+                                </div>
+                                <div id="tab17" class="tab-pane">
+                                    <p> Howdy, I'm in Section 7. </p>
+                                </div>
+                                <div id="tab18" class="tab-pane">
+                                    <p> Howdy, I'm in Section 8. </p>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div class="col-md-6">
+						
+						<div class="col-md-6">
+							<ul class="nav nav-tabs tabs-left">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#tab_6_1"> Home </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#tab_6_2"> Profile </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:;"> More
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul role="menu" class="dropdown-menu">
+                                        <li>
+                                            <a data-toggle="tab" tabindex="-1" href="#tab_6_3"> Option 1 </a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" tabindex="-1" href="#tab_6_4"> Option 2 </a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" tabindex="-1" href="#tab_6_3"> Option 3 </a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" tabindex="-1" href="#tab_6_4"> Option 4 </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#tab_6_1"> Settings </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#tab_6_1"> More </a>
+                                </li>
+                            </ul>
+						</div>
+						
+						<div class="col-md-6">
+							<ul class="nav nav-tabs tabs-right">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#tab_7_1"> Home </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#tab_7_2"> Profile </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:;"> More
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul role="menu" class="dropdown-menu">
+                                        <li>
+                                            <a data-toggle="tab" tabindex="-1" href="#tab_7_3"> Option 1 </a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" tabindex="-1" href="#tab_7_4"> Option 2 </a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" tabindex="-1" href="#tab_7_3"> Option 3 </a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" tabindex="-1" href="#tab_7_4"> Option 4 </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#tab_7_1"> Settings </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#tab_7_1"> More </a>
+                                </li>
+                            </ul>
+						</div>
+						
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					树形导航：<br>
+					1，这里注意三个js的顺序
+					assets/global/plugins/jstree/dist/jstree.min.js +++
+					assets/global/scripts/app.min.js +++
+					assets/pages/scripts/ui-tree.min.js<br>
+					2，两种样式只需要更改id把1换成2
+					<br>
+<pre>
+<xmp>  <div class="tree-demo jstree jstree-1 jstree-default" id="tree_1">
+	<ul class="jstree-container-ul jstree-children">
+		<li id="j1_1" class="jstree-node jstree-open">
+			<a class="jstree-anchor" href="#" id="j1_1_anchor">Root node 1</a>
+            <ul class="jstree-children">
+            	<li id="j1_2" class="jstree-node jstree-leaf">
+            		<a class="jstree-anchor jstree-clicked" href="javascript:;" id="j1_2_anchor">Initially selected</a>
+            	</li>
+            	<li id="j1_3" class="jstree-node jstree-leaf">
+            		<a class="jstree-anchor" href="#" id="j1_3_anchor">custom icon URL </a>
+            	</li>
+            	<li id="j1_4" class="jstree-node jstree-open">
+            		<a class="jstree-anchor" href="#" id="j1_4_anchor"> initially open</a>
+                    <ul class="jstree-children">
+                    	<li id="j1_5" class="jstree-node jstree-leaf">
+                    		<a class="jstree-anchor  jstree-disabled" href="#" id="j1_5_anchor">Disabled Node </a>
+                    	</li>
+                    	<li id="j1_6" class="jstree-node jstree-leaf jstree-last">
+                    		<a class="jstree-anchor" href="#" id="j1_6_anchor">Another node </a>
+                    	</li>
+                    </ul>
+                </li>
+                <li id="j1_7" class="jstree-node jstree-leaf jstree-last">
+                	<a class="jstree-anchor" href="#" id="j1_7_anchor"> Custom icon class (bootstrap) </a>
+                </li>
+             </ul>
+         </li>
+         <li id="j1_8" class="jstree-node jstree-leaf jstree-last">
+         	<a class="jstree-anchor" href="#" id="j1_8_anchor">Clickanle link node </a>
+         </li>
+      </ul>
+  </div>
+</xmp></pre>
+					<div class="col-md-6">
+                        <div class="tree-demo jstree jstree-1 jstree-default" id="tree_1">
+                        	<ul class="jstree-container-ul jstree-children">
+                        		<li id="j1_1" class="jstree-node  jstree-open">
+                        			<a class="jstree-anchor" href="#" id="j1_1_anchor">
+                        				Root node 1
+                                    </a>
+                                    <ul class="jstree-children">
+                                    	<li id="j1_2" class="jstree-node  jstree-leaf">
+                                    		
+                                    		<a class="jstree-anchor  jstree-clicked" href="javascript:;" id="j1_2_anchor">Initially selected</a>
+                                    	</li>
+                                    	<li id="j1_3" class="jstree-node  jstree-leaf">
+                                    		<a class="jstree-anchor" href="#" id="j1_3_anchor">custom icon URL </a>
+                                    	</li>
+                                    	<li id="j1_4" class="jstree-node  jstree-open">
+                                    		<a class="jstree-anchor" href="#" id="j1_4_anchor"> initially open</a>
+                                            <ul class="jstree-children">
+                                            	<li id="j1_5" class="jstree-node  jstree-leaf">
+                                            		<a class="jstree-anchor  jstree-disabled" href="#" id="j1_5_anchor">Disabled Node </a>
+                                            	</li>
+                                            	<li id="j1_6" class="jstree-node  jstree-leaf jstree-last">
+                                            		<a class="jstree-anchor" href="#" id="j1_6_anchor">Another node </a>
+                                            	</li>
+                                            </ul>
+                                        </li>
+                                        <li id="j1_7" class="jstree-node  jstree-leaf jstree-last">
+                                        	<a class="jstree-anchor" href="#" id="j1_7_anchor"> Custom icon class (bootstrap) </a>
+                                        </li>
+                                     </ul>
+                                 </li>
+                                 <li id="j1_8" class="jstree-node  jstree-leaf jstree-last">
+                                 	<a class="jstree-anchor" href="#" id="j1_8_anchor">Clickanle link node </a>
+                                 </li>
+                              </ul>
+                         </div>
+					</div>
+					<div class="col-md-6">
+                        <div class="tree-demo jstree jstree-1 jstree-default" id="tree_2">
+                        	<ul class="jstree-container-ul jstree-children">
+                        		<li id="j2_1" class="jstree-node  jstree-open">
+                        			<a class="jstree-anchor" href="#" id="j2_1_anchor">Root node 1</a>
+                                    <ul class="jstree-children">
+                                    	<li id="j2_2" class="jstree-node jstree-leaf">
+                                    		
+                                    		<a class="jstree-anchor jstree-clicked" href="javascript:;" id="j2_2_anchor">Initially selected</a>
+                                    	</li>
+                                    	<li id="j2_3" class="jstree-node jstree-leaf">
+                                    		<a class="jstree-anchor" href="#" id="j2_3_anchor">custom icon URL </a>
+                                    	</li>
+                                    	<li id="j2_4" class="jstree-node jstree-open">
+                                    		<a class="jstree-anchor" href="#" id="j2_4_anchor"> initially open</a>
+                                            <ul class="jstree-children">
+                                            	<li id="j2_5" class="jstree-node jstree-leaf">
+                                            		<a class="jstree-anchor jstree-disabled" href="#" id="j2_5_anchor">Disabled Node </a>
+                                            	</li>
+                                            	<li id="j2_6" class="jstree-node jstree-leaf jstree-last">
+                                            		<a class="jstree-anchor" href="#" id="j2_6_anchor">Another node </a>
+                                            	</li>
+                                            </ul>
+                                        </li>
+                                        <li id="j1_7" class="jstree-node  jstree-leaf jstree-last">
+                                        	<a class="jstree-anchor" href="#" id="j1_7_anchor"> Custom icon class (bootstrap) </a>
+                                        </li>
+                                     </ul>
+                                 </li>
+                                 <li id="j1_8" class="jstree-node  jstree-leaf jstree-last">
+                                 	<a class="jstree-anchor" href="#" id="j1_8_anchor">Clickanle link node </a>
+                                 </li>
+                              </ul>
+                         </div>
+					</div>
+					
+				</div>
+			</section>
+			
+			<section id="table">
+				<h2>table</h2>
+				(加相应的class即可)<br>
+				给table添加<br>
+				class为 table-bordered 属性可为table增加边框<br>
+				class为 table-striped 属性可得到斑马线效果；(IE7-8不支持)<br>
+				class为 table-hover 属性可得到鼠标经过变色效果<br>
+				class为 table-condensed 属性padding减半可使表格更紧凑
+				<div class="table-scrollable">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th style="width:450px !important" scope="col"> Column header 1 </th>
+                                <th scope="col"> Column header 2 </th>
+                                <th scope="col"> Column header 3 </th>
+                                <th scope="col"> Column header 4 </th>
+                                <th scope="col"> Column header 5 </th>
+                                <th scope="col"> Column header 6 </th>
+                                <th scope="col"> Column header 7 </th>
+                                <th scope="col"> Column header 8 </th>
+                                <th scope="col"> Column header 9 </th>
+                                <th scope="col"> Column header 10 </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                            </tr>
+                            <tr>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                            </tr>
+                            <tr>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                            </tr>
+                            <tr>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                            </tr>
+                            <tr>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                            </tr>
+                            <tr>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                                <td> Table data </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+			</section>
+			
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

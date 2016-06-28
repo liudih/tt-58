@@ -1,0 +1,6 @@
+
+<span class="payFors">#springMessage("pay.for")</span>
+<img src="${cdn-url}images/newshopping_icon_webm.png" alt=""/>
+<p>
+</p>
+<input class="spayOut" type="button" value="Continue" tag="submit_button">

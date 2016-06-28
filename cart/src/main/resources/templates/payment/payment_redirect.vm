@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Success - ${host-name}</title>
+<link rel="stylesheet" type="text/css" href="${cdn-url}css/newshopping.css?v=$!{version}" />
+<script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+</head>
+<body>
+
+#parse("/order/header.vm")
+
+#parse("/payment/do_payment.vm")
+
+#parse("/order/footer.vm")
+
+
+<script type="text/javascript">
+$(function(){
+	$('form').submit();
+});
+</script>
+</body>
+</html>

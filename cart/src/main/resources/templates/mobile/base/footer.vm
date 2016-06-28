@@ -1,0 +1,80 @@
+<!--foot-->
+<div class="footer">
+    <div class="foot width">
+        #if(!$null.isNull($islogin) && $islogin==false)
+        <div class="signin">
+        	#if("tomtop" == ${host-name})
+            Already a Customer?<a href="http://m.${host-name}.com/index.php?r=join/login">Sign In</a>
+            #end
+            
+            #if("chicuu" == ${host-name})
+            Already a Customer?<a href="//m.chicuu.com/member/login">Sign In</a>
+            #end
+        </div>
+        #end
+        <div class="info">
+        	#if("tomtop" == ${host-name})
+            <a href="http://m.${host-name}.com/index.php?r=helpers/map">Privacy Policy</a>
+            <a href="http://m.${host-name}.com/index.php?r=helpers/policy">Return Policy</a>
+            <a href="http://m.${host-name}.com/index.php?r=helpers/team">Terms of Use</a>
+            <a href="http://m.${host-name}.com/index.php?r=helpers/about">About US</a>
+            #end
+            
+            #if("chicuu" == ${host-name})
+            <a href="http://m.chicuu.com/privacy-policy.html">Privacy Policy</a>
+            <a href="http://m.chicuu.com/return-policy.html">Return Policy</a>
+            <a href="http://m.chicuu.com/terms-of-use.html">Terms of Use</a>
+            <a href="http://m.chicuu.com/about-us.html">About US</a>
+            #end
+            
+            
+        </div>
+        <div class="copyright">
+            © 2004 - 2016 ${host-name} com. All rights reserved
+        </div>
+    </div>
+    <!--右下角悬浮-->
+    <div class="suspend_rb">
+        <div id="opencircle" class="valign_b">
+            <img src="${cdn-url}icon/logo_120x120.png">
+        </div>
+        <div id="nav_top" class="valign_b">
+            <i class="icon_arr_top"></i>
+        </div>
+    </div>
+
+    <!--圆转转-->
+    <div id="circle" class="scale_0 animate">
+        <ul>
+            <li class="sector_1"><a href="http://m.${host-name}.com/index.php?r=member/index"><i class="icon_myaccount"></i></a></li>
+            <li class="sector_2" onclick="getHotKey();"><a href="javascript:void(0);"><i class="icon_search"></i></a></li>
+            <li class="sector_3"><a href="/"><i class="icon_cart"></i></a></li>
+            <li class="sector_4"><a href="http://m.${host-name}.com/index.php?r=myfavorite/index"><i class="icon_wishlists"></i></a></li>
+            <li class="sector_5"><a href="http://m.${host-name}.com/index.php?r=search/category"><i class="icon_grid"></i></a></li>
+        </ul>
+        <a class="home" href="http://m.${host-name}.com">
+            <i class="icon_home"></i>
+        </a>
+    </div>
+    <div id="dialogs"><!--用于所有弹窗的黑底--></div>
+    <div class="toast animate">Add to cart successful!</div>
+</div>
+
+<script type="text/javascript">
+function tapCur(node){
+	var jnode = $(node);
+	var code = jnode.attr("code");
+	$.ajax({
+		url: "/addcurrency?code="+code,
+		dataType: "json",
+		type: "get",
+		success:function(data){
+			if(data.result=="success"){
+				location.reload();
+			}
+		}
+	});
+}
+</script>
+
+#parse("/base/trackjs.vm")

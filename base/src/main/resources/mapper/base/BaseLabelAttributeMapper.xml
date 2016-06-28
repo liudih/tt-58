@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.base.mappers.BaseLabelAttributeMapper" >
+  <resultMap id="BaseResultMap" type="com.tomtop.base.models.dto.BaseLabelAttributeDto" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="language_id" property="languageId" jdbcType="INTEGER" />
+    <result column="client_id" property="clientId" jdbcType="INTEGER" />
+    <result column="is_change" property="isChange" jdbcType="INTEGER" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="category_id" property="categoryId" jdbcType="INTEGER" />
+    <result column="attribute_key" property="attributeKey" jdbcType="VARCHAR" />
+    <result column="attribute_value" property="attributeValue" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="is_enabled" property="isEnabled" jdbcType="INTEGER" />
+    <result column="is_deleted" property="isDeleted" jdbcType="INTEGER" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_on" property="createdOn" jdbcType="TIMESTAMP" />
+    <result column="last_updated_by" property="lastUpdatedBy" jdbcType="VARCHAR" />
+    <result column="last_updated_on" property="lastUpdatedOn" jdbcType="TIMESTAMP" />
+    <result column="label_id" property="labelId" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+  </resultMap>
+</mapper>

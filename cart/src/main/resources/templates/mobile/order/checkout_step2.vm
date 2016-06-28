@@ -1,0 +1,145 @@
+<!DOCTYPE html><head lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+<title>Payment  - ${host-name}</title>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+<link rel="icon" href="$ico" type="image/x-icon" />
+
+<link href="${cdn-url}css/shipping_address.css?v=$!{version}" type="text/css" rel="stylesheet" />
+<script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+<script src="${cdn-url}js/jquery.json.min.js?v=$!{version}"></script>
+<script src="${cdn-url}js/headfoot.js?v=$!{version}"></script>
+
+</head>
+<body>
+
+#set($step = 2)
+#parse("/mobile/base/header.vm")
+
+<div id="main">
+    <div class="schedule">
+        <div class="schedule_c">
+            <span class="step">
+                <i class="arrive">1</i>
+                <p>#springMessage("shopprocess.1")</p>
+            </span>
+            <span>
+                <em class="arrive"></em>
+            </span>
+            <span class="step">
+                <i class="arrive">2</i>
+                <p>#springMessage("shopprocess.2")</p>
+            </span>
+            <span>
+                <em></em>
+            </span>
+            <span class="step">
+                <i>3</i>
+                <p>#springMessage("shopprocess.3")</p>
+            </span>
+        </div>
+    </div>
+    <input type="hidden" id="ship_countryCode" value="$!defaultShipAddress.countryCode">
+	<div class="address address_info">
+        <div class="address_c w">
+            <div class="m clearfix">
+                <h3>#springMessage("order.confirm.view.shippingAddress")</h3>
+                <div class="user_info address_info_c fl ship_address_info" #if (!$defaultShipAddress) style="display:none" #end>
+                    <span class="user_name">
+	                    <label name="cfirstname">$!defaultShipAddress.cfirstname</label>
+	                    <label name="clastname">$!defaultShipAddress.clastname</label>
+                     </span>
+                    <span>
+	                    <label name="address1">$!defaultShipAddress.cstreetaddress</label>,
+	                    <label name="ccity">$!defaultShipAddress.ccity</label>,
+	                    <label name="cprovince">$!defaultShipAddress.cprovince</label>,
+						<label name="countryName">$!defaultShipAddress.countryFullName</label>
+						(<label name="cpostalcode">$!defaultShipAddress.cpostalcode</label>)</span>
+                    <span><label name="ctelephone">$!defaultShipAddress.ctelephone</label></span>
+				</div>
+                <div class="more_address_but fr more_ship_address" #if (!$defaultShipAddress) style="display:none" #end>
+                    <i class="icon_adressbook"></i>
+                </div>
+                <div class="more_address hide_b">
+                    <ul class="p" id="ship_address_ul">
+						#foreach($ship in $shipAddress)
+                            <li class="clearfix" onclick="tapShipDefault(this)">
+								<div class="chooseOneBox lineBlock">
+                                    <label>
+										#if($addressId && $addressId == $ship.iid)
+											<div class="radio lineBlock radioChecked">
+										#elseif(!$addressId && $ship.bdefault)
+											<div class="radio lineBlock radioChecked">
+										#else
+											<div class="radio lineBlock">
+										#end
+											<i class="icon_check"></i></div>
+                                    </label>
+                                </div>
+                                <div class="user_info address_info_c">
+                                    <span name="countryCode" style="display:none;">$!ship.countryCode</span>
+									<span name="address_id" style="display:none"/>$!ship.iid</span>
+				                    <span class="user_name">
+					                    <label name="cfirstname">$!ship.cfirstname</label>
+					                    <label name="clastname">$!ship.clastname</label>
+				                     </span>
+				                    <span>
+					                    <label name="address1">$!ship.cstreetaddress</label>,
+					                    <label name="ccity">$!ship.ccity</label>,
+					                    <label name="cprovince">$!ship.cprovince</label>,
+										<label name="countryName">$!ship.countryFullName</label>
+										(<label name="cpostalcode">$!ship.cpostalcode</label>)</span>
+				                    <span><label name="ctelephone">$!ship.ctelephone</label></span>
+								</div>
+                            </li>
+						#end
+                    </ul>
+                    <i class="icon_cross close_more_address"></i>
+                </div>
+                <button type="button" class="address_but ship_address_btn"><i class="icon_plus"></i>#springMessage("add.a.new.shipping.address")</button>
+				#parse("/mobile/order/address_form.vm")
+            </div>
+        </div>
+    </div>
+    <div class="method">
+        <div class="method_c w">
+            <div class="m">
+                <h3>#springMessage("select.shipping.method")</h3>
+                <ul id="shipping_method">
+                </ul>
+                <div class="method_explain">
+                    <i class="icon_bell"></i>
+                    <p>What's the Total Delivery Time? (Please use this formula to determine when your order will arrive)
+                        Total Delivery Time = Processing Time + Packaging Time + Shipping Time</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form id="placeOrderForm" method="post" action="/checkout/for-member-step3">
+       <input type="hidden" id="billAddressId" name="billAddressId" value="$!defaultShipAddress.iid">
+       <input type="hidden" id="shipAddressId" name="addressId" value="$!defaultShipAddress.iid"/>
+       <input type="hidden" name="storageid" value="$!storageid" />
+       <input type="hidden" name="shipMethodCode" id="shipMethodCode" value="" />
+       <input type="hidden" name="paymentId" id="paymentId" value="paypal" />
+       <input type="hidden" name="message" id="message" value="" />
+	   #parse("/mobile/order/order_product_list.vm")
+	   #parse("/mobile/order/payment_select.vm")
+	   #parse("/mobile/cart/loyalty_m.vm")
+	   <div class="settlement">
+        <div class="settlement_c w">
+            #parse("/mobile/order/settlement.vm")
+            <div class="pay m">
+                <input type="button" value="#springMessage("checkout_step2.placeOrder")" class="proceed_but" onclick="placeOrderBtn()">
+            </div>
+        </div>
+	</form>
+	</div>
+</div>
+
+#parse("/mobile/base/footer.vm")
+<script src="${cdn-url}js/loyalty_m.js?v=$!{version}" ></script>
+<script src="${cdn-url}js/shipping_adderss.js?v=$!{version}"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<div id="loginPopWarp" style="display:none;">
+	<div class="signJoin lbBox">
+		<h5>#springMessage("sign.in")</h5>
+		<i class="icon-Close" onclick="closethis(this)"> </i>
+		<div class="lineBlock">
+			<p class="marB5">Sign in with ${host-name} account</p>
+			<form style="margin:0px;" class="form-signin" role="form" id="loginForm" >
+			<div class="controls">
+				<i class="icon-email"> </i>
+				<input id="sign_email" name="email" class="span8" type="text" placeholder="#springMessage("enter.your.email.address")" />
+				<span class="help-block"></span>
+			</div>
+			<div class="controls">
+				<i class="icon-lock"> </i>
+				<input name="password" class="span8" type="password" placeholder="#springMessage("enter.your.password")" />
+				<span class="help-block"></span>
+			</div>
+			</form>
+			<input onclick="loginSubmit();" id="signins" type="button" value="SIGN IN" class="btn btn-primary" />
+			<a class="forgetPs" href="$!commonUrl.getForgetPassword()">Forgot password?</a>
+			
+			#if($urlmap)
+			<p class="marT15">Sign In with An Existing Account</p>
+			<div class="iconSign marT15">
+				<a class="icon-f"
+					href="$!urlmap.get("facebook")">
+				</a>
+				<a class="icon-g"
+					href="$!urlmap.get("google")">
+				</a>
+			</div>
+			#end
+		</div>
+		
+		<div class="lineBlock rJoinToday">
+			<p>New to ${host-name}?</p>
+			<a class="btn btn-primary joinToday"
+				href="$commonUrl.getRegUrl()">Join today!<i
+				class="icon-free"> </i></a>
+			<p>Members Only Service</p>
+			<ol class="onlyService">
+				<li>Reward Points</li>
+				<li>Exclusive Customer Service</li>
+				<li>Personalized Recommendations</li>
+				<li>Parmanent Shopping Cart</li>
+				<li>Order History</li>
+			</ol>
+		</div>
+	</div>
+	<div class="pu_popBlack"></div>
+</div>

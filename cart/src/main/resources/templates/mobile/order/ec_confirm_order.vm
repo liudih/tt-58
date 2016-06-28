@@ -1,0 +1,133 @@
+<!DOCTYPE html><head lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+<title>Payment - ${host-name} </title>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+<link rel="icon" href="$ico" type="image/x-icon" />
+
+<link href="${cdn-url}css/shipping_address.css?v=$!{version}" type="text/css" rel="stylesheet" />
+<script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+<script src="${cdn-url}js/jquery.json.min.js?v=$!{version}"></script>
+<script src="${cdn-url}js/headfoot.js?v=$!{version}"></script>
+<script src="${cdn-url}js/shipping_adderss.js?v=$!{version}"></script>
+
+</head>
+<body>
+<!--head-->
+<div class="header">
+    <div id="indextop" class="head width">
+        <div class="main clearfix">
+            <div class="main_content margin">
+                <div class="fl">
+                    <i class="icon_left" id="previous_page"></i>
+                </div>
+                <a href="#" class="logo">#springMessage("shopprocess.2")</a>
+                <div class="fr">
+                    <i class="icon_search skip_search"></i>
+                    <a href="/">
+                    <i class="icon_cart">
+                        <i class="quantity">$!cartsize</i>
+                    </i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    #parse("/mobile/base/search_bar.vm")
+</div>
+<div id="main">
+    <div class="schedule">
+        <div class="schedule_c">
+            <span class="step">
+                <i class="arrive">1</i>
+                <p>#springMessage("shopprocess.1")</p>
+            </span>
+            <span>
+                <em class="arrive"></em>
+            </span>
+            <span class="step">
+                <i class="arrive">2</i>
+                <p>#springMessage("shopprocess.2")</p>
+            </span>
+            <span>
+                <em></em>
+            </span>
+            <span class="step">
+                <i>3</i>
+                <p>#springMessage("shopprocess.3")</p>
+            </span>
+        </div>
+    </div>
+	<div class="address">
+        <div class="address_c w">
+            <div class="m clearfix address_info">
+                <h3>#springMessage("order.confirm.view.shippingAddress")</h3>
+                <div class="user_info fl address_info_c ">
+					<span name="countryCode" style="display:none;">$!address.countryCode</span>
+					 <span class="user_name">
+	                    <label name="cfirstname">$!address.cfirstname</label>
+	                    <label name="clastname">$!address.clastname</label>
+                     </span>
+                    <span>
+	                    <label name="address1">$!address.cstreetaddress</label>,
+	                    <label name="ccity">$!address.ccity</label>,
+	                    <label name="cprovince">$!address.cprovince</label>,
+						<label name="countryName">$!shipToCountry</label>
+						(<label name="cpostalcode">$!address.cpostalcode</label>)</span>
+                    <span><label name="ctelephone">$!address.ctelephone</label></span>
+				</div>
+                <div class="more_address_but fr">
+                    <i class="address_default_edit icon_edite" onclick="shipAddressEdit(this)"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+	#parse("/mobile/order/address_form.vm")
+    <div class="method">
+        <div class="method_c w">
+            <div class="m">
+                <h3>#springMessage("select.shipping.method")</h3>
+                <ul id="shipping_method">
+                </ul>
+                <div class="method_explain">
+                    <i class="icon_bell"></i>
+                    <p>What's the Total Delivery Time? (Please use this formula to determine when your order will arrive)
+                        Total Delivery Time = Processing Time + Packaging Time + Shipping Time</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    #parse("/mobile/order/order_product_list.vm")
+<form id="confirmOrderForm" action="/paypal/ec-do" method="post" >
+<input name="token" type="hidden" value="$!token"/>
+<input name="PayerID" type="hidden" value="$!PayerID"/>
+<input id="orderNum" name="orderNum" type="hidden" value="$!order.getCordernumber()"/>
+<input name="cfirstname" type="hidden" value="$!address.cfirstname"/>
+<input name="clastname" type="hidden" value="$!address.clastname"/>
+<input name="address1" type="hidden" value="$!address.cstreetaddress"/>
+<input name="address2" type="hidden"/>
+<input name="ccity" type="hidden" value="$!address.ccity"/>
+<input name="cprovince" type="hidden" value="$!address.cprovince"/>
+<input name="cpostalcode" type="hidden" value="$!address.cpostalcode"/>
+<input name="ctelephone" type="hidden" value="$!address.ctelephone"/>
+<input type="hidden" name="shipMethodCode" id="shipMethodCode" value="" />
+<input type="hidden" name="countryName" value="$!address.countryName" />
+<input type="hidden" name="countrysn" value="$!shipToCountryCode" id="ship_countryCode" />
+<input name="countryCode" type="hidden" value="$!shipToCountryCode"/>
+<div class="settlement">
+<div class="settlement_c w">
+    #parse("/mobile/order/settlement.vm")
+    <div class="pay m">
+        <input type="button" value="#springMessage("checkout_step2.placeOrder")" class="proceed_but" id="placeYourOrder" onclick="submitOrder()">
+    </div>
+</div>
+</div>
+</form>
+#parse("/mobile/base/footer.vm")
+<script>
+refreshShipMethod();
+</script>
+
+</body>
+</html>

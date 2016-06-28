@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.mappers.product.ProductMultiattributeSkuMapper" >
+  <resultMap id="BaseResultMap" type="com.tomtop.dto.product.ProductMultiattributeSku" >
+    <id column="iid" property="iid" jdbcType="INTEGER" />
+    <result column="cparentsku" property="cparentsku" jdbcType="VARCHAR" />
+    <result column="csku" property="csku" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    iid, cparentsku, csku
+  </sql>
+  
+    <select id="getMultiattributeProductList" resultType="com.tomtop.dto.product.ProductMultiattributeItem">
+		select m.clistingid listingId, m.cparentsku parentSku from  t_product_base m where
+		exists( select l.clistingid  from t_product_base l where m.cparentsku=l.cparentsku and m.iwebsiteid=l.iwebsiteid and l.clistingid in
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">#{item}</foreach> )
+  </select>
+</mapper>

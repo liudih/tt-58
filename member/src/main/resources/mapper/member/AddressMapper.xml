@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.member.mappers.user.AddressMapper">
+	<delete  id="deleteAddress" parameterType="java.util.List">
+		delete from t_member_address where iwebsiteid=#{website} and iid in
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete >
+		<insert id="insertAddress" useGeneratedKeys="true" 
+	  		keyProperty="iid" parameterType="com.tomtop.member.models.bo.AddressBo" >
+    insert into t_member_address
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="email != null" > cmemberemail,</if>
+      <if test="atype != null" > iaddressid,</if>
+      <if test="isDef != null" > bdefault,</if>
+      <if test="fname != null" > cfirstname,</if>
+      <if test="lname != null" > clastname,</if>
+      <if test="company != null" > ccompany,</if>
+      <if test="street != null" > cstreetaddress,</if>
+      <if test="city != null" > ccity,</if>
+      <if test="country != null" > icountry,</if>
+      <if test="province != null" > cprovince,</if>
+      <if test="postalcode != null" > cpostalcode,</if>
+      <if test="tel != null" > ctelephone,</if>
+      <if test="website != null" > iwebsiteid,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="email != null" >#{email,jdbcType=VARCHAR},</if>
+      <if test="atype != null" >#{atype,jdbcType=INTEGER},</if>
+      <if test="isDef != null" >#{isDef,jdbcType=BOOLEAN},</if>
+      <if test="fname != null" >#{fname,jdbcType=VARCHAR},</if>
+      <if test="lname != null" >#{lname,jdbcType=VARCHAR},</if>
+      <if test="company != null" >#{company,jdbcType=VARCHAR},</if>
+      <if test="street != null" >#{street,jdbcType=VARCHAR},</if>
+      <if test="city != null" >#{city,jdbcType=VARCHAR},</if>
+      <if test="country != null" >#{country,jdbcType=INTEGER},</if>
+      <if test="province != null" >#{province,jdbcType=VARCHAR},</if>
+      <if test="postalcode != null" >#{postalcode,jdbcType=VARCHAR},</if>
+      <if test="tel != null" >#{tel,jdbcType=VARCHAR},</if>
+      <if test="website != null" >#{website,jdbcType=INTEGER},</if>
+    </trim>
+  </insert>
+	<update id="updateAddress" parameterType="com.tomtop.member.models.bo.AddressBo">
+		update t_member_address
+		<set>
+			<if test="email != null and email !=''">
+				cmemberemail = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="atype != null">
+				iaddressid = #{atype,jdbcType=INTEGER},
+			</if>
+			<if test="isDef != null">
+				bdefault = #{isDef,jdbcType=BOOLEAN},
+			</if>
+			<if test="fname != null">
+				cfirstname = #{fname,jdbcType=VARCHAR},
+			</if>
+			<if test="lname != null">
+				clastname = #{lname,jdbcType=VARCHAR},
+			</if>
+			<if test="company != null">
+				ccompany = #{company,jdbcType=VARCHAR},
+			</if>
+			<if test="street != null">
+				cstreetaddress = #{street,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				ccity = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="country != null">
+				icountry = #{country,jdbcType=INTEGER},
+			</if>
+			<if test="province != null">
+				cprovince = #{province,jdbcType=VARCHAR},
+			</if>
+			<if test="postalcode != null">
+				cpostalcode = #{postalcode,jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null">
+				ctelephone = #{tel,jdbcType=VARCHAR},
+			</if>
+			dupdatedate = now()
+		</set>
+		where iid = #{id,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateDefaultAddress" parameterType="java.util.Map">
+		update t_member_address
+		<set>
+	 		bdefault=true,dupdatedate=now()
+	 	</set>
+		where iid=#{id} and cmemberemail=#{email} and iwebsiteid=#{website} and iaddressid=#{atype}
+	</update>
+	
+	<update id="updateAllNotDefault" parameterType="java.util.Map">
+		update t_member_address
+		<set>
+	 	    bdefault=false,dupdatedate=now()
+	 	</set>
+		where cmemberemail=#{email} and iwebsiteid=#{website} and iaddressid=#{atype}
+	</update>
+</mapper>

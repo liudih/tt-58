@@ -1,0 +1,71 @@
+<div class="product_attr hide_b buyPopBox">
+    <div class="attr_content margin">
+        <div class="product clearfix">
+            <div class="product_image fl">
+                <a class="theurl" href="$mainurl/${product.getUrl()}.html" >
+	              <img class="theimg" src="$imgUrlPrefix/$product.getImageUrl()" />
+	          </a>
+              #if($product.isDiscount())
+	          	<div class="off">$product.getDiscount()</div>
+	          #end
+            </div>
+            <h5 class="product_titles fl">
+			<a class="theurl" href="$mainurl/${product.getUrl()}.html">
+		    	$product.getTitle()
+		    </a>
+            </h5>
+            <div class="product_price fl">
+            	#if($product.isDiscount())
+                	<p class="original_price" style="font-size: 1.5rem;">$!currencyBo.getSymbolCode() <em class="oldprice" >$product.getOrigpriceStr($!currencyBo.getCode())</em></p>
+                #end
+                <p class="current_price">$!currencyBo.getSymbolCode() <em class="newprice">$product.getNowpriceStr($!currencyBo.getCode())</em></p>
+            </div>
+            <!-- <div class="expires fl">
+                Deal Expires:<span>06 : 02 : 13</span>
+            </div> -->
+        </div>
+        <div class="attr">
+            <dl>
+                <dt>Product Options</dt>
+                <dd>
+                    <span class="attr_name">Shipping:</span>
+            <span class="attr_val storage_content">
+                <i class="current">CN</i>
+                <i>US</i>
+                <i>DE</i>
+                <i>FR</i>
+            </span>
+                </dd>
+                
+                <div class="attrContent">
+                <dd>
+                    <span class="attr_name">Color:</span>
+		            <span class="attr_val color">
+		                <i class="current"><img src="img/picture_img_01_1000x1000.jpg" /></i>
+		                <i><img src="img/picture_img_01_1000x1000.jpg" /></i>
+		                <i><img src="img/picture_img_01_1000x1000.jpg" /></i>
+		            </span>
+                </dd>
+                <dd>
+                    <span class="attr_name">Size:</span>
+		            <span class="attr_val">
+		                <i class="current">3XL</i>
+		                <i>4XL</i>
+		                <i>5XL</i>
+		            </span>
+                </dd>
+                </div>
+            </dl>
+        </div>
+        <div class="qty">
+            <em>QTY:</em>
+    <span>
+        <i class="icon_minus qty_cut"></i>
+        <input type="text" value="1" class="qty_txt" />
+        <i class="icon_plus qty_add"></i>
+    </span>
+        </div>
+        <input onclick="addCart(this);" type="button" value="Continue" class="continue" />
+        <i class="icon_cross close_attr"></i>
+    </div>
+</div>

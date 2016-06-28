@@ -1,0 +1,64 @@
+
+<h2 class="h2_product">#springMessage("payment.methods")</h2>
+
+<div class="ns_payment_method clearfix">
+                <ul class="payment_method_tab">
+                #if($methods)
+	                	#foreach( $m in $methods)
+						   #if($m == "paypal")
+						   	 <li class="sel"><div class="payment_item"><span><i></i></span></div></li>
+						   #elseif($m == "credit")
+						   	 <li class="needBill" onclick="showBillAddress(this);"><div class="payment_item visa"><span><i></i></span></div></li>
+						   #elseif($m == "jbc")
+						   	 <li class="needBill" onclick="showBillAddress(this);"><div class="payment_item jcb"><span><i></i></span></div></li>
+						   #elseif($m == "webmoney")
+						   	 <li class=""><div class="payment_item webm"><span><i></i></span></div></li>
+						   #elseif($m == "qiwi")
+						   	 <li class=""><div class="payment_item qiwi"><span><i></i></span></div></li>
+						   #elseif($m == "yandex")
+						   	 <li class=""><div class="payment_item ekc"><span><i></i></span></div></li>
+						   #elseif($m == "boleto")
+						   	 <li class=""><div class="payment_item boleto"><span><i></i></span></div></li>
+						   #elseif($m == "gleepay_credit")
+						   	 <li class="needBill"><div class="payment_item vscj"><span><i></i></span></div></li>
+						   #elseif($m == "gleepay_webmoney")
+						   	 <li><div class="payment_item webm"><span><i></i></span></div></li>
+						   #elseif($m == "gleepay_qiwi")
+						   	 <li><div class="payment_item qiwi"><span><i></i></span></div></li>
+						   #end
+						#end
+				#else
+					
+                    <li class="sel"><div class="payment_item"><span><i></i></span></div></li>
+                    <li class="needBill" onclick="showBillAddress(this);"><div class="payment_item visa"><span><i></i></span></div></li>
+                    <li class="needBill" onclick="showBillAddress(this);"><div class="payment_item jcb"><span><i></i></span></div></li>
+                    <li class=""><div class="payment_item webm"><span><i></i></span></div></li>
+                    
+                    <li class=""><div class="payment_item qiwi"><span><i></i></span></div></li>
+                    <li class=""><div class="payment_item ekc"><span><i></i></span></div></li>
+                    <li class=""><div class="payment_item boleto"><span><i></i></span></div></li>
+               #end
+                </ul>
+                <ul class="payment_method_con">
+                	
+                	#if($methods)
+	                	#foreach( $m in $methods)
+						   #parse("/payment/${m}.vm")
+						#end
+					#else
+						#parse("/payment/paypal.vm")
+						#parse("/payment/credit.vm")
+						#parse("/payment/jbc.vm")
+						#parse("/payment/webmoney.vm")
+						#parse("/payment/qiwi.vm")
+						#parse("/payment/yandex.vm")
+						#parse("/payment/boleto.vm")
+					#end
+					
+                		
+                </ul>
+                
+               <!--  <div class="btn_more_payment"><span></span>More Payment Methods</div> -->
+            </div>
+            
+

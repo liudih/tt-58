@@ -1,0 +1,3 @@
+cpaymentid,iwebsiteid,fbeginprice,fendprice,cbusiness
+oceanpayment_credit,10,0,10000,"{""account"":""140143"",""terminal"":""14014305"",""secureCode"":""f840Xx0p""}"
+oceanpayment_credit_3D,10,0,10000,"{""account"":""140143"",""terminal"":""14014306"",""secureCode"":""N4H08zL4""}"

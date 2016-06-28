@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+<title>Pay Order - ${host-name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="$ico" type="image/x-icon" />
+<meta name="keywords" content="" />
+
+
+<link rel="stylesheet" type="text/css" href="/css/tomtop.css?v=$!{version}" />
+<link rel="stylesheet" type="text/css" href="/css/shopping.css?v=$!{version}" />
+<link rel="stylesheet" type="text/css" href="${cdn-url}css/newshopping.css?v=$!{version}" />
+<script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+<script src="${cdn-url}js/jquery.json.min.js?v=$!{version}"></script>
+<script src="${cdn-url}js/public.js?v=$!{version}"></script>
+<script src="${cdn-url}js/index.js?v=$!{version}"></script>
+<script src="${cdn-url}js/newshopping.js?v=$!{version}"></script>
+<script src="${cdn-url}js/main.js?v=$!{version}"></script>
+
+</head>
+<body>
+#set($step = 3)
+#parse("/order/header.vm")
+
+
+<div class="container" >
+
+<form action="/checkout/retry/do" method="post" id="payment_form">
+<input type="hidden" id="orderNum" name="orderNum" value="${order.cordernumber}" />
+<div class="shoppingCart_con orderD_con">
+	<div class="blackBK"></div>
+	<h6>Order Number: $order.getCordernumber()</h6>
+	<h6 class="marT">
+		Order Total:<span class="orange">$!symbol  $order.getFgrandtotalStr()</span>
+		<a class="refresh TS" href="javascript:location.reload();">
+			<p class="TsTxt">Refresh Price</p>
+		</a>
+	</h6>
+	<h6>#springMessage("product.list")</h6>
+	<table class="detailesTab paymentTh" width="100%" border="0" cellspacing="0" cellpadding="0">
+			<th class="itemTH">#springMessage("item")</th>
+			<th class="descriptionTH">#springMessage("description")</th>
+			<th class="priceTH">#springMessage("price")</th>
+			<th class="quanTH">#springMessage("qualitys")</th>
+			<th class="totalTH">#springMessage("utotal")</th>
+		<tr>
+			<td colspan="5">
+			<div class="attributeBOX paymentMethodPro">
+	        	<div class="aymentMethodHid">
+	        		<div class="aymentMethodShow">
+					#parse("/order/detail_product_list.vm")
+					<ul>
+	                    <li>
+	                        <table class="grandTotal" border="0" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr>
+										<td>#springMessage("order.subtotal")</td><td width="105">$symbol $order.getFordersubtotalStr()</td>
+									</tr>
+									<tr>
+										<td class="airmailB">#springMessage("shipping.cost")</td>
+										<td width="105"><b>$!symbol $order.getFshippingpriceStr($order.getCcurrency())</b></td>
+									</tr>
+									#if($order.getFextra())
+										<tr>
+											<td>#springMessage("order.discount_total"):</td>
+											<td><span class="green">$symbol $order.getFextraStr()</span></td>
+										</tr>
+									#end
+									<tr class="grandTotal_txt">
+										<td>#springMessage("grand.total")</td>
+										<td><span class="orange">$symbol $order.getFgrandtotalStr()</span></td>
+									</tr>
+								</tbody>
+							</table>
+	                    </li>
+	                </ul>
+					</div>
+	            </div>
+	            <div class="searchUD">
+	                <b>
+	                    <span class="attMs">#springMessage("order.more")</span>
+	                    <span class="attLs">#springMessage("order.less")</span><em></em>
+	                </b>
+	            </div>
+			</div>
+			</td>
+		</tr>
+	</table>
+
+
+	#parse("/order/detail_payment.vm")
+
+</div>
+<div class="clear"></div>
+</form>
+
+
+</div>	
+		
+#parse("/order/footer.vm")
+
+<script src="/js/jquery.country.js?v=$!{version}"></script>
+<script type="text/javascript">
+$(function(){
+	var paymentId = '$!{order.cpaymentid}' || 'paypal';
+	if(paymentId){
+		$('input[name=paymentId][value=' + paymentId + ']').trigger('click');
+	}
+		
+	
+	$("#j-country-code-list").find("a").click(function(){
+		var code = $(this).find("strong.i-country-code").text();
+		$("input[name=qiwiCountry]").val(code);
+	});
+	
+	$("[tag=submit_button]").click(function() {
+		$("#payment_form").submit();
+	});
+});
+</script>
+</body>
+</html>

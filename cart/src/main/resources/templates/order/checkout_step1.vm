@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+<title>My Order - ${host-name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="$ico" type="image/x-icon" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="${cdn-url}css/newshopping.css?v=$!{version}" />
+<script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+<script src="${cdn-url}js/public.js?v=$!{version}"></script>
+<script src="${cdn-url}js/index.js?v=$!{version}"></script>
+
+</head>
+<body>
+#set($step = 1)
+#parse("/order/header.vm")
+
+
+<!--头部结.p束-->
+<form id="addShipAddressForm" >
+<div class="newshopping_address_box">
+<div class="newshopping_address_pop">
+<h2>#springMessage("checkout_step.title")</h2>
+<p>#springMessage("checkout_step.title.1")</p>
+#parse("/order/ship_address_form.vm")
+<div class="newshopping_address_submit">
+	<div class="newshopping_address_default"><span></span>#springMessage("checkout_step.set_default")</div>
+    <!-- <a href="/base/cms/detail/59" target="_blank">#springMessage("checkout_step.Policy")</a> -->
+    <div class="address_submit">
+        <input onclick="submitAddress();" class="save" type="button" value="#springMessage("checkout_step.save") >>" >
+    </div>
+</div>
+</div>
+</div>
+</form>
+#parse("/order/footer.vm")
+
+<script src="${cdn-url}js/jquery.country.js?v=$!{version}"></script>
+<script src="${cdn-url}js/newsAddhopping.js?v=$!{version}"></script>
+<script type="text/javascript">
+function submitAddress(){
+	validShipAddressForm(function(id){
+		location.reload();
+	},function(){
+		errorTip('Submit error!');
+	});
+}
+
+</script>
+<script src="${cdn-url}js/country/country_rel.js?v=$!{version}"></script>
+<script src="${cdn-url}js/nortonseal.js?v=$!{version}"></script>
+</body>
+</html>

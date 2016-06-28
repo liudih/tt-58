@@ -1,0 +1,63 @@
+@import "../../less/public.less";   //--------------------初始化
+@import "../../less/config.less";   //--------------------风格色以及公共样式
+@import "../../less/head.less";     //--------------------头部
+@import "../../less/foot.less";     //--------------------页脚
+@import "schedule_m.less";          //------------------进度条
+@import "product_x.less";           //------------------横条产品
+@import "../../less/login_m.less";  //--------------------弹层登入
+@import "../css/font.css";
+
+
+body{background:@colorf5;}
+.schedule{padding:@15px 0 @45px 0; background:@colorff;}
+
+.coupon{margin-top:@15px; padding:@15px 0; font-size:0; background:@colorff;
+  h3{font-size:@16px; font-weight:bold; color:@color33;}
+  .coupon_info{margin-top:@20px;
+    input[type=text]{width:70%; height:@50px; padding:0 @10px; font-size:@16px; color:@color66; vertical-align:middle; border:1px solid @colorcc; border-radius:@4px;}
+    input[type=button]{width:28%; margin-left:2%; height:@50px; font-size:@16px; font-weight:bold; color:@colorff; vertical-align:middle; border-radius:@4px; background:@colorA2;}
+    .cancel{border:1px solid @colorcc; color:@color66!important; background:none!important;}
+    .drop_down{width:70%; position:relative; display:inline-block;
+      input{width:100%;}
+      i{position:absolute; right:@10px; top:50%; margin-top:-@5px; font-size:@14px; color:@color66;}
+    }
+    .points{margin-top:@10px; padding-left:@10px; font-size:@12px; color:@color66;
+      span{margin-right:@20px; color:@colorA;}
+    }
+    &:first-child{margin-top:0;}
+  }
+}
+
+.settlement{margin-top:@10px; padding:@15px 0; background:@colorff;
+  .price{
+    li{height:@30px; line-height:@30px;}
+    span{width:@120px;}
+    .fl{text-align:right;}
+    .combined{font-size:@16px; font-weight:bold;
+      .fr{color:@colorA1;}
+    }
+    .message{height:auto;
+      .message_text{width:80%; display:none; background:@colorff;
+        textarea{width:100%; height:@85px; padding:@10px; border:1px solid @colorcc;}
+      }
+    }
+  }
+  .pay{margin-top:@15px; font-size:@14px; font-weight:bold; color:@color66; line-height:@40px; text-align:center;
+    input{width:100%; height:@45px; font-size:@14px; font-weight:bold; color:@colorff; border-radius:@4px; background:@colorA2;}
+    .pay_but{background:#ffc63e url("../icon/pay.png") no-repeat center center;}
+  }
+}
+
+//--------------------弹层登入--------------------//
+.popup_login{width:100%; background:@colorff;
+  h3{margin-top:@20px; font-size:@18px; color:@color66; text-align:center;}
+  .other_login{
+    a{text-decoration:underline;}
+  }
+  .close_login{width:@30px; height:@30px; position:absolute; right:@15px; top:@15px; font-size:@18px; color:@colorff; text-align:center; line-height:@32px; display:block; border-radius:50%; cursor:pointer; background:@colordd;}
+}
+//购物车为空
+.publicModuleBox{padding:@30px @15px;text-align: center;width:100%;background:#fff;
+h5{font-size:@16px;color:@color66;font-weight:bold}
+.button_blue{display:inline-block;padding:0 @10px;font-size:@14px;margin-left:@10px;height:@40px;line-height:@40px;border:1px solid @colorA;color:@colorff;border-radius:@4px;background:@colorA;margin-top:@15px;}
+}

@@ -1,0 +1,67 @@
+#if($collectlist)
+<!-- 图片前缀 -->
+<input type="hidden" id="theurlprefix" value="$imgUrlPrefix" />
+<input type="hidden" id="themainurl" value="$mainurl" />
+<div class="chunk_product">
+        <div class="chunk_content width clearfix">
+            <h2>Your Recent History:</h2>
+            <div class="product_content">
+            	#foreach($product in $collectlist)
+            	
+                <div class="product_box">
+                	<input type="hidden" class="thelistingid" value="$!product.getListingId()" />
+                	<input type="hidden" class="product_url" value="$!product.getUrl()" />
+                	<input type="hidden" class="hisStorageid" value="1" />
+                    <div class="product">
+                        <div class="product_img">
+                            <a href="$mainurl/${product.getUrl()}.html">
+                                <img src="$imgUrlPrefix/$product.getImageUrl()">
+                            </a>
+                            #if($product.isDiscount())
+                            <div class="off">$product.getDiscount()</div>
+                            #end
+                        </div>
+                        <h5 class="product_title">
+                            <a href="$mainurl/${product.getUrl()}.html">
+                                $product.getTitle()
+                            </a>
+                        </h5>
+                        <div class="product_price">
+                            <p class="original_price">$!currencyBo.getSymbolCode() <em>$product.getOrigpriceStr($!currencyBo.getCode())</em></p>
+                            <p class="current_price">$!currencyBo.getSymbolCode() <em>$product.getNowpriceStr($!currencyBo.getCode())</em></p>
+                        </div>
+                        <!-- <div class="product_review">
+				            <span class="review_bg clearfix">
+				                <i class="icon_stars"></i>
+				                <i class="icon_stars"></i>
+				                <i class="icon_stars"></i>
+				                <i class="icon_stars"></i>
+				                <i class="icon_stars"></i>
+				                <span class="review">
+				                    <em class="reviews">
+				                        <i class="icon_stars"></i>
+				                        <i class="icon_stars"></i>
+				                        <i class="icon_stars"></i>
+				                        <i class="icon_stars"></i>
+				                        <i class="icon_stars"></i>
+				                    </em>
+				                </span>
+				            </span>
+                            <span class="review_nub">(<em>20</em>)</span>
+                        </div> -->
+                    </div>
+                    <div class="product_other">
+                        <!-- <a class="favorites fl" href="javascript:;">
+                            <i class="icon_wishlists"></i><em>Favorites</em>
+                        </a> -->
+                        <a class="buy fr" href="javascript:;"  onclick="popDetail(this);">
+                            <i class="icon_cart"></i><em>Buy</em>
+                        </a>
+                    </div>
+                    #parse("/mobile/base/product_attr.vm")
+                </div>
+                #end
+               </div>
+        </div>
+    </div>
+#end

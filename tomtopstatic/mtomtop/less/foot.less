@@ -1,0 +1,80 @@
+//===========底部
+.footer{
+  .foot{padding-bottom:@40px; padding-top:@10px; background:@colorf5;}
+  li{background:@colorff;}
+  .langcurren{margin-top:@10px;
+    li{width:48%; border:1px solid @colorcc;}
+    .language{border-left:none;}
+    .currency{border-right:none;}
+  }
+  .signin{height:@70px; font-size:@14px; color:@color66; text-align:center; line-height:@70px;
+    a{padding:0 @10px; color:@colorA;}
+  }
+  .info{height:@60px; margin:0 @15px; font-size:0; line-height:@60px;
+    a{width:25%; height:@20px; font-size:@14px; color:@color66; text-align:center; line-height:@20px; vertical-align:middle; display:inline-block;}
+  }
+  .copyright{height:@40px; font-size:@14px; color:@color99; text-align:center; line-height:@40px; border-top:1px solid @colorcc;}
+  .currency_box{width:100%; background:@colorff;
+    .currency_content{margin:0 @15px; padding:@15px 0;}
+    h3{height:@40px; font-size:@16px; font-weight:bold; line-height:@40px;}
+    h4{width:10%; height:@40px; font-size:@12px; line-height:@40px;}
+    ul{width:80%; margin:auto;
+      li{width:25%; margin-bottom:@20px; float:left; font-size:0; text-align:center;
+        a{margin:0 @5px; font-size:@12px; color:@color66; border:1px solid @colorcc; border-radius:@4px; display:block;
+          &:hover{color:@color66;}
+        }
+        em{width:50%; height:@40px; text-align:center; line-height:@40px; vertical-align:middle; display:inline-block;text-transform:uppercase}
+      }
+    }
+    .close_currency{width:@30px; height:@30px; position:absolute; right:@15px; top:@15px; font-size:@18px; color:@colorff; text-align:center; line-height:@32px; display:block; border-radius:50%; cursor:pointer; background:@colordd;}
+  }
+}
+//===========至顶和圆转转按钮
+.suspend_rb{width:@45px; position:fixed; right:@5px; bottom:@10px; z-index:999;}
+#nav_top,#opencircle{width:100%; height:@45px; margin-top:@10px; font-size:0; color:@colorff; text-align:center; line-height:@45px; border-radius:@4px; cursor:pointer; z-index:998; background:rgba(0,0,0,0.8);display:none;
+  .icon_arr_top{font-size:@18px; vertical-align:middle; display:inline-block;}
+}
+#opencircle{display:block;
+  img{width:80%; vertical-align:middle; display:inline-block;}
+}
+//===========会自动退出的提示
+.toast{padding:@8px @10px;max-width:80%;position:fixed; left:50%; bottom:-@40px;transform:translateX(-50%); -ms-transform:translateX(-50%);-moz-transform:translateX(-50%); -webkit-transform:translateX(-50%); -o-transform:translateX(-50%);font-size:@12px; color:@colorff; text-align:center;opacity:0; border-radius:@4px; z-index:10000; background:rgba(0,0,0,0.8);}
+.hint_slide{bottom:10%;opacity:1;}
+//===========圆转转
+#circle{width:@202px; height:@202px; position:fixed; bottom:20%; left:50%; margin-left:-@100px; border-radius:@200px; border:1px solid #fff; overflow:hidden; z-index:1001;
+  //&:after{height:@8px; width:@8px; position:absolute; top:50%;  left:50%; margin-top:-@4px; margin-left:-@4px; content:""; display:block; border-radius:50%; background-color:maroon;}
+   li{width:@120px; height:@120px; position:absolute; right:50%; top:0; margin-top:-@20px; color:#333; transform-origin:100% 100%; -moz-transform-origin:100% 100%; -o-transform-origin:100% 100%; -ms-transform-origin:100% 100%; -webkit-transform-origin:100% 100%; border:1px solid @colorff; border-right:none; background:rgba(255,255,255,0.8); overflow:hidden; transition:all .5s; -moz-transition:all .5s; -o-transition:all .5s; -ms-transition:all .5s; -webkit-transition:all .5s;
+    a{width:@186px; height:@186px; position:absolute; bottom:-@93px; right:-@93px; font-size:@20px; color:#fff; text-align:center; border-radius:50%; line-height:@50px; transform:skew(-18deg) rotate(-55deg); -moz-transform:skew(-18deg) rotate(-55deg); -ms-transform:skew(-18deg) rotate(-55deg); -o-transform:skew(-18deg) rotate(-55deg); -webkit-transform:skew(-18deg) rotate(-55deg); display:block; text-decoration:none; background:@colorA2; transition:all .5s; -moz-transition:all .5s; -o-transition:all .5s; -ms-transition:all .5s; -webkit-transition:all .5s;
+      &:hover{color:@color66; background:@colorff;}
+    }
+    &:hover{background:@colorA2;}
+  }
+  .sector_1{transform:rotate(0deg)skew(18deg); -moz-transform:rotate(0deg)skew(18deg); -o-transform:rotate(0deg)skew(18deg); -ms-transform:rotate(0deg)skew(18deg); -webkit-transform:rotate(0deg)skew(18deg);}
+  .sector_2{transform:rotate(72deg)skew(18deg);  -moz-transform:rotate(72deg)skew(18deg); -o-transform:rotate(72deg)skew(18deg); -ms-transform:rotate(72deg)skew(18deg); -webkit-transform:rotate(72deg)skew(18deg);}
+  .sector_3{transform:rotate(144deg)skew(18deg);  -moz-transform:rotate(144deg)skew(18deg); -o-transform:rotate(144deg)skew(18deg); -ms-transform:rotate(144deg)skew(18deg); -webkit-transform:rotate(144deg)skew(18deg);}
+  .sector_4{transform:rotate(216deg)skew(18deg);  -moz-transform:rotate(216deg)skew(18deg); -o-transform:rotate(216deg)skew(18deg); -ms-transform:rotate(216deg)skew(18deg); -webkit-transform:rotate(216deg)skew(18deg);}
+  .sector_5{transform:rotate(288deg)skew(18deg);  -moz-transform:rotate(288deg)skew(18deg); -o-transform:rotate(288deg)skew(18deg); -ms-transform:rotate(288deg)skew(18deg); -webkit-transform:rotate(288deg)skew(18deg);}
+  .home{width:@80px; height:@80px; position:absolute; left:50%; top:50%; margin-top:-@40px; margin-left:-@40px; font-size:@35px; color:@color66; text-align:center; line-height:@80px; border:1px solid @colorff; border-radius:50%; display:block; background:@colorff;}
+}
+//--------------------自适应--------------------//
+@media(max-width:439px)
+{
+  .footer{
+    .currency_box ul li{width:50%;}
+  }
+}
+@media(min-width:480px) and (max-width:640px)
+{
+
+}
+@media(min-width:641px) and (max-width:764px)
+{
+}
+@media(min-width:765px) and (max-width:1023px)
+{
+}
+@media(min-width:1024px) and (max-width:1200px)
+{
+}
+@media(min-width:1200px){
+}

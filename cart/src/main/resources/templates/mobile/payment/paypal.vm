@@ -1,0 +1,21 @@
+<li class="paypal">
+	<dl class="select">
+	    <dt class="clearfix">
+	    <span class="payment_img fl">
+	        <img src="/mobile/icon/paypal_150x70.jpg">
+	    </span>
+	    <span class="chooseOneBox fr lineBlock">
+	        <label>
+	            <div class="radio lineBlock radioChecked"><i class="icon_check"></i></div>
+	        </label>
+	    </span>
+	    </dt>
+	    <dd>
+	        <img src="/mobile/icon/paypal_640x70.jpg" />
+	        <p class="p">#springMessage("payment.paypal_1")
+				#springMessage("payment.paypal_2")
+				#springMessage("payment.paypal_3")
+	            </p>
+	    </dd>
+	</dl>
+</li>

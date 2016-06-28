@@ -1,0 +1,89 @@
+<form id="addShipAddressForm">
+<input id="icountry" type="hidden" name="icountry">
+<input id="countryCode" type="hidden" name="countryCode">
+<div class="addre hide_b">
+    <div class="addre_c m">
+        <ul>
+            <li class="clearfix">
+                <div class="fl">
+                    <div class="input">
+                        <input type="text" name="cfirstname" placeholder='#springMessage("checkout_step.name")'>
+                        <i class="icon_cross"></i>
+                    </div>
+                    <p style="color:red; display:none;">Please input your first name.</p>
+                </div>
+                <div class="fr">
+                    <div class="input">
+                        <input type="text" name="clastname" placeholder="#springMessage("checkout_step.LastName")">
+                        <i class="icon_cross"></i>
+                    </div>
+                    <p style="color:red; display:none;">Please input your last name.</p>
+                </div>
+            </li>
+            <li>
+                <div class="input">
+                    <input type="text" placeholder="#springMessage("checkout_step.country")" class="country" name="countryName" readonly>
+                    <i class="icon_down"></i>
+                    <div class="country_c">
+                        <ul>
+							#foreach($c in $countries)
+								<li cid="$!c.iid" ccode="$!c.cshortname">$!c.cname</li>
+							#end
+                        </ul>
+                    </div>
+                </div>
+				<p style="color:red; display:none;">Please select your country.</p>
+            </li>
+            <li>
+                <div class="input">
+                    <input type="text" name="address1" placeholder="#springMessage("checkout_step.address")">
+                    <i class="icon_cross"></i>
+                </div>
+                <p style="color:red; display:none;">Please input your address.</p>
+            </li>
+            <li>
+                <div class="input">
+                    <input type="text" name="cprovince" placeholder="#springMessage("checkout_step.state")">
+                    <i class="icon_cross"></i>
+                </div>
+                <p style="color:red; display:none;">Please input your state.</p>
+            </li>
+            <li class="clearfix">
+                <div class="fl">
+                    <div class="input">
+                        <input type="text" name="ccity" placeholder="#springMessage("checkout_step.city")">
+                        <i class="icon_cross"></i>
+                    </div>
+                    <p style="color:red; display:none;">Please input your city.</p>
+                </div>
+                <div class="fr">
+                    <div class="input">
+                        <input type="text" name="cpostalcode" placeholder="#springMessage("checkout_step.postal")">
+                        <i class="icon_cross"></i>
+                    </div>
+                    <p style="color:red; display:none;">Please input your post code.</p>
+                </div>
+            </li>
+            <li>
+                <div class="input">
+                    <input type="text" name="ctelephone" placeholder="#springMessage("checkout_step.phone"):#springMessage("checkout_step.phonetip")">
+                    <i class="icon_cross"></i>
+                </div>
+                <p style="color:red; display:none;">Please input your phone number.</p>
+            </li>
+            <li class="clearfix">
+                <div class="fl">
+                    <div class="input">
+                        <input type="button" value="Cancel" class="cancel_but">
+                    </div>
+                </div>
+                <div class="fr">
+                    <div class="input">
+                        <input type="button" value="Save" class="save_but">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</form>

@@ -1,0 +1,40 @@
+
+<div class="warehouse_goods itemline">
+	<input type="hidden" class="storageid" value="$kk.getStorageID()" autocomplete="off" />
+	<input type="hidden" class="iqty" value="$kk.getIqty()" autocomplete="off" />
+    <div class="warehouse_goods_left">
+    	#if($kk)
+    		#set($item = $kk)
+    		#parse("/cart/bundle_item.vm")
+    	#end
+    	
+    	#if($kk.getChildList().size()>0)
+    	#foreach ( $item in $kk.getChildList())
+        	#parse("/cart/bundle_item.vm")
+    	#end
+    	#end
+    </div>
+    <div class="warehouse_goods_right">
+        <div class="wares_qty_box">
+        	#if(!$islate)
+            <span class="wares_qty_minus" onclick="updateItem('sub',this)"></span>
+			<span class="wares_qty_num"><input type="text" class="input_num" value="$kk.getIqty()" autocomplete="off" /></span>
+			<span class="wares_qty_add" onclick="updateItem('add',this)"></span>
+			#end
+        </div>
+        <div class="wares_total_box" style="padding-left:40px;">
+            <p><a href="javascript:;">Combo Deal</a></p>
+            #if($kk.getAllPrice())
+	            <input type="hidden" class="theprice" value="$kk.getAllPrice().getPriceStr()" />
+				<p>$!currencyBo.getSymbolCode() $kk.getAllPrice().getPriceStr()</p>
+				<!-- <div>#springMessage("you_save")</br>usd 789 (56%)</div> -->
+				#if($kk.getAllPrice().getDiscount())
+					<div>#springMessage("you_save")</br>
+					$!currencyBo.getSymbolCode() $kk.getAllPrice().preferAmount($kk.getIqty())
+					($kk.getAllPrice().getDiscountStr()%)</div>
+				#end
+			
+			#end
+        </div>
+    </div>
+</div>

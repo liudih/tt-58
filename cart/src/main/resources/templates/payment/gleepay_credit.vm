@@ -1,0 +1,17 @@
+<li name="Credit Card" >
+<input type="radio" name="paymentId" value="gleepay_credit" style="display:none;">
+<div class="method_con_visa" >
+    <h5>#springMessage("pay.for") 
+    <img src="${cdn-url}images/vscj.gif" alt=""/>
+    </h5>
+    <p class="con_wire_title">#springMessage("billing.address"):</p>
+    <p class="billing_address" onclick="billSameShip(this)">
+    <span>
+    </span>#springMessage("payment.credit_1")</p>
+    <p class="make_sure">#springMessage("payment.credit_2")</p>
+    <p class="ship_address"><a>#springMessage("checkout_step2.shipto")</a></p>
+    <ul class="ns_address_list" name="bill_address_oceanpayment" >
+    	#parse("/payment/billaddress.vm")
+    </ul>
+</div>
+</li>

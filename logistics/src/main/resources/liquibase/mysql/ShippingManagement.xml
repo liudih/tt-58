@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	
+		<changeSet id="shipping_method-create-2016030901" author="wuzx">
+		<createTable tableName="shipping_method" remarks="物流发货代码表">
+			<column name="iid" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column name="istorageid" type="INTEGER" remarks="仓库ID"></column>
+			<column name="benabled" type="bool" remarks="是否可用" ></column>
+			<column name="bexistfree" type="bool" remarks="是否存在免邮"></column>
+			<column name="ffreebeginprice" type="double" remarks="免邮起始价格"></column>
+			<column name="ffreeendprice" type="double" remarks="免邮结束价格"></column>
+			<column name="ccountrys" type="varchar(3000)" remarks="发往国家"></column>
+			<column name="crule" type="varchar(8000)" remarks="计算规则"></column>
+			<column name="csuperrule" type="varchar(500)" remarks="父计算规则"></column>
+			<column name="dcreatedate" type="timestamp(6)" remarks="创建时间"></column>
+			<column name="fbeginprice" type="double" remarks="起始价格"></column>
+			<column name="fendprice" type="double" remarks="结束价格"></column>
+			<column name="bistracking" type="bool" remarks="是否提供跟踪号"></column>
+			<column name="bisspecial" type="bool" remarks="是否允许邮寄特殊品"></column>
+			<column name="ccode" type="varchar(25)" remarks="发货代码"></column>
+			<column name="istartweight" type="int(11)" remarks="开始重量段"></column>
+			<column name="iendweight" type="int(11)" remarks="结束重量段"></column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="shipping_template-create-20160222001" author="wuzx">
+		<createTable tableName="shipping_template" remarks="物流模板表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column name="template_name" type="varchar(500)" remarks="模版名称"></column>
+			<column name="is_enabled" type="int" remarks="状态（1为启用，0为禁用）" ></column>
+			<column name="created_by" type="varchar(50)" remarks="创建人"></column>
+			<column name="created_on" type="datetime" remarks="创建时间"></column>
+			<column name="last_updated_by" type="varchar(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="datetime" remarks="更新时间"></column>
+			<column name="is_deleted" type="int" remarks="是否已删除（1为已删除，0为未删除）"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="shipping_type-create-20160222001" author="wuzx">
+		<createTable tableName="shipping_type" remarks="物流类型表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column name="type_name" type="varchar(500)" remarks="类型名称"></column>
+			<column name="is_enabled" type="int" remarks="状态（1为启用，0为禁用）" ></column>
+			<column name="shipping_code" type="varchar(500)" remarks="发货代码" ></column>
+			<column name="created_by" type="varchar(50)" remarks="创建人"></column>
+			<column name="created_on" type="datetime" remarks="创建时间"></column>
+			<column name="last_updated_by" type="varchar(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="datetime" remarks="更新时间"></column>
+			<column name="is_deleted" type="int" remarks="是否已删除（1为已删除，0为未删除）"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="shipping_type_displayname_description-create-20160222001" author="wuzx">
+		<createTable tableName="shipping_type_displayname_description" remarks="物理类型名称展示表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column name="shipping_type_id" type="int" remarks="物流类型"></column>
+			<column name="language_id" type="int" remarks="状态（1为启用，0为禁用）" ></column>
+			<column name="display_name" type="varchar(500)" remarks="前台显示名称" ></column>
+			<column name="description" type="varchar(2000)" remarks="描述" ></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="shipping_template_config-create-20160222001" author="wuzx">
+		<createTable tableName="shipping_template_config" remarks="物流模板配置表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column name="shipping_template_id" type="int" remarks="物流模板ID"></column>
+			<column name="shipping_type_id" type="int" remarks="物流类型ID" ></column>
+			<column name="warehouse_id" type="int" remarks="仓库" ></column>
+			<column name="country" type="varchar(500)" remarks="发往国家" ></column>
+			<column name="filter_id" type="int" remarks="过滤规则" ></column>
+			<column name="priority_shipping_code" type="varchar(500)" remarks="优先发货代码" ></column>
+			<column name="is_freeshipping" type="int" remarks="是否免邮（1为免邮，0为非免邮）" ></column>
+			<column name="start_amount" type="double" remarks="限制开始金额（单位：$）" ></column>
+			<column name="amount_limit" type="double" remarks="限制结束金额（单位：$）" ></column>
+			<column name="start_weight" type="double" remarks="限制开始重量" ></column>
+			<column name="weight_limit" type="double" remarks="限制结束重量" ></column>
+			<column name="is_especial" type="int" remarks="是否特殊品（0为否，1为是）" ></column>
+			<column name="extra_charge" type="double" remarks="附加费用（单位：$）" ></column>
+			<column name="extra_charge_note" type="varchar(50)" remarks="附加费用说明" ></column>
+			<column name="is_enabled" type="int" remarks="状态（1为启用，0为禁用）" ></column>
+			<column name="country_add_type" type="int" remarks="国家添加方式(0为包含，1为排除，2为所有)" ></column>
+			<column name="is_calculate_weight" type="int" remarks="是否计算体积重（1为计算，0为不计算）" ></column>
+			<column name="created_by" type="varchar(50)" remarks="创建人" ></column>
+			<column name="created_on" type="datetime" remarks="创建时间"></column>
+			<column name="last_updated_by" type="varchar(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="datetime" remarks="更新时间"></column>
+			<column name="is_deleted" type="int" remarks="是否已删除（1为已删除，0为未删除）"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="shipping_type-add-column-20160317001" author="wuzx">
+		<addColumn tableName="shipping_type">
+			<column name="shipping_sequence" type="int" remarks="排序"></column>
+		</addColumn>
+	</changeSet>
+	<changeSet author="wuzhongxian" id="createIndex-shipping_method-20160323001">
+		<createIndex indexName="idx_shipping_method_complex"
+		            tableName="shipping_method">
+		            <column name="ccode" type="varchar(25)"></column>
+		            <column name="istorageid" type="INTEGER"></column>
+		            <column name="istartweight" type="int(11)"></column>
+					<column name="iendweight" type="int(11)"></column>
+		    </createIndex>
+	</changeSet>
+</databaseChangeLog>

@@ -1,0 +1,144 @@
+#set($tomtop="tomtop")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Success - ${host-name}</title>
+<link rel="icon" href="$ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="${cdn-url}css/newshopping.css?v=$!{version}" />
+<script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+<script src="${cdn-url}js/public.js?v=$!{version}"></script>
+<script src="${cdn-url}js/main.js?v=$!{version}"></script>
+</head>
+<body>
+
+<div class="shoppingCart_top" >
+	<div class="topNavigation_logo navigationCart_logo lineBlock">
+   		<div class="topNav_logoT"><a href="http://www.${host-name}.com"><img src="${cdn-url}images/logo.png" /></a></div>
+    </div>
+</div>
+
+<div class="newshopping_success">
+    <span class="icon_smile"></span>
+    <div class="newshopping_success_con">
+        <h3>#springMessage("ordercompleted.result")</h3>
+        #if($ordernumber)
+        <p>#springMessage("ordercompleted.yournumber") 
+        	#if("chicuu" == ${host-name})
+	        	#if($isLogin)
+	        		<a href="http://www.chicuu.com/index.php?r=account/orderdetail&order_number=$ordernumber">$ordernumber</a>
+	        	#else
+	        		<a href="http://www.chicuu.com/index.php?r=order/default/trackorder">$ordernumber</a>
+				#end
+			#elseif("rcmoment" == ${host-name})
+	        	#if($isLogin)
+	        		<a href="http://www.rcmoment.com/index.php?r=account/orderdetail&order_number=$ordernumber">$ordernumber</a>
+	        	#else
+	        		<a href="http://www.rcmoment.com/index.php?r=order/default/trackorder">$ordernumber</a>
+	        	#end
+	        #else
+	        	#if($isLogin)
+	        		<a href="http://www.tomtop.com/checkout/$ordernumber/detail">$ordernumber</a>
+	        	#else
+	        		<a href="http://www.tomtop.com/checkout/nologinorderdetail?id=$ordernumber">$ordernumber</a>
+	        	#end
+	        #end
+        </p>
+        #end
+    </div>
+</div>
+<div class="ns_success_login">
+    <div class="left_advertisement">
+    </div>
+    <div class="right_login">
+        <dl>
+            <dt>#springMessage("ordercompleted.whatisnext")</dt>
+            <dd>#springMessage("ordercompleted.whatisnext.1")</dd>
+            <dd>#springMessage("ordercompleted.whatisnext.2")</dd>
+            <dd>#springMessage("ordercompleted.whatisnext.3")</dd>
+            <dd class="please_note"><span>#springMessage("ordercompleted.whatisnext.note")</span>#springMessage("ordercompleted.whatisnext.note.1")</dd>
+            <dd>#springMessage("ordercompleted.whatisnext.4")</dd>
+            <dd>#springMessage("ordercompleted.whatisnext.5")</dd>
+        </dl>
+        #if(!$isLogin)
+        
+        <div class="ns_login_box">
+            <div class="ns_login_left">
+                <h3>#springMessage("ordercompleted.joinnow")</h3>
+                <p>#springMessage("ordercompleted.createaccount")</p>
+                <form id="regForm" >
+                <input id="current_country" type="hidden" name="country" value="US" countryname="United States Of America">
+                <div>
+                	<input type="text" name="email" placeholder="#springMessage("enter.your.email.address")" class="ns_email text_input" autocomplete="off" />
+                </div>
+                <div>
+                	<input name="passwd" id="regpassword" type="password" placeholder="#springMessage("enter.your.password")" class="ns_suo text_input" autocomplete="off"/>
+                </div>
+                <div>
+                	<input name="confirm_password" type="password" placeholder="#springMessage("confirm.your.password")" class="ns_suo text_input" autocomplete="off" />
+				</div>
+				<div class="clear"></div>
+                <div class="ns_login_submit">
+                    <input type="submit" value="#springMessage("ordercompleted.joinnow")">
+                    <!-- <a href="/base/cms/detail/59">#springMessage("ordercompleted.privacypolicy")</a> -->
+                </div>
+                </form>
+            </div>
+            <dl class="ns_login_right">
+                <dt>#springMessage("ordercompleted.convenientservices")</dt>
+                <dd>
+                    <h5>#springMessage("ordercompleted.convenientservices.1")</h5>
+                    <p>#springMessage("ordercompleted.convenientservices.1.text")</p>
+                </dd>
+                <dd>
+                   <h5>#springMessage("ordercompleted.convenientservices.2")</h5>
+                    <p>#springMessage("ordercompleted.convenientservices.2.text")</p>
+                </dd>
+                <dd>
+                    <h5>#springMessage("ordercompleted.convenientservices.3")</h5>
+                    <p>#springMessage("ordercompleted.convenientservices.3.text")</p>
+                </dd>
+                <dd>
+                    <h5>#springMessage("ordercompleted.convenientservices.4")</h5>
+                    <p>#springMessage("ordercompleted.convenientservices.4.text")</p>
+                </dd>
+            </dl>
+        </div>
+        #end
+       
+        #if($tomtop == ${host-name})
+        <div class="app_twonum_box">
+            <h3>#springMessage("ordercompleted.downloadapp")</h3>
+            
+            <div class="app_twonum">
+                <a href="javascript:;"><img alt="" src="${cdn-url}images/codeAndroidApp.jpg" /><p>Android APP</p></a>
+                <a href="javascript:;"><img alt="" src="${cdn-url}images/codeIOSAPP.jpg" /><p>IOS APP</p></a>
+                <span>or</span>
+                <div class="app_twonum_img">
+                    <a class="a_android" href="javascript:;"></a><br />
+                    <a class="a_ios" href="javascript:;"></a>
+                </div>
+            </div>
+           
+            <div class="app_twonum_input">
+                <a href="/"><input type="button" value="#springMessage("ordercompleted.continue")" /></a> 
+                #if($ordernumber)
+                 or  
+                <a href="">#springMessage("ordercompleted.viewdetail")</a>
+                #end
+            </div>
+        </div>
+        #end
+         
+    </div>
+</div>
+#parse("/base/track_success_data.vm")
+
+#parse("/order/footer.vm")
+<script src="${cdn-url}js/jquery.validate.min.js?v=$!{version}" type="text/javascript"></script>
+<script src="${cdn-url}js/jquery.metadata.js?v=$!{version}" type="text/javascript" ></script>
+<script src="${cdn-url}js/success.js?v=$!{version}" type="text/javascript" ></script>
+
+<!-- <img src="//cdsch2.veinteractive.com/DataReceiverService.asmx/Pixel?journeycode=F3BCCBF0-2D00-40E4-AA2C-53067A244D65" width="1" height="1"/> -->
+</body>
+</html>

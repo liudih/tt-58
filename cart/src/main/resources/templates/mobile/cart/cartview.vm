@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>Shopping Cart  - ${host-name}</title>
+    <meta name="description" content="No Regular No Business. TOMTOP offers hot gadgets at the best price online. Enjoy fast shipping & excellent service." />
+	<link rel="icon" href="$ico" type="image/x-icon" />
+    <link href="${cdn-url}css/shipping_address.css?v=$!{version}" type="text/css" rel="stylesheet">
+    <link href="${cdn-url}css/cart.css?v=$!{version}" type="text/css" rel="stylesheet" />
+    <script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+    <script src="${cdn-url}js/headfoot.js?v=$!{version}"></script>
+    <script src="${cdn-url}js/cart.js?v=$!{version}"></script>
+    <script src="${cdn-url}js/shipping_adderss.js?v=$!{version}"></script>
+    
+</head>
+<body>
+#set($step = 1)
+#parse("/mobile/base/header.vm")
+
+<div id="main">
+	#if ($cartItemlist && $cartItemlist.size()>0)
+    <div class="schedule">
+        <div class="schedule_c">
+        <span class="step">
+            <i class="arrive">1</i>
+            <p>Shopping Cart</p>
+        </span>
+        <span>
+            <em class=""></em>
+        </span>
+        <span class="step">
+            <i class="">2</i>
+            <p>Shipping & Place Order</p>
+        </span>
+        <span>
+            <em></em>
+        </span>
+        <span class="step">
+            <i>3</i>
+            <p>Payment</p>
+        </span>
+        </div>
+    </div>
+
+    <div class="product_x" id="cartlist_ul">
+    	#foreach ($k in $cartStorageids)
+        <dl class="product_x_c w" storageid="$k">
+            <dt class="p choose">
+                #springMessage("shipfrom") #if($storageMap.get($k))$storageMap.get($k).getCstoragename()#end #springMessage("warehouse")
+                <div class="chooseOneBox fr lineBlock">
+                    <label>
+                        <div class="radio lineBlock " storageid="$k"><i class="icon_check"></i></div>
+                    </label>
+                </div>
+            </dt>
+            #foreach ( $kk in $cartItemlist.get($k))
+                #parse("/mobile/cart/single.vm")    
+            #end
+        </dl>
+        #end
+        <div class="confirm_box" id="confirm_box">
+            <input type="hidden" class="deleteid" value="" />
+            <input type="hidden" class="deleteStorageid" value="" />
+            <div class="hd">Remove from your cart?</div>
+            <div class="bd"><a class="btn_cancel">Cancel</a><a class="btn_sure" onclick="delSubmit();">Sure</a></div>
+        </div>
+    </div>
+
+
+    <!-- <div class="coupon">
+        <div class="coupon_c w">
+            <div class="coupon_info m">
+                <input type="text" placeholder="Enter a coupon code" class="coupon_text"/>
+                <input type="button" value="Apply" class="coupon_but"/>
+            </div>
+        </div>
+    </div> -->
+    #parse("/mobile/cart/loyalty_m.vm")
+    
+
+    <div class="settlement">
+    	<input type="hidden" id="currencycode" value="$!currencyBo.getCode()" />
+        <input type="hidden" id="thestorageid" value="$storageid" />
+        <div class="settlement_c w">
+            <ul class="price m">
+                <li class="clearfix">
+                    <span class="fl">#springMessage("subtotal"):</span><span class="fr">$!currencyBo.getSymbolCode() <em><span id="cart_subtotal">0.00</span></em></span>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">#springMessage("checkout_step2.Discount"):</span><span class="fr">$!currencyBo.getSymbolCode() <em><span id="discount_total">0.00</span></em></span>
+                </li>
+                <li class="combined clearfix">
+                    <span class="fl">#springMessage("cart.total"):</span><span class="fr">$!currencyBo.getSymbolCode() <em><span id="grandTotal" >0.00</span></em></span>
+                </li>
+            </ul>
+            <div class="pay m">
+                <input onclick="skippay(this,false);" type="button" value="" class="pay_but" url="/paypal/set-guest">
+                 OR
+                <input onclick="skippay(this,true);" type="button" value="#springMessage("checkout")" class="proceed_but" url="/checkout/for-member-step2">
+                
+            </div>
+        </div>
+    </div>
+    #else
+    
+    <div class="publicModuleBox">
+        <h5>Your shopping cart is empty.</h5>
+        <p><a class="button_blue" href="$!mainurl">#springMessage("continue_shopping")</a></p>
+    </div>
+    #end
+</div>
+
+#parse("/mobile/base/footer.vm")
+
+
+
+<input type="hidden" id="mainurl" value="" />
+<input type="hidden" id="islogin" value="$!islogin" />
+<input type="hidden" id="theemail" value="$!current_email" />
+<input type="hidden" id="collectlist" value="$!collectlist" />
+<input type="hidden" id="hostname" value="${host-name}" />
+
+
+
+<script src="${cdn-url}js/jquery.validate.min.js?v=$!{version}" type="text/javascript"></script>
+<script src="${cdn-url}js/jquery.metadata.js?v=$!{version}" type="text/javascript" ></script>
+<script src="${cdn-url}js/jquery.json.min.js?v=$!{version}" ></script>
+
+<script src="${cdn-url}js/cartview_m.js?v=$!{version}" ></script>
+<script src="${cdn-url}js/loyalty_m.js?v=$!{version}" ></script>
+</body>
+</html>

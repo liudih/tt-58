@@ -1,0 +1,33 @@
+<span class="payFors">Оплатить с QIWI:</span>
+<img src="${cdn-url}images/PayPal05.jpg">
+<p>Пожалуйста, введите Ваш QIWI аккаунт! Номер телефона обязательно
+	нужно указать для оплаты.</p>
+Номер телефона:
+<div class="i-input-group">
+	<div data-selected="ru"
+		class="i-select i-input-addon">
+		<i class="qiwi-flag qiwi-flag-ru"></i> <strong class="i-country-code">+7</strong>
+	</div>
+	<input
+		data-errormessage="Введите действительный номер телефона, прикреплённый к QIWI Wallet."
+		maxlength="20" class="i-input" name="qiwiAccount"
+		data-widget-cid="widget-17" seed="iInputGroup-qiwiAccount"
+		smartracker="on" type="text">
+	<div id="j-country-code-list" class="i-country-code-list"
+		data-widget-cid="widget-15">
+		<ul>
+			<li class="fn-hide"><a tabindex="-1" href="javascript:;"
+				seed="jCountryCodeList-link" smartracker="on"> <i
+					class="qiwi-flag qiwi-flag-ru"></i> Россия <strong
+					class="i-country-code fn-right">+7</strong>
+			</a></li>
+		</ul>
+	</div>
+	<input value="7" name="qiwiCountry" type="hidden">
+</div>
+<p>
+	Вы будете перенаправлены на сайт QIWI, чтобы произвести оплату с вашего QIWI Wallet.<br>
+	Внимание: ваша личная информация находится в безопасности. <br>
+	RCMOMENT не хранит какую-либо информацию о вашей учетной записи.
+</p>
+<input class="spayOut" type="button" value="Pay Now" tag="submit_button">

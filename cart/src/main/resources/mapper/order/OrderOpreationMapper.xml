@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.mappers.order.OrderOpreationMapper">
+	<insert id="insert" parameterType="com.tomtop.events.order.OrderOpreationEvent">
+		insert into t_order_opreation_log
+		(iwebsiteid,cemail,copreation,ccontent,cresult,cordernumber,cmemberemail,vhost)
+		values
+		(#{iwebsiteid},#{cemail},#{copreation},#{ccontent},#{cresult.code},#{cordernumber},#{cmemberemail},#{vhost})
+	</insert>
+	
+	<select id="getCount" parameterType="map" resultType="int">
+		select count(*) from t_order_opreation_log where copreation=#{copreation} 
+		and cordernumber=#{cordernumber} and cresult=#{cresult}
+	</select>
+</mapper>

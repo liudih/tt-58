@@ -1,0 +1,52 @@
+.list_wrap{padding:@10px;
+  .item{padding:@10px 0;border-bottom:1px solid @colorcc;
+    h3{font-size:@18px;padding-bottom:@10px;font-weight:bold;}
+    .star_progress_wrap{padding-bottom:@5px;}
+    .review_info{font-size:@12px}
+    .progress_wrap{display:inline-block;position:relative;vertical-alige:middle;width:@150px;height:@10px;margin:0 @5px;
+      span{display:inline-block;width:100%;height:100%;border:1px solid #fe9601;position:absolute;top:0;left:0}
+      span.progess_mask{width:80%;background:#fea801}
+    }
+    &:last-child{border-bottom:none;}
+    &:first-child{border-bottom:1px solid @colorcc;}
+    .mermber{
+      line-height:@38px;height:@38px;color:@color66;
+      .photo{width:@38px;height:@38px;background:url("../icon/member_photo.jpg") no-repeat center center;border:1px solid @colorcc;background-size:100% 100%;display:inline-block;vertical-align:middle}
+      span{margin:0 @5px;}
+      span.name{color:@color00;font-weight:bold;text-transform:lowercase !important;}
+    }
+    .LeveStar .leveItem{color:@color66;
+      em{display:inline-block;text-align:right;width:@85px}
+    }
+    .comment_pic .img_wrap{display:inline-block; width:@70px;height:@70px; border:1px solid @colorcc; font-size:0; text-align:center; line-height:@70px; vertical-align:middle; margin:@5px @5px 0 0;
+      &:before{width:0;height:100%;font-size:0;vertical-align:middle;content:'';display:inline-block;}
+    }
+    img{width:auto; max-width:100%; max-height:100%; vertical-align:middle; display:inline-block;}
+  }
+}
+.product_review{height:@30px; margin:0 @5px; font-size:0; line-height:@28px;display:inline-block;vertical-align: middle;
+  a{height:@20px; font-size:@12px; color:@color66; line-height:@20px; vertical-align:middle; display:inline-block;}
+  .review_bg{height:@20px; position:relative; vertical-align:middle; display:inline-block;}
+  i{width:@20px; height:@20px;font-size:@16px; color:@colorcc;text-align:center; line-height:@22px;float:left;}
+  .review{width:50%; height:100%;position:absolute; left:0; top:0; display:block; overflow:hidden;
+    .reviews{width:500px; position:absolute; left:0; top:0; background:rgbd(0,0,0,0.5)}
+    i{color:@colorA1;}
+  }
+  .review_nub{font-size:@14px;font-weight:bold;margin-left:@5px; color:@colorA1; vertical-align:middle; display:inline-block;}
+}
+.leveItem .product_review{height:auto !important}
+.leveItem .product_review i{width:@14px;height:@14px; font-size:@12px!important}
+.article_info{color:@color66}
+//查看评论大图
+
+.check_img{width:100%; height:100%; font-size:0; text-align:center;
+  .img_content{width:100%; height:100%; vertical-align:middle; display:inline-block;}
+  .swiper-container_review{height:100%;
+    .swiper-wrapper{
+      li{height:100%; text-align:center; vertical-align:middle; display:inline-block;
+        &:before{width:0;height:100%;font-size:0;vertical-align:middle;content:'';display:inline-block;}
+      }
+    }
+  }
+}
+.swiper-container_review{overflow:hidden;}

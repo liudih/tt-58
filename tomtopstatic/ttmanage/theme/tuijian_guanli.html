@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.5
+Version: 4.5.1
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+    <head>
+        <meta charset="utf-8" />
+        <title>推荐管理</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <!-- BEGIN LAYOUT FIRST STYLES -->
+        <!--<link href="//fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css" />-->
+        <!-- END LAYOUT FIRST STYLES -->
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <!--<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />-->
+        <link href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <link href="../assets/layouts/layout5/css/layout.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/layouts/layout5/css/custom.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME LAYOUT STYLES -->
+        <!--BEGIN 通拓后台样式-->
+        <link href="../assets/global/css/ttStyle.css" rel="stylesheet" type="text/css">
+        <!--END 通拓后台样式-->
+        <link rel="shortcut icon" href="favicon.ico" /> </head>
+    <!-- END HEAD -->
+
+    <body class="page-header-fixed page-sidebar-closed-hide-logo">
+        <!-- BEGIN CONTAINER -->
+        <div class="wrapper">
+            <!-- BEGIN HEADER -->
+            <header class="page-header">
+                <nav class="navbar mega-menu" role="navigation">
+                    <div class="container-fluid">
+                        <div class="clearfix navbar-fixed-top">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="toggle-icon">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </span>
+                            </button>
+                            <!-- End Toggle Button -->
+                            <!-- BEGIN LOGO -->
+                            <a id="index" class="page-logo" href="index.html">
+                                <img src="../assets/layouts/layout5/img/logo.png" alt="Logo"> </a>
+                            <!-- END LOGO -->
+                            <!-- BEGIN TOPBAR ACTIONS -->
+                            <div class="topbar-actions">
+                                <!-- BEGIN USER PROFILE -->
+                                <div class="btn-group-img btn-group tt_website_box">
+                                    <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                        <span>站点</span>
+                                    </button>
+                                    <ul class="dropdown-menu-v2" role="menu">
+                                        <li>
+                                            <div class="tt_website">
+                                                <h6>TOMTOP</h6>
+                                                <ul class="clearfix">
+                                                    <li><a href="">WWW.TOMTOP.COM</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="divider"> </li>
+                                        <li>
+                                            <div class="tt_website">
+                                                <h6>品牌站点</h6>
+                                                <ul class="clearfix">
+                                                    <li><a href="">WWW.CHICUU.COM</a></li>
+                                                    <li><a href="">WWW.DODOCOOL.COM</a></li>
+                                                    <li><a href="">WWW.LIXADA.COM</a></li>
+                                                    <li><a href="">WWW.KOOGEEK.COM</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="divider"> </li>
+                                        <li>
+                                            <div class="tt_website">
+                                                <h6>品牌站</h6>
+                                                <ul class="clearfix">
+                                                    <li><a href="">WWW.ANDOER.COM</a></li>
+                                                    <li><a href="">WWW.DODOCOOL.COM</a></li>
+                                                    <li><a href="">WWW.LIXADA.COM</a></li>
+                                                    <li><a href="">WWW.KOOGEEK.COM</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group-img btn-group">
+                                    <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                        <span>Hi, Marcus</span>
+                                         </button>
+                                    <ul class="dropdown-menu-v2" role="menu">
+                                        <li>
+                                            <a href="page_user_profile_1.html">
+                                                <i class="icon-user"></i> My Profile
+                                                <span class="badge badge-danger">1</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="app_calendar.html">
+                                                <i class="icon-calendar"></i> My Calendar </a>
+                                        </li>
+                                        <li>
+                                            <a href="app_inbox.html">
+                                                <i class="icon-envelope-open"></i> My Inbox
+                                                <span class="badge badge-danger"> 3 </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="app_todo_2.html">
+                                                <i class="icon-rocket"></i> My Tasks
+                                                <span class="badge badge-success"> 7 </span>
+                                            </a>
+                                        </li>
+                                        <li class="divider"> </li>
+                                        <li>
+                                            <a href="page_user_lock_1.html">
+                                                <i class="icon-lock"></i> Lock Screen </a>
+                                        </li>
+                                        <li>
+                                            <a href="page_user_login_1.html">
+                                                <i class="icon-key"></i> Log Out </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- END USER PROFILE -->
+                            </div>
+                            <!-- END TOPBAR ACTIONS -->
+                        </div>
+                        <!-- BEGIN HEADER MENU -->
+                        <div class="nav-collapse collapse navbar-collapse navbar-responsive-collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown dropdown-fw  active open selected">
+                                    <a href="javascript:;" class="text-uppercase">
+                                        <i class="icon-home"></i> 基本模块 </a>
+                                    <ul class="dropdown-menu dropdown-menu-fw">
+                                        <li class="dropdown more-dropdown-sub active">
+                                            <a href="javascript:;">基础设计 </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="/base/layout/?section=baseModul/layoutManage.ftl">页面布局管理 </a>
+                                                    <a href="/base/modulContent/?section=baseModul/modulContentManage.ftl">模块内容管理</a>
+                                                    <a href="/base/layoutModule/?section=baseModul/modules_context_manage.ftl">布局模块管理 </a>
+                                                    <a href="/base/banner/?section=baseModul/bannersManage.ftl">广告组管理 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/base/bannerContent/?section=baseModul/bannerContentManage.ftl">广告内容管理</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="javascript:;">本地化 </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="/base/param/?section=baseModul/paramManage.ftl">参数管理 </a>
+                                                    <a href="/base/site/?section=baseModul/site_manage.ftl">站点管理</a>
+                                                    <a href="/base/client/?section=baseModul/client_manage.ftl">客户端管理</a>
+                                                    <a href="/base/language/?section=baseModul/language_manage.ftl">语言管理</a>
+                                                    <a href="/base/currency/?section=baseModul/currencyManage.ftl">汇率管理</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/base/country/?section=baseModul/countryManage.ftl">国家管理</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/base/resource/?section=baseModul/resourceManage.ftl">资源信息管理</a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown dropdown-fw  ">
+                                    <a href="javascript:;" class="text-uppercase">
+                                        <i class="icon-puzzle"></i> 首页设置 </a>
+                                    <ul class="dropdown-menu dropdown-menu-fw">
+                                        <li class="dropdown more-dropdown-sub active">
+                                            <a href="javascript:;">
+                                                <i class="icon-diamond"></i> UI Features </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="ui_colors.html"> Color Library </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_general.html"> General Components </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_buttons.html"> Buttons </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_confirmations.html"> Popover Confirmations </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_icons.html"> Font Icons </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_socicons.html"> Social Icons </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_typography.html"> Typography </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_tabs_accordions_navs.html"> Tabs, Accordions & Navs </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_tree.html"> Tree View </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_timeline.html"> Timeline </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_page_progress_style_1.html"> Page Progress Bar - Flash </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_page_progress_style_2.html"> Page Progress Bar - Big Counter </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_blockui.html"> Block UI </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_bootstrap_growl.html"> Bootstrap Growl Notifications </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_notific8.html"> Notific8 Notifications </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_toastr.html"> Toastr Notifications </a>
+                                                </li>
+                                                <li class="active">
+                                                    <a href="ui_bootbox.html"> Bootbox Dialogs </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_alerts_api.html"> Metronic Alerts API </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_session_timeout.html"> Session Timeout </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_idle_timeout.html"> User Idle Timeout </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_modals.html"> Modals </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_extended_modals.html"> Extended Modals </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_tiles.html"> Tiles </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_timeline.html"> Timeline </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_datepaginator.html"> Date Paginator </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ui_nestable.html"> Nestable List </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="javascript:;">
+                                                <i class="icon-puzzle"></i> Components </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="components_date_time_pickers.html"> Date & Time Pickers </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_color_pickers.html"> Color Pickers </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_select2.html"> Select2 Dropdowns </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_bootstrap_select.html"> Bootstrap Select </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_multi_select.html"> Multi Select </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_bootstrap_select_splitter.html"> Select Splitter </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_typeahead.html"> Typeahead Autocomplete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_bootstrap_tagsinput.html"> Bootstrap Tagsinput </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_bootstrap_switch.html"> Bootstrap Switch </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_bootstrap_maxlength.html"> Bootstrap Maxlength </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_bootstrap_fileinput.html"> Bootstrap File Input </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_bootstrap_touchspin.html"> Bootstrap Touchspin </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_form_tools.html"> Form Widgets & Tools </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_context_menu.html"> Context Menu </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_editors.html"> Markdown & WYSIWYG Editors </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_code_editors.html"> Code Editors </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_ion_sliders.html"> Ion Range Sliders </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_noui_sliders.html"> NoUI Range Sliders </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components_knob_dials.html"> Knob Circle Dials </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="javascript:;">
+                                                <i class="icon-settings"></i> Form Stuff </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="form_controls.html"> Bootstrap Form
+                                                        <br>Controls </a>
+                                                </li>
+                                                <li>
+                                                    <a href="form_controls_md.html"> Material Design
+                                                        <br>Form Controls </a>
+                                                </li>
+                                                <li>
+                                                    <a href="form_icheck.html"> iCheck Controls </a>
+                                                </li>
+                                                <li>
+                                                    <a href="form_layouts.html"> Form Layouts </a>
+                                                </li>
+                                                <li>
+                                                    <a href="form_editable.html"> Form X-editable </a>
+                                                </li>
+                                                <li>
+                                                    <a href="form_wizard.html"> Form Wizard </a>
+                                                </li>
+                                                <li>
+                                                    <a href="form_validation.html"> Form Validation </a>
+                                                </li>
+                                                <li>
+                                                    <a href="form_image_crop.html"> Image Cropping </a>
+                                                </li>
+                                                <li>
+                                                    <a href="form_fileupload.html"> Multiple File Upload </a>
+                                                </li>
+                                                <li>
+                                                    <a href="form_dropzone.html"> Dropzone File Upload </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="?p=">
+                                                <i class="icon-wallet"></i> Portlets </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="portlet_boxed.html"> Boxed Portlets </a>
+                                                </li>
+                                                <li>
+                                                    <a href="portlet_light.html"> Light Portlets </a>
+                                                </li>
+                                                <li>
+                                                    <a href="portlet_solid.html"> Solid Portlets </a>
+                                                </li>
+                                                <li>
+                                                    <a href="portlet_ajax.html"> Ajax Portlets </a>
+                                                </li>
+                                                <li>
+                                                    <a href="portlet_draggable.html"> Draggable Portlets </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="javascript:;">
+                                                <i class="icon-bar-chart"></i> 基础设计 </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="charts_amcharts.html"> amChart </a>
+                                                </li>
+                                                <li>
+                                                    <a href="charts_flotcharts.html"> Flot Charts </a>
+                                                </li>
+                                                <li>
+                                                    <a href="charts_flowchart.html"> Flow Charts </a>
+                                                </li>
+                                                <li>
+                                                    <a href="charts_google.html"> Google Charts </a>
+                                                </li>
+                                                <li>
+                                                    <a href="charts_echarts.html"> eCharts </a>
+                                                </li>
+                                                <li>
+                                                    <a href="charts_morris.html"> Morris Charts </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="javascript:;">
+                                                <i class="icon-pointer"></i> Maps </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="maps_google.html"> Google Maps </a>
+                                                </li>
+                                                <li>
+                                                    <a href="maps_vector.html"> Vector Maps </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown dropdown-fw  ">
+                                    <a href="javascript:;" class="text-uppercase">
+                                        <i class="icon-briefcase"></i> Tables </a>
+                                    <ul class="dropdown-menu dropdown-menu-fw">
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="javascript:;"> Static Tables </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="table_static_basic.html"> Basic Tables </a>
+                                                </li>
+                                                <li>
+                                                    <a href="table_static_responsive.html"> Responsive Tables </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="javascript:;"> Datatables </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="table_datatables_managed.html"> Managed Datatables </a>
+                                                </li>
+                                                <li>
+                                                    <a href="table_datatables_buttons.html"> Buttons Extension </a>
+                                                </li>
+                                                <li>
+                                                    <a href="table_datatables_colreorder.html"> Colreorder Extension </a>
+                                                </li>
+                                                <li>
+                                                    <a href="table_datatables_rowreorder.html"> Rowreorder Extension </a>
+                                                </li>
+                                                <li>
+                                                    <a href="table_datatables_scroller.html"> Scroller Extension </a>
+                                                </li>
+                                                <li>
+                                                    <a href="table_datatables_fixedheader.html"> FixedHeader Extension </a>
+                                                </li>
+                                                <li>
+                                                    <a href="table_datatables_responsive.html"> Responsive Extension </a>
+                                                </li>
+                                                <li>
+                                                    <a href="table_datatables_editable.html"> Editable Datatables </a>
+                                                </li>
+                                                <li>
+                                                    <a href="table_datatables_ajax.html"> Ajax Datatables </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown dropdown-fw  ">
+                                    <a href="javascript:;" class="text-uppercase">
+                                        <i class="icon-layers"></i> Pages </a>
+                                    <ul class="dropdown-menu dropdown-menu-fw">
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="javascript:;">
+                                                <i class="icon-basket"></i> eCommerce </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="ecommerce_index.html">
+                                                        <i class="icon-home"></i> Dashboard </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ecommerce_orders.html">
+                                                        <i class="icon-basket"></i> Orders </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ecommerce_orders_view.html">
+                                                        <i class="icon-tag"></i> Order View </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ecommerce_products.html">
+                                                        <i class="icon-graph"></i> Products </a>
+                                                </li>
+                                                <li>
+                                                    <a href="ecommerce_products_edit.html">
+                                                        <i class="icon-graph"></i> Product Edit </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="javascript:;">
+                                                <i class="icon-docs"></i> Apps </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="app_todo.html">
+                                                        <i class="icon-clock"></i> Todo 1 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="app_todo_2.html">
+                                                        <i class="icon-check"></i> Todo 2 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="app_inbox.html">
+                                                        <i class="icon-envelope"></i> Inbox </a>
+                                                </li>
+                                                <li>
+                                                    <a href="app_calendar.html">
+                                                        <i class="icon-calendar"></i> Calendar </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="javascript:;">
+                                                <i class="icon-user"></i> User </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="page_user_profile_1.html"> Profile 1 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_user_profile_1_account.html"> Profile 1 Account </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_user_profile_1_help.html"> Profile 1 Help </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_user_profile_2.html"> Profile 2 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_user_login_1.html"> Login Page 1 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_user_login_2.html"> Login Page 2 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_user_login_3.html"> Login Page 3 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_user_login_4.html"> Login Page 4 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_user_login_5.html"> Login Page 5 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_user_login_6.html"> Login Page 6 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_user_lock_1.html"> Lock Screen 1 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_user_lock_2.html"> Lock Screen 2 </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="javascript:;">
+                                                <i class="icon-social-dribbble"></i> General </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="page_general_about.html"> About </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_contact.html"> Contact </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_portfolio_1.html"> Portfolio 1 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_portfolio_2.html"> Portfolio 2 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_portfolio_3.html"> Portfolio 3 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_portfolio_4.html"> Portfolio 4 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_search.html"> Search 1 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_search_2.html"> Search 2 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_search_3.html"> Search 3 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_search_4.html"> Search 4 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_search_5.html"> Search 5 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_pricing.html"> Pricing </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_faq.html"> FAQ </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_blog.html"> Blog </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_blog_post.html"> Blog Post </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_invoice.html"> Invoice </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_general_invoice_2.html"> Invoice 2 </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="javascript:;">
+                                                <i class="icon-settings"></i> System </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="page_system_coming_soon.html"> Coming Soon </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_system_404_1.html"> 404 Page 1 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_system_404_2.html"> 404 Page 2 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_system_404_3.html"> 404 Page 3 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_system_500_1.html"> 500 Page 1 </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_system_500_2.html"> 500 Page 2 </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown more-dropdown">
+                                    <a href="javascript:;" class="text-uppercase"> More </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">Link 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link 3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link 4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link 5</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END HEADER MENU -->
+                    </div>
+                    <!--/container-->
+                </nav>
+            </header>
+            <!-- END HEADER -->
+            <div class="container-fluid">
+                <div class="page-content">
+                    <!-- BEGIN BREADCRUMBS -->
+                    <div class="breadcrumbs">
+                        <ol class="breadcrumb tx_l">
+                            <li>
+                                <a href="#">HOME</a>
+                            </li>
+                            <li>
+                                <a href="#">基础模块</a>
+                            </li>
+                            <li>
+                                <a href="#">基础设计</a>
+                            </li>
+                            <li class="active">推荐管理</li>
+                        </ol>
+                    </div>
+                    <!-- END BREADCRUMBS -->
+                    <!-- BEGIN 广告内容查询 -->
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="portlet green box">
+                                <div class="portlet-title">
+                                    <div class="caption">查询条件</div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body ">
+                                    <!-- BEGIN FORM-->
+                                    <form action="#" class="form-horizontal">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">客户端</label>
+                                                        <div class="col-md-9">
+                                                            <select class="bs-select form-control" multiple>
+                                                                <option value="1">TOMTOP-PC</option>
+                                                                <option value="2">TOMTOP-Mobile</option>
+                                                                <option value="3">TOMTOP-APP-IOS</option>
+                                                                <option value="4">TOMTOP-APP-Android</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">语言</label>
+                                                        <div class="col-md-9">
+                                                            <select  class="bs-select form-control" multiple>
+                                                                <option value="1">English</option>
+                                                                <option value="2">Español</option>
+                                                                <option value="3">Русский</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">布局名称</label>
+                                                        <div class="col-md-9">
+                                                            <select  class="form-control">
+                                                                <option></option>
+                                                                <option value="1">English</option>
+                                                                <option value="2">Español</option>
+                                                                <option value="3">Русский</option>
+                                                                <option value="4">
+                                                                    Deutsch</option>
+                                                                <option value="5">
+                                                                    Français</option>
+                                                                <option value="6">
+                                                                    Italiano</option>
+                                                                <option value="7">
+                                                                    日本語</option>
+                                                                <option value="8">
+                                                                    Português</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">推荐名称</label>
+                                                        <div class="col-md-9">
+                                                            <input type="text"  class="form-control"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div >
+                                                    <button type="button" class="btn green ">搜&nbsp;&nbsp;索</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- END FORM-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END 广告内容查询 -->
+
+                    <!-- BEGIN 广告内容列表 -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption font-dark">
+                                        <span class="caption-subject bold uppercase">列表</span>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="btn-group">
+                                                    <button id="addButton" class="btn sbold green"  onclick="window.location.href='tuijian_guanli02.html';"><i class="fa fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button id="deleteButton" class="btn sbold red"><i class="fa fa-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="table-scrollable">
+                                        <table class="table table-striped table-bordered table-hover table-checkable order-column" >
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /> </th>
+                                                <th>操作</th>
+                                                <th>客户端</th>
+                                                <th>语言</th>
+                                                <th>布局名称</th>
+                                                <th>推荐名称</th>
+                                                <th>推荐标识</th>
+                                                <th>位置</th>
+                                                <th>URL路由</th>
+                                                <th>数量</th>
+                                                <th>排序号</th>
+                                                <th>状态</th>
+                                                <th>创建人</th>
+                                                <th>创建时间</th>
+                                                <th>更新人</th>
+                                                <th>更新时间</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="odd gradeX">
+                                                <td>
+                                                    <input type="checkbox" class="checkboxes" value="1" /></td>
+                                                <td><i class="fa fa-edit btn_edit" onclick="window.location.href='tuijian_guanli02.html';"></i></td>
+                                                <td> TOMTOP-PC </td>
+                                                <td> EN </td>
+                                                <td> EN </td>
+                                                <td> EN </td>
+                                                <td> EN </td>
+                                                <td> EN </td>
+                                                <td> EN </td>
+                                                <td> Cellphones </td>
+                                                <td > 1 </td>
+                                                <td> Enabled </td>
+                                                <td> 张三 </td>
+                                                <td> 2015-11-12  17:48:24 </td>
+                                                <td> 李四 </td>
+                                                <td> 2015-11-12  17:48:24 </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                        <div class="dataTables_length" style="float: left">
+                                            <label><select class="form-control input-sm input-xsmall input-inline show_input"><option value="10">10</option><option value="20">20</option><option value="50">50</option><option value="100">100</option></select></label>
+
+                                        </div>
+                                        <div id="paginate" class="dataTables_paginate paging_bootstrap_full_number" style="float: right; display: block;"><ul class="pagination" style="visibility: visible;"><li><a title="First" href="javascript:;" onclick="pageFirst()">&lt;&lt;</a></li><li id="pagePrev"><a title="Prev" href="javascript:;" onclick="pagePrev()">&lt;</a></li><li class="active"><a href="javascript:;" onclick="pageAssign(this)">1</a></li><li><a href="javascript:;" onclick="pageAssign(this)">2</a></li><li><a title="Next" href="javascript:;" onclick="pageNext()">&gt;</a></li><li><a title="Last" href="javascript:;" onclick="pageLast()">&gt;&gt;</a></li></ul></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                    </div>
+                    <!-- END 广告内容列表 -->
+                    <!-- BEGIN 弹出层 -->
+                    <!--<div id="static" class="modal fade in" >-->
+                        <!--<div class="modal-dialog">-->
+                            <!--<div class="modal-content">-->
+                                <!--<div class="modal-header">-->
+                                    <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>-->
+                                    <!--<h4 class="modal-title">新增</h4>-->
+                                <!--</div>-->
+                                <!--<div class="modal-body">-->
+                                    <!--<div class="portlet light form no-space">-->
+
+                                        <!--<form class="form-horizontal cmxform" role="form" method="post" novalidate="novalidate">-->
+                                            <!--<div class="form-body">-->
+
+                                                <!--<div class="form-group">-->
+                                                    <!--<label class="col-md-3 control-label">客户端<span class="required" aria-required="true"> * </span></label>-->
+                                                    <!--<div class="col-md-9">-->
+                                                        <!--<select name="client_id" class="form-control error" aria-required="true" aria-invalid="true">-->
+                                                            <!--<option value="1">TOMTOP-PC</option>-->
+                                                            <!--<option value="2">TOMTOP-Mobile</option>-->
+                                                            <!--<option value="3">TOMTOP-APP-IOS</option>-->
+                                                        <!--</select>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                                <!--<div class="form-group">-->
+                                                    <!--<label class="col-md-3 control-label">语言</label>-->
+                                                    <!--<div class="col-md-9">-->
+                                                        <!--<select name="language_id" class="form-control error" aria-required="true">-->
+                                                            <!--<option></option>-->
+                                                            <!--<option value="1">English</option>-->
+                                                            <!--<option value="2">Español</option>-->
+                                                            <!--<option value="3">Русский</option>-->
+                                                            <!--<option value="4">-->
+                                                                <!--Deutsch</option>-->
+                                                            <!--<option value="5">-->
+                                                                <!--Français</option>-->
+                                                            <!--<option value="6">-->
+                                                                <!--Italiano</option>-->
+                                                            <!--<option value="7">-->
+                                                                <!--日本語</option>-->
+                                                            <!--<option value="8">-->
+                                                                <!--Português</option>-->
+                                                        <!--</select><label id="language_id-error" class="error" for="language_id" style="display: none;"></label>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                                <!--<div class="form-group">-->
+                                                    <!--<label class="col-md-3 control-label">商品类目</label>-->
+                                                    <!--<div class="col-md-9">-->
+                                                        <!--<select name="layout_code" class="form-control valid" aria-required="true" aria-invalid="false">-->
+                                                            <!--<option></option>-->
+                                                            <!--<option value="HOME">HOME</option>-->
+                                                            <!--<option value="CATEGORY">CATEGORY</option>-->
+                                                            <!--<option value="PRODUCT">PRODUCT</option>-->
+                                                        <!--</select><label id="layout_code-error" class="error" for="layout_code" style="display: none;"></label>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                                <!--<div class="form-group">-->
+                                                    <!--<label class="col-md-3 control-label">排序号</label>-->
+                                                    <!--<div class="col-md-9">-->
+                                                        <!--<input type="text" class="form-control">-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                                <!--<div class="form-group">-->
+                                                    <!--<label class="col-md-3 control-label">状态</label>-->
+                                                    <!--<div class="col-md-9">-->
+                                                        <!--<select name="is_enabled" class="form-control error" aria-required="true">-->
+                                                            <!--<option></option>-->
+                                                            <!--<option value="1">Enabled</option>-->
+                                                            <!--<option value="0">Disabled</option>-->
+                                                        <!--</select>-->
+                                                        <!--</label>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="modal-footer">-->
+                                                <!--<button type="button" data-dismiss="modal" class="btn">取消</button>-->
+                                                <!--<button type="button" data-dismiss="modal" class="btn green">保存</button>-->
+                                            <!--</div>-->
+                                        <!--</form>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!-- END 弹出层 -->
+
+                </div>
+                <!-- BEGIN FOOTER -->
+                <p class="copyright bs-glyphicon-class">2016 © TOMYOP.</p>
+                <a href="#index" class="go2top">
+                    <i class="icon-arrow-up"></i>
+                </a>
+                <!-- END FOOTER -->
+            </div>
+        </div>
+        <!-- END CONTAINER -->
+        <!--[if lt IE 9]>
+<script src="../assets/global/plugins/respond.min.js"></script>
+<script src="../assets/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="../assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
+
+
+        <script src="../assets/global/scripts/datatable.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="../assets/pages/scripts/ui-bootbox.min.js" type="text/javascript"></script>
+        <script src="../assets/pages/scripts/ui-modals.min.js" type="text/javascript"></script>
+        <script src="../assets/pages/scripts/table-datatables-managed.min.js" type="text/javascript"></script>
+        <script src="../assets/pages/scripts/components-bootstrap-select.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="../assets/layouts/layout5/scripts/layout.min.js" type="text/javascript"></script>
+        <script src="../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+    </body>
+</html>

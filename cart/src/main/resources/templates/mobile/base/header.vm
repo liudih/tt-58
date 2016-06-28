@@ -1,0 +1,29 @@
+<!--head-->
+<div class="header">
+    <div id="indextop" class="head width">
+        <div class="main clearfix">
+            <div class="main_content margin">
+                <div class="fl">
+                    <i class="icon_left" id="previous_page"></i>
+                </div>
+                <a href="/" class="logo">
+					#if($step==1)
+						#springMessage("shopprocess.1")
+					#elseif($step==2)
+						#springMessage("shopprocess.2")
+					#elseif($step==3)
+						#springMessage("shopprocess.3")
+					#end
+				</a>
+                <div class="fr">
+                    <i class="icon_search skip_search"></i>
+                    <a href="/" >
+                    <i class="icon_cart">
+                        <i class="quantity">$!cartsize</i>
+                    </i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    #parse("/mobile/base/search_bar.vm")
+</div>

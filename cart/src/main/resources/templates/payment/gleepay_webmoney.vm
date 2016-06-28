@@ -1,0 +1,8 @@
+<li name="WebMoney" >
+<input type="radio" name="paymentId" value="gleepay_webmoney" style="display:none;">
+<div class="method_con_visa" >
+    <h5>#springMessage("pay.for") 
+    <img src="${cdn-url}images/newshopping_icon_webm.png" alt=""/>
+    </h5>
+</div>
+</li>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.loyalty.mappers.loyalty.PointMapper">
+	<resultMap type="com.tomtop.loyalty.models.Point" id="point">
+		<id column="iid" property="id" jdbcType="INTEGER" />
+		<result column="iwebsiteid" property="website" jdbcType="INTEGER" />
+		<result column="cemail" property="email" jdbcType="VARCHAR" />
+		<result column="cdotype" property="dotype" jdbcType="VARCHAR" />
+		<result column="istatus" property="status" jdbcType="INTEGER" />
+		<result column="csource" property="source" jdbcType="VARCHAR" />
+		<result column="iintegral" property="integral" jdbcType="INTEGER" />
+		<result column="cremark" property="remark" jdbcType="VARCHAR" />
+		<result column="dcreatedate" property="createdate" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<select id="getTotal" resultType="java.lang.Integer"
+		parameterType="map">
+		select count(iid) from t_member_integral_history
+		where 1=1
+		<if test="email != null and email != '' ">
+			and cemail=#{email}
+		</if>
+		<if test="siteId != null ">
+			and iwebsiteid=#{siteId}
+		</if>
+		<if test="dotype != null and dotype != '' ">
+			and cdotype=#{dotype}
+		</if>
+		<if test="status != null">
+			and istatus=#{status}
+		</if>
+		<if test="source != null and source != '' ">
+			and csource=#{source}
+		</if>
+	</select>
+	
+	<select id="getUsedPointHistory" resultMap="point">
+		SELECT *  from t_member_integral_history 
+		 where iwebsiteid = #{website} 
+		 and cemail=#{email} 
+		 and cdotype != 'lock' 
+		 and <![CDATA[ iintegral < 0 ]]>  order by dcreatedate desc limit #{size} offset (#{size} * (#{page} - 1))
+	</select>
+	
+	
+	<select id="getUnusedPointHistory" resultMap="point">
+		select * from t_member_integral_history
+		 where iwebsiteid = #{website}
+		 and cemail=#{email}
+		 and istatus=1 and cdotype != 'cost' order by dcreatedate desc limit #{size} offset (#{size} * (#{page} - 1))
+	</select>
+	
+	<!-- 锁定的总积分 返回值为负数-->
+	<select id="getLockPointSum" resultType="java.lang.Integer">
+		SELECT sum(iintegral) i  from t_member_integral_history 
+		 where iwebsiteid = #{website} 
+		 and cemail=#{email} 
+		 and cdotype = 'lock' 
+	</select>
+	<!-- 获取所有获得的积分 -->
+	<select id="getPointAllSum" resultType="java.lang.Integer">
+		select sum(iintegral) i from t_member_integral_history
+		 where iwebsiteid = #{website}
+		 and cemail=#{email}
+		 and istatus=1 and cdotype != 'cost' and cdotype != 'lock' and iintegral > 0
+	</select>
+	<!-- 剩余未使用积分，包括锁定积分在内 -->
+	<select id="getPointOnLock" resultType="java.lang.Integer">
+		select sum(iintegral) i from t_member_integral_history where iwebsiteid = #{website}
+		 and cemail=#{email} and istatus = 1 and cdotype != 'lock'
+	</select>
+		
+	<select id="getUnusedTotalCountByEmail" resultType="java.lang.Integer">
+		SELECT count(iid) FROM t_member_integral_history WHERE iwebsiteid = #{website} and cemail = #{email}
+	</select>
+	
+	<select id="getUsedTotalCountByEmail" resultType="java.lang.Integer">
+		SELECT count(iid) from t_member_integral_history  where iwebsiteid = #{website} and cemail=#{email} and cdotype!='lock' and <![CDATA[ iintegral < 0 ]]>
+	</select>
+	
+</mapper>

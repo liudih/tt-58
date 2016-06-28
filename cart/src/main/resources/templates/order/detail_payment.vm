@@ -1,0 +1,194 @@
+<h6>#springMessage("payment.methods")</h6>
+
+<ul class="paymentMethod">
+	#if($methods)
+		#foreach( $m in $methods)
+		   #if($m == "paypal")
+		   	 <li class="payment_Active" name="PayPal">
+				<label>
+					<input type="radio" name="paymentId" checked="checked" value="paypal">
+					<em><img src="/images/payment01.png"/></em>
+					PayPal
+				</label>
+				<ol style="display:block;">
+					#parse("/order/detail_payment/paypal.vm")
+				</ol>
+			</li>
+		   #elseif($m == "credit")
+		   	 <li class="" name="Credit Card">
+				<label>
+					<input type="radio" name="paymentId" checked="checked" value="oceanpayment_credit">
+					<em><img src="/images/payment02.png"/></em>
+					Credit Card
+				</label>
+				<ol >
+					#parse("/order/detail_payment/credit.vm")
+				</ol>
+			</li>
+		   #elseif($m == "jbc")
+		   	 <li class="" name="JCB">
+				<label>
+					<input type="radio" name="paymentId" checked="checked" value="oceanpayment_jcb">
+					<em><img src="/images/newshopping_icon_jcb.png"/></em>
+					JCB
+				</label>
+				<ol >
+					#parse("/order/detail_payment/JBC.vm")
+				</ol>
+			</li>
+		   #elseif($m == "webmoney")
+		   	 <li class="" name="WebMoney">
+				<label>
+					<input type="radio" name="paymentId" checked="checked" value="oceanpayment_webmoney">
+					<em><img src="/images/webmoney.png"/></em>
+					WebMoney
+				</label>
+				<ol >
+					#parse("/order/detail_payment/webmoney.vm")
+				</ol>
+			</li>
+		   #elseif($m == "qiwi")
+		   	 <li class="" name="QIWI Кошелек">
+				<label>
+					<input type="radio" name="paymentId" checked="checked" value="oceanpayment_qiwi">
+					<em><img src="/images/payment03.png"/></em>
+					QIWI Кошелек
+				</label>
+				<ol >
+					#parse("/order/detail_payment/qiwi.vm")
+				</ol>
+			</li>
+		   #elseif($m == "yandex")
+		   	 <li class="" name="Yandex.Money">
+				<label>
+					<input type="radio" name="paymentId" checked="checked" value="oceanpayment_yandex">
+					<em><img src="/images/payment04.png"/></em>
+					Yandex.Money
+				</label>
+				<ol >
+					#parse("/order/detail_payment/yandex.vm")
+				</ol>
+			</li>
+		   #elseif($m == "boleto")
+		   	 <li class="" name="Boleto">
+				<label>
+					<input type="radio" name="paymentId" checked="checked" value="oceanpayment_boleto">
+					<em><img src="/images/payment05.png"/></em>
+					Boleto
+				</label>
+				<ol >
+					#parse("/order/detail_payment/boleto.vm")
+				</ol>
+			</li>
+			#elseif($m == "gleepay_credit")
+		   	 <li class="" name="gleepay_credit">
+				<label>
+					<input type="radio" name="paymentId" checked="checked" value="gleepay_credit">
+					<em><img src="/images/payment02.png"/></em>
+					Credit Card
+				</label>
+				<ol >
+					#parse("/order/detail_payment/gleepay_credit.vm")
+				</ol>
+			</li>
+			#elseif($m == "gleepay_webmoney")
+		   	 <li class="" name="gleepay_webmoney">
+				<label>
+					<input type="radio" name="paymentId" checked="checked" value="gleepay_webmoney">
+					<em><img src="/images/webmoney.png"/></em>
+					WebMoney
+				</label>
+				<ol >
+					#parse("/order/detail_payment/gleepay_webmoney.vm")
+				</ol>
+			</li>
+			#elseif($m == "gleepay_qiwi")
+		   	 <li class="" name="gleepay_qiwi">
+				<label>
+					<input type="radio" name="paymentId" checked="checked" value="gleepay_qiwi">
+					<em><img src="/images/payment03.png"/></em>
+					Qiwi
+				</label>
+				<ol >
+					#parse("/order/detail_payment/gleepay_qiwi.vm")
+				</ol>
+			</li>
+		   #end
+		#end
+	#else
+	<li class="payment_Active" name="PayPal">
+		<label>
+			<input type="radio" name="paymentId" checked="checked" value="paypal">
+			<em><img src="/images/payment01.png"/></em>
+			PayPal
+		</label>
+		<ol style="display:block;">
+			#parse("/order/detail_payment/paypal.vm")
+		</ol>
+	</li>
+	<li class="" name="Credit Card">
+		<label>
+			<input type="radio" name="paymentId" checked="checked" value="oceanpayment_credit">
+			<em><img src="/images/payment02.png"/></em>
+			Credit Card
+		</label>
+		<ol >
+			#parse("/order/detail_payment/credit.vm")
+		</ol>
+	</li>
+	<li class="" name="JCB">
+		<label>
+			<input type="radio" name="paymentId" checked="checked" value="oceanpayment_jcb">
+			<em><img src="/images/newshopping_icon_jcb.png"/></em>
+			JCB
+		</label>
+		<ol >
+			#parse("/order/detail_payment/JBC.vm")
+		</ol>
+	</li>
+	<li class="" name="WebMoney">
+		<label>
+			<input type="radio" name="paymentId" checked="checked" value="oceanpayment_webmoney">
+			<em><img src="/images/webmoney.png"/></em>
+			WebMoney
+		</label>
+		<ol >
+			#parse("/order/detail_payment/webmoney.vm")
+		</ol>
+	</li>
+	<li class="" name="QIWI Кошелек">
+		<label>
+			<input type="radio" name="paymentId" checked="checked" value="oceanpayment_qiwi">
+			<em><img src="/images/payment03.png"/></em>
+			QIWI Кошелек
+		</label>
+		<ol >
+			#parse("/order/detail_payment/qiwi.vm")
+		</ol>
+	</li>
+	<li class="" name="Yandex.Money">
+		<label>
+			<input type="radio" name="paymentId" checked="checked" value="oceanpayment_yandex">
+			<em><img src="/images/payment04.png"/></em>
+			Yandex.Money
+		</label>
+		<ol >
+			#parse("/order/detail_payment/yandex.vm")
+		</ol>
+	</li>
+	<li class="" name="Boleto">
+		<label>
+			<input type="radio" name="paymentId" checked="checked" value="oceanpayment_boleto">
+			<em><img src="/images/payment05.png"/></em>
+			Boleto
+		</label>
+		<ol >
+			#parse("/order/detail_payment/boleto.vm")
+		</ol>
+	</li>	
+	#end	
+		
+	
+	
+</ul>
+<div class="clear"></div>

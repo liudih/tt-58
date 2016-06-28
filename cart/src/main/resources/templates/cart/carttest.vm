@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.json.min.js" ></script>
+</head>
+<body>
+   <h5>test!!!!</h5>
+   
+
+<div>
+<input type="button" value="add1" onclick="add('00cd8c91-d914-1004-874c-d371c9ab96c0')" />
+<input type="button" value="add2" onclick="add('d379b03f-f421-4891-b9b0-3ff42198919b')" />
+
+
+<br/>
+
+<h3>tomtop</h3>
+
+<input type="button" value="add3" onclick="add('f6c8b578-d94d-1004-8ce2-70e36be5c01e')" />
+<input type="button" value="update" onclick="update()" />
+<input type="button" value="del" onclick="del()" />
+
+<input type="button" value="add bundle" onclick="addbundle()" />
+
+<br/>
+
+<h3>rcmoment</h3>
+
+<input type="button" value="add4" onclick="add('35b3ca9a-e11d-4a39-b3ca-9ae11d3a39c1')" />
+
+<br/>
+
+<h3>jsonp   --tomtop</h3>
+<input type="button" value="add-jsonp" onclick="addjsonp('f6c8b578-d94d-1004-8ce2-70e36be5c01e')" />
+
+<input type="button" value="add-jsonp" onclick="addjsonp('d82d6960-d929-1004-835b-90389054983d')" />
+
+
+
+
+
+</div>
+
+<script type="text/javascript">
+function addbundle(){
+	var list = [];
+	var map = {};
+	map['clistingid'] = "f6bcb214-d94d-1004-8ce2-70e36be5c01e";
+	map['qty'] = 1;
+	map['storageid'] = 1;
+	list[0] = map;
+	
+	var map2 = {};
+	map2['clistingid'] = "d4dd797d-d929-1004-835b-90389054983d";
+	map2['qty'] = 10;
+	map2['storageid'] = 1;
+	list[1] = map2;
+	
+	var map3 = {};
+	map3['clistingid'] = "1867264c-d94e-1004-8b78-22911221aeb5";
+	map3['qty'] = 15;
+	map3['storageid'] = 5;
+	list[2] = map3;
+	
+	
+	var dd = $.toJSON(list);
+	$.ajax({
+		url: "/savecartitem",
+		type: "POST",
+		dataType: "json",
+		data: {"data": dd},
+		success: function(data){
+		}
+	});
+}
+function add(lis){
+	var list = [];
+	var map = {};
+	map['clistingid'] = lis;
+	
+	map['qty'] = 1;
+	map['storageid'] = 1;
+	list[0] = map;
+	
+	
+	var dd = $.toJSON(list);
+	
+	$.ajax({
+		url: "/savecartitem",
+		type: "POST",
+		dataType: "json",
+		data: {"data": dd},
+		success: function(data){
+			
+		}
+	});
+}	
+
+function addjsonp(lis){
+	var list = [];
+	var map = {};
+	map['clistingid'] = lis;
+	map['qty'] = 1;
+	map['storageid'] = 1;
+	list[0] = map;
+	var dd = $.toJSON(list);
+	$.ajax({
+		type: "GET",
+		url: "http://cart.tomtop.com:9005/cart-api/savecartitem/jsonp?_="+Math.random(),
+		data:{
+			data: encodeURIComponent(dd)
+		},
+		contentType: 'application/json',
+		dataType:'jsonp',
+		jsonp: "jsoncallback",
+        jsonpCallback:"success_jsonpCallback",
+		success: function (json) {
+			console.log(json);
+			console.log("++++");
+		}
+	 });
+}
+</script>
+		
+</body>
+</html>

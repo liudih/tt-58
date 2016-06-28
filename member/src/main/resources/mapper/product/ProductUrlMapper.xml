@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.member.mappers.product.ProductUrlMapper">
+	<resultMap id="BaseResultMap" type="com.tomtop.member.models.dto.product.ProductUrl">
+		<id column="iid" property="iid" jdbcType="INTEGER" />
+		<result column="clistingid" property="clistingid" jdbcType="VARCHAR" />
+		<result column="csku" property="csku" jdbcType="VARCHAR" />
+		<result column="ilanguageid" property="ilanguageid" jdbcType="INTEGER" />
+		<result column="curl" property="curl" jdbcType="VARCHAR" />
+		<result column="ccreateuser" property="ccreateuser" jdbcType="VARCHAR" />
+		<result column="dcreatedate" property="dcreatedate" jdbcType="DATE" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		iid, clistingid, csku, ilanguageid, curl, ccreateuser,
+		dcreatedate
+	</sql>
+
+	<!-- Batch select product URL by clistingids -->
+	<select id="getProductUrlsByListingIds" resultType="com.tomtop.member.models.dto.product.ProductUrlWithSmallImage">
+		SELECT u.*, t.cimageurl FROM (select
+		iid,clistingid,csku,ilanguageid,curl,ccreateuser,dcreatedate from
+		t_product_url
+		where clistingid in
+		<foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">#{item}</foreach>
+		and ilanguageid = #{language}
+		union all
+		select iid,clistingid,csku,ilanguageid,curl,ccreateuser,dcreatedate from
+		t_product_intercept_url
+		where clistingid in
+		<foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">#{item}</foreach>
+		and ilanguageid = #{language}
+		) u
+		LEFT OUTER JOIN
+		t_product_image t ON t.clistingid = u.clistingid AND
+		t.bsmallimage =
+		true
+		WHERE u.clistingid IN
+		<foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">#{item}</foreach>
+		and u.ilanguageid = #{language}
+	</select>
+
+	 
+	<select id="getProductUrlByClistingids" resultType="com.tomtop.member.models.dto.product.ProductUrl">
+		SELECT * FROM t_product_url
+		WHERE clistingid IN
+		<foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">#{item}</foreach>
+	</select>
+</mapper>

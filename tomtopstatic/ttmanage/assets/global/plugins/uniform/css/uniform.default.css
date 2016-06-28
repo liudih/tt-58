@@ -1,0 +1,57 @@
+/*
+Error: File to import not found or unreadable: ../../_base/css/uniform._base.scss.
+       Load path: E:/project/tomtopstatic/ttmanage/assets/global/plugins/uniform/css
+        on line 37 of E:\project\tomtopstatic\ttmanage\assets\global\plugins\uniform\css\uniform.default.scss
+
+32: $upload-filename-width: 85px;
+33: $upload-filename-padding: 0 10px;
+34: $upload-height: 28px;
+35: $upload-width: 190px;
+36: 
+37: @import "../../_base/css/uniform._base.scss";
+38: 
+39: /* INPUT & TEXTAREA *\/
+40: 
+41: #{$class-wrapper-element}#{$class-wrapper} input#{$class-input},
+42: #{$class-wrapper-element}#{$class-wrapper} select#{$class-multiselect},
+
+Backtrace:
+E:\project\tomtopstatic\ttmanage\assets\global\plugins\uniform\css\uniform.default.scss:37
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:66:in `rescue in import'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:45:in `import'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:28:in `imported_file'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:37:in `css_import?'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:301:in `visit_import'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `map'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:157:in `visit'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/root_node.rb:36:in `css_tree'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:285:in `render_with_sourcemap'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:396:in `run'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:62:in `process_result'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:52:in `parse'
+F:/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:19:in `parse!'
+F:/Koala/rubygems/gems/sass-3.4.9/bin/sass:13:in `<top (required)>'
+F:/Koala/bin/sass:18:in `load'
+F:/Koala/bin/sass:18:in `<main>'
+*/
+/*body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: ../../_base/css/uniform._base.scss.\A        Load path: E:/project/tomtopstatic/ttmanage/assets/global/plugins/uniform/css\A         on line 37 of E:\project\tomtopstatic\ttmanage\assets\global\plugins\uniform\css\uniform.default.scss\A \A 32: $upload-filename-width: 85px;\A 33: $upload-filename-padding: 0 10px;\A 34: $upload-height: 28px;\A 35: $upload-width: 190px;\A 36: \A 37: @import \"../../_base/css/uniform._base.scss\";\A 38: \A 39: /* INPUT & TEXTAREA \A 40: \A 41: #{$class-wrapper-element}#{$class-wrapper} input#{$class-input},\A 42: #{$class-wrapper-element}#{$class-wrapper} select#{$class-multiselect}"; }*/

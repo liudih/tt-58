@@ -1,0 +1,33 @@
+{
+    "facebook": {
+        "1": {
+            "app_id": "284737934897635", 
+            "app_secret": "258c8396a87a4a58098cbbfd7f4b7b4f", 
+            "redirect_uri": "http://www.tomtop.com/ttfb"
+        }, 
+        "10": {
+            "app_id": "373036599486722", 
+            "app_secret": "75f55f4d71158e25d71c6d1f2965cc6f", 
+            "redirect_uri": "http://www.chicuu.com/sign-facebook"
+        }
+    },
+    "google": {
+        "1": {
+            "app_id": "1031779384204-umd79kdejl4q5sdul1hjs32c93437jop.apps.googleusercontent.com", 
+            "app_secret": "154BNkfOO9pxU0vZvC51y7e4", 
+            "redirect_uri": "http://www.tomtop.com/ttgoogle"
+        }, 
+        "10": {
+            "app_id": "295253721940-ajcoss429ccu0em0pp318fdtspnfke5b.apps.googleusercontent.com", 
+            "app_secret": "Hqrt3JH5zvtixlKopCe20u9N", 
+            "redirect_uri": "http://www.chicuu.com/sign-google"
+        }
+    },
+    "paypal": {
+        "1": {
+            "app_id": "AQMka22SiDk_Ud9gIkdAiXWDr13c2Tr4iGWU49W9pTrQqvTOPqebq4Ty6oMdupaLMW_evpdjs2vLphzD", 
+            "app_secret": "EPiZO6vm5edXZ9Wj49pd0kEHdjCevmWry_tc6I9FAhM0iM6emC1mtqmkL3GH5RwDw4F9HBbD5Z9K_ayk", 
+            "redirect_uri": "http://www.tomtop.com/paypal"
+        }
+    }
+}

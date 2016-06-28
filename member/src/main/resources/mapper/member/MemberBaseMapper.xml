@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.member.mappers.user.MemberBaseMapper">
+	<resultMap id="BaseResultMap" type="com.tomtop.member.models.dto.MemberBase">
+		<id column="iid" property="iid" jdbcType="INTEGER" />
+		<result column="iwebsiteid" property="iwebsiteid" jdbcType="INTEGER" />
+		<result column="caccount" property="caccount" jdbcType="VARCHAR" />
+		<result column="cpasswd" property="cpasswd" jdbcType="VARCHAR" />
+		<result column="igroupid" property="igroupid" jdbcType="INTEGER" />
+		<result column="cprefix" property="cprefix" jdbcType="VARCHAR" />
+		<result column="csuffix" property="csuffix" jdbcType="VARCHAR" />
+		<result column="cfirstname" property="cfirstname" jdbcType="VARCHAR" />
+		<result column="cmiddlename" property="cmiddlename" jdbcType="VARCHAR" />
+		<result column="clastname" property="clastname" jdbcType="VARCHAR" />
+		<result column="cemail" property="cemail" jdbcType="VARCHAR" />
+		<result column="dbirth" property="dbirth" jdbcType="TIMESTAMP" />
+		<result column="ctaxnumber" property="ctaxnumber" jdbcType="VARCHAR" />
+		<result column="igender" property="igender" jdbcType="INTEGER" />
+		<result column="cforumsnickname" property="cforumsnickname"
+			jdbcType="VARCHAR" />
+		<result column="bactivated" property="bactivated" jdbcType="BOOLEAN" />
+		<result column="bnewsletter" property="bnewsletter" jdbcType="BOOLEAN" />
+		<result column="ccountry" property="ccountry" jdbcType="VARCHAR" />
+		<result column="dcreatedate" property="dcreatedate" jdbcType="TIMESTAMP" />
+		<result column="cuuid" property="cuuid" jdbcType="VARCHAR" />
+	</resultMap>
+		<sql id="Base_Column_List">
+		iid, iwebsiteid, caccount, cpasswd, igroupid, cprefix,
+		csuffix,
+		cfirstname, cmiddlename,
+		clastname, cemail, dbirth, ctaxnumber,
+		igender, cforumsnickname,
+		bactivated, bnewsletter, ccountry,caboutme,
+		dcreatedate,cuuid
+	</sql>
+	<select id="getMemberList" resultMap="BaseResultMap"
+		parameterType="java.util.List">
+		select 
+		<include refid="Base_Column_List" /> 
+		 from t_member_base where cemail in
+		<foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+	<select id="getMemberBase" resultType="com.tomtop.member.models.dto.MemberBase">
+		select 
+		<include refid="Base_Column_List" /> 
+		from t_member_base m 
+		where
+		<if test="email != null">m.cemail = #{email} and </if>
+		<if test="siteId != null">m.iwebsiteid = #{siteId} and </if>
+		<if test="caccount != null"> m.caccount = #{caccount} and</if>
+		m.cemail IS NOT NULL
+		order by iid desc 
+		<if test="pageSize != null and pageNum != null">
+			limit #{pageSize} offset (#{pageSize} * (#{pageNum} - 1)) 
+		</if>
+	</select>
+	<select id="getMemberBaseWhere" resultType="com.tomtop.member.models.dto.MemberBase">
+		select 
+		<include refid="Base_Column_List" /> 
+		from t_member_base m 
+		<where>
+			<trim prefixOverrides="and">
+				<if test="iid != null">and iid = #{iid} </if>
+				<if test="cemail != null"> and m.cemail = #{cemail}</if>
+				<if test="iwebsiteid != null"> and m.iwebsiteid = #{iwebsiteid}</if>
+				<if test="cuuid != null">and m.cuuid = #{cuuid}</if>
+			</trim>
+		</where>
+		
+		limit 1
+	</select>
+	
+	<update id="update" parameterType="com.tomtop.member.models.dto.MemberBase">
+		update 
+			t_member_base
+		set 
+			<trim prefixOverrides=",">
+				<if test="caccount != null">,caccount = #{caccount}</if>
+				<if test="cpasswd != null">,cpasswd = #{cpasswd}</if>
+				<if test="igroupid != null">,igroupid = #{igroupid}</if>
+				<if test="cfirstname != null">,cfirstname = #{cfirstname}</if>
+				<if test="csuffix != null">,cprefix = #{csuffix}</if>
+				<if test="cmiddlename != null">,cmiddlename = #{cmiddlename}</if>
+				<if test="clastname != null">,clastname = #{clastname}</if>
+				<if test="dbirth != null">,dbirth = #{dbirth}</if>
+				<if test="ctaxnumber != null">,ctaxnumber = #{ctaxnumber}</if>
+				<if test="igender != null">,igender = #{igender}</if>
+				<if test="cforumsnickname != null">,cforumsnickname = #{cforumsnickname}</if>
+				<if test="bactivated != null">,bactivated = #{bactivated}</if>
+				<if test="bnewsletter != null">,bnewsletter = #{bnewsletter}</if>
+				<if test="ccountry != null">,ccountry = #{ccountry}</if>
+				<if test="caboutme != null">,caboutme = #{caboutme}</if>
+				<if test="cuuid != null">,cuuid = #{cuuid}</if>
+			</trim>
+		<where>
+			<trim prefixOverrides="and">
+				<if test="iid != null">and iid = #{iid}</if>
+				<if test="cemail != null">and cemail = #{cemail}</if>
+				<if test="iwebsiteid != null">and iwebsiteid = #{iwebsiteid}</if>
+			</trim>
+		</where>
+	</update>
+	
+	<update id="updateMemberData" parameterType="com.tomtop.member.models.bo.MemberData">
+		update 
+			t_member_base
+		set 
+			<trim prefixOverrides=",">
+				<if test="account != null">,caccount = #{account}</if>
+				<if test="fname != null">,cfirstname = #{fname}</if>
+				<if test="lname != null">,clastname = #{lname}</if>
+				<if test="birthday != null">,dbirth = #{birthday}</if>
+				<if test="gender != null">,igender = #{gender}</if>
+				<if test="countryName != null">,ccountry = #{countryName}</if>
+				<if test="about != null">,caboutme = #{about}</if>
+			</trim>
+		<where>
+			<trim prefixOverrides="and">
+				<if test="email != null">and cemail = #{email}</if>
+				<if test="website != null">and iwebsiteid = #{website}</if>
+			</trim>
+		</where>
+	</update>
+</mapper>

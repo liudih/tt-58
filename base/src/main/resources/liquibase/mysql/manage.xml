@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	
+	<changeSet id="base_country-create-2015113000" author="renyy">
+		<createTable tableName="base_country" remarks="国家信息表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="name" type="VARCHAR(50)" remarks="国家名称"></column>
+			<column name="national_flag_img_url" type="VARCHAR(255)" remarks="国旗图片url"></column>
+			<column name="iso_code_two" type="VARCHAR(20)" remarks="ISO Code (2)-2位的ISO国家代码"></column>
+			<column name="iso_code_three" type="VARCHAR(20)" remarks="ISO Code(3)-3位的ISO国家代码"></column>
+			<column name="address_format" type="VARCHAR(100)" remarks="地址格式"></column>
+			<column name="is_required_postcode" type="INTEGER" remarks="Postcode Required-邮编是否必填,0:不必须,1:必须，默认0"></column>
+			<column name="currency" type="VARCHAR(20)" remarks="币种"></column>
+			<column name="official_language_id" type="INTEGER" remarks="官方语言"></column>
+			<column name="language_id" type="INTEGER" remarks="语言id,1 en英语"></column>
+			<column name="weigth_unit" type="VARCHAR(20)" remarks="重量的单位"></column>
+			<column name="length_unit" type="VARCHAR(20)" remarks="测量的单位"></column>
+			<column name="sort" type="INTEGER" remarks="排序号" defaultValue="0"></column>
+			<column name="is_deleted" type="INTEGER" remarks="1:是 0:否 默认:0" defaultValue="0"></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间" ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="更新时间" ></column>
+			<column name="is_enabled" type="INTEGER" remarks="有两种状态(1 Enabled,0 Disabled), 1表示该数据记录可被使用；0表示该数据记录暂不可用"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="base_currency-create-2015113000" author="renyy">
+		<createTable tableName="base_currency" remarks="货币表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="name" type="VARCHAR(50)" remarks="货币名称"></column>
+			<column name="code" type="VARCHAR(255)" remarks="标识"></column>
+			<column name="symbol_positions" type="INTEGER" remarks="1:left,2:right"></column>
+			<column name="symbol_code" type="VARCHAR(10)" remarks="货币符号"></column>
+			<column name="current_rate" type="DECIMAL(12,6)" remarks="当前汇率"></column>
+			<column name="new_rate" type="DECIMAL(12,6)" remarks="新汇率值"></column>
+			<column name="decimal_places" type="INTEGER" remarks="汇率小数位"></column>
+			<column name="synchro_date" type="DATETIME" remarks="同步时间"></column>
+			<column name="sort" type="INTEGER" remarks="排序号" defaultValue="0"></column>
+			<column name="is_deleted" type="INTEGER" remarks="1:是 0:否 默认:0" defaultValue="0"></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间" ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="更新时间" ></column>
+			<column name="is_enabled" type="INTEGER" remarks="有两种状态(1 Enabled,0 Disabled), 1表示该数据记录可被使用；0表示该数据记录暂不可用"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="base_language-create-2015113000" author="renyy">
+		<createTable tableName="base_language" remarks="语言表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="name" type="VARCHAR(50)" remarks="语言名称"></column>
+			<column name="code" type="VARCHAR(255)" remarks="标识"></column>
+			<column name="sort" type="INTEGER" remarks="排序号" defaultValue="0"></column>
+			<column name="is_deleted" type="INTEGER" remarks="1:是 0:否 默认:0" defaultValue="0"></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间" ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="更新时间" ></column>
+			<column name="is_enabled" type="INTEGER" remarks="有两种状态(1 Enabled,0 Disabled), 1表示该数据记录可被使用；0表示该数据记录暂不可用"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="base_parameter-create-2015113000" author="renyy">
+		<createTable tableName="base_parameter" remarks="参数表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="language_id" type="INTEGER" remarks="语言id,1 en英语"></column>
+			<column name="client_id" type="INTEGER" remarks="客户端id，1 TOMTOP-PC,2 TOMTOP-Mobile,3 TOMTOP-APP-IOS,4 TOMTOP-APP-Android"></column>
+			<column name="type" type="VARCHAR(30)" remarks="参数类型，为大写字母组成"></column>
+			<column name="value" type="VARCHAR(50)" remarks="参数值"></column>
+			<column name="name" type="VARCHAR(30)" remarks="名称"></column>
+			<column name="remark" type="VARCHAR(100)" remarks="备注"></column>
+			<column name="sort" type="INTEGER" remarks="排序号" defaultValue="0"></column>
+			<column name="is_deleted" type="INTEGER" remarks="1:是 0:否 默认:0" defaultValue="0"></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间" ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="更新时间" ></column>
+			<column name="is_enabled" type="INTEGER" remarks="有两种状态(1 Enabled,0 Disabled), 1表示该数据记录可被使用；0表示该数据记录暂不可用"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="base_resource-create-2015113000" author="renyy">
+		<createTable tableName="base_resource" remarks="资源信息表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="language_id" type="INTEGER" remarks="语言id,1 en英语"></column>
+			<column name="client_id" type="INTEGER" remarks="客户端id，1 TOMTOP-PC,2 TOMTOP-Mobile,3 TOMTOP-APP-IOS,4 TOMTOP-APP-Android"></column>
+			<column name="key" type="VARCHAR(100)" remarks="key"></column>
+			<column name="value" type="VARCHAR(200)" remarks="value"></column>
+			<column name="is_deleted" type="INTEGER" remarks="1:是 0:否 默认:0" defaultValue="0"></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间" ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="更新时间" ></column>
+			<column name="is_enabled" type="INTEGER" remarks="有两种状态(1 Enabled,0 Disabled), 1表示该数据记录可被使用；0表示该数据记录暂不可用"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="base_client-create-2015113000" author="renyy">
+		<createTable tableName="base_client" remarks="客户端表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="name" type="VARCHAR(50)" remarks="名称"></column>
+			<column name="platform" type="INTEGER" remarks="平台"></column>
+			<column name="remark" type="VARCHAR(100)" remarks="备注"></column>
+			<column name="site_id" type="INTEGER" remarks="站点id"></column>
+			<column name="is_deleted" type="INTEGER" remarks="1:是 0:否 默认:0" defaultValue="0"></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间" ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="更新时间" ></column>
+			<column name="is_enabled" type="INTEGER" remarks="有两种状态(1 Enabled,0 Disabled), 1表示该数据记录可被使用；0表示该数据记录暂不可用"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="base_site-create-2015113000" author="renyy">
+		<createTable tableName="base_site" remarks="站点表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="name" type="VARCHAR(50)" remarks="名称"></column>
+			<column name="description" type="VARCHAR(500)" remarks="布局描述"></column>
+			<column name="is_deleted" type="INTEGER" remarks="1:是 0:否 默认:0" defaultValue="0"></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间" ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="更新时间" ></column>
+			<column name="is_enabled" type="INTEGER" remarks="有两种状态(1 Enabled,0 Disabled), 1表示该数据记录可被使用；0表示该数据记录暂不可用"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="base_vhost-create-2015122900" author="renyy">
+		<createTable tableName="base_vhost" remarks="来源表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="vhost" type="VARCHAR(256)" remarks="名称"></column>
+			<column name="language_id" type="INTEGER" remarks="语言id,1 en英语"></column>
+			<column name="client_id" type="INTEGER" remarks="客户端id"></column>
+			<column name="currency_id" type="INTEGER" remarks="货币id"></column>
+			<column name="order_placeholder" type="VARCHAR(10)" remarks="布局描述"></column>
+			<column name="is_deleted" type="INTEGER" remarks="1:是 0:否 默认:0" defaultValue="0"></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间" ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="更新时间" ></column>
+			<column name="is_enabled" type="INTEGER" remarks="有两种状态(1 Enabled,0 Disabled), 1表示该数据记录可被使用；0表示该数据记录暂不可用"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="base_platform-create-2015122900" author="renyy">
+		<createTable tableName="base_platform" remarks="平台管理表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="language_id" type="INTEGER" remarks="语言id,1 en英语"></column>
+			<column name="platform" type="VARCHAR(50)" remarks="平台类型名称"></column>
+			<column name="value" type="VARCHAR(50)" remarks="平台类型值"></column>
+			<column name="remark" type="VARCHAR(200)" remarks="备注信息"></column>
+			<column name="is_deleted" type="INTEGER" remarks="1:是 0:否 默认:0" defaultValue="0"></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间" ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="更新时间" ></column>
+			<column name="is_enabled" type="INTEGER" remarks="有两种状态(1 Enabled,0 Disabled), 1表示该数据记录可被使用；0表示该数据记录暂不可用"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="base_label_attribute-create-2016011100" author="liulj">
+		<createTable tableName="base_label_attribute" remarks="标签属性管理">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="language_id" type="INTEGER" remarks="语言id,1 en英语"></column>
+			<column name="client_id" type="INTEGER" remarks="客户端id，1 TOMTOP-PC,2 TOMTOP-Mobile,3 TOMTOP-APP-IOS,4 TOMTOP-APP-Android"></column>
+			<column name="is_change" type="INTEGER" defaultValue="0"  remarks="是否动态属性,0否：1是" ></column>
+			<column name="level" type="INTEGER" remarks="属性等级" ></column>
+			<column name="category_id" type="INTEGER" remarks="类目id" ></column>
+			<column name="attribute_key" type="VARCHAR(50)" remarks="属性的key" ></column>
+			<column name="attribute_value" type="VARCHAR(200)" remarks="属性的key的值" ></column>
+			<column name="sort" type="INTEGER" remarks="排序" ></column>
+			<column name="is_enabled" type="INTEGER" remarks="有两种状态(1 Enabled,0 Disabled), 1表示该数据记录可被使用；0表示该数据记录暂不可用"></column>
+			<column name="is_deleted" type="INTEGER" remarks="1:是 0:否 默认:0" defaultValue="0"></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间" ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="更新时间" ></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="base_label_attribute-add-column-2016011200" author="liulj">
+		<addColumn tableName="base_label_attribute">
+			<column name="label_id" type="INTEGER" remarks="标签id"></column>
+			<column name="parent_id" type="INTEGER" remarks="标签父id"></column>
+		</addColumn>
+	</changeSet>
+	
+	<changeSet id="content_catalogue-create-2016031700" author="liuyf">
+		<createTable tableName="content_catalogue" remarks="目录表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="name" type="VARCHAR(100)" remarks="目录名称" ></column>
+			<column name="level" type="INTEGER" remarks="目录级别 " ></column>
+			<column name="parent_id" type="INTEGER" remarks="目录父ID" defaultValue="0" ></column>
+			<column name="client_id" type="INTEGER" remarks="客户端ID" ></column>
+			<column name="sort" type="INTEGER" remarks="排序 " ></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人 " ></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间 " ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="修改人 " ></column>
+			<column name="last_updated_on" type="DATETIME" remarks="修改时间 " ></column>
+			<column name="is_deleted" type="INTEGER" remarks="是否已删除（1为已删除，0为未删除） " ></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="content_details-create-2016031700" author="liuyf">
+		<createTable tableName="content_details" remarks="目录明细">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="catalogue_id" type="INTEGER" remarks="内容目录id " >
+			</column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人 " ></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间 " ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="修改人 " ></column>
+			<column name="last_updated_on" type="DATETIME" remarks="修改时间 " ></column>
+			<column name="is_deleted" type="INTEGER" remarks="是否已删除（1为已删除，0为未删除） " ></column>
+		</createTable>
+		<addForeignKeyConstraint constraintName="content_details_FK" referencedTableName="content_catalogue" baseColumnNames="catalogue_id" baseTableName="content_details" referencedColumnNames="id"/>
+	</changeSet>
+	
+	<changeSet id="content_details_context-create-2016031700" author="liuyf">
+		<createTable tableName="content_details_context" remarks="内容详情">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="details_id" type="INTEGER" remarks="内容详情id " ></column>
+			<column name="language_id" type="INTEGER" remarks="语言id " ></column>
+			<column name="title" type="VARCHAR(200)" remarks="标题 " ></column>
+			<column name="url" type="VARCHAR(200)" remarks="内容链接" ></column>
+			<column name="content" type="VARCHAR(1000)" remarks="内容" ></column>
+			<column name="meta_title" type="VARCHAR(200)" remarks="元标题" ></column>
+			<column name="meta_keyword" type="VARCHAR(200)" remarks="元关键字" ></column>
+			<column name="meta_description" type="VARCHAR(500)" remarks="元描述" ></column>
+			<column name="is_enabled" type="INTEGER" remarks="状态（0为禁用，1为启用） " ></column>
+		</createTable>
+		<addForeignKeyConstraint constraintName="content_details_context_FK" referencedTableName="content_details" baseColumnNames="details_id" baseTableName="content_details_context" referencedColumnNames="id"/>
+	</changeSet>
+	
+	<changeSet id="event_services-create-2016031900" author="renyy">
+		<createTable tableName="event_services" remarks="服务表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="code" type="VARCHAR(64)" remarks="服务标识" ></column>
+			<column name="name" type="VARCHAR(64)" remarks="服务名称" ></column>
+			<column name="type" type="VARCHAR(32)" remarks="服务类型" ></column>
+			<column name="param_remark" type="VARCHAR(512)" remarks="参数说明" defaultValue=""></column>
+			<column name="remark" type="VARCHAR(512)" remarks="服务内容说明" defaultValue=""></column>
+			<column name="field1" type="VARCHAR(64)" remarks="扩展字段1" defaultValue=""></column>
+			<column name="field2" type="VARCHAR(64)" remarks="扩展字段2" defaultValue=""></column>
+			<column name="field3" type="VARCHAR(64)" remarks="扩展字段3" defaultValue=""></column>
+			<column name="field4" type="VARCHAR(64)" remarks="扩展字段4" defaultValue=""></column>
+			<column name="field5" type="VARCHAR(64)" remarks="扩展字段5" defaultValue=""></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间 "></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="修改人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="修改时间 "></column>
+			<column name="is_enabled" type="INTEGER" remarks="有两种状态(1 Enabled,0 Disabled), 1启用；0禁用" defaultValue="1"></column>
+			<column name="is_deleted" type="INTEGER" remarks="是否已删除（1为已删除，0为未删除） "  defaultValue="0"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="sub_event_services-create-2016031900" author="renyy">
+		<createTable tableName="sub_event_services" remarks="订阅服务表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="code" type="VARCHAR(64)" remarks="服务标识" ></column>
+			<column name="name" type="VARCHAR(64)" remarks="服务名称" ></column>
+			<column name="type" type="VARCHAR(32)" remarks="服务类型" ></column>
+			<column name="url" type="VARCHAR(128)" remarks="服务请求地址" ></column>
+			<column name="method" type="VARCHAR(8)" remarks="服务请求方式" defaultValue="GET"></column>
+			<column name="param" type="VARCHAR(256)" remarks="服务请求参数" ></column>
+			<column name="remark" type="VARCHAR(512)" remarks="内容说明" defaultValue=""></column>
+			<column name="field1" type="VARCHAR(64)" remarks="扩展字段1" defaultValue=""></column>
+			<column name="field2" type="VARCHAR(64)" remarks="扩展字段2" defaultValue=""></column>
+			<column name="field3" type="VARCHAR(64)" remarks="扩展字段3" defaultValue=""></column>
+			<column name="field4" type="VARCHAR(64)" remarks="扩展字段4" defaultValue=""></column>
+			<column name="field5" type="VARCHAR(64)" remarks="扩展字段5" defaultValue=""></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间 "></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="修改人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="修改时间 "></column>
+			<column name="is_enabled" type="INTEGER" remarks="有两种状态(1 Enabled,0 Disabled), 1启用；0禁用" defaultValue="1"></column>
+			<column name="is_deleted" type="INTEGER" remarks="是否已删除（1为已删除，0为未删除） "  defaultValue="0"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="event_services-create-unique-20160322" author="renyy">
+		<addUniqueConstraint columnNames="code" tableName="event_services" />
+	</changeSet>
+	
+	<changeSet id="price_range_poly-create-20160322" author="renyy">
+		<createTable tableName="price_range_poly" remarks="价格聚合区间表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="client_id" type="INTEGER" remarks="客户端id，1 TOMTOP-PC,2 TOMTOP-Mobile,3 TOMTOP-APP-IOS,4 TOMTOP-APP-Android"></column>
+			<column name="filter_name" type="VARCHAR(32)" remarks="过滤字段名"></column>
+			<column name="aliases" type="VARCHAR(32)" remarks="别名"></column>
+			<column name="show_aliases" type="VARCHAR(32)" remarks="显示的别名"></column>
+			<column name="greater" type="VARCHAR(32)" remarks="过滤时大于等于"></column>
+			<column name="less" type="VARCHAR(32)" remarks="过滤时小于等于"></column>
+			<column name="greater_agg" type="DECIMAL(12,2)" remarks="聚合大于等于"></column>
+			<column name="less_agg" type="DECIMAL(12,2)" remarks="聚合小于等于"></column>
+			<column name="field1" type="VARCHAR(64)" remarks="扩展字段1" defaultValue=""></column>
+			<column name="field2" type="VARCHAR(64)" remarks="扩展字段2" defaultValue=""></column>
+			<column name="field3" type="VARCHAR(64)" remarks="扩展字段3" defaultValue=""></column>
+			<column name="field4" type="VARCHAR(64)" remarks="扩展字段4" defaultValue=""></column>
+			<column name="field5" type="VARCHAR(64)" remarks="扩展字段5" defaultValue=""></column>
+			<column name="is_enabled" type="INTEGER" defaultValue="1" remarks="有两种状态(1 Enabled,0 Disabled), 1可被；0不可用"></column>
+			<column name="is_deleted" type="INTEGER" defaultValue="0" remarks="1:是 0:否 默认:0"></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间" ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="更新时间" ></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="category_shape-create-20160322" author="renyy">
+		<createTable tableName="category_shape" remarks="品类对应图片形态表">
+			<column name="id" type="INTEGER" autoIncrement="true" remarks="主键id">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="client_id" type="INTEGER" remarks="客户端id，1 TOMTOP-PC,2 TOMTOP-Mobile,3 TOMTOP-APP-IOS,4 TOMTOP-APP-Android"></column>
+			<column name="category_id" type="INTEGER" remarks="品类Id"></column>
+			<column name="path" type="VARCHAR(64)" remarks="品类路径"></column>
+			<column name="name" type="VARCHAR(64)" remarks="品类名称"></column>
+			<column name="type" type="INTEGER" remarks="图片形态  1=长方形  0=正方形"></column>
+			<column name="field1" type="VARCHAR(64)" remarks="扩展字段1" defaultValue=""></column>
+			<column name="field2" type="VARCHAR(64)" remarks="扩展字段2" defaultValue=""></column>
+			<column name="field3" type="VARCHAR(64)" remarks="扩展字段3" defaultValue=""></column>
+			<column name="field4" type="VARCHAR(64)" remarks="扩展字段4" defaultValue=""></column>
+			<column name="field5" type="VARCHAR(64)" remarks="扩展字段5" defaultValue=""></column>
+			<column name="is_enabled" type="INTEGER" defaultValue="1" remarks="有两种状态(1 Enabled,0 Disabled),  1启用；0禁用"></column>
+			<column name="is_deleted" type="INTEGER" defaultValue="0" remarks="1:是 0:否 默认:0"></column>
+			<column name="created_by" type="VARCHAR(50)" remarks="创建人"></column>
+			<column name="created_on" type="DATETIME" remarks="创建时间" ></column>
+			<column name="last_updated_by" type="VARCHAR(50)" remarks="更新人"></column>
+			<column name="last_updated_on" type="DATETIME" remarks="更新时间" ></column>
+		</createTable>
+	</changeSet>
+	<changeSet author="renyy" id="content_catalogue-add-column-20160604">
+			<addColumn tableName="content_catalogue">
+				<column name="status" type="INTEGER" defaultValue="0" remarks="状态（1-只关联Footer;2-只关联Help;3-关联Footer和Help）"></column>
+			</addColumn>
+	</changeSet>
+</databaseChangeLog>

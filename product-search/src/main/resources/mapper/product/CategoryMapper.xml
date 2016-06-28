@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomtop.mappers.product.CategoryMapper">
+
+	<select id="getCategories" parameterType="map" resultType="com.tomtop.entity.Category">
+		select p.iwebsiteid,n.ilanguageid,p.icategoryid,cb.iparentid,p.ilevel,p.iposition,n.cname,p.cpath,n.cdescription,m.curl as cbgimglink,
+			case when n.cmetadescription is null then n.ctitle else n.cmetadescription end as metaDescription,
+			case when n.cmetatitle is null then n.ctitle else n.cmetatitle end as metaTitle,
+			case when n.cmetakeyword is null then n.ctitle else n.cmetakeyword end as metaKeyWords
+		from t_category_website p
+		inner join t_category_name n 
+			on n.icategoryid = p.icategoryid 
+		left join t_category_base cb 
+			on cb.iid = p.icategoryid 
+		left  join t_category_backgroundimages m 
+			on m.icategorynameid = n.iid 
+		where 1=1 
+		<if test="level != null">
+			<choose>
+				<when test="level == 1">
+					and p.ilevel=#{level} and cb.iparentid is null
+				</when>
+				<otherwise>
+					and p.ilevel=#{level}
+				</otherwise>
+			</choose>
+		</if>
+		<if test="websiteId != null">
+			and p.iwebsiteid = #{websiteId}
+		</if>
+		<if test="langId != null">
+			and n.ilanguageid = #{langId}
+		</if>
+		<if test="categoryId != null">
+			and p.icategoryid = #{categoryId}
+		</if>
+		<choose>
+			<when test="bshow != null">
+				<choose>
+					<when test="bshow == 1">
+						and  p.bshow=true
+					</when>
+					<otherwise>
+						and  p.bshow=false
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				and  p.bshow=true
+			</otherwise>
+		</choose>
+		<if test="parentId != null">
+			and cb.iparentid = #{parentId}
+		</if>
+		order by p.iposition;
+	</select>
+	
+</mapper>

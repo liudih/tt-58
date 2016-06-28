@@ -1,0 +1,79 @@
+<div id="search" class="animate search_hide">
+    <div class="header">
+        <div class="head width">
+            <div class="main clearfix">
+                <div class="main_content margin">
+                    <div class="fl">
+                        <i class="icon_left" id="quit_search"></i>
+                    </div>
+                    <a href="javascript:;" class="logo"><img src="${cdn-url}icon/logo_400x100.png" /></a>
+                    <div class="fr">
+                        <i class="icon_search"></i>
+                        <a href="/" >
+                        <i class="icon_cart">
+                            <i class="quantity">$!cartsize</i>
+                        </i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--search-->
+    <div class="search">
+        <div class="search_content width">
+            <div class="seeks">
+                <div class="seeks_content margin">
+                    <input type="text" placeholder="Search" class="seek search-input" />
+                    <i class="icon_cross clear_seek" onclick="closeSearch();"></i>
+                </div>
+            </div>
+            <div class="scope">
+                <div class="scope_content margin">
+                    <dl>
+                        <dt>Hot Searches</dt>
+                        <div id="hotkeycontent" >
+                        
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+function closeSearch(){
+	$("#dialogs").css({display:"none"});
+    $("#search").removeClass("search_show");
+    $("#search .main").removeClass("fixed");
+}
+$(".search-input").keyup(function (event) {
+    if(event.keyCode==13) {
+        window.location.href = 'http://m.tomtop.com/index.php?r=search&keyword='+$('.search-input').val();
+    }
+});
+$(function(){
+	//热词
+	$.ajax({
+		url: "/showhotkey",
+		type: "get",
+		dataType: "json",
+		success:function(data){
+			if(data.result=="success"){
+				var html = '';
+				var hlist = data.data;
+				if(hlist){
+					for(var i=0;i<hlist.length;i++){
+						html += '<dd onclick="skiphot(\''+hlist[i].keyword+'\');"><i>'+(i+1)+'</i>'+hlist[i].keyword+'</dd>';
+					}
+				}
+				$("#hotkeycontent").html(html);
+			}
+		}
+	});
+})
+function skiphot(key){
+	window.location.href = 'http://m.tomtop.com/index.php?r=search&keyword='+key;
+}
+
+</script>

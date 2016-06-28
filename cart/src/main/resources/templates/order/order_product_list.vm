@@ -1,0 +1,56 @@
+
+<div class="newshopping_address">
+            <h2 class="h2_product">#springMessage("product.list")</h2>
+            <dl class="product_list">
+                <dt>
+                    <span class="item">#springMessage("item")</span>
+                    <span class="price">#springMessage("price")</span>
+                    <span class="qty">#springMessage("qualitys")</span>
+                    <span class="total">#springMessage("utotal")</span>
+                </dt>
+			#foreach($kk in $cartItemlist)
+			
+			<dd class="nobor">
+				<input type="hidden" class="clistingid" value="$!kk.getClistingid()" autocomplete="off" />
+				<input type="hidden" class="storageid" value="$!kk.getStorageID()" autocomplete="off" />
+				<input type="hidden" class="iqty input_num" value="$!kk.getIqty()" autocomplete="off" />
+                    <div class="ns_item_img">
+                         <a class="inBlock" href="$mainurl/#if($kk.getCurl())$!kk.getCurl()#end.html">
+				        	<img src="$imgUrlPrefix/$!kk.getCimageurl()" title="$!kk.getCtitle()" alt="$!kk.getCtitle()"/>
+				        </a>
+        
+                        <div class="ns_item_con">
+                            <h3>
+	                            <a href="$mainurl/#if($kk.getCurl())$!kk.getCurl()#end.html">
+					            	$!kk.getCtitle()
+					            </a>
+                            </h3>
+                            <p>#springMessage("sku") <i>$!kk.getSku()</i></p>
+                            <p>
+	                            #if($kk.getAttributeMap())
+									#foreach($j in $kk.getAttributeMap().keySet())
+									<span>
+									#*首字母大写*#
+									#if($j && $j.length()>0)$j.substring(0,1).toUpperCase()$j.substring(1)#end
+									: $!kk.getAttributeMap().get($j)
+									</span>
+									#end
+								#end
+							</p>
+                        </div>
+                    </div>
+                    <div class="ns_item_price">
+                      <p>$!currencyBo.getSymbolCode() $!kk.getPrice().getUnitPriceStr()</p>
+                    </div>
+                    <div class="ns_item_qty">
+                        <span>$!kk.getIqty()</span>
+                    </div>
+                    <div class="ns_item_total">
+                    	<input type="hidden" class="theprice" value="$kk.getPrice().getPrice()" />
+                        <span>$!currencyBo.getSymbolCode() $!kk.getPrice().getPriceStr()</span>
+                    </div>
+                </dd>
+           #end
+           </dl>
+</div>
+			

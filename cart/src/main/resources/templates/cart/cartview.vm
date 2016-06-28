@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+<title>Shopping Cart - ${host-name}</title>
+<meta name="description" content="No Regular No Business. ${host-name} offers hot gadgets at the best price online. Enjoy fast shipping & excellent service." />
+<link rel="icon" href="$ico" type="image/x-icon" />
+<meta name="keywords" content="${host-name}, hot gadgets, cheap rc models" />
+<link rel="stylesheet" type="text/css" href="${cdn-url}css/newshopping.css?v=$!{version}" />
+<link rel="stylesheet" type="text/css" href="${cdn-url}css/enter.min.css?v=$!{version}" />
+<script src="${cdn-url}js/jquery.min.js?v=$!{version}"></script>
+<script src="${cdn-url}js/public.js?v=$!{version}"></script>
+<script src="${cdn-url}js/main.js?v=$!{version}"></script>
+
+</head>
+<body>
+
+#parse("/base/login_pop_new.vm")
+
+<div class="nav_ljh">
+   <div class="nav_ljhFix">
+      <div id="top"><a href="#top_s"></a></div>
+     
+  </div>
+</div>
+<div class="shoppingCart_top" style="width: 1200px; margin: 0 auto 20px" id="top_s">
+    <div class="topNavigation_logo lineBlock">
+        <div class="topNav_logoT"><a href="$!mainurl"><img src="${cdn-url}images/logo.png"></a></div>
+    </div>
+    <ul class="shop_process">
+        <li class="current_state"><span>1</span>#springMessage("newshopping.banner.1")</li>
+        <!--当到第二步的页面时，第二个li标签添加多个样式名为“current_state1”-->
+        <li class="nocurrent_state"><span>2</span>#springMessage("newshopping.banner.2")</li>
+        <li class="normal_state"><span>3</span>#springMessage("newshopping.banner.3")</li>
+    </ul>
+</div>
+<!--头部结.p束-->
+
+<div class="newshopping_box">
+    <div class="newshopping_box_left">
+    	<input type="hidden" id="cartsize" value="$!cartItemlist.size()" autocomplete="off" />
+    	<input type="hidden" id="latesize" value="$!laterItemlist.size()" autocomplete="off" />
+		<!--新购物车流程内容-->
+        <h2 class="shopcart_h2">#springMessage("shoppingcart") </h2>
+
+        #if ($cartItemMap && $cartItemMap.size()>0)
+        	<ul class="warehouse_list" id="cartlist_ul">
+        		#foreach ($item in $cartItemMap.entrySet())
+	        		 <li class="storage_products">
+	        		 	 		  #set($storageid_begin = 0)
+		        				  #set($storageid_begin=$item.key.lastIndexOf("-")+1)
+		        				  #set($storageName_end=$item.key.lastIndexOf("-"))
+		        				  #set($storageid_end=$item.key.length())
+		        				  #set($actualStorageName=$item.key.substring(0,$storageName_end))
+		        				  #set($actualStorageid=$item.key.substring($storageid_begin,$storageid_end))
+	        		 	 <div class="warehouse_sel" storageid="$actualStorageid" >
+		        			<span><i></i></span>#springMessage("shipfrom") [$actualStorageName] #springMessage("warehouse")
+			                <em>($item.value.size() Item#if($item.value.size()>1)s#end)</em>
+		                 </div>
+		                  <dl class="myshop_wares clearfix">
+		                    <dt>
+		                        <span class="wares_item">#springMessage("cart.item")</span>
+		                        <span class="wares_price">#springMessage("cart.price")</span>
+		                        <span class="wares_qty">#springMessage("cart.qty")</span>
+		                        <span class="wares_total">#springMessage("cart.total")</span>
+		                    </dt>
+		                   #set($islate = false)
+							#foreach ( $kk in $item.value)
+								#if(!$kk.getIitemtype() || $kk.getIitemtype()==1)
+									#parse("/cart/single.vm")
+								#else
+									#parse("/cart/bundle.vm")
+								#end
+		                    #end
+		                </dl>
+	                </li>
+        		#end
+        		<div id="shop_position"></div>
+        	</ul>
+        
+        <div class="code_box clearfix">
+	       <div class="coupon_input_box">
+	       	<a href="$!mainurl"><input type="button" value="#springMessage("continue_shopping")" class="coupon_input" /></a>
+	       </div>
+	    </div>
+        #else
+        	<div class="shoppingCart_con" style="display: block">
+	            <div class="shopping_none">
+	                <em></em>
+	                <b>#springMessage("cartisempty")</b>
+	                <p><a href="$!mainurl">#springMessage("gohome")</a>#springMessage("selectitem")</p>
+	            </div>
+	        </div>
+        #end
+        
+       
+        #if($laterItemlist && $laterItemlist.size()>0)
+        <ul class="warehouse_list warehouse_later_list">
+            <li>
+                <div class="warehouse_sel">#springMessage("saved_later")
+	                <div class="warehouse_sel_btn"></div>
+	                <em>($laterItemlist.size() Item#if($laterItemlist.size()>1)s#end)</em>
+                </div>
+                <dl class="myshop_wares clearfix">
+                    <dt>
+                        <span class="wares_item">#springMessage("cart.item")</span>
+                        <span class="wares_total">#springMessage("cart.total")</span>
+                    </dt>
+                    <div class="warehouse_later_box" >
+                    	#set($islate = true)
+						#foreach ( $kk in $laterItemlist)
+							#if(!$kk.getIitemtype() || $kk.getIitemtype()==1)
+								#parse("/cart/single.vm")
+							#else
+								#parse("/cart/bundle.vm")
+							#end
+	                    #end
+					</div>
+                </dl>
+            </li>
+        </ul>
+        #end
+    </div>
+    
+
+    #if($cartItemMap && $cartItemMap.size()>0)
+    <div class="newshopping_box_right">
+        <dl>
+        	<input type="hidden" id="currencycode" value="$!currencyBo.getCode()" />
+        	<input type="hidden" id="thestorageid" value="$storageid" />
+            <dt>#springMessage("order_summary")</dt>
+            <dd>#springMessage("subtotal"):<span><span id="cart_subtotal_symbol">$!currencyBo.getSymbolCode()</span> <span id="subtotal">0.00</span></span></dd>
+            <dd>#springMessage("checkout_step2.Discount") :<span>  <span> $!currencyBo.getSymbolCode()</span>&nbsp;<span id="discount_total">0.00</span></span></dd>
+            <dd>#springMessage("cart.total"):<span class="total">$!currencyBo.getSymbolCode() <span id="grandTotal" >0.00</span></span></dd>
+        </dl>
+        
+        #parse("/loyalty/checkout_loyalty.vm")
+        
+        
+        <div class="nw_paypal_box"><input type="button" value="" class="nw_btn_paypal" url="/paypal/set-guest" /></div>
+        <div class="or_text">OR</div>
+        <div class="nw_place_box"><input type="button" value="#springMessage("checkout")" class="nw_btn_place" url="/checkout/for-member-step1" /></div>
+
+        <div class="nw_guaranteed">
+            <p>#springMessage("safe_tip_1") ${host-name}.com #springMessage("safe_tip_2")</p>
+            <p>
+            <div class="rightPalyNorton_icon">
+		   		<ul>
+			       	<li class="">
+			       		<a href="javascript:vrsn_splash()" tabindex="-1">
+			       		<img  border="true" src="/nortonseal/nortonseal3.gif" oncontextmenu="return false;" alt="#springMessage("seal_tip")">
+			       		</a>
+			       	</li>
+		       </ul>
+		   	</div>
+			</p>
+        </div>
+    </div>
+    #end
+ 
+</div>
+
+<input type="hidden" id="hostname" value="${host-name}" />
+<input type="hidden" id="mainurl" value="" />
+<input type="hidden" id="islogin" value="$!islogin" />
+<input type="hidden" id="theemail" value="$!current_email" />
+
+#parse("/base/member_browse_history.vm")
+
+<div id="ns_loading_box" class="ns_loading_box" style="display: none;">
+    <div class="ns_loading" style="width:200px;min-height:80px;height:auto;">
+        <p><img src="/images/newshopping_loading.gif" alt=""/></p>
+        <p>#springMessage("tomtop.paymentProcess")</p>
+    </div>
+    <div class="blockPopup_black"></div>
+</div>
+#parse("/order/footer.vm")
+#parse("/base/cartview_trackjs.vm")
+<script src="${cdn-url}js/jquery.validate.min.js?v=$!{version}" type="text/javascript"></script>
+<script src="${cdn-url}js/jquery.metadata.js?v=$!{version}" type="text/javascript" ></script>
+<script src="${cdn-url}js/jquery.json.min.js?v=$!{version}" ></script>
+<script src="${cdn-url}js/newshopping_cart.js?v=$!{version}" ></script>
+<script src="${cdn-url}js/login.min.js?v=$!{version}"></script>
+<script src="${cdn-url}js/JSlanguage.min.js?v=$!{version}"></script>
+
+<script src="${cdn-url}js/cartview.js?v=$!{version}" ></script>
+<script src="${cdn-url}js/country/Country.js?v=$!{version}" ></script>
+<script src="${cdn-url}js/login_pop.js?v=$!{version}" ></script>
+<script src="${cdn-url}js/loyalty.js?v=$!{version}"></script>
+<script src="${cdn-url}js/nortonseal.js?v=$!{version}"></script>
+
+</body>
+</html>

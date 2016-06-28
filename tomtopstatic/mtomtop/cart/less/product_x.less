@@ -1,0 +1,49 @@
+.product_x{
+  dl{margin-top:@10px; background:@colorff;}
+  dt{height:@50px; font-size:@16px; font-weight:bold; line-height:@50px;
+    em{font-size:@12px;}
+    .chooseOneBox{margin-right:0;
+      .radio{width:@25px;height:@25px; margin-right:0; vertical-align:middle; display:inline-block;
+        i{font-size:@18px; line-height:@25px;}
+      }
+      .radioChecked{background:@colorA2;border-color:@colorA2;}
+    }
+  }
+  .choose{color:@colorA1;}
+  dd{padding-top:@15px; padding-bottom:@15px; border-top:1px solid @colorcc;
+    .checkbox_wrap{
+      input{position:absolute;left:0;top:0;opacity:0;}
+      .checkbox{width:@20px;height:@20px; display: inline-block;border:1px solid @colorcc;border-radius:@5px; vertical-align: middle;text-align: center;
+        i{font-size:@14px;line-height:@20px;color:@colorff;display:none}
+      }
+      .checkbox.checkboxed{background:@colorA2;border-color:@colorA2;
+        i{display:block}
+      }
+    }
+    .product_image{width:25%; margin-right:@10px; position:relative;
+      .off{width:@30px; height:@30px; padding:@2px @14px 0 0; position:absolute; right:5%; top:5%; font-size:@12px; font-weight:bold; color:@colorff; text-align:right; background:url("../icon/off_100x100.png") no-repeat; background-size:100% 100%;}
+    }
+    .product_info{
+      h3{height:@20px; font-size:@12px; color:@color66; line-height:@20px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+      .product_price{
+        .current_price{height:@20px; font-size:@14px; font-weight:bold; color:@colorA1; line-height:@20px;}
+        .original_price{height:@20px; margin-left:@10px; color:@color66; line-height:@20px; text-decoration:line-through;}
+      }
+      .attr{color:@color66;
+        span{height:@20px; margin-right:@10px; line-height:@20px;}
+      }
+    }
+    .qty{margin-top:@4px; font-size:0;
+      i{width:@24px; height:@24px; font-size:@12px; color:@color66; text-align:center; line-height:@24px; vertical-align:middle; border:1px solid @colorcc; display:inline-block; cursor:pointer;}
+      .qty_cut{border-right:none;  border-top-left-radius:@4px; border-bottom-left-radius:@4px;}
+      .qty_add{border-top-right-radius:@4px; border-bottom-right-radius:@4px;}
+      input{width:@30px; height:@24px; font-size:@12px; text-align:center; line-height:@24px; border:1px solid @colorcc; border-right:none; vertical-align:middle; display:inline-block;}
+      span{width:auto; padding-left:0; display:inline-block;
+        i{font-size:@28px; font-weight:inherit; text-align:right; border:none;}
+        .icon_wishlist,.icon_wishlists{margin-right:@10px; font-size:@22px;}
+        .icon_wishlists{color:#fb4949;}
+      }
+    }
+    .qty_nub{margin-top:@10px;}
+  }
+}

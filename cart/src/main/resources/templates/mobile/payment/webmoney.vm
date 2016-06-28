@@ -1,0 +1,14 @@
+<li class="oceanpayment_webmoney">
+    <dl>
+        <dt class="clearfix">
+        <span class="payment_img fl">
+            <img src="/mobile/icon/webmoney_150x70.jpg">
+        </span>
+        <span class="chooseOneBox fr lineBlock">
+            <label>
+                <div class="radio lineBlock"><i class="icon_check"></i></div>
+            </label>
+        </span>
+        </dt>
+    </dl>
+</li>

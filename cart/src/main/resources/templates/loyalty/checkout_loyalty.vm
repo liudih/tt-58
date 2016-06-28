@@ -1,0 +1,41 @@
+<div class="have_code">
+    <p><span>+</span>#springMessage("checkout_step2.promotionCode")</p>
+    <div id="checkout_promo_div">
+	    <div class="have_code_input">
+		    <input type="text" id="checkout_promo_input" placeholder="Promo Code"/>
+		    <input onclick="applyPromo();" id="checkout_promo_apply" type="submit" value="#springMessage("checkout_step2.Apply")"/>
+		    <input onclick="undoPrefer()" id="checkout_promo_cancel" class="cancel" type="submit" value="Cancel" style="display:none;"/>
+		    <div class="error_p" style="display:none;">#springMessage("loyalty_promo_error")</div>
+	    </div>
+    </div>
+    <div id="checkout_coupon_div" style="display:none;">
+    	<div class="have_code_input">
+	    	<div class="have_code_select">
+	    		<div id="checkout_coupon_code" class="current_num">Coupon Code</div>
+	    			<ul id="checkout_coupon_insert" class="current_list" style="display: none;"></ul>
+	    	</div>
+	    	<input onclick="applyCoupon()" id="checkout_coupon_apply" type="submit" value="#springMessage("checkout_step2.Apply")"/>
+	    	<input onclick="undoPrefer()" id="checkout_coupon_canel" type="submit" class="cancel" value="Cancel" style="display:none;"/>
+	    	<div class="error_p" style="display:none;">#springMessage("loyalty_coupon_error")</div>
+   		</div>
+    </div>
+    <form id="checkout_undo_prefer" method="post" action=""></form>
+</div>
+
+<div id="checkout_point_div" class="have_code" style="display:none;">
+    <p><span>+</span>Points</p>
+    <div class="have_code_input" style="display: none;">
+    	<input type="text" id="checkout_point_input" placeholder="Points"/>
+   		<input onclick="applyPoint();" id="checkout_point_apply" type="submit" value="#springMessage("checkout_step2.Apply")"/>
+		<input onclick="undoPoint();" id="checkout_point_cancel" class="cancel" type="submit" value="Cancel" style="display:none;"/>
+		<div class="points_num">
+					Available points:
+					<span id="cart_usablepoint">0</span>
+		</div>
+		<div class="error_p" style="display:none;">#springMessage("loyalty_point_error")</div>
+    </div>
+    <form id="checkout_undo_point" method="post" action=""></form>
+</div>
+        
+
+

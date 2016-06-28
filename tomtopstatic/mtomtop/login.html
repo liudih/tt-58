@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>Login</title>
+    <link href="css/login.css" type="text/css" rel="stylesheet" />
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/headfoot.js"></script>
+    <script src="js/login.js"></script>
+</head>
+<body>
+<!--head-->
+<div class="header">
+    <div id="indextop" class="head width">
+        <div class="main clearfix">
+            <div class="main_content margin">
+                <div class="fl">
+                    <i class="icon_left" id="previous_page"></i>
+                </div>
+                <a href="index.html" class="logo"><img src="icon/tomtop_logo_400x100.png" /></a>
+                <div class="fr">
+                    <i class="icon_search skip_search"></i>
+                    <i class="icon_cart">
+                        <i class="quantity">35</i>
+                    </i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="search" class="animate search_hide">
+        <div class="header">
+            <div class="head width">
+                <div class="main clearfix">
+                    <div class="main_content margin">
+                        <div class="fl">
+                            <i class="icon_left" id="quit_search"></i>
+                        </div>
+                        <a href="javascript:;" class="logo"><img src="icon/tomtop_logo_400x100.png" /></a>
+                        <div class="fr">
+                            <i class="icon_search"></i>
+                            <i class="icon_cart">
+                                <i class="quantity">35</i>
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--search-->
+        <div class="search">
+            <div class="search_content width">
+                <div class="seeks">
+                    <div class="seeks_content margin">
+                        <input type="text" placeholder="Search" class="seek" />
+                        <i class="icon_cross clear_seek"></i>
+                    </div>
+                </div>
+                <div class="scope">
+                    <div class="scope_content margin">
+                        <dl>
+                            <dt>Hot Searches</dt>
+                            <dd><i>1</i>buy scarves</dd>
+                            <dd><i>2</i>buy scarves</dd>
+                            <dd><i>3</i>buy scarves</dd>
+                            <dd><i>4</i>buy scarves</dd>
+                            <dd><i>5</i>buy scarves</dd>
+                            <dd><i>6</i>buy scarves</dd>
+                            <dd><i>7</i>buy scarves</dd>
+                            <dd><i>8</i>buy scarves</dd>
+                            <dd><i>9</i>buy scarves</dd>
+                            <dd><i>10</i>buy scarves</dd>
+                            <dd><i>11</i>buy scarves</dd>
+                            <dd><i>12</i>buy scarves</dd>
+                            <dd><i>13</i>buy scarves</dd>
+                            <dd><i>14</i>buy scarves</dd>
+                            <dd><i>15</i>buy scarves</dd>
+                            <dd><i>16</i>buy scarves</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="main">
+    <div class="login_register">
+        <div class="login_register_c w">
+            <div class="m">
+                <span class="choose_login cur">Login</span>
+                <span class="choose_register">Register</span>
+            </div>
+        </div>
+    </div>
+    <div class="login">
+        <div class="login_c w">
+            <div class="m">
+                <div class="login_email_c">
+                    <i class="icon_mail"></i>
+                    <input type="text" placeholder="Email Address" class="login_email p error">
+                </div>
+                <p class="hint error">Your input is wrong, please input again.</p>
+                <div class="login_password_c">
+                    <i class="icon_lock"></i>
+                    <input type="password" placeholder="Password" class="login_password p">
+                </div>
+                <p class="hint">Your input is wrong, please input again.</p>
+                <a href="javascript:;" class="forgot">Forgot your password?</a>
+                <input type="button" value="Login" class="login_but">
+            </div>
+            <div class="other_login m">
+                <p>Sign In With an Existing Account</p>
+                <a href="javascript:;" class="facebook"><i class=" icon_facebook"></i></a>
+                <a href="javascript:;" class="paypal"><i class="icon_paypal"></i></a>
+                <a href="javascript:;" class="google"><i class="icon_google-plus"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="register">
+        <div class="register_c">
+            <div class="m">
+                <input type="text" placeholder="Email Address" class="register_email p error">
+                <p class="hint error">Your input is wrong, please input again.</p>
+                <input type="password" placeholder="Password" class="register_password p">
+                <p class="hint">Your input is wrong, please input again.</p>
+                <input type="password" placeholder="Confirm Password" class="confirm_password p">
+                <p class="hint">Your input is wrong, please input again.</p>
+                <div class="verification_code_c">
+                    <input type="text" placeholder="Code" class="verification_code p">
+                    <span><img src="img/verification_code.jpg"></span>
+                </div>
+                <p class="hint">Your input is wrong, please input again.</p>
+                <input type="button" value="Create my account" class="register_but">
+            </div>
+            <div class="m">
+                <p class="succeed">
+                    <b>Success!</b>An activated email has been sent to your email 1231233@qq.com
+                    Please login to your mailbox, and follow the instructions to complete the verification.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--foot-->
+<div class="footer">
+    <div class="foot width">
+        <div class="info">
+            <a href="javascript:;">Site Map</a>
+            <a href="javascript:;">Return Policy</a>
+            <a href="javascript:;">Terms of Use</a>
+            <a href="javascript:;">About US</a>
+        </div>
+        <div class="copyright">
+            © 2004 - 2016 TOMTOP com. All rights reserved
+        </div>
+    </div>
+    <div id="nav_top">
+        <i class="icon_arr_top"></i>
+    </div>
+    <div id="dialogs"><!--用于所有弹窗的黑底--></div>
+    <div class="toast animate"></div>
+</div>
+</body>
+</html>

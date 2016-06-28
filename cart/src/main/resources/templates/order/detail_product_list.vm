@@ -1,0 +1,83 @@
+
+#if($orderlist)
+
+#foreach ( $kk in $orderlist)
+<ul class="cartListUL" id="cart_item_num$kk.getCid()">
+	<input type="hidden" class="listingId" value="$kk.getClistingid()"/>
+    <li class="cartListLI">
+        <a class="rightThis" href="javascript:;"><!-- <span></span> --></a>
+        <a class="inBlock pro_img" href="$mainurl/#if($kk.getCurl())$kk.getCurl()#end.html">
+        	<img src="$imgUrlPrefix/$kk.getCimageurl()" title="$kk.getCtitle()" alt="$kk.getCtitle()"/>
+        </a>
+        <div class="inBlock pro_info">
+            <a href="$mainurl/#if($kk.getCurl())$kk.getCurl()#end.html">
+            $kk.getCtitle()
+            </a>
+            <p class="parameter"><span>#springMessage("sku") $kk.getSku()</span>
+            <!-- <span>Color:White</span><span>Power:3W</span> -->
+            	#if($kk.getAttributeMap())
+					#foreach($j in $kk.getAttributeMap().keySet())
+					#*首字母大写*#
+					#if($j && $j.length()>0)$j.substring(0,1).toUpperCase()$j.substring(1)#end
+					: $kk.getAttributeMap().get($j) &nbsp;
+					#end
+				#end
+            </p>
+        </div>
+        <div class="inBlock pro_price">
+            <p class="newPrice">$symbol 
+            <span>$kk.getUnitPriceStr($order.getCcurrency())</span></p>
+        </div>
+		<ul class="qty_num inBlock" style="text-align:center;">
+			<li class="qty_nums">$kk.getIqty()</li>
+		</ul>
+        <span class="pro_total inBlock" data="$kk.getClistingid">$symbol
+        <span>$kk.getTotalPriceStr($order.getCcurrency())</span></span>
+        
+        #* @if(isReview){
+        	<a class="orderReview" href="/review/product/$kk.getClistingid()/write">Review</a>
+        }*#
+    </li>
+	#if($kk.getChildList() && $kk.getChildList().size()>0)
+    <li class="cartListToge">
+    	<p class="listTogeTitle">#springMessage("frequently.buy.together")<i></i></p>
+    	#foreach ( $k in $kk.getChildList())
+    	<input type="hidden" class="listingId" value="$k.getClistingid()"/>
+    	<ol>
+            <a class="inBlock" href="$mainurl/#if($k.getCurl())$k.getCurl()#end.html">
+            <img src="$imgUrlPrefix/$k.getCimageurl()" title="$k.getCtitle()" alt="$k.getCtitle()"/>
+            </a>
+            <div class="inBlock pro_info">
+                <a href="$mainurl/#if($k.getCurl())$k.getCurl()#end.html">$k.getCtitle()</a>
+                <p class="parameter"><span>#springMessage("sku") @k.getSku()</span><!-- <span>Color:White</span><span>Power:3W</span> -->
+	                <span>
+		            	#if($k.getAttributeMap())
+							#foreach($j in $k.getAttributeMap().keySet())
+							#*首字母大写*#
+							#if($j && $j.length()>0)$j.substring(0,1).toUpperCase()$j.substring(1)#end
+							: $k.getAttributeMap().get($j) &nbsp;
+							#end
+						#end
+		            </span>
+                </p>
+            </div>
+            <div class="inBlock pro_price">
+		            <p class="newPrice">$symbol 
+		            <span>$k.getUnitPrice()</span></p>
+            </div>
+            <ul class="qty_num inBlock">
+                <li class="qty_nums">$k.getIqty()</li>
+            </ul>
+            <span class="pro_total inBlock" data="@k.getClistingid">$symbol 
+            <span>$k.getTotalPrice()</span></span>
+            
+            #*@if(isReview){
+	        	<a class="orderReview" href="/review/product/@k.getClistingid()/write">Review</a>
+	        }*#
+        </ol>
+        #end
+    </li>
+    #end
+</ul>
+#end
+#end
